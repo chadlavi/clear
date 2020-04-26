@@ -9,17 +9,14 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   spacing?: number
 }
 
-const StyledDiv = (props: {children?: React.ReactNode, spacing?: number}) => {
-  const Div = styled.div<GridProps>`
+const StyledDiv = styled.div<{spacing?: number}>`
     display: flex;
     flex-wrap: wrap;
-    padding: ${props.spacing ? props.spacing / 2 : 0}px;
+    padding: ${p => p.spacing ? p.spacing / 2 : 0}px;
     & > div {
-      padding: ${props.spacing ? props.spacing / 2 : 0}px;
+      padding: ${p => p.spacing ? p.spacing / 2 : 0}px;
     }
   `
-  return <Div>{props.children}</Div>
-}
 
 export const Grid = (props: GridProps) => {
   const {} = props
