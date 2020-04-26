@@ -104,12 +104,8 @@ var GridItem = function (props) {
 };
 var templateObject_1$2;
 
-var StyledLabel = function (props) {
-    var children = props.children, disabled = props.disabled, error = props.error;
-    var Label = styled.label(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n    color: ", ";\n    display: flex;\n    flex-direction: column;\n    opacity: ", ";\n    width: 100%;\n    & > span {\n      font-size: ", "px;\n    }\n  "], ["\n    color: ", ";\n    display: flex;\n    flex-direction: column;\n    opacity: ", ";\n    width: 100%;\n    & > span {\n      font-size: ", "px;\n    }\n  "])), error ? 'var(--error)' : 'inherit', disabled ? 0.5 : 1, numbers.fontSize.label);
-    return createElement(Label, null, children);
-};
-var StyledInput = styled.input(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: 8px;\n  padding: 12px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"], ["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: 8px;\n  padding: 12px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, numbers.unit / 2);
+var StyledLabel = styled.label(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n    color: ", ";\n    display: flex;\n    flex-direction: column;\n    opacity: ", ";\n    width: 100%;\n    & > span {\n      font-size: ", "px;\n    }\n  "], ["\n    color: ", ";\n    display: flex;\n    flex-direction: column;\n    opacity: ", ";\n    width: 100%;\n    & > span {\n      font-size: ", "px;\n    }\n  "])), function (p) { return p.error ? 'var(--error)' : 'inherit'; }, function (p) { return p.disabled ? 0.5 : 1; }, numbers.fontSize.label);
+var StyledInput = styled.input(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: ", "px;\n  padding: ", "px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"], ["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: ", "px;\n  padding: ", "px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, numbers.unit, numbers.unit * 1.5, numbers.unit / 2);
 var Input = function (props) {
     var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
     return (createElement(StyledLabel, { disabled: other.disabled, error: other.error },
