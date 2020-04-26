@@ -15,7 +15,7 @@ Open [issues](https://github.com/chadlavi/clear/issues) or open PRs directly
 
 ## Development
 
-Library source code is in `./src/components`, a simple `create-react-app` for testing purposes is in `./src/playground`
+Library source code is in `./src/components`, a simple `create-react-app` for testing purposes is in `./playground`
 
 To run development:
 ```sh
