@@ -1,10 +1,12 @@
 {
   "name": "@chadlavi/clear",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple personal design system",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
@@ -18,7 +20,9 @@
     "type": "git",
     "url": "git+https://github.com/chadlavi/clear.git"
   },
-  "keywords": ["Design System"],
+  "keywords": [
+    "Design System"
+  ],
   "author": "Chad Lavimoniere",
   "license": "MIT",
   "bugs": {
