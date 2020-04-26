@@ -12,14 +12,13 @@ export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const StyledDiv = styled.div<{size: GridItemSize}>`
-    display: flex;
-    flex-basis: calc(100% * ${p => p.size} / 12);
-    width: calc(100% * ${p => p.size} / 12);
-    @media only screen and (max-width: ${numbers.breakpoint.xs}px) {
-      flex-basis: 100%;
-      width: 100%;
-    }
-  `
+  flex-basis: calc(100% * ${p => p.size} / 12);
+  width: calc(100% * ${p => p.size} / 12);
+  @media only screen and (max-width: ${numbers.breakpoint.xs}px) {
+    flex-basis: 100%;
+    width: 100%;
+  }
+`
 
 export const GridItem = (props: GridItemProps) => {
   const {

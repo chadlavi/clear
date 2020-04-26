@@ -8,15 +8,15 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 const StyledLabel = styled.label<{disabled?: boolean, error?: boolean}>`
-    color: ${p => p.error ? 'var(--error)' : 'inherit'};
-    display: flex;
-    flex-direction: column;
-    opacity: ${p => p.disabled ? 0.5 : 1};
-    width: 100%;
-    & > span {
-      font-size: ${numbers.fontSize.label}px;
-    }
-  `
+  color: ${p => p.error ? 'var(--error)' : 'inherit'};
+  display: flex;
+  flex-direction: column;
+  opacity: ${p => p.disabled ? 0.5 : 1};
+  width: 100%;
+  & > span {
+    font-size: ${numbers.fontSize.label}px;
+  }
+`
 
 const StyledInput = styled.input<{error?: boolean}>`
   background-color: var(--background);
