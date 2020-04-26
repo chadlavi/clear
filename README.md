@@ -2,6 +2,8 @@
 
 A simple personal Design System
 
+See examples at https://chadlavi.github.io/clear/
+
 ## Features
 
 * Dark mode

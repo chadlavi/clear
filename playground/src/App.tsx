@@ -26,7 +26,7 @@ function App() {
     <>
       <CSSBaseline />
       <Page>
-        <Link href={'https://example.com'} external>example link</Link>
+        <Link href={'https://chadlavi.github.io/clear/'} external>example link</Link>
         <Table>
           <TableHead>
             <Tr>
