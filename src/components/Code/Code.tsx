@@ -6,6 +6,7 @@ import styled from 'styled-components'
  * https://chadlavi.github.io/clear/#/text
  */
 export const Code = styled('code')`
+  font-family: var(--clear-monospace-font-family);
   font-size: 0.9em;
   display: inline;
   margin: 0;

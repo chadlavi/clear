@@ -18,6 +18,8 @@ export const CSSVariables = createGlobalStyle`
     --clear-unit: ${numbers.unit}px;
     --clear-font-size-default: ${numbers.fontSize.default}px;
     --clear-font-size-label: ${numbers.fontSize.label}px;
+    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   }
 
   @media (prefers-color-scheme: dark) {
@@ -42,7 +44,7 @@ export const CSSVariables = createGlobalStyle`
     margin: 0;
     background-color: var(--clear-background);
     color: var(--clear-text-color);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: var(--clear-font-family);
     font-size: var(--clear-font-size-default);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

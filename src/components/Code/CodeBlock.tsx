@@ -6,6 +6,7 @@ import styled from 'styled-components'
  * https://chadlavi.github.io/clear/#/text
  */
 export const CodeBlock = styled('pre')`
+  font-family: var(--clear-monospace-font-family);
   font-size: 0.9em;
   line-height: 1.5;
   display: block;
