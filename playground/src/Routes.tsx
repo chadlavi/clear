@@ -25,6 +25,41 @@ import {
 } from './Pages'
 import {version} from '../package.json'
 
+const routes = [
+  {
+    label: `Clear (${version})`,
+    route: '/',
+  },
+  {
+    label: 'Global styles',
+    route: '/global-styles',
+  },
+  {
+    label: 'Layout',
+    route: '/layout',
+  },
+  {
+    label: 'Input',
+    route: '/input',
+  },
+  {
+    label: 'Button',
+    route: '/button',
+  },
+  {
+    label: 'Links',
+    route: '/link',
+  },
+  {
+    label: 'Text formatting',
+    route: '/text',
+  },
+  {
+    label: 'Table',
+    route: '/table',
+  }
+]
+
 export const Routes = () => (
   <>
   <CSSVariables />
@@ -33,14 +68,18 @@ export const Routes = () => (
     <Router basename='/'>
       <Grid spacing={16}>
         <GridItem>
-          <Link as={RouterLink} to={'/'}>Clear ({version})</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/global-styles'}>Global styles</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/layout'}>Layout</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/input'}>Input</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/button'}>Button</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/link'}>Link</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/text'}>Text formatting</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={'/table'}>Table</Link>
+          {routes.map((r, i) => (
+            <>
+              <Link
+                key={r.label}
+                as={RouterLink}
+                to={r.route}
+              >
+                {r.label}
+              </Link>
+              {i !== routes.length - 1 ? ' \u00b7 ' : ''}
+            </>
+          ))}
         </GridItem>
         <GridItem>
           <Switch>

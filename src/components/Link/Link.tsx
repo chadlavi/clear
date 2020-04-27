@@ -9,6 +9,7 @@ const Anchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
       {...props}
       target={isExternal ? '_blank' : props.target}
       rel={isExternal ? 'noopener noreferrer' : props.rel}
+      title={props.title || `Open "${props.href}"${isExternal ? ' in a new Tab' : ''}`}
     />
   )
 }
@@ -22,6 +23,6 @@ export const Link = styled(Anchor)`
   color: var(--clear-link);
   ${focusStyle}
   &[target='_blank']::after {
-    content: ' [\\2197]';
+    content: ' [\u2197]';
   }
 `

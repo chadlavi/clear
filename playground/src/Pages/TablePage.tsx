@@ -65,22 +65,22 @@ export const TablePage = () => (
       <TableBody>
         <TableRow>
           <TableCell>Phillip J Fry</TableCell>
-          <TableCell><Code>cosmicphil@panuccispizza.net</Code></TableCell>
+          <TableCell>cosmicphil@panuccispizza.net</TableCell>
           <TableCell>Delivery boy</TableCell>
         </TableRow>
         <TableRow>
           <TableCell>Turanga Leela</TableCell>
-          <TableCell><Code>1bdi@planetexpress.biz</Code></TableCell>
+          <TableCell>1bdi@planetexpress.biz</TableCell>
           <TableCell>Captain</TableCell>
         </TableRow>
         <TableRow>
           <TableCell>Hubert J Farnsworth</TableCell>
-          <TableCell><Code>hubie@planetexpress.biz</Code></TableCell>
+          <TableCell>hubie@planetexpress.biz</TableCell>
           <TableCell>Professor</TableCell>
         </TableRow>
         <TableRow>
           <TableCell>Bender "Bending" Rodriguez</TableCell>
-          <TableCell><Code>bender@benderisgreat.com</Code></TableCell>
+          <TableCell>bender@benderisgreat.com</TableCell>
           <TableCell>Bending unit</TableCell>
         </TableRow>
       </TableBody>
