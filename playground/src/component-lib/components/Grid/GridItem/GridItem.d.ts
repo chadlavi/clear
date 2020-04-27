@@ -6,4 +6,4 @@ export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
      */
     size?: GridItemSize;
 }
-export declare const GridItem: (props: GridItemProps) => JSX.Element;
+export declare const GridItem: import("styled-components").StyledComponent<({ size, ...props }: GridItemProps) => JSX.Element, any, GridItemProps, never>;

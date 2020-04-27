@@ -1,5 +1,2 @@
 import * as React from 'react';
-export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-    external?: boolean;
-}
-export declare const Link: (props: LinkProps) => JSX.Element;
+export declare const Link: import("styled-components").StyledComponent<(props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => JSX.Element, any, {}, never>;

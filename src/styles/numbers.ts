@@ -1,6 +1,6 @@
 const unit = 8
 
-export default {
+export const numbers = {
   breakpoint: {
     xs: 600,
     sm: 960,

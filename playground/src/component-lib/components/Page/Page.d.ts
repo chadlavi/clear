@@ -1,2 +1,1 @@
-import * as React from 'react';
-export declare const Page: (props: React.HTMLAttributes<HTMLDivElement>) => JSX.Element;
+export declare const Page: import("styled-components").StyledComponent<"main", any, {}, never>;

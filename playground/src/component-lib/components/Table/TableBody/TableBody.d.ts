@@ -1,4 +1,1 @@
-import * as React from 'react';
-export interface TableBodyProps extends React.TableHTMLAttributes<HTMLTableSectionElement> {
-}
-export declare const TableBody: (props: TableBodyProps) => JSX.Element;
+export declare const TableBody: import("styled-components").StyledComponent<"tbody", any, {}, never>;

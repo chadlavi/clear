@@ -1,4 +1,4 @@
-export default {
+export const colors = {
   light: {
     background: 'white',
     border: '#ddd',
@@ -15,4 +15,4 @@ export default {
     textColor: 'white',
     zebra: '#242424',
   }
-}
+} as const

@@ -1,4 +1,4 @@
-declare const _default: {
+export declare const numbers: {
     readonly breakpoint: {
         readonly xs: 600;
         readonly sm: 960;
@@ -14,4 +14,3 @@ declare const _default: {
     };
     readonly unit: 8;
 };
-export default _default;

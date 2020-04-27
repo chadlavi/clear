@@ -45,6 +45,16 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
+var Code = styled('code')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  border: 1px solid var(--clear-border);\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"], ["\n  border: 1px solid var(--clear-border);\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"])));
+var templateObject_1;
+
+var Container = function (_a) {
+    var spacing = _a.spacing, props = __rest(_a, ["spacing"]);
+    return createElement("div", __assign({}, props));
+};
+var Grid = styled(Container)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? (p.spacing / 2) : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
+var templateObject_1$1;
+
 var colors = {
     light: {
         background: 'white',
@@ -64,6 +74,8 @@ var colors = {
     }
 };
 
+var focusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 2px var(--clear-background), 0 0 0 4px var(--clear-link);\n}\n";
+
 var unit = 8;
 var numbers = {
     breakpoint: {
@@ -82,65 +94,81 @@ var numbers = {
     unit: unit,
 };
 
-var CSSBaseline = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  :root {\n    --background: ", ";\n    --border: ", ";\n    --error: ", ";\n    --link: ", ";\n    --text-color: ", ";\n    --zebra: ", ";\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --background: ", ";\n      --border: ", ";\n      --error: ", ";\n      --link: ", ";\n      --text-color: ", ";\n      --zebra: ", ";\n    }\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  *:focus {\n    outline: none;\n    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--link);\n  }\n\n  body {\n    margin: 0;\n    background-color: var(--background);\n    color: var(--text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: ", "px;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  :root {\n    --background: ", ";\n    --border: ", ";\n    --error: ", ";\n    --link: ", ";\n    --text-color: ", ";\n    --zebra: ", ";\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --background: ", ";\n      --border: ", ";\n      --error: ", ";\n      --link: ", ";\n      --text-color: ", ";\n      --zebra: ", ";\n    }\n  }\n\n  * {\n    box-sizing: border-box;\n  }\n\n  *:focus {\n    outline: none;\n    box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--link);\n  }\n\n  body {\n    margin: 0;\n    background-color: var(--background);\n    color: var(--text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: ", "px;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])), colors.light.background, colors.light.background, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra, numbers.fontSize.default);
-var templateObject_1;
+/**
+ * Creates a set of css variables for global colors and sets body style and
+ * all-element focus style
+ */
+var CSSVariables = createGlobalStyle(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "])), colors.light.background, colors.light.border, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, numbers.unit, numbers.fontSize.default, numbers.fontSize.label, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra);
+var GlobalStyles = createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
+var templateObject_1$2, templateObject_2;
 
-var StyledDiv = styled.div(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
-var Grid = function (props) {
-    return (createElement(StyledDiv, __assign({}, props)));
+var Container$1 = function (_a) {
+    var size = _a.size, props = __rest(_a, ["size"]);
+    return createElement("div", __assign({}, props));
 };
-var templateObject_1$1;
+var GridItem = styled(Container$1)(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
+var templateObject_1$3;
 
-var StyledDiv$1 = styled.div(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"])), function (p) { return p.size; }, function (p) { return p.size; }, numbers.breakpoint.xs);
-var GridItem = function (props) {
-    var children = props.children, size = props.size;
-    return (createElement(StyledDiv$1, { size: size || 12 }, children));
+var Header = styled('h1')(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject([""], [""])));
+var templateObject_1$4;
+
+var Label = function (_a) {
+    var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
+    return createElement("label", __assign({}, props));
 };
-var templateObject_1$2;
-
-var StyledLabel = styled.label(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: ", "px;\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: ", "px;\n  }\n"])), function (p) { return p.error ? 'var(--error)' : 'inherit'; }, function (p) { return p.disabled ? 0.5 : 1; }, numbers.fontSize.label);
-var StyledInput = styled.input(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: ", "px;\n  padding: ", "px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"], ["\n  background-color: var(--background);\n  color: var(--", ");\n  border: 1px solid var(--", ");\n  border-radius: ", "px;\n  padding: ", "px;\n  font-size: inherit;\n  margin: ", "px 0;\n  width: 100%;\n  -webkit-appearance: none;\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, numbers.unit, numbers.unit * 1.5, numbers.unit / 2);
+var StyledLabel = styled(Label)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? 0.5 : 1; });
+var InputBase = function (_a) {
+    var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
+    return createElement("input", __assign({}, props));
+};
+var StyledInput = styled(InputBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ",
+    "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error && "\n    :focus {\n      box-shadow: 0 0 0 2px var(--clear-background), 0 0 0 4px var(--clear-error);\n    }\n  "; });
 var Input = function (props) {
     var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
     return (createElement(StyledLabel, { disabled: other.disabled, error: other.error },
-        createElement("span", null, label),
+        createElement("span", null,
+            label,
+            other.required ? ' (Required)' : ''),
         createElement(StyledInput, __assign({}, other, { value: value || ' ' }))));
 };
-var templateObject_1$3, templateObject_2;
+var templateObject_1$5, templateObject_2$1;
 
-var StyledLink = styled.a(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  color: var(--link);\n  &[target='_blank']::after {\n    content: ' [\\2197]';\n  }\n"], ["\n  color: var(--link);\n  &[target='_blank']::after {\n    content: ' [\\\\2197]';\n  }\n"])));
-var Link = function (props) {
-    var external = props.external, other = __rest(props, ["external"]);
-    return (createElement(StyledLink, __assign({}, other, { target: external ? '_blank' : other.target, title: other.title || other.href })));
+var Anchor = function (props) {
+    var _a;
+    var isExternal = Boolean((_a = props.href) === null || _a === void 0 ? void 0 : _a.match(/^http/));
+    return (createElement("a", __assign({}, props, { target: isExternal ? '_blank' : props.target, rel: isExternal ? 'noopener noreferrer' : props.rel })));
 };
-var templateObject_1$4;
-
-var StyledPage = styled.main(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\nmargin: 0 auto;\npadding: ", "px;\nwidth: ", "px;\nmax-width: 100%;\n"], ["\nmargin: 0 auto;\npadding: ", "px;\nwidth: ", "px;\nmax-width: 100%;\n"])), numbers.unit, numbers.width.main);
-var Page = function (props) { return (createElement(StyledPage, __assign({}, props))); };
-var templateObject_1$5;
-
-var StyledTable = styled.table(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
-var Table = function (props) { return (createElement(StyledTable, __assign({}, props))); };
+var Link = styled(Anchor)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\2197]';\n  }\n"], ["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\\\2197]';\n  }\n"])), focusStyle);
 var templateObject_1$6;
 
-var StyledTableHead = styled.thead(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject([""], [""])));
-var TableHead = function (props) { return (createElement(StyledTableHead, __assign({}, props))); };
+var Page = styled('main')(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
 var templateObject_1$7;
 
-var StyledTableBody = styled.tbody(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject([""], [""])));
-var TableBody = function (props) { return (createElement(StyledTableBody, __assign({}, props))); };
+var Paragraph = styled.p(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  line-height: 1.5;\n"], ["\n  line-height: 1.5;\n"])));
 var templateObject_1$8;
 
-var StyledTd = styled.td(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  text-align: left;\n  padding: ", "px;\n"], ["\n  text-align: left;\n  padding: ", "px;\n"])), numbers.unit);
-var Td = function (props) { return (createElement(StyledTd, __assign({}, props))); };
+var Table = styled('table')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
 var templateObject_1$9;
 
-var StyledTh = styled.th(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  font-weight: normal;\n  font-size: 0.8rem;\n  padding-bottom: 0;\n  text-align: left;\n  padding: 8px;\n"], ["\n  font-weight: normal;\n  font-size: 0.8rem;\n  padding-bottom: 0;\n  text-align: left;\n  padding: 8px;\n"])));
-var Th = function (props) { return (createElement(StyledTh, __assign({}, props))); };
+var TableHead = styled('thead')(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
 var templateObject_1$a;
 
-var StyledTr = styled.tr(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  &:nth-child(even) td {\n    background-color: var(--zebra);\n  }\n  &:nth-child(even) td:first-child {\n    border-radius: ", "px 0 0 ", "px;\n  }\n  &:nth-child(even) td:last-child {\n    border-radius: 0 ", "px ", "px 0;\n  }\n"], ["\n  &:nth-child(even) td {\n    background-color: var(--zebra);\n  }\n  &:nth-child(even) td:first-child {\n    border-radius: ", "px 0 0 ", "px;\n  }\n  &:nth-child(even) td:last-child {\n    border-radius: 0 ", "px ", "px 0;\n  }\n"])), numbers.unit, numbers.unit, numbers.unit, numbers.unit);
-var Tr = function (props) { return (createElement(StyledTr, __assign({}, props))); };
+var TableBody = styled('tbody')(templateObject_1$b || (templateObject_1$b = __makeTemplateObject([""], [""])));
 var templateObject_1$b;
 
-export { CSSBaseline, Grid, GridItem, Input, Link, Page, Table, TableBody, TableHead, Td, Th, Tr };
+var TableCell = styled('td')(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var templateObject_1$c;
+
+var TableRow = styled('tr')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
+var templateObject_1$d;
+
+var ButtonBase = function (_a) {
+    var primary = _a.primary, props = __rest(_a, ["primary"]);
+    return createElement("button", __assign({}, props));
+};
+var Button = styled(ButtonBase)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ", ";\n  cursor: pointer;\n  ", ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  ", "\n"], ["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ",
+    ";\n  cursor: pointer;\n  ",
+    ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  ", "\n"])), function (p) { return p.primary && "\n    background: var(--clear-link);\n    color: var(--clear-background);\n  "; }, function (p) { return p.disabled && "\n    cursor: not-allowed;\n    opacity: 0.5;\n  "; }, focusStyle);
+var templateObject_1$e;
+
+export { Button, CSSVariables, Code, GlobalStyles, Grid, GridItem, Header, Input, Link, Page, Paragraph, Table, TableBody, TableCell, TableHead, TableRow, colors, focusStyle, numbers };
