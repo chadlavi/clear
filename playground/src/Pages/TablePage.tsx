@@ -52,7 +52,7 @@ export const TablePage = () => (
       
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L54'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L57'}>Example</Link>
     </Header>
     <Table>
       <TableHead>
