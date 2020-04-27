@@ -10,6 +10,12 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const Container = ({spacing, ...props}: GridProps) => <div {...props} />
 
+/**
+ * A simple 12-column grid container. Must be used in conjunciton with
+ * `<GridItem>`.
+ * 
+ * https://chadlavi.github.io/clear/#/grid
+ */
 export const Grid = styled(Container)<GridProps>`
   display: flex;
   flex-wrap: wrap;

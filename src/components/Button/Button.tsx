@@ -3,12 +3,23 @@ import styled from 'styled-components'
 import { focusStyle } from '../../styles'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  /**
+   * if true, the button is disabled
+   */
   disabled?: boolean
+  /**
+   * if true, the button is styled as a primary call to action button
+   */
   primary?: boolean
 }
 
 const ButtonBase = ({primary, ...props}: ButtonProps) => <button {...props}/>
 
+/**
+ * A simple styled `<button>`
+ * 
+ * https://chadlavi.github.io/clear/#/button
+ */
 export const Button = styled(ButtonBase)`
   background: var(--clear-border);
   border-radius: var(--clear-unit);

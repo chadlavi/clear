@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+/**
+ * A simple styled `<thead>`
+ * 
+ * https://chadlavi.github.io/clear/#/table
+ */
 export const TableHead = styled('thead')`
   th {
     font-size: var(--clear-font-size-label);

@@ -1,9 +1,15 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { focusStyle } from '../../styles'
+import { focusStyle, errorFocusStyle } from '../../styles'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * if true, the `<Input>` is shown with error styling
+   */
   error?: boolean
+  /**
+   * The string used to label the input
+   */
   label?: string
 }
 
@@ -18,14 +24,51 @@ const StyledLabel = styled(Label)`
   color: ${p => p.error ? 'var(--clear-error)' : 'inherit'};
   display: flex;
   flex-direction: column;
-  opacity: ${p => p.disabled ? 0.5 : 1};
+  ${p => p.disabled && `
+    opacity: 0.5;
+  `};
   width: 100%;
   & > span {
     font-size: var(--clear-font-size-label);
   }
 `
 
-const InputBase = ({error, label, ...props}: InputProps) => <input {...props} />
+/**
+ * Calls props.onClick, but also selects the contents of the Input on click
+ * @param func the onClick passed to `<Input>`
+ */
+const forwardOnClick = (
+  func?: (e: React.MouseEvent<HTMLInputElement>) => void
+) => (e: React.MouseEvent<HTMLInputElement>): void => {
+  const t = e.currentTarget
+  if (func) func(e)
+  if (t.value) setTimeout(() => {
+    t.select()
+  }, 1)
+}
+
+
+/**
+ * Calls props.onFocus, but also selects the contents of the Input on focus
+ * @param func the onFocus passed to `<Input>`
+ */
+const forwardOnFocus = (
+  func?: (e: React.FocusEvent<HTMLInputElement>) => void
+) => (e: React.FocusEvent<HTMLInputElement>): void => {
+  const t = e.currentTarget
+  if (func) func(e)
+  if (t.value) setTimeout(() => {
+    t.select()
+  }, 1)
+}
+
+const InputBase = ({error, label, ...props}: InputProps) => (
+  <input
+    {...props}
+    onClick={forwardOnClick(props.onClick)}
+    onFocus={forwardOnFocus(props.onFocus)}
+  />
+)
 
 const StyledInput = styled(InputBase)`
   background-color: var(--clear-background);
@@ -38,13 +81,14 @@ const StyledInput = styled(InputBase)`
   width: 100%;
   -webkit-appearance: none;
   ${focusStyle}
-  ${p => p.error && `
-    :focus {
-      box-shadow: 0 0 0 2px var(--clear-background), 0 0 0 4px var(--clear-error);
-    }
-  `}
+  ${p => p.error && errorFocusStyle}
 `
 
+/**
+ * A simple styled Input
+ * 
+ * https://chadlavi.github.io/clear/#/input
+ */
 export const Input = (props: InputProps) => {
   const {
     label,
@@ -61,7 +105,7 @@ export const Input = (props: InputProps) => {
       </span>
       <StyledInput
         {...other}
-        value={value || ' '}
+        value={value || (other.type === 'number' ? ' ' : '')}
       />
     </StyledLabel>
   )

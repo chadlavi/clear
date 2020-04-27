@@ -1,7 +1,10 @@
 import styled from 'styled-components'
-import { numbers } from '../../../styles'
 
-
+/**
+ * A simple styled `<tr>`
+ * 
+ * https://chadlavi.github.io/clear/#/table
+ */
 export const TableRow = styled('tr')`
   &:nth-child(even) {
     td {

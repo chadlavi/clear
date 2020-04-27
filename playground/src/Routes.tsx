@@ -23,6 +23,7 @@ import {
   ButtonPage,
   TextPage,
 } from './Pages'
+import {version} from '../package.json'
 
 export const Routes = () => (
   <>
@@ -32,7 +33,7 @@ export const Routes = () => (
     <Router basename='/'>
       <Grid spacing={16}>
         <GridItem>
-          <Link as={RouterLink} to={'/'}>Clear</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/'}>Clear ({version})</Link> &middot;&nbsp;
           <Link as={RouterLink} to={'/global-styles'}>Global styles</Link> &middot;&nbsp;
           <Link as={RouterLink} to={'/layout'}>Layout</Link> &middot;&nbsp;
           <Link as={RouterLink} to={'/input'}>Input</Link> &middot;&nbsp;

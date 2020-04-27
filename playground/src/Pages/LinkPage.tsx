@@ -3,28 +3,33 @@ import {
   Code,
   Paragraph,
   Link,
+  CodeBlock,
 } from '../component-lib'
 import {Link as RouterLink} from 'react-router-dom'
 import * as React from 'react'
 
 export const LinkPage = () => (
   <>
-    <Header><Code>Link</Code></Header>
+    <Header><Code>{`<Link>`}</Code></Header>
     <Paragraph>
       The <Code>Link</Code> component is a simple styled wrapper around an HTML <Code>{`<a>`}</Code> element.
     </Paragraph>
     <Header as='h2' id='external'>External vs internal links</Header>
     <Paragraph>
       Links with an <Code>href</Code> that matches <Code>/^http/</Code> are marked as external, and will automatically
-      open in a new tab. External links are decorated with a "{'\u2197'}" icon.
+      open in a new tab. External links are decorated with a "<strong>{'\u2197'}</strong>" icon.
     </Paragraph>
     <Header as='h2' id='router'>Router links</Header>
     <Paragraph>
       Use the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop</Link> to
-      substitute the Link component of your choice. The links at the top of this page are <Code>Link</Code> elements
-      with <Code> react-router-dom</Code> link substitutions.
+      substitute the Link component of your choice:
     </Paragraph>
-    <Header as='h2' id='examples'>Examples</Header>
+    <CodeBlock>
+      {`<Link as={RouterLink} to={'/'}>Router link</Link>`}
+    </CodeBlock>
+    <Header as='h2' id='examples'>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L31'}>Examples</Link>
+    </Header>
     <Paragraph>
       <Link href={'/clear/'}>Internal HTML link</Link> (causes page load)
     </Paragraph>

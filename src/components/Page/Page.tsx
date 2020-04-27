@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { numbers } from '../../styles'
 
+/**
+ * A simple styled `<main>`
+ * 
+ * https://chadlavi.github.io/clear/#/layout
+ */
 export const Page = styled('main')`
 margin: 0 auto;
 margin-bottom: calc(var(--clear-unit) * 15);

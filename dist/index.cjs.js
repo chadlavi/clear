@@ -51,15 +51,34 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var Code = styled__default('code')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  border: 1px solid var(--clear-border);\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"], ["\n  border: 1px solid var(--clear-border);\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"])));
+/**
+ * A simple styled `<code>`
+ *
+ * https://chadlavi.github.io/clear/#/text
+ */
+var Code = styled__default('code')(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"], ["\n  font-size: 0.9em;\n  display: inline;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);\n  border-radius: calc(var(--clear-unit) / 2);\n"])));
 var templateObject_1;
+
+/**
+ * A simple styled `<pre>` for formatting code blocks
+ *
+ * https://chadlavi.github.io/clear/#/text
+ */
+var CodeBlock = styled__default('pre')(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"], ["\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"])));
+var templateObject_1$1;
 
 var Container = function (_a) {
     var spacing = _a.spacing, props = __rest(_a, ["spacing"]);
     return React.createElement("div", __assign({}, props));
 };
-var Grid = styled__default(Container)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? (p.spacing / 2) : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
-var templateObject_1$1;
+/**
+ * A simple 12-column grid container. Must be used in conjunciton with
+ * `<GridItem>`.
+ *
+ * https://chadlavi.github.io/clear/#/grid
+ */
+var Grid = styled__default(Container)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? (p.spacing / 2) : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
+var templateObject_1$2;
 
 var colors = {
     light: {
@@ -80,7 +99,8 @@ var colors = {
     }
 };
 
-var focusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 2px var(--clear-background), 0 0 0 4px var(--clear-link);\n}\n";
+var focusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background), 0 0 0 calc(var(--clear-unit) / 2) var(--clear-link);\n}\n";
+var errorFocusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background), 0 0 0 calc(var(--clear-unit) / 2) var(--clear-error);\n}\n";
 
 var unit = 8;
 var numbers = {
@@ -101,85 +121,212 @@ var numbers = {
 };
 
 /**
- * Creates a set of css variables for global colors and sets body style and
- * all-element focus style
+ * Creates a set of css variables necessary for global colors. This component
+ * should be included once at the top level of your application.
+ *
+ * https://chadlavi.github.io/clear/#/global-styles
  */
-var CSSVariables = styled.createGlobalStyle(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "])), colors.light.background, colors.light.border, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, numbers.unit, numbers.fontSize.default, numbers.fontSize.label, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra);
+var CSSVariables = styled.createGlobalStyle(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "
+    /**
+     * Applies styles to the `<body>` of your app.
+     *
+     * https://chadlavi.github.io/clear/#/global-styles
+     */
+])), colors.light.background, colors.light.border, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, numbers.unit, numbers.fontSize.default, numbers.fontSize.label, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra);
+/**
+ * Applies styles to the `<body>` of your app.
+ *
+ * https://chadlavi.github.io/clear/#/global-styles
+ */
 var GlobalStyles = styled.createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
-var templateObject_1$2, templateObject_2;
+var templateObject_1$3, templateObject_2;
 
 var Container$1 = function (_a) {
     var size = _a.size, props = __rest(_a, ["size"]);
     return React.createElement("div", __assign({}, props));
 };
-var GridItem = styled__default(Container$1)(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
-var templateObject_1$3;
-
-var Header = styled__default('h1')(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject([""], [""])));
+/**
+ * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
+ *
+ * https://chadlavi.github.io/clear/#/grid
+ */
+var GridItem = styled__default(Container$1)(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
 var templateObject_1$4;
+
+/**
+ * A simple styled `<h1>`
+ *
+ * Can also be used to create any header (`h1` through `h6`):
+ *
+ * ```tsx
+ * <Header as='h2'>
+ *  This will render in the DOM as an `<h2>`
+ * </Header>
+ * ```
+ *
+ * https://chadlavi.github.io/clear/#/text
+ */
+var Header = styled__default('h1')(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject([""], [""])));
+var templateObject_1$5;
 
 var Label = function (_a) {
     var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
     return React.createElement("label", __assign({}, props));
 };
-var StyledLabel = styled__default(Label)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  opacity: ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? 0.5 : 1; });
+var StyledLabel = styled__default(Label)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ",
+    ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"
+    /**
+     * Calls props.onClick, but also selects the contents of the Input on click
+     * @param func the onClick passed to `<Input>`
+     */
+])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled && "\n    opacity: 0.5;\n  "; });
+/**
+ * Calls props.onClick, but also selects the contents of the Input on click
+ * @param func the onClick passed to `<Input>`
+ */
+var forwardOnClick = function (func) { return function (e) {
+    var t = e.currentTarget;
+    if (func)
+        func(e);
+    if (t.value)
+        setTimeout(function () {
+            t.select();
+        }, 1);
+}; };
+/**
+ * Calls props.onFocus, but also selects the contents of the Input on focus
+ * @param func the onFocus passed to `<Input>`
+ */
+var forwardOnFocus = function (func) { return function (e) {
+    var t = e.currentTarget;
+    if (func)
+        func(e);
+    if (t.value)
+        setTimeout(function () {
+            t.select();
+        }, 1);
+}; };
 var InputBase = function (_a) {
     var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
-    return React.createElement("input", __assign({}, props));
+    return (React.createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) })));
 };
-var StyledInput = styled__default(InputBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ",
-    "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error && "\n    :focus {\n      box-shadow: 0 0 0 2px var(--clear-background), 0 0 0 4px var(--clear-error);\n    }\n  "; });
+var StyledInput = styled__default(InputBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"
+    /**
+     * A simple styled Input
+     *
+     * https://chadlavi.github.io/clear/#/input
+     */
+])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error && errorFocusStyle; });
+/**
+ * A simple styled Input
+ *
+ * https://chadlavi.github.io/clear/#/input
+ */
 var Input = function (props) {
     var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
     return (React.createElement(StyledLabel, { disabled: other.disabled, error: other.error },
         React.createElement("span", null,
             label,
             other.required ? ' (Required)' : ''),
-        React.createElement(StyledInput, __assign({}, other, { value: value || ' ' }))));
+        React.createElement(StyledInput, __assign({}, other, { value: value || (other.type === 'number' ? ' ' : '') }))));
 };
-var templateObject_1$5, templateObject_2$1;
+var templateObject_1$6, templateObject_2$1;
 
 var Anchor = function (props) {
     var _a;
     var isExternal = Boolean((_a = props.href) === null || _a === void 0 ? void 0 : _a.match(/^http/));
     return (React.createElement("a", __assign({}, props, { target: isExternal ? '_blank' : props.target, rel: isExternal ? 'noopener noreferrer' : props.rel })));
 };
-var Link = styled__default(Anchor)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\2197]';\n  }\n"], ["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\\\2197]';\n  }\n"])), focusStyle);
-var templateObject_1$6;
-
-var Page = styled__default('main')(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
+/**
+ * A simple styled `<a>`
+ *
+ * https://chadlavi.github.io/clear/#/link
+ */
+var Link = styled__default(Anchor)(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\2197]';\n  }\n"], ["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\\\2197]';\n  }\n"])), focusStyle);
 var templateObject_1$7;
 
-var Paragraph = styled__default.p(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  line-height: 1.5;\n"], ["\n  line-height: 1.5;\n"])));
+/**
+ * A simple styled `<main>`
+ *
+ * https://chadlavi.github.io/clear/#/layout
+ */
+var Page = styled__default('main')(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
 var templateObject_1$8;
 
-var Table = styled__default('table')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
+/**
+ * A simple styled `<p>`
+ *
+ * https://chadlavi.github.io/clear/#/text
+ */
+var Paragraph = styled__default.p(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  line-height: 1.5;\n"], ["\n  line-height: 1.5;\n"])));
 var templateObject_1$9;
 
-var TableHead = styled__default('thead')(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
+/**
+ * A simple styled `<table>`
+ *
+ * https://chadlavi.github.io/clear/#/table
+ */
+var Table = styled__default('table')(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
 var templateObject_1$a;
 
-var TableBody = styled__default('tbody')(templateObject_1$b || (templateObject_1$b = __makeTemplateObject([""], [""])));
+/**
+ * A simple styled `<thead>`
+ *
+ * https://chadlavi.github.io/clear/#/table
+ */
+var TableHead = styled__default('thead')(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
 var templateObject_1$b;
 
-var TableCell = styled__default('td')(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+/**
+ * A simple styled `<tbody>`
+ *
+ * https://chadlavi.github.io/clear/#/table
+ */
+var TableBody = styled__default('tbody')(templateObject_1$c || (templateObject_1$c = __makeTemplateObject([""], [""])));
 var templateObject_1$c;
 
-var TableRow = styled__default('tr')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
+/**
+ * A simple styled `<td>`
+ *
+ * Can also be used to create a `<th>`:
+ *
+ * ```tsx
+ * <TableCell as='th'>
+ *  This will be rendered as a `<th>`
+ * </TableCell>
+ * ```
+ *
+ * https://chadlavi.github.io/clear/#/table
+ */
+var TableCell = styled__default('td')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
 var templateObject_1$d;
+
+/**
+ * A simple styled `<tr>`
+ *
+ * https://chadlavi.github.io/clear/#/table
+ */
+var TableRow = styled__default('tr')(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
+var templateObject_1$e;
 
 var ButtonBase = function (_a) {
     var primary = _a.primary, props = __rest(_a, ["primary"]);
     return React.createElement("button", __assign({}, props));
 };
-var Button = styled__default(ButtonBase)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ", ";\n  cursor: pointer;\n  ", ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  ", "\n"], ["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ",
+/**
+ * A simple styled `<button>`
+ *
+ * https://chadlavi.github.io/clear/#/button
+ */
+var Button = styled__default(ButtonBase)(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ", ";\n  cursor: pointer;\n  ", ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  ", "\n"], ["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ",
     ";\n  cursor: pointer;\n  ",
     ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  ", "\n"])), function (p) { return p.primary && "\n    background: var(--clear-link);\n    color: var(--clear-background);\n  "; }, function (p) { return p.disabled && "\n    cursor: not-allowed;\n    opacity: 0.5;\n  "; }, focusStyle);
-var templateObject_1$e;
+var templateObject_1$f;
 
 exports.Button = Button;
 exports.CSSVariables = CSSVariables;
 exports.Code = Code;
+exports.CodeBlock = CodeBlock;
 exports.GlobalStyles = GlobalStyles;
 exports.Grid = Grid;
 exports.GridItem = GridItem;
@@ -194,5 +341,6 @@ exports.TableCell = TableCell;
 exports.TableHead = TableHead;
 exports.TableRow = TableRow;
 exports.colors = colors;
+exports.errorFocusStyle = errorFocusStyle;
 exports.focusStyle = focusStyle;
 exports.numbers = numbers;

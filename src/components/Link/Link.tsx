@@ -13,6 +13,11 @@ const Anchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   )
 }
 
+/**
+ * A simple styled `<a>`
+ * 
+ * https://chadlavi.github.io/clear/#/link
+ */
 export const Link = styled(Anchor)`
   color: var(--clear-link);
   ${focusStyle}

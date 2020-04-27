@@ -6,6 +6,7 @@ import {
   GridItem,
   Input,
   Paragraph,
+  Link,
 } from '../component-lib'
 export const InputPage = () => {
   const [numericValue, setNumericValue] = React.useState<number | undefined>()
@@ -15,7 +16,7 @@ export const InputPage = () => {
 
   return (
     <>
-      <Header><Code>Input</Code></Header>
+      <Header><Code>{`<Input>`}</Code></Header>
       <Paragraph>
         The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{`<input>`}</Code> element.
       </Paragraph>
@@ -28,7 +29,9 @@ export const InputPage = () => {
         <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{`<input>`}</Code>, plus the
         props <Code>label?: string</Code> to add a label and <Code>error?: boolean</Code> to toggle an error state.
       </Paragraph>
-      <Header as='h2' id='examples'>Examples</Header>
+      <Header as='h2' id='examples'>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L37'}>Examples</Link>
+      </Header>
       <Grid spacing={8}>
         <GridItem size={6}>
           <Input 

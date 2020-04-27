@@ -2,8 +2,10 @@ import { createGlobalStyle } from 'styled-components'
 import { colors, numbers } from '..'
 
 /**
- * Creates a set of css variables for global colors and sets body style and 
- * all-element focus style
+ * Creates a set of css variables necessary for global colors. This component
+ * should be included once at the top level of your application.
+ * 
+ * https://chadlavi.github.io/clear/#/global-styles
  */
 export const CSSVariables = createGlobalStyle`
   :root {
@@ -29,6 +31,12 @@ export const CSSVariables = createGlobalStyle`
     }
   }
   `
+
+  /**
+   * Applies styles to the `<body>` of your app.
+   * 
+   * https://chadlavi.github.io/clear/#/global-styles
+   */
   export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;

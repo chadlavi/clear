@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
+/**
+ * A simple styled `<code>`
+ * 
+ * https://chadlavi.github.io/clear/#/text
+ */
 export const Code = styled('code')`
-  border: 1px solid var(--clear-border);
   font-size: 0.9em;
   display: inline;
   margin: 0;
