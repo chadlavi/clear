@@ -26,10 +26,10 @@ export const LinkPage = () => (
     </Paragraph>
     <Header as='h2' id='examples'>Examples</Header>
     <Paragraph>
-      <Link href={'/clear/link'}>Internal HTML link</Link> to this page (causes page load)
+      <Link href={'/clear/#/link'}>Internal HTML link</Link> to this page (causes page load)
     </Paragraph>
     <Paragraph>
-      <Link as={RouterLink} to={'/clear/link'}>Router link</Link> to this page (does not cause page load)
+      <Link as={RouterLink} to={'/link'}>Router link</Link> to this page (does not cause page load)
     </Paragraph>
     <Paragraph>
       <Link href={'https://github.com/chadlavi/clear'}>External link</Link>
