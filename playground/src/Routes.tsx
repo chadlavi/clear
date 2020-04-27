@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Switch,
   Route,
   Link as RouterLink
@@ -24,48 +24,47 @@ import {
   TextPage,
 } from './Pages'
 
-const makePath = (path?: string) => `${process.env.PUBLIC_URL}/${path || ''}`
-
 export const Routes = () => (
   <>
   <CSSVariables />
   <GlobalStyles />
   <Page>
-    <Router>
+    <Router basename='/'>
       <Grid spacing={16}>
         <GridItem>
-          <Link as={RouterLink} to={makePath()}>Clear</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('global-styles')}>Global styles</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('layout')}>Layout</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('input')}>Input</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('button')}>Button</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('link')}>Link</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('text')}>Text formatting</Link> &middot;&nbsp;
-          <Link as={RouterLink} to={makePath('table')}>Table</Link>
+          <Link as={RouterLink} to={'/'}>Clear</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/global-styles'}>Global styles</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/layout'}>Layout</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/input'}>Input</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/button'}>Button</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/link'}>Link</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/text'}>Text formatting</Link> &middot;&nbsp;
+          <Link as={RouterLink} to={'/table'}>Table</Link>
         </GridItem>
         <GridItem>
           <Switch>
-            <Route exact path={makePath()}>
+            <Route exact path={'/'}>
               <HomePage />
             </Route>
-            <Route exact path={makePath('global-styles')}>
+            <Route exact path={'/global-styles'}>
               <GlobalStylesPage />
-            </Route><Route exact path={makePath('layout')}>
+            </Route>
+            <Route exact path={'/layout'}>
               <LayoutPage />
             </Route>
-            <Route path={makePath('input')}>
+            <Route exact path={'/input'}>
               <InputPage />
             </Route>
-            <Route path={makePath('button')}>
+            <Route exact path={'/button'}>
               <ButtonPage />
             </Route>
-            <Route path={makePath('link')}>
+            <Route exact path={'/link'}>
               <LinkPage />
             </Route>
-            <Route path={makePath('text')}>
+            <Route exact path={'/text'}>
               <TextPage />
             </Route>
-            <Route path={makePath('table')}>
+            <Route exact path={'/table'}>
               <TablePage />
             </Route>
           </Switch>

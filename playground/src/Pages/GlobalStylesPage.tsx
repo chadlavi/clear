@@ -31,7 +31,7 @@ export const GlobalStylesPage = () => (
     </Paragraph>
     <Paragraph>
       Omitting the <Code>GlobalStyles</Code> component in your application will mean that any content not contained in
-      a <Link as={HashLink} to={'/clear/layout#page'}><Code>Page</Code></Link> component may have unpredictable colors, background colors, font sizes, and margins. It is not
+      a <Link as={HashLink} to={'/layout#page'}><Code>Page</Code></Link> component may have unpredictable colors, background colors, font sizes, and margins. It is not
       recommended.
     </Paragraph>
   </>
