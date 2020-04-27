@@ -15,7 +15,10 @@
     "start-playground": "cd playground && npm run start",
     "i-all": "npm i && cd playground && npm i",
     "dev": "npm-run-all --parallel build-watch start-playground",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "version:patch": "npm version patch && cd playground && npm version patch && cd -",
+    "version:minor": "npm version minor && cd playground && npm version minor && cd -",
+    "version:major": "npm version major && cd playground && npm version major && cd -"
   },
   "repository": {
     "type": "git",
