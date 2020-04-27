@@ -29,7 +29,7 @@ export const LinkPage = () => (
       <Link href={'/clear/'}>Internal HTML link</Link> (causes page load)
     </Paragraph>
     <Paragraph>
-      <Link as={RouterLink} to={'/link'}>Router link</Link> to this page (does not cause page load)
+      <Link as={RouterLink} to={'/'}>Router link</Link> (does not cause page load)
     </Paragraph>
     <Paragraph>
       <Link href={'https://github.com/chadlavi/clear'}>External link</Link>
