@@ -74,7 +74,7 @@ export const TablePage = () => (
           <TableCell>Captain</TableCell>
         </TableRow>
         <TableRow>
-          <TableCell>Hubert T Pharnsworth</TableCell>
+          <TableCell>Hubert J Farnsworth</TableCell>
           <TableCell><Code>hubie@planetexpress.biz</Code></TableCell>
           <TableCell>Professor</TableCell>
         </TableRow>
