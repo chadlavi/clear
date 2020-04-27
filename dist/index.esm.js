@@ -256,7 +256,7 @@ var ParagraphBase = function (_a) {
  * https://chadlavi.github.io/clear/#/text
  */
 var Paragraph = styled(ParagraphBase)(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  line-height: 1.5;\n  ", "\n"], ["\n  line-height: 1.5;\n  ",
-    "\n"])), function (p) { return p.margins === false ? '' : "\n    margin-block-start: 1em;\n    margin-block-end: 1em;\n  "; });
+    "\n"])), function (p) { return p.margins === false ? "\n    margin-block-start: 0;\n    margin-block-end: 0;\n  " : "\n    margin-block-start: 1em;\n    margin-block-end: 1em;\n  "; });
 var templateObject_1$9;
 
 /**
