@@ -14,7 +14,10 @@ const ParagraphBase = ({margins, ...props}: ParagraphProps) => <p {...props} />
  */
 export const Paragraph = styled(ParagraphBase)`
   line-height: 1.5;
-  ${p => p.margins === false ? '' : `
+  ${p => p.margins === false ? `
+    margin-block-start: 0;
+    margin-block-end: 0;
+  ` : `
     margin-block-start: 1em;
     margin-block-end: 1em;
   `}
