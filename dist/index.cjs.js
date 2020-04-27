@@ -253,12 +253,17 @@ var templateObject_1$7;
 var Page = styled__default('main')(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
 var templateObject_1$8;
 
+var ParagraphBase = function (_a) {
+    var margins = _a.margins, props = __rest(_a, ["margins"]);
+    return React.createElement("p", __assign({}, props));
+};
 /**
  * A simple styled `<p>`
  *
  * https://chadlavi.github.io/clear/#/text
  */
-var Paragraph = styled__default.p(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  line-height: 1.5;\n"], ["\n  line-height: 1.5;\n"])));
+var Paragraph = styled__default(ParagraphBase)(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  line-height: 1.5;\n  ", "\n"], ["\n  line-height: 1.5;\n  ",
+    "\n"])), function (p) { return p.margins === false ? '' : "\n    margin-block-start: 1em;\n    margin-block-end: 1em;\n  "; });
 var templateObject_1$9;
 
 /**

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Header, Paragraph, Code, Link, CodeBlock } from '../component-lib'
+import { Header, Paragraph, Code, Link, CodeBlock, numbers } from '../component-lib'
 
 export const TextPage = () => (
   <>
@@ -21,11 +21,22 @@ export const TextPage = () => (
     </Paragraph>
     <CodeBlock>{`<Header as='h2'>
   This will render in the DOM as an h2
-</Header>`}
+</Header>
+<Header as='h3'>
+  This will render in the DOM as an h3
+</Header>
+`}
     </CodeBlock>
     <Header as='h2' id='paragraph'><Code>{`<Paragraph>`}</Code></Header>
     <Paragraph>
       <Code>Paragraph</Code> is a simple styled wrapper around <Code>{`<p>`}</Code>.
+    </Paragraph>
+    <Header as='h3'><Code>Paragraph</Code> props</Header>
+    <Paragraph>
+      Besides the standard props that can be passed to an HTML <Code>{`<p>`}</Code> element, <Code>Paragraph</Code> also accepts
+      the prop <Code>margins?: boolean</Code>. If <Code>margins</Code> is false, the <Code>Paragraph</Code> will not
+      have margins; if it is true or undefined, the <Code>Paragraph</Code> will default to
+      having {numbers.fontSize.default}px margins at the top and bottom.
     </Paragraph>
     <Header as='h2' id='code'><Code>{`<Code>`}</Code></Header>
     <Paragraph>
