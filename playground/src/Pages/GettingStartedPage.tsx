@@ -59,8 +59,8 @@ export const GettingStartedPage = () => {
       </Paragraph>
       <CodeBlock>{`npm i @chadlavi/clear styled-components
 
-  # only necessary if you use TypeScript
-  npm i -D @types/styled-components`}</CodeBlock>
+# only necessary if you use TypeScript
+npm i -D @types/styled-components`}</CodeBlock>
       <Paragraph>
         (Note: we assume here that you have already installed <Code>react</Code>. If not, install that too! Clear only
         works in React applications.)
@@ -75,22 +75,22 @@ export const GettingStartedPage = () => {
       </Paragraph>
       <CodeBlock>{`// inside your index.js file
 
-  import * as React from 'react'
-  import ReactDOM from 'react-dom'
-  import { MyApp } from './MyApp'
-  import {
-    CSSVariables,
-    GlobalStyles,
-  } from '@chadlavi/clear'
+import * as React from 'react'
+import ReactDOM from 'react-dom'
+import { MyApp } from './MyApp'
+import {
+  CSSVariables,
+  GlobalStyles,
+} from '@chadlavi/clear'
 
-  ReactDOM.render(
-    <React.StrictMode>
-      <CSSVariables/>
-      <GlobalStyles />
-      <MyApp />
-    </React.StrictMode>,
-    document.getElementById('root')
-  )`}</CodeBlock>
+ReactDOM.render(
+  <React.StrictMode>
+    <CSSVariables/>
+    <GlobalStyles />
+    <MyApp />
+  </React.StrictMode>,
+  document.getElementById('root')
+)`}</CodeBlock>
       <Header as='h3'>Structure</Header>
       <Paragraph>
         You should wrap content in your app with a <Link as={HashLink} to ={'/layout#page'}><Code>{`<Page>`}</Code></Link>.
@@ -104,12 +104,12 @@ export const GettingStartedPage = () => {
         All components in Clear are exported at the top level in the library, so you can write import statements like
       </Paragraph>
       <CodeBlock>{`import {
-    CSSVariables,
-    GlobalStyles,
-    Header,
-    Link,
-    Page,
-  } from '@chadlavi/clear'`}
+  CSSVariables,
+  GlobalStyles,
+  Header,
+  Link,
+  Page,
+} from '@chadlavi/clear'`}
       </CodeBlock>
       <Header as='h3'>Using theme styles</Header>
       <Paragraph>
