@@ -11,7 +11,7 @@ export const colors = {
     background: '#111',
     border: '#555',
     error: '#ff5656',
-    link: '#6c6cf0',
+    link: '#8787f9',
     textColor: 'white',
     zebra: '#242424',
   }
