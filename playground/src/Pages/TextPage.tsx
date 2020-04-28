@@ -3,7 +3,7 @@ import { Header, Paragraph, Code, Link, CodeBlock, numbers } from '../component-
 
 export const TextPage = () => (
   <>
-    <Header>Text formatting</Header>
+    <Header>Text formatting components</Header>
     <Paragraph>
       Clear offers various components for formatting text.
       See <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TextPage.tsx'}>the source code

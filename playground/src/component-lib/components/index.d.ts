@@ -1,6 +1,5 @@
 export * from './Button';
 export * from './Code';
-export * from './Email';
 export * from './Grid';
 export * from './Header';
 export * from './Input';

@@ -1,10 +1,13 @@
-import React from 'react'
+import * as React from 'react'
 import ReactDOM from 'react-dom'
 import * as serviceWorker from './serviceWorker'
 import { Routes } from './Routes'
+import { CSSVariables, GlobalStyles } from './component-lib'
 
 ReactDOM.render(
   <React.StrictMode>
+    <CSSVariables/>
+    <GlobalStyles />
     <Routes />
   </React.StrictMode>,
   document.getElementById('root')

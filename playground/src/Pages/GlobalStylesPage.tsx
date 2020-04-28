@@ -9,7 +9,7 @@ import {HashLink} from 'react-router-hash-link'
 
 export const GlobalStylesPage = () => (
   <>
-    <Header>Global styles</Header>
+    <Header>Globals</Header>
     <Header as='h2' id='cssvariables'><Code>{`<CSSVariables>`}</Code></Header>
     <Paragraph>
       Clear uses CSS variables extensively, so an instance of the <Code>CSSVariables</Code> component is

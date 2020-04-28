@@ -7,11 +7,9 @@ import {
 } from 'react-router-dom'
 import {
   Link,
-  GlobalStyles,
   Page,
   GridItem,
   Grid,
-  CSSVariables,
 } from './component-lib'
 import {
   InputPage,
@@ -22,95 +20,90 @@ import {
   TablePage,
   ButtonPage,
   TextPage,
+  GettingStartedPage,
 } from './Pages'
 import {version} from '../package.json'
 
 const routes = [
   {
     label: `Clear (${version})`,
+    exact: true,
     route: '/',
+    component: <HomePage />,
   },
   {
-    label: 'Global styles',
+    label: 'Getting started',
+    route: '/start',
+    component: <GettingStartedPage />,
+  },
+  {
+    label: 'Globals',
     route: '/global-styles',
+    component: <GlobalStylesPage />,
   },
   {
     label: 'Layout',
     route: '/layout',
+    component: <LayoutPage />,
   },
   {
     label: 'Input',
     route: '/input',
+    component: <InputPage />,
   },
   {
     label: 'Button',
     route: '/button',
+    component: <ButtonPage />,
   },
   {
-    label: 'Links',
+    label: 'Link',
     route: '/link',
+    component: <LinkPage />,
   },
   {
-    label: 'Text formatting',
+    label: 'Text',
     route: '/text',
+    component: <TextPage />,
   },
   {
     label: 'Table',
     route: '/table',
+    component: <TablePage />,
   }
 ]
 
 export const Routes = () => (
-  <>
-  <CSSVariables />
-  <GlobalStyles />
   <Page>
     <Router basename='/'>
       <Grid spacing={16}>
         <GridItem>
           {routes.map((r, i) => (
-            <>
+            <React.Fragment key={r.label}>
               <Link
-                key={r.label}
                 as={RouterLink}
                 to={r.route}
               >
                 {r.label}
               </Link>
               {i !== routes.length - 1 ? ' \u00b7 ' : ''}
-            </>
+            </React.Fragment>
           ))}
         </GridItem>
         <GridItem>
           <Switch>
-            <Route exact path={'/'}>
-              <HomePage />
-            </Route>
-            <Route exact path={'/global-styles'}>
-              <GlobalStylesPage />
-            </Route>
-            <Route exact path={'/layout'}>
-              <LayoutPage />
-            </Route>
-            <Route exact path={'/input'}>
-              <InputPage />
-            </Route>
-            <Route exact path={'/button'}>
-              <ButtonPage />
-            </Route>
-            <Route exact path={'/link'}>
-              <LinkPage />
-            </Route>
-            <Route exact path={'/text'}>
-              <TextPage />
-            </Route>
-            <Route exact path={'/table'}>
-              <TablePage />
-            </Route>
+            {routes.map((r) => (
+              <Route
+                key={r.label}
+                exact
+                path={r.route}
+              >
+                {r.component}
+              </Route>
+            ))}
           </Switch>
         </GridItem>
       </Grid>
     </Router>
   </Page>
-  </>
 )

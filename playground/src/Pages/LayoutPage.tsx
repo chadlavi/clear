@@ -29,13 +29,13 @@ border-radius: var(--clear-unit);
 `
 
 export const LayoutPage = () => {
-  const [gridSpacing, setGridSpacing] = React.useState<number | undefined>(8)
-  const [gridItem1, setGridItem1] = React.useState<GridItemSize | undefined>(6)
-  const [gridItem2, setGridItem2] = React.useState<GridItemSize | undefined>(6)
-  const [gridItem3, setGridItem3] = React.useState<GridItemSize | undefined>(12)
+  const [gridSpacing, setGridSpacing] = React.useState<number>(8)
+  const [gridItem1, setGridItem1] = React.useState<GridItemSize>(6)
+  const [gridItem2, setGridItem2] = React.useState<GridItemSize>(6)
+  const [gridItem3, setGridItem3] = React.useState<GridItemSize>(12)
   
   const gridItemOnChange = (
-    setter: React.Dispatch<React.SetStateAction<GridItemSize | undefined>>
+    setter: React.Dispatch<React.SetStateAction<GridItemSize>>
   ) => (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = parseInt(e.currentTarget.value, 10)
     if (newValue > 0 && newValue <= 12) {
@@ -45,7 +45,7 @@ export const LayoutPage = () => {
 
   return (
     <>
-      <Header>Layout</Header>
+      <Header>Layout components</Header>
       <Header as='h2' id='page'><Code>{`<Page>`}</Code></Header>
       <Paragraph>
         The <Code>Page</Code> component renders a horizontally centered <Code>{`<main>`}</Code> HTML element (though you
@@ -56,7 +56,7 @@ export const LayoutPage = () => {
         <Code>Page</Code>s have a width of {numbers.width.main}px or the full screen width, whichever is lower.
       </Paragraph>
       <Paragraph>
-        All content in this documentation site is contained within a <Code>Page</Code>.
+        All content in your app should be contained within a <Code>Page</Code>.
       </Paragraph>
       <Header as='h2' id='grid'><Code>{`<Grid>`}</Code></Header>
       <Paragraph>
