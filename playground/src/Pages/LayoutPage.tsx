@@ -50,6 +50,14 @@ export const LayoutPage: React.FC = () => {
   return (
     <>
       <Header>Layout components</Header>
+      <Paragraph>
+        <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#grid'}><Code>{'<Grid>'}</Code></Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#griditem'}><Code>{'<GridItem>'}</Code></Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#responsive-sizing'}>Responsive sizing</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#examples'}>Examples</Link>
+      </Paragraph>
       <Header as='h2' id='page'><Code>{'<Page>'}</Code></Header>
       <Paragraph>
         The <Code>Page</Code> component renders a horizontally centered <Code>{'<main>'}</Code> HTML element (though you
@@ -62,31 +70,41 @@ export const LayoutPage: React.FC = () => {
       <Paragraph>
         All content in your app should be contained within a <Code>Page</Code>.
       </Paragraph>
+      <Header as='h3'>Props: <Code>PageProps</Code></Header>
+      <Paragraph>
+        <Code>Page</Code> accepts the props that could normally be passed to an HTML <Code>{'<main>'}</Code> element.
+      </Paragraph>
       <Header as='h2' id='grid'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
         Use the <Code>Grid</Code> component to create a 12-column layout, with <Code>GridItem</Code> children that
         occupy a specified number of columns.
       </Paragraph>
+      <Header as='h3'>Props: <Code>GridProps</Code></Header>
       <Paragraph>
         Besides children, <Code>Grid</Code> accepts the prop <Code>spacing?: number</Code>. If spacing is supplied, that
         number of pixels of space will be shown around all <Code>GridItem</Code>s.
       </Paragraph>
       <Header as='h2' id='griditem'><Code>{'<GridItem>'}</Code></Header>
       <Paragraph>
+        Every child of a <Code>Grid</Code> should be a <Code>GridItem</Code>.
+      </Paragraph>
+      <Header as='h3'>Props: <Code>GridItemProps</Code></Header>
+      <Paragraph>
         Besides children, <Code>GridItem</Code>s accept the prop <Code>size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
         11 | 12</Code>. The <Code>size</Code> prop defines how many columns the <Code>GridItem</Code> occupies. This
         prop defaults to <Code>12</Code>.
       </Paragraph>
-      <Header as='h3' id='responsive-sizing'>Responsive sizing</Header>
+      <Header as='h3' id='responsive-sizing'>Responsive sizing of <Code>GridItem</Code>s</Header>
       <Paragraph>
-        Below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), all <Code>GridItem</Code>s are full-width.
+        Note that below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), the <Code>size</Code> prop is
+        ignored and all <Code>GridItem</Code>s are full-width.
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
         See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L97'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L118'}>
           Examples
         </Link>
       </Header>

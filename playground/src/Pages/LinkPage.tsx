@@ -13,6 +13,13 @@ export const LinkPage: React.FC = () => (
   <>
     <Header id={'link'}><Code>{'<Link>'}</Code></Header>
     <Paragraph>
+      <Link as={HashLink} to={'#external'}>External vs internal links</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#router'}>Router</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#props'}>Props</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#examples'}>Examples</Link>
+    </Paragraph>
+    <Paragraph>
       The <Code>Link</Code> component is a simple styled wrapper around an HTML <Code>{'<a>'}</Code> element.
     </Paragraph>
     <Header as='h2' id='external'>External vs internal links</Header>
@@ -28,12 +35,20 @@ export const LinkPage: React.FC = () => (
     <CodeBlock>
       {'<Link as={RouterLink} to={\'/\'}>Router link</Link>'}
     </CodeBlock>
+    <Header as='h2' id='props'>Props: <Code>LinkProps</Code></Header>
+    <Paragraph>
+      <Code>Link</Code> accepts standard HTML anchor element props. Note that if you use
+      the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop</Link> to
+      substitute a different component, then your instance of <Code>Link</Code> will change to accept the props of the
+      substituted component. For example, a RouterLink will accept the prop <Code>to: string</Code> which is not
+      accepted by <Code>{'<a>'}</Code>.
+    </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
       See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L42'}>Examples</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L54'}>Examples</Link>
     </Header>
     <Paragraph>
       <Link href={'/clear/'}>Internal HTML link</Link> (causes page load)

@@ -24,6 +24,10 @@ const FancyPinkInput = styled(Input)`
   background: pink;
   color: purple;
   font-size: 24px;
+  ::selection {
+    color: pink;
+    background: purple;
+  }
   &:focus {
     box-shadow: 0 0 0 3px pink,
     0 0 0 4px purple;
@@ -43,6 +47,11 @@ export const InputPage: React.FC = () => {
     <>
       <Header><Code>{'<Input>'}</Code></Header>
       <Paragraph>
+        <Link as={HashLink} to={'#props'}>Props</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#examples'}>Examples</Link>
+      </Paragraph>
+      <Paragraph>
         The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{'<input>'}</Code> element.
       </Paragraph>
       <Paragraph>
@@ -53,7 +62,7 @@ export const InputPage: React.FC = () => {
   <span>label text goes here</span>
   <input />
 </label>`}</CodeBlock>
-      <Header as='h2' id='props'>Props</Header>
+      <Header as='h2' id='props'>Props: <Code>InputProps</Code></Header>
       <Paragraph>
         <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{'<input>'}</Code>, plus the
         props <Code>label?: string</Code> to add a label and <Code>error?: boolean</Code> to toggle an error state.
@@ -81,6 +90,10 @@ export const InputPage: React.FC = () => {
   background: pink;
   color: purple;
   font-size: 24px;
+  ::selection {
+    color: pink;
+    background: purple;
+  }
   &:focus {
     box-shadow: 0 0 0 3px pink,
     0 0 0 4px purple;
@@ -94,7 +107,7 @@ export const InputPage: React.FC = () => {
         />
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L37'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L116'}>
           Examples
         </Link>
       </Header>

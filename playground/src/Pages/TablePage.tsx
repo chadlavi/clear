@@ -16,9 +16,24 @@ export const TablePage: React.FC = () => (
   <>
     <Header>Table</Header>
     <Paragraph>
+      <Link as={HashLink} to={'#props'}>Props</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#table'}><Code>{'<Table>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#tablehead'}><Code>{'<TableHead>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#tablebody'}><Code>{'<TableBody>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#tablerow'}><Code>{'<TableRow>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#tablecell'}><Code>{'<TableCell>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#examples'}>Examples</Link>
+    </Paragraph>
+    <Paragraph>
       Clear provides styled versions of the table primitives <Code>{'<table>'}</Code>, <Code>{'<thead>'}</Code>,
       <Code>{'<tbody>'}</Code>, <Code>{'<tr>'}</Code>, and <Code>{'<td>'}</Code> (which can be extended to
       cover <Code>{'<th>'}</Code>).
+    </Paragraph>
+    <Header as='h2' id='props'>Props</Header>
+    <Paragraph>
+      All of Clear's table-related components accept the standard props that could normally be passed to their HTML
+      equivalents.
     </Paragraph>
     <Header as='h2' id='table'><Code>{'<Table>'}</Code></Header>
     <Paragraph>
@@ -54,7 +69,7 @@ export const TablePage: React.FC = () => (
       See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L57'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L74'}>Example</Link>
     </Header>
     <Table>
       <TableHead>

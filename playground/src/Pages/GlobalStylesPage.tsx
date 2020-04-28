@@ -10,6 +10,11 @@ import {
 export const GlobalStylesPage: React.FC = () => (
   <>
     <Header>Globals</Header>
+    <Paragraph>
+      <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#dark-mode'}>dark mode</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#globalstyles'}><Code>{'<GlobalStyles>'}</Code></Link>
+    </Paragraph>
     <Header as='h2' id='cssvariables'><Code>{'<CSSVariables>'}</Code></Header>
     <Paragraph>
       Clear uses CSS variables extensively, so an instance of the <Code>CSSVariables</Code> component is

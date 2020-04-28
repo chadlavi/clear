@@ -19,7 +19,7 @@ export const ButtonPage: React.FC = () => (
     <Paragraph>
       The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.
     </Paragraph>
-    <Header as='h2' id='props'>Props</Header>
+    <Header as='h2' id='props'>Props: <Code>ButtonProps</Code></Header>
     <Paragraph>
       Besides the standard props an HTML <Code>{'<button>'}</Code> accepts, <Code>Button</Code> also accepts the
       prop <Code>primary?: boolean</Code> to mark a button as a primary call to action button.

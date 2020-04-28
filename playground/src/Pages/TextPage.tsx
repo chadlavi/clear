@@ -6,6 +6,13 @@ export const TextPage: React.FC = () => (
   <>
     <Header>Text formatting components</Header>
     <Paragraph>
+      <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#paragraph'}><Code>{'<Paragraph>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#code'}><Code>{'<Code>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#customization'}>Customization</Link>
+    </Paragraph>
+    <Paragraph>
       Clear offers various components for formatting text.
       See <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TextPage.tsx'}>the source code
       for this page</Link> for examples.
@@ -15,7 +22,10 @@ export const TextPage: React.FC = () => (
       <Code>Header</Code> can be used to create HTML header elements like <Code>{'<h1>'}</Code>, <Code>{'<h2>'}</Code>,
       etc. With no props passed, the <Code>Header</Code> defaults to rendering an <Code>{'<h1>'}</Code>.
     </Paragraph>
-    <Header as='h3' id='header-props'><Code>Header</Code> props</Header>
+    <Header as='h3' id='header-props'>Props: <Code>HeaderProps</Code></Header>
+    <Paragraph>
+      <Code>Header</Code> accepts any props that could normally be passed to an HTML header element.
+    </Paragraph>
     <Paragraph>
       Use the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop</Link> to
       substitute a different header element like so:
@@ -32,7 +42,7 @@ export const TextPage: React.FC = () => (
     <Paragraph>
       <Code>Paragraph</Code> is a simple styled wrapper around <Code>{'<p>'}</Code>.
     </Paragraph>
-    <Header as='h3'><Code>Paragraph</Code> props</Header>
+    <Header as='h3'>Props: <Code>ParagraphProps</Code></Header>
     <Paragraph>
       Besides the standard props that can be passed to an HTML <Code>{'<p>'}</Code> element, <Code>Paragraph</Code> also
       accepts the prop <Code>margins?: boolean</Code>. If <Code>margins</Code> is false, the <Code>Paragraph</Code> will
@@ -44,10 +54,18 @@ export const TextPage: React.FC = () => (
       <Code>Code</Code> is a simple styled wrapper around <Code>{'<code>'}</Code>, used for formatting inline code
       snippets.
     </Paragraph>
+    <Header as='h3'>Props: <Code>CodeProps</Code></Header>
+    <Paragraph>
+      <Code>Code</Code> accepts any props that could normally be passed to an HTML <Code>{'<code>'}</Code> element.
+    </Paragraph>
     <Header as='h2' id='codeblock'><Code>{'<CodeBlock>'}</Code></Header>
     <Paragraph>
       <Code>CodeBlock</Code> is a simple styled wrapper around <Code>{'<pre>'}</Code>, used for formatting block code
       snippets.
+    </Paragraph>
+    <Header as='h3'>Props: <Code>CodeBlockProps</Code></Header>
+    <Paragraph>
+      <Code>CodeBlock</Code> accepts any props that could normally be passed to an HTML <Code>{'<pre>'}</Code> element.
     </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>

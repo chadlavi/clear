@@ -12,8 +12,8 @@ import {
   colors,
   errorFocusStyle,
   numbers,
-  useResponsiveColor,
   useDarkMode,
+  useResponsiveColor,
 } from '../component-lib'
 
 const ErrorButton = styled(Button)`
@@ -56,13 +56,22 @@ const FocusableResponsiveBigErrorButton = styled(ExtendedButton)`
 export const GettingStartedPage: React.FC = () => (
   <>
     <Header>Getting started</Header>
-    <Header as='h2'>Editing your <Code>.npmrc</Code></Header>
+    <Header as ='h2'>Contents</Header>
+    <Paragraph>
+      <Link as={HashLink} to={'#npmrc'}>Editing your <Code>.npmrc</Code></Link><br />
+      <Link as={HashLink} to={'#installing'}>Installing</Link><br />
+      <Link as={HashLink} to={'#usage'}>Usage</Link><br />
+      <Link as={HashLink} to={'#globals'}>Globals</Link><br />
+      <Link as={HashLink} to={'#structure'}>Structure</Link><br />
+      <Link as={HashLink} to={'#customizing'}>Customizing</Link><br />
+    </Paragraph>
+    <Header as='h2' id='npmrc'>Editing your <Code>.npmrc</Code></Header>
     <Paragraph>
       Clear is hosted on GitHub package registry. To install it, add the following to your project's <Code>.npmrc
       </Code>:
     </Paragraph>
     <CodeBlock>registry=https://npm.pkg.github.com/chadlavi</CodeBlock>
-    <Header as='h2'>Installing</Header>
+    <Header as='h2' id='installing'>Installing</Header>
     <Paragraph>
       After editing your <Code>.npmrc</Code>, run the following to install Clear and its required peer
       dependency, <Code>styled-components</Code>.
@@ -75,8 +84,8 @@ npm i -D @types/styled-components`}</CodeBlock>
       (Note: we assume here that you have already installed <Code>react</Code>. If not, install that too! Clear only
       works in React applications.)
     </Paragraph>
-    <Header as='h2'>Setting up your app</Header>
-    <Header as='h3'>Globals</Header>
+    <Header as='h2' id='usage'>Usage</Header>
+    <Header as='h3' id='globals'>Globals</Header>
     <Paragraph>
       When using Clear, you need to include a single instance
       of <Link as={HashLink} to={'/global-styles#cssvariables'}><Code>{'<CSSVariables />'}</Code></Link> at the top
@@ -102,7 +111,7 @@ ReactDOM.render(
   </React.StrictMode>,
 document.getElementById('root')
 )`}</CodeBlock>
-    <Header as='h3'>Structure</Header>
+    <Header as='h3' id='structure'>Structure</Header>
     <Paragraph>
       You should wrap content in your app with a <Link as={HashLink} to ={'/layout#page'}><Code>{'<Page>'}</Code>
       </Link>.
