@@ -195,7 +195,7 @@ import {
 
 // somewhere inside a functional React component
 
-const ResponsiveBigErrorButton = () => styled(Button)\`
+const ResponsiveBigErrorButton = styled(Button)\`
   background: \${useResponsiveColor('error')};
   color: \${useResponsiveColor('background')};
   font-size: \${numbers.fontSize.default * 2}px;
