@@ -1,6 +1,6 @@
 import * as React from 'react'
+import {focusStyle} from '../../styles'
 import styled from 'styled-components'
-import { focusStyle } from '../../styles'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
@@ -13,7 +13,8 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
 }
 
-const ButtonBase = ({primary, ...props}: ButtonProps) => <button {...props}/>
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => <button {...props}/>
 
 /**
  * A simple styled `<button>`
@@ -25,15 +26,15 @@ export const Button = styled(ButtonBase)`
   border-radius: var(--clear-unit);
   border: none;
   color: inherit;
-  ${p => p.primary && `
+  ${(p): string => p.primary ? `
     background: var(--clear-link);
     color: var(--clear-background);
-  `};
+  ` : ''};
   cursor: pointer;
-  ${p => p.disabled && `
+  ${(p): string => p.disabled ? `
     cursor: not-allowed;
     opacity: 0.5;
-  `};
+  ` : ''};
   font-size: var(--clear-font-size-label);
   margin: 0;
   padding: var(--clear-unit) calc(var(--clear-unit) * 2);

@@ -11,4 +11,4 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
  *
  * https://chadlavi.github.io/clear/#/grid
  */
-export declare const Grid: import("styled-components").StyledComponent<({ spacing, ...props }: GridProps) => JSX.Element, any, GridProps, never>;
+export declare const Grid: import("styled-components").StyledComponent<React.FC<{}>, any, GridProps, never>;

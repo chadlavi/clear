@@ -18,7 +18,8 @@
     "prepublishOnly": "npm run build",
     "version:patch": "npm version patch && cd playground && npm version patch && cd -",
     "version:minor": "npm version minor && cd playground && npm version minor && cd -",
-    "version:major": "npm version major && cd playground && npm version major && cd -"
+    "version:major": "npm version major && cd playground && npm version major && cd -",
+    "lint": "node node_modules/eslint/bin/eslint.js . --ext .ts,.tsx,.js,.jsx --fix"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,10 @@
     "@types/react": "^16.9.34",
     "@types/react-dom": "^16.9.6",
     "@types/styled-components": "^5.1.0",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.19.0",
     "npm-run-all": "^4.1.5",
     "rollup": "^2.7.2",
     "rollup-plugin-delete": "^1.2.0",

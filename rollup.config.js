@@ -1,6 +1,6 @@
-import typescript from 'rollup-plugin-typescript2'
 import del from 'rollup-plugin-delete'
 import pkg from './package.json'
+import typescript from 'rollup-plugin-typescript2'
 
 export default [
   {
@@ -11,11 +11,11 @@ export default [
         format: 'esm',
         banner: '/* eslint-disable */',
       },
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'esm' },
+      {file: pkg.main, format: 'cjs'},
+      {file: pkg.module, format: 'esm'},
     ],
     plugins: [
-      del({ targets: ['dist/*', 'playground/src/component-lib'] }),
+      del({targets: ['dist/*', 'playground/src/component-lib']}),
       typescript(),
     ],
     external: Object.keys(pkg.peerDependencies || {}),

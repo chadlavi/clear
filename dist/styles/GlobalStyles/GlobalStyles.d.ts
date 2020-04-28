@@ -6,8 +6,8 @@
  */
 export declare const CSSVariables: import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>;
 /**
- * Applies styles to the `<body>` of your app.
- *
- * https://chadlavi.github.io/clear/#/global-styles
- */
+   * Applies styles to the `<body>` of your app.
+   *
+   * https://chadlavi.github.io/clear/#/global-styles
+   */
 export declare const GlobalStyles: import("styled-components").GlobalStyleComponent<{}, import("styled-components").DefaultTheme>;

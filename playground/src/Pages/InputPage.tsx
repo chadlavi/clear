@@ -1,14 +1,14 @@
 import * as React from 'react'
 import {
   Code,
-  Header,
   Grid,
   GridItem,
+  Header,
   Input,
-  Paragraph,
   Link,
+  Paragraph,
 } from '../component-lib'
-export const InputPage = () => {
+export const InputPage: React.FC = () => {
   const [numericValue, setNumericValue] = React.useState<number | undefined>()
   const [textValue, setTextValue] = React.useState<string | undefined>()
   const [errorValue, setErrorValue] = React.useState<string | undefined>()
@@ -16,21 +16,23 @@ export const InputPage = () => {
 
   return (
     <>
-      <Header><Code>{`<Input>`}</Code></Header>
+      <Header><Code>{'<Input>'}</Code></Header>
       <Paragraph>
-        The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{`<input>`}</Code> element.
+        The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{'<input>'}</Code> element.
       </Paragraph>
       <Paragraph>
-        Under the hood, the <Code>Input</Code> component actually returns a <Code>{`<label>`}</Code> with a
-        nested <Code>{`<input>`}</Code> inside it.
+        Under the hood, the <Code>Input</Code> component actually returns a <Code>{'<label>'}</Code> with a
+        nested <Code>{'<input>'}</Code> inside it.
       </Paragraph>
       <Header as='h2' id='props'>Props</Header>
       <Paragraph>
-        <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{`<input>`}</Code>, plus the
+        <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{'<input>'}</Code>, plus the
         props <Code>label?: string</Code> to add a label and <Code>error?: boolean</Code> to toggle an error state.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L37'}>Examples</Link>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L37'}>
+          Examples
+        </Link>
       </Header>
       <Grid spacing={8}>
         <GridItem size={6}>
@@ -39,14 +41,14 @@ export const InputPage = () => {
             label={'Numeric input'}
             type={'number'}
             inputMode={'numeric'}
-            onChange={e => setNumericValue(parseInt(e.currentTarget.value || '0'))}
+            onChange={(e): void => setNumericValue(parseInt(e.currentTarget.value || '0'))}
           />
         </GridItem>
         <GridItem size={6}>
           <Input
             value={textValue}
             label={'Text input'}
-            onChange={e => setTextValue(e.currentTarget.value)}
+            onChange={(e): void => setTextValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
@@ -54,7 +56,7 @@ export const InputPage = () => {
             value={errorValue}
             error
             label={'Input with error'}
-            onChange={e => setErrorValue(e.currentTarget.value)}
+            onChange={(e): void => setErrorValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
@@ -62,10 +64,10 @@ export const InputPage = () => {
             value={requiredValue}
             required
             label={'Input'}
-            onChange={e => setRequiredValue(e.currentTarget.value)}
+            onChange={(e): void => setRequiredValue(e.currentTarget.value)}
           />
         </GridItem>
       </Grid>
     </>
-)
+  )
 }

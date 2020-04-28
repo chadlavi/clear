@@ -1,28 +1,28 @@
 import * as React from 'react'
+import {version} from '../package.json'
 import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Link as RouterLink
-} from 'react-router-dom'
-import {
-  Link,
-  Page,
-  GridItem,
-  Grid,
-} from './component-lib'
-import {
-  InputPage,
-  HomePage,
+  ButtonPage,
+  GettingStartedPage,
   GlobalStylesPage,
+  HomePage,
+  InputPage,
   LayoutPage,
   LinkPage,
   TablePage,
-  ButtonPage,
   TextPage,
-  GettingStartedPage,
 } from './Pages'
-import {version} from '../package.json'
+import {
+  Grid,
+  GridItem,
+  Link,
+  Page,
+} from './component-lib'
+import {
+  Route,
+  HashRouter as Router,
+  Link as RouterLink,
+  Switch
+} from 'react-router-dom'
 
 const routes = [
   {
@@ -73,7 +73,7 @@ const routes = [
   }
 ]
 
-export const Routes = () => (
+export const Routes: React.FC = () => (
   <Page>
     <Router basename='/'>
       <Grid spacing={16}>

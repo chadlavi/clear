@@ -1,16 +1,16 @@
 import * as React from 'react'
+import styled from 'styled-components'
 import {
   Code,
-  Header,
   Grid,
   GridItem,
-  Input,
   GridItemSize,
-  numbers,
-  Paragraph,
+  Header,
+  Input,
   Link,
+  Paragraph,
+  numbers,
 } from '../component-lib'
-import styled from 'styled-components'
 
 interface ExampleContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   background?: string
@@ -18,17 +18,20 @@ interface ExampleContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   padded?: boolean
 }
 
-const ExampleContainer = ({background, color, padded, ...props}: ExampleContainerProps) => <div {...props} />
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ExampleContainer = ({background, color, padded, ...props}: ExampleContainerProps): JSX.Element => (
+  <div {...props} />
+)
 
 const ExampleBorder = styled(ExampleContainer)`
 width: 100%;
-border: 1px solid ${p => p.color};
-padding: ${p => p.padded === false ? '0' : 'var(--clear-unit)'};
-background: ${p => p.background || 'var(--clear-background)'};
+border: 1px solid ${(p): string => p.color};
+padding: ${(p): string => p.padded === false ? '0' : 'var(--clear-unit)'};
+background: ${(p): string => p.background || 'var(--clear-background)'};
 border-radius: var(--clear-unit);
 `
 
-export const LayoutPage = () => {
+export const LayoutPage: React.FC = () => {
   const [gridSpacing, setGridSpacing] = React.useState<number>(8)
   const [gridItem1, setGridItem1] = React.useState<GridItemSize>(6)
   const [gridItem2, setGridItem2] = React.useState<GridItemSize>(6)
@@ -36,7 +39,7 @@ export const LayoutPage = () => {
   
   const gridItemOnChange = (
     setter: React.Dispatch<React.SetStateAction<GridItemSize>>
-  ) => (e: React.ChangeEvent<HTMLInputElement>) => {
+  ) => (e: React.ChangeEvent<HTMLInputElement>): void => {
     const newValue = parseInt(e.currentTarget.value, 10)
     if (newValue > 0 && newValue <= 12) {
       setter(newValue as GridItemSize)
@@ -46,9 +49,9 @@ export const LayoutPage = () => {
   return (
     <>
       <Header>Layout components</Header>
-      <Header as='h2' id='page'><Code>{`<Page>`}</Code></Header>
+      <Header as='h2' id='page'><Code>{'<Page>'}</Code></Header>
       <Paragraph>
-        The <Code>Page</Code> component renders a horizontally centered <Code>{`<main>`}</Code> HTML element (though you
+        The <Code>Page</Code> component renders a horizontally centered <Code>{'<main>'}</Code> HTML element (though you
         can use the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop
         </Link> to render a div or other block-level lement as necessary).
       </Paragraph>
@@ -58,7 +61,7 @@ export const LayoutPage = () => {
       <Paragraph>
         All content in your app should be contained within a <Code>Page</Code>.
       </Paragraph>
-      <Header as='h2' id='grid'><Code>{`<Grid>`}</Code></Header>
+      <Header as='h2' id='grid'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
         Use the <Code>Grid</Code> component to create a 12-column layout, with <Code>GridItem</Code> children that
         occupy a specified number of columns.
@@ -67,7 +70,7 @@ export const LayoutPage = () => {
         Besides children, <Code>Grid</Code> accepts the prop <Code>spacing?: number</Code>. If spacing is supplied, that
         number of pixels of space will be shown around all <Code>GridItem</Code>s.
       </Paragraph>
-      <Header as='h2' id='griditem'><Code>{`<GridItem>`}</Code></Header>
+      <Header as='h2' id='griditem'><Code>{'<GridItem>'}</Code></Header>
       <Paragraph>
         Besides children, <Code>GridItem</Code>s accept the prop <Code>size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
         11 | 12</Code>. The <Code>size</Code> prop defines how many columns the <Code>GridItem</Code> occupies. This
@@ -78,7 +81,9 @@ export const LayoutPage = () => {
         Below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), all <Code>GridItem</Code>s are full-width.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L87'}>Examples</Link>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L92'}>
+          Examples
+        </Link>
       </Header>
       <Paragraph>
         The following interactive example grid has added color-coded borders.
@@ -92,7 +97,7 @@ export const LayoutPage = () => {
                 label={'Grid spacing'}
                 type={'number'}
                 inputMode={'numeric'}
-                onChange={e => setGridSpacing(parseInt(e.currentTarget.value || '0'))}
+                onChange={(e): void => setGridSpacing(parseInt(e.currentTarget.value || '0'))}
               />
             </ExampleBorder>
           </GridItem>
@@ -132,5 +137,5 @@ export const LayoutPage = () => {
         </Grid>
       </ExampleBorder>
     </>
-)
+  )
 }

@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { colors, numbers } from '..'
+import {createGlobalStyle} from 'styled-components'
+import {colors, numbers} from '..'
 
 /**
  * Creates a set of css variables necessary for global colors. This component
@@ -18,7 +18,8 @@ export const CSSVariables = createGlobalStyle`
     --clear-unit: ${numbers.unit}px;
     --clear-font-size-default: ${numbers.fontSize.default}px;
     --clear-font-size-label: ${numbers.fontSize.label}px;
-    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,
+      roboto, noto, segoe ui, arial, sans-serif;
     --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
   }
 
@@ -34,12 +35,12 @@ export const CSSVariables = createGlobalStyle`
   }
   `
 
-  /**
+/**
    * Applies styles to the `<body>` of your app.
    * 
    * https://chadlavi.github.io/clear/#/global-styles
    */
-  export const GlobalStyles = createGlobalStyle`
+export const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     background-color: var(--clear-background);

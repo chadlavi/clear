@@ -1,6 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { focusStyle, errorFocusStyle } from '../../styles'
+import {errorFocusStyle, focusStyle} from '../../styles'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
@@ -18,15 +18,16 @@ export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> 
   error?: boolean
 }
 
-const Label = ({disabled, error, ...props}: LabelProps) => <label {...props} />
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Label = ({disabled, error, ...props}: LabelProps): JSX.Element => <label {...props} />
 
 const StyledLabel = styled(Label)`
-  color: ${p => p.error ? 'var(--clear-error)' : 'inherit'};
+  color: ${(p): string => p.error ? 'var(--clear-error)' : 'inherit'};
   display: flex;
   flex-direction: column;
-  ${p => p.disabled && `
+  ${(p): string  => p.disabled ? `
     opacity: 0.5;
-  `};
+  ` : ''};
   width: 100%;
   & > span {
     font-size: var(--clear-font-size-label);
@@ -62,7 +63,8 @@ const forwardOnFocus = (
   }, 1)
 }
 
-const InputBase = ({error, label, ...props}: InputProps) => (
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const InputBase = ({error, label, ...props}: InputProps): JSX.Element => (
   <input
     {...props}
     onClick={forwardOnClick(props.onClick)}
@@ -72,8 +74,8 @@ const InputBase = ({error, label, ...props}: InputProps) => (
 
 const StyledInput = styled(InputBase)`
   background-color: var(--clear-background);
-  color: var(--clear-${p => p.error ? 'error' : 'textColor'});
-  border: 1px solid var(--clear-${p => p.error ? 'error' : 'border'});
+  color: var(--clear-${(p): string => p.error ? 'error' : 'textColor'});
+  border: 1px solid var(--clear-${(p): string => p.error ? 'error' : 'border'});
   border-radius: var(--clear-unit);
   padding: calc(var(--clear-unit) * 1.5);
   font-size: inherit;
@@ -81,7 +83,7 @@ const StyledInput = styled(InputBase)`
   width: 100%;
   -webkit-appearance: none;
   ${focusStyle}
-  ${p => p.error && errorFocusStyle}
+  ${(p): string => p.error ? errorFocusStyle : ''}
 `
 
 /**
@@ -89,7 +91,7 @@ const StyledInput = styled(InputBase)`
  * 
  * https://chadlavi.github.io/clear/#/input
  */
-export const Input = (props: InputProps) => {
+export const Input = (props: InputProps): JSX.Element => {
   const {
     label,
     value,

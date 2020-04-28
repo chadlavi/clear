@@ -8,7 +8,8 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   spacing?: number
 }
 
-const Container = ({spacing, ...props}: GridProps) => <div {...props} />
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Container: React.FC = ({spacing, ...props}: GridProps) => <div {...props} />
 
 /**
  * A simple 12-column grid container. Must be used in conjunciton with
@@ -19,8 +20,8 @@ const Container = ({spacing, ...props}: GridProps) => <div {...props} />
 export const Grid = styled(Container)<GridProps>`
   display: flex;
   flex-wrap: wrap;
-  padding: ${p => p.spacing ? (p.spacing / 2) : 0}px;
+  padding: ${(p): number => p.spacing ? (p.spacing / 2) : 0}px;
   & > div {
-    padding: ${p => p.spacing ? p.spacing / 2 : 0}px;
+    padding: ${(p): number => p.spacing ? p.spacing / 2 : 0}px;
   }
 `

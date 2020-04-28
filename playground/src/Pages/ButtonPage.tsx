@@ -7,24 +7,26 @@ import {
   Paragraph,
 } from '../component-lib'
 
-const onClick = (copy: string) =>  (e: React.MouseEvent<HTMLButtonElement>) => {
+const onClick = (copy: string) =>  (e: React.MouseEvent<HTMLButtonElement>): void => {
   e.preventDefault()
   alert(copy)
 }
 
-export const ButtonPage = () => (
+export const ButtonPage: React.FC = () => (
   <>
-    <Header><Code>{`<Button>`}</Code></Header>
+    <Header><Code>{'<Button>'}</Code></Header>
     <Paragraph>
-      The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{`<button>`}</Code>.
+      The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.
     </Paragraph>
     <Header as='h2' id='props'>Props</Header>
     <Paragraph>
-      Besides the standard props an HTML <Code>{`<button>`}</Code> accepts, <Code>Button</Code> also accepts the
+      Besides the standard props an HTML <Code>{'<button>'}</Code> accepts, <Code>Button</Code> also accepts the
       prop <Code>primary?: boolean</Code> to mark a button as a primary call to action button.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L31'}>Examples</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L31'}>
+        Examples
+      </Link>
     </Header>
     <Header as='h3' id='standard-button'>Standard button</Header>
     <Paragraph>

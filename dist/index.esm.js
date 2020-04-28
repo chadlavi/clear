@@ -63,8 +63,8 @@ var colors = {
     }
 };
 
-var focusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background), 0 0 0 calc(var(--clear-unit) / 2) var(--clear-link);\n}\n::-moz-focus-inner {\n  border:0;\n}\n";
-var errorFocusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background), 0 0 0 calc(var(--clear-unit) / 2) var(--clear-error);\n}\n::-moz-focus-inner {\n  border:0;\n}\n";
+var focusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background),\n    0 0 0 calc(var(--clear-unit) / 2) var(--clear-link);\n}\n::-moz-focus-inner {\n  border:0;\n}\n";
+var errorFocusStyle = "\n:focus {\n  outline: none;\n  box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-background),\n    0 0 0 calc(var(--clear-unit) / 2) var(--clear-error);\n}\n::-moz-focus-inner {\n  border:0;\n}\n";
 
 var unit = 8;
 var numbers = {
@@ -90,18 +90,18 @@ var numbers = {
  *
  * https://chadlavi.github.io/clear/#/global-styles
  */
-var CSSVariables = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "
+var CSSVariables = createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "
     /**
-     * Applies styles to the `<body>` of your app.
-     *
-     * https://chadlavi.github.io/clear/#/global-styles
-     */
+       * Applies styles to the `<body>` of your app.
+       *
+       * https://chadlavi.github.io/clear/#/global-styles
+       */
 ])), colors.light.background, colors.light.border, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, numbers.unit, numbers.fontSize.default, numbers.fontSize.label, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra);
 /**
- * Applies styles to the `<body>` of your app.
- *
- * https://chadlavi.github.io/clear/#/global-styles
- */
+   * Applies styles to the `<body>` of your app.
+   *
+   * https://chadlavi.github.io/clear/#/global-styles
+   */
 var GlobalStyles = createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
 var templateObject_1, templateObject_2;
 
@@ -117,6 +117,7 @@ var useResponsiveColor = function (color) {
     return colors[result ? 'dark' : 'light'][color];
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var ButtonBase = function (_a) {
     var primary = _a.primary, props = __rest(_a, ["primary"]);
     return createElement("button", __assign({}, props));
@@ -128,7 +129,7 @@ var ButtonBase = function (_a) {
  */
 var Button = styled(ButtonBase)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ", ";\n  cursor: pointer;\n  ", ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  @media (prefers-color-scheme: dark) {\n    font-weight: 500;\n  }\n  ", "\n"], ["\n  background: var(--clear-border);\n  border-radius: var(--clear-unit);\n  border: none;\n  color: inherit;\n  ",
     ";\n  cursor: pointer;\n  ",
-    ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  @media (prefers-color-scheme: dark) {\n    font-weight: 500;\n  }\n  ", "\n"])), function (p) { return p.primary && "\n    background: var(--clear-link);\n    color: var(--clear-background);\n  "; }, function (p) { return p.disabled && "\n    cursor: not-allowed;\n    opacity: 0.5;\n  "; }, focusStyle);
+    ";\n  font-size: var(--clear-font-size-label);\n  margin: 0;\n  padding: var(--clear-unit) calc(var(--clear-unit) * 2);\n  @media (prefers-color-scheme: dark) {\n    font-weight: 500;\n  }\n  ", "\n"])), function (p) { return p.primary ? "\n    background: var(--clear-link);\n    color: var(--clear-background);\n  " : ''; }, function (p) { return p.disabled ? "\n    cursor: not-allowed;\n    opacity: 0.5;\n  " : ''; }, focusStyle);
 var templateObject_1$1;
 
 /**
@@ -147,6 +148,7 @@ var templateObject_1$2;
 var CodeBlock = styled('pre')(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"], ["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"])));
 var templateObject_1$3;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Container = function (_a) {
     var spacing = _a.spacing, props = __rest(_a, ["spacing"]);
     return createElement("div", __assign({}, props));
@@ -160,6 +162,7 @@ var Container = function (_a) {
 var Grid = styled(Container)(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? (p.spacing / 2) : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
 var templateObject_1$4;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Container$1 = function (_a) {
     var size = _a.size, props = __rest(_a, ["size"]);
     return createElement("div", __assign({}, props));
@@ -188,6 +191,7 @@ var templateObject_1$5;
 var Header = styled('h1')(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject([""], [""])));
 var templateObject_1$6;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Label = function (_a) {
     var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
     return createElement("label", __assign({}, props));
@@ -198,7 +202,7 @@ var StyledLabel = styled(Label)(templateObject_1$7 || (templateObject_1$7 = __ma
      * Calls props.onClick, but also selects the contents of the Input on click
      * @param func the onClick passed to `<Input>`
      */
-])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled && "\n    opacity: 0.5;\n  "; });
+])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? "\n    opacity: 0.5;\n  " : ''; });
 /**
  * Calls props.onClick, but also selects the contents of the Input on click
  * @param func the onClick passed to `<Input>`
@@ -225,6 +229,7 @@ var forwardOnFocus = function (func) { return function (e) {
             t.select();
         }, 1);
 }; };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var InputBase = function (_a) {
     var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
     return (createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) })));
@@ -235,7 +240,7 @@ var StyledInput = styled(InputBase)(templateObject_2$1 || (templateObject_2$1 = 
      *
      * https://chadlavi.github.io/clear/#/input
      */
-])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error && errorFocusStyle; });
+])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
 /**
  * A simple styled Input
  *
@@ -269,9 +274,10 @@ var templateObject_1$8;
  *
  * https://chadlavi.github.io/clear/#/layout
  */
-var Page = styled('main')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
+var Page = styled('main')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
 var templateObject_1$9;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 var ParagraphBase = function (_a) {
     var margins = _a.margins, props = __rest(_a, ["margins"]);
     return createElement("p", __assign({}, props));

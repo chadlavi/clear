@@ -1,0 +1,7 @@
+node_modules
+dist
+docs
+coverage
+**/serviceWorker.ts
+playground/src/component-lib
+playground/build

@@ -1,8 +1,8 @@
 import * as React from 'react'
+import {focusStyle} from '../../styles'
 import styled from 'styled-components'
-import { focusStyle } from '../../styles'
 
-const Anchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+const Anchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>): JSX.Element => {
   const isExternal = Boolean(props.href?.match(/^http/))
   return (
     <a

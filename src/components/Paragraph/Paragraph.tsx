@@ -5,7 +5,8 @@ interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   margins?: boolean
 }
 
-const ParagraphBase = ({margins, ...props}: ParagraphProps) => <p {...props} />
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ParagraphBase= ({margins, ...props}: ParagraphProps): JSX.Element => <p {...props} />
 
 /**
  * A simple styled `<p>`
@@ -14,7 +15,7 @@ const ParagraphBase = ({margins, ...props}: ParagraphProps) => <p {...props} />
  */
 export const Paragraph = styled(ParagraphBase)`
   line-height: 1.5;
-  ${p => p.margins === false ? `
+  ${(p): string => p.margins === false ? `
     margin-block-start: 0;
     margin-block-end: 0;
   ` : `

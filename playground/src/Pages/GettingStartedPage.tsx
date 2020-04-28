@@ -1,20 +1,20 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
+import styled from 'styled-components'
 import {
-  Header,
-  Paragraph,
+  Button,
   Code,
   CodeBlock,
+  Header,
   Link,
+  Paragraph,
   colors,
-  Button,
-  numbers,
   errorFocusStyle,
+  numbers,
   useResponsiveColor,
 } from '../component-lib'
-import { HashLink } from 'react-router-hash-link'
-import styled from 'styled-components'
 
-export const GettingStartedPage = () => {
+export const GettingStartedPage: React.FC = () => {
 
   const ErrorButton = styled(Button)`
     background: var(--clear-error);
@@ -49,7 +49,8 @@ export const GettingStartedPage = () => {
       <Header>Getting started</Header>
       <Header as='h2'>Editing your <Code>.npmrc</Code></Header>
       <Paragraph>
-        Clear is hosted on GitHub package registry. To install it, add the following to your project's <Code>.npmrc</Code>:
+        Clear is hosted on GitHub package registry. To install it, add the following to your project's <Code>.npmrc
+        </Code>:
       </Paragraph>
       <CodeBlock>registry=https://npm.pkg.github.com/chadlavi</CodeBlock>
       <Header as='h2'>Installing</Header>
@@ -68,16 +69,17 @@ npm i -D @types/styled-components`}</CodeBlock>
       <Header as='h2'>Setting up your app</Header>
       <Header as='h3'>Globals</Header>
       <Paragraph>
-        When using Clear, you need to include a single instance of <Link as={HashLink} to={'/global-styles#cssvariables'}>
-        <Code>{`<CSSVariables />`}</Code></Link> at the top level of your application. You should also include an instance
-        of <Link as={HashLink} to={'/global-styles#globalstyles'}><Code>{`<GlobalStyles />`}</Code></Link>. Something
+        When using Clear, you need to include a single instance
+        of <Link as={HashLink} to={'/global-styles#cssvariables'}><Code>{'<CSSVariables />'}</Code></Link> at the top
+        level of your application. You should also include an instance
+        of <Link as={HashLink} to={'/global-styles#globalstyles'}><Code>{'<GlobalStyles />'}</Code></Link>. Something
         like:
       </Paragraph>
       <CodeBlock>{`// inside your index.js file
 
 import * as React from 'react'
+import {MyApp} from './MyApp'
 import ReactDOM from 'react-dom'
-import { MyApp } from './MyApp'
 import {
   CSSVariables,
   GlobalStyles,
@@ -93,10 +95,11 @@ ReactDOM.render(
 )`}</CodeBlock>
       <Header as='h3'>Structure</Header>
       <Paragraph>
-        You should wrap content in your app with a <Link as={HashLink} to ={'/layout#page'}><Code>{`<Page>`}</Code></Link>.
+        You should wrap content in your app with a <Link as={HashLink} to ={'/layout#page'}><Code>{'<Page>'}</Code>
+        </Link>.
       </Paragraph>
       <Paragraph>
-        Use the <Link as={HashLink} to ={'/layout#grid'}><Code>{`<Grid>`}</Code> and <Code>{`<GridItem>`}</Code>
+        Use the <Link as={HashLink} to ={'/layout#grid'}><Code>{'<Grid>'}</Code> and <Code>{'<GridItem>'}</Code>
         </Link> components to organize content on a 12-column grid.
       </Paragraph>
       <Header as='h3'>Import statements</Header>
@@ -113,18 +116,18 @@ ReactDOM.render(
       </CodeBlock>
       <Header as='h3'>Using theme styles</Header>
       <Paragraph>
-        Since <Link as={HashLink} to={'/global-styles#cssvariables'}><Code>{`<CSSVariables />`}</Code></Link> creates
+        Since <Link as={HashLink} to={'/global-styles#cssvariables'}><Code>{'<CSSVariables />'}</Code></Link> creates
         global CSS variables, you can access them in your app's styles.
       </Paragraph>
       <Paragraph>
         Let's say you want to create an error button. You can access the Clear CSS variable <Code>var(--clear-error)
-          </Code> like this:
+        </Code> like this:
       </Paragraph>
       <CodeBlock>{`// ErrorButton.tsx
 
 import * as React from 'react'
 import styled from 'styled-components'
-import { Button } from '@chadlavi/clear'
+import {Button} from '@chadlavi/clear'
 
 export const ErrorButton = styled(Button)\`
   background: var(--clear-error);
@@ -132,15 +135,15 @@ export const ErrorButton = styled(Button)\`
 \``}</CodeBlock>
       <Paragraph>
         <ErrorButton
-          onClick={() => alert('You clicked the error button')}
+          onClick={(): void => alert('You clicked the error button')}
         >
           Error button
         </ErrorButton>
       </Paragraph>
       <Paragraph>
         Note that CSS variables from Clear automatically change to accommodate dark mode; the variable <Code>
-        var(--clear-error)</Code> will yield <Code>{colors.light.error}</Code> in light mode and <Code>{colors.dark.error}
-        </Code> in dark mode.
+        var(--clear-error)</Code> will yield <Code>{colors.light.error}</Code> in light mode
+        and <Code>{colors.dark.error}</Code> in dark mode.
       </Paragraph>
       <Header as='h4'>Accessing theme values in code</Header>
       <Paragraph>
@@ -166,7 +169,7 @@ export const BigErrorButton = styled(Button)\`
 \``}</CodeBlock>
       <Paragraph>
         <BigErrorButton
-          onClick={() => alert('You clicked the big error button')}
+          onClick={(): void => alert('You clicked the big error button')}
         >
           Big error button (BEB)
         </BigErrorButton>
@@ -201,7 +204,7 @@ const ResponsiveBigErrorButton = () => styled(Button)\`
 \``}</CodeBlock>
       <Paragraph>
         <ResponsiveBigErrorButton
-          onClick={() => alert('You clicked the responsive big error button')}
+          onClick={(): void => alert('You clicked the responsive big error button')}
         >
           Responsive BEB
         </ResponsiveBigErrorButton>
@@ -233,7 +236,7 @@ const FocusableResponsiveBigErrorButton = styled(Button)\`
 \``}</CodeBlock>
       <Paragraph>
         <FocusableResponsiveBigErrorButton
-          onClick={() => alert('Focus this button and the last one to see the difference')}
+          onClick={(): void => alert('Focus this button and the last one to see the difference')}
         >
           Responsive BEB with error focus
         </FocusableResponsiveBigErrorButton>
