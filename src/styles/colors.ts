@@ -1,4 +1,13 @@
-export const colors = {
+export type Themes = 'light' | 'dark'
+
+export type Colors = 'background' |
+'border' |
+'error' |
+'link' |
+'textColor' |
+'zebra'
+
+export const colors: {[key in Themes]: {[key in Colors]: string}} = {
   light: {
     background: 'white',
     border: '#ddd',
