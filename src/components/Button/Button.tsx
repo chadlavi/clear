@@ -37,5 +37,8 @@ export const Button = styled(ButtonBase)`
   font-size: var(--clear-font-size-label);
   margin: 0;
   padding: var(--clear-unit) calc(var(--clear-unit) * 2);
+  @media (prefers-color-scheme: dark) {
+    font-weight: 500;
+  }
   ${focusStyle}
 `
