@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
 import styled from 'styled-components'
 import {
   Code,
@@ -80,13 +81,20 @@ export const LayoutPage: React.FC = () => {
       <Paragraph>
         Below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), all <Code>GridItem</Code>s are full-width.
       </Paragraph>
+      <Header as='h2' id='customization'>Customization</Header>
+      <Paragraph>
+        See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
+      </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L92'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L97'}>
           Examples
         </Link>
       </Header>
       <Paragraph>
-        The following interactive example grid has added color-coded borders.
+        The following interactive example grid has colored borders on the outside of the <Code>Grid</Code> and
+        the content of each <Code>GridItem</Code> to illustrate how <Code>Grid</Code>'s <Code>spacing</Code> prop
+        and <Code>GridItem</Code>'s <Code>size</Code> prop work. Change the values below to increase/decrease the Grid
+        spacing and change the column size of each item.
       </Paragraph>
       <ExampleBorder color='var(--clear-border)' background='var(--clear-zebra)' padded={false}>
         <Grid spacing={gridSpacing}>
@@ -97,6 +105,7 @@ export const LayoutPage: React.FC = () => {
                 label={'Grid spacing'}
                 type={'number'}
                 inputMode={'numeric'}
+                min={0}
                 onChange={(e): void => setGridSpacing(parseInt(e.currentTarget.value || '0'))}
               />
             </ExampleBorder>
@@ -107,7 +116,7 @@ export const LayoutPage: React.FC = () => {
                 value={gridItem1}
                 type={'number'}
                 inputMode={'numeric'}
-                label={'This GridItem\'s size'}
+                label={'Green GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem1)}
               />
             </ExampleBorder>
@@ -118,7 +127,7 @@ export const LayoutPage: React.FC = () => {
                 value={gridItem2}
                 type={'number'}
                 inputMode={'numeric'}
-                label={'This GridItem\'s size'}
+                label={'Red GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem2)}
               />
             </ExampleBorder>
@@ -129,7 +138,7 @@ export const LayoutPage: React.FC = () => {
                 value={gridItem3}
                 type={'number'}
                 inputMode={'numeric'}
-                label={'This GridItem\'s size'}
+                label={'Violet GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem3)}
               />
             </ExampleBorder>

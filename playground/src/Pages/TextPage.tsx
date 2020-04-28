@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
 import {Code, CodeBlock, Header, Link, Paragraph, numbers} from '../component-lib'
 
 export const TextPage: React.FC = () => (
@@ -47,6 +48,10 @@ export const TextPage: React.FC = () => (
     <Paragraph>
       <Code>CodeBlock</Code> is a simple styled wrapper around <Code>{'<pre>'}</Code>, used for formatting block code
       snippets.
+    </Paragraph>
+    <Header as='h2' id='customization'>Customization</Header>
+    <Paragraph>
+      See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
   </>
 )

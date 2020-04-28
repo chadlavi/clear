@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
 import {
   Button,
   Code,
@@ -22,6 +23,10 @@ export const ButtonPage: React.FC = () => (
     <Paragraph>
       Besides the standard props an HTML <Code>{'<button>'}</Code> accepts, <Code>Button</Code> also accepts the
       prop <Code>primary?: boolean</Code> to mark a button as a primary call to action button.
+    </Paragraph>
+    <Header as='h2' id='customization'>Customization</Header>
+    <Paragraph>
+      See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
       <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L31'}>

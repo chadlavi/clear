@@ -99,6 +99,7 @@ export const Input = (props: InputProps): JSX.Element => {
   } = props
   return (
     <StyledLabel
+      className={other.className}
       disabled={other.disabled}
       error={other.error}
     >

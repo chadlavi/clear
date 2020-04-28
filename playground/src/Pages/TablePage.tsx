@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
 import {
   Code,
   CodeBlock,
@@ -48,8 +49,9 @@ export const TablePage: React.FC = () => (
   This will render in the DOM as a th
 </TableCell>`}
     </CodeBlock>
+    <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
-      
+      See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
       <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L57'}>Example</Link>

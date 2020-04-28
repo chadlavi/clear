@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {HashLink} from 'react-router-hash-link'
 import {Link as RouterLink} from 'react-router-dom'
 import {
   Code,
@@ -27,6 +28,10 @@ export const LinkPage: React.FC = () => (
     <CodeBlock>
       {'<Link as={RouterLink} to={\'/\'}>Router link</Link>'}
     </CodeBlock>
+    <Header as='h2' id='customization'>Customization</Header>
+    <Paragraph>
+      See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
+    </Paragraph>
     <Header as='h2' id='examples'>
       <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L42'}>Examples</Link>
     </Header>

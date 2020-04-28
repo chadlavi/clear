@@ -105,7 +105,7 @@ var CSSVariables = createGlobalStyle(templateObject_1 || (templateObject_1 = __m
 var GlobalStyles = createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
 var templateObject_1, templateObject_2;
 
-var useResponsiveColor = function (color) {
+var useDarkMode = function () {
     var _a = useState(matchMedia('(prefers-color-scheme: dark)').matches), result = _a[0], setResult = _a[1];
     var callback = useCallback(function (matchMediaResult) { return setResult(matchMediaResult.matches); }, [setResult]);
     useEffect(function () {
@@ -114,7 +114,11 @@ var useResponsiveColor = function (color) {
         matchMediaResult.addListener(callback);
         return function () { return matchMediaResult.removeListener(callback); };
     }, [callback]);
-    return colors[result ? 'dark' : 'light'][color];
+    return result;
+};
+var useResponsiveColor = function (color) {
+    var theme = useDarkMode() ? 'dark' : 'light';
+    return colors[theme][color];
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -145,7 +149,7 @@ var templateObject_1$2;
  *
  * https://chadlavi.github.io/clear/#/text
  */
-var CodeBlock = styled('pre')(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"], ["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin: 0;\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"])));
+var CodeBlock = styled('pre')(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin-block-end: calc(var(--clear-unit) * 2);\n  margin-block-start: calc(var(--clear-unit) * 2);\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"], ["\n  font-family: var(--clear-monospace-font-family);\n  font-size: 0.9em;\n  line-height: 1.5;\n  display: block;\n  margin-block-end: calc(var(--clear-unit) * 2);\n  margin-block-start: calc(var(--clear-unit) * 2);\n  background: var(--clear-zebra);\n  padding: calc(var(--clear-unit) * 2);\n  border-radius: var(--clear-unit);\n  overflow-x: auto;\n"])));
 var templateObject_1$3;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -248,7 +252,7 @@ var StyledInput = styled(InputBase)(templateObject_2$1 || (templateObject_2$1 = 
  */
 var Input = function (props) {
     var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
-    return (createElement(StyledLabel, { disabled: other.disabled, error: other.error },
+    return (createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error },
         createElement("span", null,
             label,
             other.required ? ' (Required)' : ''),
@@ -339,4 +343,4 @@ var templateObject_1$e;
 var TableRow = styled('tr')(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
 var templateObject_1$f;
 
-export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Link, Page, Paragraph, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, numbers, useResponsiveColor };
+export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Link, Page, Paragraph, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, numbers, useDarkMode, useResponsiveColor };

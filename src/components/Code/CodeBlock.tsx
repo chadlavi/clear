@@ -10,7 +10,8 @@ export const CodeBlock = styled('pre')`
   font-size: 0.9em;
   line-height: 1.5;
   display: block;
-  margin: 0;
+  margin-block-end: calc(var(--clear-unit) * 2);
+  margin-block-start: calc(var(--clear-unit) * 2);
   background: var(--clear-zebra);
   padding: calc(var(--clear-unit) * 2);
   border-radius: var(--clear-unit);
