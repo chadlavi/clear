@@ -38,11 +38,6 @@ const routes = [
     component: <GettingStartedPage />,
   },
   {
-    label: 'Helpers',
-    route: '/helpers',
-    component: <HelpersPage />,
-  },
-  {
     label: 'Globals',
     route: '/global-styles',
     component: <GlobalStylesPage />,
@@ -76,7 +71,12 @@ const routes = [
     label: 'Table',
     route: '/table',
     component: <TablePage />,
-  }
+  },
+  {
+    label: 'Helpers',
+    route: '/helpers',
+    component: <HelpersPage />,
+  },
 ]
 
 export const Routes: React.FC = () =>
