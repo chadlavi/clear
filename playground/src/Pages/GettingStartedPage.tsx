@@ -53,7 +53,7 @@ const FocusableResponsiveBigErrorButton = styled(ExtendedButton)`
   ${errorFocusStyle}
 `
 
-export const GettingStartedPage: React.FC = () => (
+export const GettingStartedPage: React.FC = () =>
   <>
     <Header>Getting started</Header>
     <Header as ='h2'>Contents</Header>
@@ -315,4 +315,4 @@ export const FocusableResponsiveBigErrorButton = styled(ExtendedButton)\`
       </FocusableResponsiveBigErrorButton>
     </Paragraph>
   </>
-)
+

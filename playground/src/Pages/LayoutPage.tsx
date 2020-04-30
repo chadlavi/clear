@@ -3,6 +3,7 @@ import {HashLink} from 'react-router-hash-link'
 import styled from 'styled-components'
 import {
   Code,
+  CodeBlock,
   Grid,
   GridItem,
   GridItemSize,
@@ -10,6 +11,7 @@ import {
   Input,
   Link,
   Paragraph,
+  ScrollContainer,
   numbers,
 } from '../component-lib'
 
@@ -20,9 +22,9 @@ interface ExampleContainerProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ExampleContainer = ({background, color, padded, ...props}: ExampleContainerProps): JSX.Element => (
+const ExampleContainer = ({background, color, padded, ...props}: ExampleContainerProps): JSX.Element =>
   <div {...props} />
-)
+
 
 const ExampleBorder = styled(ExampleContainer)`
 width: 100%;
@@ -37,7 +39,7 @@ export const LayoutPage: React.FC = () => {
   const [gridItem1, setGridItem1] = React.useState<GridItemSize>(6)
   const [gridItem2, setGridItem2] = React.useState<GridItemSize>(6)
   const [gridItem3, setGridItem3] = React.useState<GridItemSize>(12)
-  
+
   const gridItemOnChange = (
     setter: React.Dispatch<React.SetStateAction<GridItemSize>>
   ) => (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -51,11 +53,12 @@ export const LayoutPage: React.FC = () => {
     <>
       <Header>Layout components</Header>
       <Paragraph>
-        <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>&nbsp;&middot;&nbsp;
-        <Link as={HashLink} to={'#grid'}><Code>{'<Grid>'}</Code></Link>&nbsp;&middot;&nbsp;
-        <Link as={HashLink} to={'#griditem'}><Code>{'<GridItem>'}</Code></Link>&nbsp;&middot;&nbsp;
-        <Link as={HashLink} to={'#responsive-sizing'}>Responsive sizing</Link>&nbsp;&middot;&nbsp;
-        <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#grid'}><Code>{'<Grid>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#griditem'}><Code>{'<GridItem>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#responsive-sizing'}>Responsive sizing</Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#examples'}>Examples</Link>
       </Paragraph>
       <Header as='h2' id='page'><Code>{'<Page>'}</Code></Header>
@@ -99,15 +102,33 @@ export const LayoutPage: React.FC = () => {
         Note that below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), the <Code>size</Code> prop is
         ignored and all <Code>GridItem</Code>s are full-width.
       </Paragraph>
+      <Header as='h2' id='scrollcontainer'><Code>{'<ScrollContainer>'}</Code></Header>
+      <Paragraph>
+        You can use a <Code>ScrollContainer</Code> to create a verticall or horizontally scrollable div with content of
+        a fixed minimum height/width. Scroll containers are very convenient ways to
+        prevent <Link as={HashLink} to={'/table#table'}><Code>{'<Table>'}</Code></Link>s from becoming unmanageable on
+        responsive devices.
+      </Paragraph>
+      <Header as='h3'>Props: <Code>ScrollContainerProps</Code></Header>
+      <Paragraph>
+        Besides the props that can be passed to an HTML <Code>{'<div>'}</Code>, <Code>ScrollContainer</Code> accepts
+        the following props:
+      </Paragraph>
+      <CodeBlock>{`contentMinHeight?: number | string
+contentMinWidth?: number | string
+direction: 'horizontal' | 'vertical'
+maxHeight?: number | string
+maxWidth?: number | string`}</CodeBlock>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
         See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L118'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L139'}>
           Examples
         </Link>
       </Header>
+      <Header as='h3'><Code>Grid</Code></Header>
       <Paragraph>
         The following interactive example grid has colored borders on the outside of the <Code>Grid</Code> and
         the content of each <Code>GridItem</Code> to illustrate how <Code>Grid</Code>'s <Code>spacing</Code> prop
@@ -117,14 +138,14 @@ export const LayoutPage: React.FC = () => {
       <ExampleBorder color='var(--clear-border)' background='var(--clear-zebra)' padded={false}>
         <Grid spacing={gridSpacing}>
           <GridItem>
-            <ExampleBorder color='blue'>
-              <Input 
+            <ExampleBorder color='dodgerblue'>
+              <Input
                 value={gridSpacing}
                 label={'Grid spacing'}
                 type={'number'}
                 inputMode={'numeric'}
                 min={0}
-                onChange={(e): void => setGridSpacing(parseInt(e.currentTarget.value || '0'))}
+                onChange={(e): void => setGridSpacing(parseInt(e.currentTarget.value || '0', 10))}
               />
             </ExampleBorder>
           </GridItem>
@@ -163,6 +184,58 @@ export const LayoutPage: React.FC = () => {
           </GridItem>
         </Grid>
       </ExampleBorder>
+      <Header as='h3'><Code>ScrollContainer</Code></Header>
+      <ScrollContainer direction={'horizontal'}>
+        <div
+          style={{
+            background: 'violet',
+            borderRadius: 8,
+            color: 'black',
+            padding: 20,
+            position: 'relative',
+            width: 2000,
+          }}
+        >
+          This div has a min-width of 2000px, but
+          its <Code style={{color: 'var(--clear-textColor)'}}>ScrollContainer</Code> is only 100% width
+          <div
+            style={{
+              bottom: 20,
+              fontWeight: 'bold',
+              position: 'absolute',
+              right: 20,
+            }}
+          >
+            neat!
+          </div>
+        </div>
+      </ScrollContainer>
+      <br/>
+      <ScrollContainer direction={'vertical'} maxHeight={58}>
+        <div
+          style={{
+            background: 'dodgerblue',
+            borderRadius: 8,
+            color: 'black',
+            padding: 20,
+            position: 'relative',
+            height: 1000,
+          }}
+        >
+          This div has a min-height of 1000px, but
+          its <Code style={{color: 'var(--clear-textColor)'}}>ScrollContainer</Code> is only 58px tall
+          <div
+            style={{
+              bottom: 20,
+              fontWeight: 'bold',
+              position: 'absolute',
+              right: 20,
+            }}
+          >
+            neat!
+          </div>
+        </div>
+      </ScrollContainer>
     </>
   )
 }

@@ -18,7 +18,7 @@ const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => <button {.
 
 /**
  * A simple styled `<button>`
- * 
+ *
  * https://chadlavi.github.io/clear/#/button
  */
 export const Button = styled(ButtonBase)`

@@ -47,8 +47,8 @@ export const InputPage: React.FC = () => {
     <>
       <Header><Code>{'<Input>'}</Code></Header>
       <Paragraph>
-        <Link as={HashLink} to={'#props'}>Props</Link>&nbsp;&middot;&nbsp;
-        <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+        <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#examples'}>Examples</Link>
       </Paragraph>
       <Paragraph>
@@ -113,12 +113,12 @@ export const InputPage: React.FC = () => {
       </Header>
       <Grid spacing={8}>
         <GridItem size={6}>
-          <Input 
+          <Input
             value={numericValue}
             label={'Numeric input'}
             type={'number'}
             inputMode={'numeric'}
-            onChange={(e): void => setNumericValue(parseInt(e.currentTarget.value || '0'))}
+            onChange={(e): void => setNumericValue(parseInt(e.currentTarget.value || '0', 10))}
           />
         </GridItem>
         <GridItem size={6}>

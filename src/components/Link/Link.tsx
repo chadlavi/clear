@@ -16,7 +16,7 @@ const Anchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>): JSX.Eleme
 
 /**
  * A simple styled `<a>`
- * 
+ *
  * https://chadlavi.github.io/clear/#/link
  */
 export const Link = styled(Anchor)`

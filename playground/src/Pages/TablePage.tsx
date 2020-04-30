@@ -6,23 +6,25 @@ import {
   Header,
   Link,
   Paragraph,
+  ScrollContainer,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableRow,
 } from '../component-lib'
-export const TablePage: React.FC = () => (
+
+export const TablePage: React.FC = () =>
   <>
     <Header>Table</Header>
     <Paragraph>
-      <Link as={HashLink} to={'#props'}>Props</Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#table'}><Code>{'<Table>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#tablehead'}><Code>{'<TableHead>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#tablebody'}><Code>{'<TableBody>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#tablerow'}><Code>{'<TableRow>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#tablecell'}><Code>{'<TableCell>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#customization'}>Customization</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#table'}><Code>{'<Table>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#tablehead'}><Code>{'<TableHead>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#tablebody'}><Code>{'<TableBody>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#tablerow'}><Code>{'<TableRow>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#tablecell'}><Code>{'<TableCell>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#examples'}>Examples</Link>
     </Paragraph>
     <Paragraph>
@@ -69,38 +71,44 @@ export const TablePage: React.FC = () => (
       See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L74'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L81'}>Example</Link>
     </Header>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell as={'th'}>Name</TableCell>
-          <TableCell as={'th'}>email</TableCell>
-          <TableCell as={'th'}>Occupation</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>Phillip J Fry</TableCell>
-          <TableCell>cosmicphil@panuccispizza.net</TableCell>
-          <TableCell>Delivery boy</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Turanga Leela</TableCell>
-          <TableCell>1bdi@planetexpress.biz</TableCell>
-          <TableCell>Captain</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Hubert J Farnsworth</TableCell>
-          <TableCell>hubie@planetexpress.biz</TableCell>
-          <TableCell>Professor</TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Bender "Bending" Rodriguez</TableCell>
-          <TableCell>bender@benderisgreat.com</TableCell>
-          <TableCell>Bending unit</TableCell>
-        </TableRow>
-      </TableBody>
-    </Table>
+    <Paragraph>
+      This <Code>Table</Code> is wrapped in
+      a <Link as={HashLink} to={'/layout#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></Link> and has a min-width
+      of 600px. In narrow viewports, this table will be horizontally scrollable.
+    </Paragraph>
+    <ScrollContainer direction='horizontal' maxWidth={'100%'} contentMinWidth={600}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell as={'th'}>Name</TableCell>
+            <TableCell as={'th'}>email</TableCell>
+            <TableCell as={'th'}>Occupation</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          <TableRow>
+            <TableCell>Phillip J Fry</TableCell>
+            <TableCell>cosmicphil@panuccispizza.net</TableCell>
+            <TableCell>Delivery boy</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Turanga Leela</TableCell>
+            <TableCell>1bdi@planetexpress.biz</TableCell>
+            <TableCell>Captain</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Hubert J Farnsworth</TableCell>
+            <TableCell>hubie@planetexpress.biz</TableCell>
+            <TableCell>Professor</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Bender "Bending" Rodriguez</TableCell>
+            <TableCell>bender@benderisgreat.com</TableCell>
+            <TableCell>Bending unit</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
+    </ScrollContainer>
   </>
-)

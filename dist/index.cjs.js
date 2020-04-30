@@ -54,18 +54,22 @@ function __makeTemplateObject(cooked, raw) {
 var colors = {
     light: {
         background: 'white',
+        blue: '#005cb8',
         border: '#ddd',
         error: '#cf0303',
         link: '#55e',
         textColor: '#111',
+        violet: '#bc1abc',
         zebra: '#f8f8f8',
     },
     dark: {
         background: '#111',
+        blue: 'dodgerblue',
         border: '#555',
         error: '#ff5656',
         link: '#8787f9',
         textColor: 'white',
+        violet: 'violet',
         zebra: '#242424',
     }
 };
@@ -86,7 +90,7 @@ var numbers = {
         label: unit * 1.8,
     },
     width: {
-        main: 90 * unit,
+        main: 95 * unit,
     },
     unit: unit,
 };
@@ -97,32 +101,35 @@ var numbers = {
  *
  * https://chadlavi.github.io/clear/#/global-styles
  */
-var CSSVariables = styled.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "], ["\n  :root {\n    --clear-background: ", ";\n    --clear-border: ", ";\n    --clear-error: ", ";\n    --clear-link: ", ";\n    --clear-text-color: ", ";\n    --clear-zebra: ", ";\n    --clear-unit: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      --clear-background: ", ";\n      --clear-border: ", ";\n      --clear-error: ", ";\n      --clear-link: ", ";\n      --clear-text-color: ", ";\n      --clear-zebra: ", ";\n    }\n  }\n  "
+var CSSVariables = styled.createGlobalStyle(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  :root {\n    ", "\n\n    --clear-unit: ", "px;\n    --clear-main-width: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n\n    ", "\n\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      ", "\n    }\n  }\n  "], ["\n  :root {\n    ", "\n\n    --clear-unit: ", "px;\n    --clear-main-width: ", "px;\n    --clear-font-size-default: ", "px;\n    --clear-font-size-label: ", "px;\n\n    ",
+    "\n\n    --clear-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu,\n      roboto, noto, segoe ui, arial, sans-serif;\n    --clear-monospace-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;\n  }\n\n  @media (prefers-color-scheme: dark) {\n    :root {\n      ", "\n    }\n  }\n  "
     /**
        * Applies styles to the `<body>` of your app.
        *
        * https://chadlavi.github.io/clear/#/global-styles
        */
-])), colors.light.background, colors.light.border, colors.light.error, colors.light.link, colors.light.textColor, colors.light.zebra, numbers.unit, numbers.fontSize.default, numbers.fontSize.label, colors.dark.background, colors.dark.border, colors.dark.error, colors.dark.link, colors.dark.textColor, colors.dark.zebra);
+])), Object.keys(colors.light).map(function (c) { return "--clear-" + c + ": " + colors.light[c] + ";"; }), numbers.unit, numbers.width.main, numbers.fontSize.default, numbers.fontSize.label, Object.keys(numbers.breakpoint).map(function (k) { return "--clear-breakpoint-" + k + ": " + numbers.breakpoint[k] + "px;"; }), Object.keys(colors.dark).map(function (c) { return "--clear-" + c + ": " + colors.dark[c] + ";"; }));
 /**
    * Applies styles to the `<body>` of your app.
    *
    * https://chadlavi.github.io/clear/#/global-styles
    */
-var GlobalStyles = styled.createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-text-color);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
+var GlobalStyles = styled.createGlobalStyle(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
 var templateObject_1, templateObject_2;
 
-var useDarkMode = function () {
-    var _a = React.useState(matchMedia('(prefers-color-scheme: dark)').matches), result = _a[0], setResult = _a[1];
+var useMediaQuery = function (query) {
+    var _a = React.useState(matchMedia(query).matches), result = _a[0], setResult = _a[1];
     var callback = React.useCallback(function (matchMediaResult) { return setResult(matchMediaResult.matches); }, [setResult]);
     React.useEffect(function () {
-        var matchMediaResult = matchMedia('(prefers-color-scheme: dark)');
+        var matchMediaResult = matchMedia(query);
         callback(matchMediaResult);
         matchMediaResult.addListener(callback);
         return function () { return matchMediaResult.removeListener(callback); };
     }, [callback]);
     return result;
 };
+var useBreakpoint = function (breakpoint) { return useMediaQuery("(max-width: " + numbers.breakpoint[breakpoint] + "px)"); };
+var useDarkMode = function () { return useMediaQuery('(prefers-color-scheme: dark)'); };
 var useResponsiveColor = function (color) {
     var theme = useDarkMode() ? 'dark' : 'light';
     return colors[theme][color];
@@ -170,7 +177,7 @@ var Container = function (_a) {
  *
  * https://chadlavi.github.io/clear/#/grid
  */
-var Grid = styled__default(Container)(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? (p.spacing / 2) : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
+var Grid = styled__default(Container)(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
 var templateObject_1$4;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -243,7 +250,7 @@ var forwardOnFocus = function (func) { return function (e) {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var InputBase = function (_a) {
     var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
-    return (React.createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) })));
+    return React.createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) }));
 };
 var StyledInput = styled__default(InputBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"
     /**
@@ -285,7 +292,7 @@ var templateObject_1$8;
  *
  * https://chadlavi.github.io/clear/#/layout
  */
-var Page = styled__default('main')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-text-color);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
+var Page = styled__default('main')(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
 var templateObject_1$9;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -302,29 +309,106 @@ var Paragraph = styled__default(ParagraphBase)(templateObject_1$a || (templateOb
     "\n"])), function (p) { return p.margins === false ? "\n    margin-block-start: 0;\n    margin-block-end: 0;\n  " : "\n    margin-block-start: 1em;\n    margin-block-end: 1em;\n  "; });
 var templateObject_1$a;
 
+var ContainerBase = function (_a) {
+    var  
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    contentMinHeight = _a.contentMinHeight, contentMinWidth = _a.contentMinWidth, _b = _a.direction, maxHeight = _a.maxHeight, maxWidth = _a.maxWidth, props = __rest(_a, ["contentMinHeight", "contentMinWidth", "direction", "maxHeight", "maxWidth"]);
+    return React.createElement("div", __assign({}, props));
+};
+var Container$2 = styled__default(ContainerBase)(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  width: 100%;\n  ", "\n  ", "\n\n  ", "\n"], ["\n  width: 100%;\n  ",
+    "\n  ",
+    "\n\n  ",
+    "\n"])), function (p) {
+    var direction = p.direction;
+    if (direction === 'horizontal') {
+        return 'overflow-x: auto; max-width: 100%;';
+    }
+    else {
+        return 'overflow-y: auto; max-height: 100%;';
+    }
+}, function (p) {
+    var maxHeight = p.maxHeight;
+    if (typeof maxHeight === 'number') {
+        return "max-height: " + maxHeight + "px;";
+    }
+    else if (maxHeight) {
+        return "max-height: " + maxHeight + ";";
+    }
+    else {
+        return '';
+    }
+}, function (p) {
+    var maxWidth = p.maxWidth;
+    if (typeof maxWidth === 'number') {
+        return "max-width: " + maxWidth + "px;";
+    }
+    else if (maxWidth) {
+        return "max-width: " + maxWidth + ";";
+    }
+    else {
+        return '';
+    }
+});
+var ContentBase = function (_a) {
+    var  
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    contentMinHeight = _a.contentMinHeight, contentMinWidth = _a.contentMinWidth, _b = _a.direction, maxHeight = _a.maxHeight, maxWidth = _a.maxWidth, props = __rest(_a, ["contentMinHeight", "contentMinWidth", "direction", "maxHeight", "maxWidth"]);
+    return React.createElement("div", __assign({}, props));
+};
+var Content = styled__default(ContentBase)(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n  ", "\n  ", "\n"], ["\n  ",
+    "\n  ",
+    "\n"])), function (p) {
+    var contentMinHeight = p.contentMinHeight;
+    if (typeof contentMinHeight === 'number') {
+        return "min-height: " + contentMinHeight + "px;";
+    }
+    else if (contentMinHeight) {
+        return "min-height: " + contentMinHeight + ";";
+    }
+    else {
+        return '';
+    }
+}, function (p) {
+    var contentMinWidth = p.contentMinWidth;
+    if (typeof contentMinWidth === 'number') {
+        return "min-width: " + contentMinWidth + "px;";
+    }
+    else if (contentMinWidth) {
+        return "min-width: " + contentMinWidth + ";";
+    }
+    else {
+        return '';
+    }
+});
+var ScrollContainer = function (props) {
+    return React.createElement(Container$2, { direction: props.direction, maxHeight: props.maxHeight, maxWidth: props.maxWidth },
+        React.createElement(Content, __assign({ contentMinHeight: props.contentMinHeight, contentMinWidth: props.contentMinWidth }, props)));
+};
+var templateObject_1$b, templateObject_2$2;
+
 /**
  * A simple styled `<table>`
  *
  * https://chadlavi.github.io/clear/#/table
  */
-var Table = styled__default('table')(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
-var templateObject_1$b;
+var Table = styled__default('table')(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
+var templateObject_1$c;
 
 /**
  * A simple styled `<thead>`
  *
  * https://chadlavi.github.io/clear/#/table
  */
-var TableHead = styled__default('thead')(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
-var templateObject_1$c;
+var TableHead = styled__default('thead')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
+var templateObject_1$d;
 
 /**
  * A simple styled `<tbody>`
  *
  * https://chadlavi.github.io/clear/#/table
  */
-var TableBody = styled__default('tbody')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject([""], [""])));
-var templateObject_1$d;
+var TableBody = styled__default('tbody')(templateObject_1$e || (templateObject_1$e = __makeTemplateObject([""], [""])));
+var templateObject_1$e;
 
 /**
  * A simple styled `<td>`
@@ -339,16 +423,16 @@ var templateObject_1$d;
  *
  * https://chadlavi.github.io/clear/#/table
  */
-var TableCell = styled__default('td')(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
-var templateObject_1$e;
+var TableCell = styled__default('td')(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var templateObject_1$f;
 
 /**
  * A simple styled `<tr>`
  *
  * https://chadlavi.github.io/clear/#/table
  */
-var TableRow = styled__default('tr')(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
-var templateObject_1$f;
+var TableRow = styled__default('tr')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
+var templateObject_1$g;
 
 exports.Button = Button;
 exports.CSSVariables = CSSVariables;
@@ -362,6 +446,7 @@ exports.Input = Input;
 exports.Link = Link;
 exports.Page = Page;
 exports.Paragraph = Paragraph;
+exports.ScrollContainer = ScrollContainer;
 exports.Table = Table;
 exports.TableBody = TableBody;
 exports.TableCell = TableCell;
@@ -371,5 +456,7 @@ exports.colors = colors;
 exports.errorFocusStyle = errorFocusStyle;
 exports.focusStyle = focusStyle;
 exports.numbers = numbers;
+exports.useBreakpoint = useBreakpoint;
 exports.useDarkMode = useDarkMode;
+exports.useMediaQuery = useMediaQuery;
 exports.useResponsiveColor = useResponsiveColor;

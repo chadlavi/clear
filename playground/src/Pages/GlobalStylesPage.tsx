@@ -7,12 +7,12 @@ import {
   Paragraph,
 } from '../component-lib'
 
-export const GlobalStylesPage: React.FC = () => (
+export const GlobalStylesPage: React.FC = () =>
   <>
     <Header>Globals</Header>
     <Paragraph>
-      <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#dark-mode'}>dark mode</Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#dark-mode'}>dark mode</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#globalstyles'}><Code>{'<GlobalStyles>'}</Code></Link>
     </Paragraph>
     <Header as='h2' id='cssvariables'><Code>{'<CSSVariables>'}</Code></Header>
@@ -28,7 +28,7 @@ export const GlobalStylesPage: React.FC = () => (
       colors for use when the user's device is in dark mode. Switching between light and dark mode is handled
       automatically.
     </Paragraph>
-    <Header as='h2' id='globalstyles'><Code>{'<GlobalStyles>'}</Code></Header>  
+    <Header as='h2' id='globalstyles'><Code>{'<GlobalStyles>'}</Code></Header>
     <Paragraph>
       The <Code>GlobalStyles</Code> component applies styles to the <Code>{'<body>'}</Code> tag. As such, <strong>this
       component has side effects</strong>, because it creates CSS rules that affect elements outside the Clear design
@@ -40,4 +40,3 @@ export const GlobalStylesPage: React.FC = () => (
       background colors, font sizes, and margins. Omitting <Code>GlobalStyles</Code> is not recommended.
     </Paragraph>
   </>
-)

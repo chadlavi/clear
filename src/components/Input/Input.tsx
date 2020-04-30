@@ -64,13 +64,13 @@ const forwardOnFocus = (
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InputBase = ({error, label, ...props}: InputProps): JSX.Element => (
+const InputBase = ({error, label, ...props}: InputProps): JSX.Element =>
   <input
     {...props}
     onClick={forwardOnClick(props.onClick)}
     onFocus={forwardOnFocus(props.onFocus)}
   />
-)
+
 
 const StyledInput = styled(InputBase)`
   background-color: var(--clear-background);
@@ -88,7 +88,7 @@ const StyledInput = styled(InputBase)`
 
 /**
  * A simple styled Input
- * 
+ *
  * https://chadlavi.github.io/clear/#/input
  */
 export const Input = (props: InputProps): JSX.Element => {

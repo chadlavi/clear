@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 /**
  * A simple styled `<code>`
- * 
+ *
  * https://chadlavi.github.io/clear/#/text
  */
 export const Code = styled('code')`

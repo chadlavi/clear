@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 /**
  * A simple styled `<tr>`
- * 
+ *
  * https://chadlavi.github.io/clear/#/table
  */
 export const TableRow = styled('tr')`

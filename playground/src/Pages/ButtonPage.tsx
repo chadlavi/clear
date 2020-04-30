@@ -13,7 +13,7 @@ const onClick = (copy: string) =>  (e: React.MouseEvent<HTMLButtonElement>): voi
   alert(copy)
 }
 
-export const ButtonPage: React.FC = () => (
+export const ButtonPage: React.FC = () =>
   <>
     <Header><Code>{'<Button>'}</Code></Header>
     <Paragraph>
@@ -69,4 +69,3 @@ export const ButtonPage: React.FC = () => (
       </Button>
     </Paragraph>
   </>
-)

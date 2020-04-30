@@ -18,16 +18,25 @@ module.exports = {
     },
   },
   rules: {
+    'arrow-spacing': 'error',
+    'comma-dangle': ['error', 'only-multiline'],
     complexity: 'error',
     eqeqeq: ['error', 'always', {'null': 'ignore'}],
     indent: ['error', 2],
     'max-len': ['error', { 'code': 120 }],
+    'prefer-const': 'error',
+    'prefer-template': 'error',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'sort-imports': ['error', {
       'memberSyntaxSortOrder': ['none', 'all', 'single', 'multiple',],
     }],
     'react/no-unescaped-entities': 'off',
+    'radix': 'warn',
+    'no-console': 'error',
+    'no-shadow': 'error',
+    'no-trailing-spaces': 'error',
+    'no-var': 'error',
     'object-curly-spacing': ['error', 'never'],
     'array-bracket-spacing': ['error', 'never'],
     'computed-property-spacing': ['error', 'never'],
@@ -40,6 +49,7 @@ module.exports = {
         delimiter: 'semi',
         requireLast: false,
       },
-    }]
+    }],
+    'yoda': ['error', 'never', { 'exceptRange': true }]
   }
 }

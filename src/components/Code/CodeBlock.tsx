@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 /**
  * A simple styled `<pre>` for formatting code blocks
- * 
+ *
  * https://chadlavi.github.io/clear/#/text
  */
 export const CodeBlock = styled('pre')`

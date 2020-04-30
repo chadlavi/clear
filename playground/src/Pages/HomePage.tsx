@@ -6,7 +6,7 @@ import {
   Paragraph,
 } from '../component-lib'
 
-export const HomePage: React.FC = () => (
+export const HomePage: React.FC = () =>
   <>
     <Header>Clear</Header>
     <Paragraph>
@@ -17,4 +17,3 @@ export const HomePage: React.FC = () => (
       Clear features automatic dark mode support and minimalist styling via <Code>styled-components</Code>.
     </Paragraph>
   </>
-)

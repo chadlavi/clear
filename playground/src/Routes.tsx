@@ -4,6 +4,7 @@ import {
   ButtonPage,
   GettingStartedPage,
   GlobalStylesPage,
+  HelpersPage,
   HomePage,
   InputPage,
   LayoutPage,
@@ -35,6 +36,11 @@ const routes = [
     label: 'Getting started',
     route: '/start',
     component: <GettingStartedPage />,
+  },
+  {
+    label: 'Helpers',
+    route: '/helpers',
+    component: <HelpersPage />,
   },
   {
     label: 'Globals',
@@ -73,12 +79,12 @@ const routes = [
   }
 ]
 
-export const Routes: React.FC = () => (
+export const Routes: React.FC = () =>
   <Page>
     <Router basename='/'>
       <Grid spacing={16}>
         <GridItem>
-          {routes.map((r, i) => (
+          {routes.map((r, i) =>
             <React.Fragment key={r.label}>
               <Link
                 as={RouterLink}
@@ -88,11 +94,11 @@ export const Routes: React.FC = () => (
               </Link>
               {i !== routes.length - 1 ? ' \u00b7 ' : ''}
             </React.Fragment>
-          ))}
+          )}
         </GridItem>
         <GridItem>
           <Switch>
-            {routes.map((r) => (
+            {routes.map((r) =>
               <Route
                 key={r.label}
                 exact
@@ -100,10 +106,10 @@ export const Routes: React.FC = () => (
               >
                 {r.component}
               </Route>
-            ))}
+            )}
           </Switch>
         </GridItem>
       </Grid>
     </Router>
   </Page>
-)
+

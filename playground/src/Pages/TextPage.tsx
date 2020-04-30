@@ -2,14 +2,14 @@ import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
 import {Code, CodeBlock, Header, Link, Paragraph, numbers} from '../component-lib'
 
-export const TextPage: React.FC = () => (
+export const TextPage: React.FC = () =>
   <>
     <Header>Text formatting components</Header>
     <Paragraph>
-      <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#paragraph'}><Code>{'<Paragraph>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#code'}><Code>{'<Code>'}</Code></Link>&nbsp;&middot;&nbsp;
-      <Link as={HashLink} to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></Link>&nbsp;&middot;&nbsp;
+      <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#paragraph'}><Code>{'<Paragraph>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#code'}><Code>{'<Code>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#customization'}>Customization</Link>
     </Paragraph>
     <Paragraph>
@@ -72,4 +72,3 @@ export const TextPage: React.FC = () => (
       See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
     </Paragraph>
   </>
-)

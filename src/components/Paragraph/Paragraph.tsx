@@ -10,7 +10,7 @@ const ParagraphBase= ({margins, ...props}: ParagraphProps): JSX.Element => <p {.
 
 /**
  * A simple styled `<p>`
- * 
+ *
  * https://chadlavi.github.io/clear/#/text
  */
 export const Paragraph = styled(ParagraphBase)`
