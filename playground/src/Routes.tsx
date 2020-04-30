@@ -22,7 +22,7 @@ import {
   Route,
   HashRouter as Router,
   Link as RouterLink,
-  Switch
+  Switch,
 } from 'react-router-dom'
 
 const routes = [
@@ -79,37 +79,56 @@ const routes = [
   },
 ]
 
-export const Routes: React.FC = () =>
-  <Page>
-    <Router basename='/'>
-      <Grid spacing={16}>
-        <GridItem>
-          {routes.map((r, i) =>
-            <React.Fragment key={r.label}>
-              <Link
-                as={RouterLink}
-                to={r.route}
-              >
-                {r.label}
-              </Link>
-              {i !== routes.length - 1 ? ' \u00b7 ' : ''}
-            </React.Fragment>
-          )}
-        </GridItem>
-        <GridItem>
-          <Switch>
-            {routes.map((r) =>
-              <Route
-                key={r.label}
-                exact
-                path={r.route}
-              >
-                {r.component}
-              </Route>
-            )}
-          </Switch>
-        </GridItem>
-      </Grid>
-    </Router>
-  </Page>
+export const Routes: React.FC = () => {
 
+  /**
+   * Scroll to the designated anchor if one is present in the URL.
+   */
+  const scrollToHash = (): void => {
+    const id = window.location.hash.substr(1).split('#')[1]
+
+    if(id) {
+      const anchor = document.getElementById(id)
+      if (anchor) anchor.scrollIntoView()
+    }
+  }
+
+  React.useEffect(() => {
+    scrollToHash()
+  },[])
+
+  return (
+    <Page>
+      <Router basename='/'>
+        <Grid spacing={16}>
+          <GridItem>
+            {routes.map((r, i) =>
+              <React.Fragment key={r.label}>
+                <Link
+                  as={RouterLink}
+                  to={r.route}
+                >
+                  {r.label}
+                </Link>
+                {i !== routes.length - 1 ? ' \u00b7 ' : ''}
+              </React.Fragment>
+            )}
+          </GridItem>
+          <GridItem>
+            <Switch>
+              {routes.map((r) =>
+                <Route
+                  key={r.label}
+                  exact
+                  path={r.route}
+                >
+                  {r.component}
+                </Route>
+              )}
+            </Switch>
+          </GridItem>
+        </Grid>
+      </Router>
+    </Page>
+  )
+}
