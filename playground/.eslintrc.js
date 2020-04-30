@@ -21,6 +21,7 @@ module.exports = {
     'arrow-spacing': 'error',
     'comma-dangle': ['error', 'only-multiline'],
     complexity: 'error',
+    'eol-last': 'error',
     eqeqeq: ['error', 'always', {'null': 'ignore'}],
     indent: ['error', 2],
     'max-len': ['error', { 'code': 120 }],
