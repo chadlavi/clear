@@ -98,7 +98,7 @@ export const Routes: React.FC = () => {
     }
   }
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     scrollToHash()
   })
 
