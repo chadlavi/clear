@@ -21,7 +21,7 @@ export const HelpersPage: React.FC = () =>
       hooks</Link> &mdash; most importantly, that <i>React hooks can only be used inside functional React
       components</i>.
     </Paragraph>
-    <Header as='h3'><Code>useMediaQuery</Code></Header>
+    <Header as='h3' id='usemediaquery'><Code>useMediaQuery</Code></Header>
     <CodeBlock>{'useMediaQuery(query: string) => boolean'}</CodeBlock>
     <Paragraph>
       This basic React hook returns a boolean value that reflects whether or not the given <Code>query</Code> matches.
@@ -32,7 +32,7 @@ export const HelpersPage: React.FC = () =>
     <Paragraph>
       Your browser is in {useMediaQuery('(orientation: landscape)') ? 'landscape' : 'portrait'} orientation.
     </Paragraph>
-    <Header as='h3'><Code>useBreakpoint</Code></Header>
+    <Header as='h3' id='usebreakpoint'><Code>useBreakpoint</Code></Header>
     <CodeBlock>{`type Breakpoint = 'xs' | 'sm' | 'md' | 'lg'
 
 useBreakpoint(breakpoint: Breakpoint) => boolean`}</CodeBlock>
@@ -45,7 +45,7 @@ useBreakpoint(breakpoint: Breakpoint) => boolean`}</CodeBlock>
     <Paragraph>
       Your browser is {useBreakpoint('sm') ? 'narrower' : 'wider'} than {numbers.breakpoint.sm}px.
     </Paragraph>
-    <Header as='h3'><Code>useDarkMode</Code></Header>
+    <Header as='h3' id='usedarkmode'><Code>useDarkMode</Code></Header>
     <CodeBlock>{'useDarkMode() => boolean'}</CodeBlock>
     <Paragraph>
       Returns a boolean value that reflects whether or not the user's browser is currently in dark mode.
@@ -56,7 +56,7 @@ useBreakpoint(breakpoint: Breakpoint) => boolean`}</CodeBlock>
     <Paragraph>
       Your browser is in {useDarkMode() ? 'dark' : 'light'} mode.
     </Paragraph>
-    <Header as='h3'><Code>useResponsiveColor</Code></Header>
+    <Header as='h3' id='useresponsivecolor'><Code>useResponsiveColor</Code></Header>
     <CodeBlock>{`type Colors = 'background' | 'blue' | 'border' | 'error' | 'link' |
   'textColor' | 'violet' | 'zebra'
 

@@ -9,6 +9,6 @@ export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
 /**
  * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
  *
- * https://chadlavi.github.io/clear/#/grid
+ * https://chadlavi.github.io/clear/#/layout#griditem
  */
 export declare const GridItem: import("styled-components").StyledComponent<React.FC<{}>, any, GridItemProps, never>;

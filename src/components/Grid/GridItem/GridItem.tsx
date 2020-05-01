@@ -17,7 +17,7 @@ const Container: React.FC = ({size, ...props}: GridItemProps) => <div {...props}
 /**
  * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
  *
- * https://chadlavi.github.io/clear/#/grid
+ * https://chadlavi.github.io/clear/#/layout#griditem
  */
 export const GridItem = styled(Container)<GridItemProps>`
   flex-basis: calc(100% * ${(p): number => p.size || 12} / 12);

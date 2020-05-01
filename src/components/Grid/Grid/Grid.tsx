@@ -15,7 +15,7 @@ const Container: React.FC = ({spacing, ...props}: GridProps) => <div {...props} 
  * A simple 12-column grid container. Must be used in conjunciton with
  * `<GridItem>`.
  *
- * https://chadlavi.github.io/clear/#/grid
+ * https://chadlavi.github.io/clear/#/layout#grid
  */
 export const Grid = styled(Container)<GridProps>`
   display: flex;

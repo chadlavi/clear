@@ -83,7 +83,13 @@ const Content = styled(ContentBase)`
     }
   }}
 `
-
+/**
+ * You can use a ScrollContainer to create a verticall or horizontally scrollable div with content of a fixed minimum
+ * height/width. Scroll containers are very convenient ways to prevent <Table>s from becoming unmanageable on
+ * responsive devices.
+ *
+ * https://chadlavi.github.io/clear/#/layout#scrollcontainer
+ */
 export const ScrollContainer = (props: ScrollContainerProps): JSX.Element =>
   <Container
     direction={props.direction}

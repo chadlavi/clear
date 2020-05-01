@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * A simple styled `<code>`
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#code
  */
 export const Code = styled('code')`
   font-family: var(--clear-monospace-font-family);

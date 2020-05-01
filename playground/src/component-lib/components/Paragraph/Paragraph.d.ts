@@ -5,7 +5,7 @@ interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
 /**
  * A simple styled `<p>`
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#paragraph
  */
 export declare const Paragraph: import("styled-components").StyledComponent<({ margins, ...props }: ParagraphProps) => JSX.Element, any, {}, never>;
 export {};

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * A simple styled `<thead>`
  *
- * https://chadlavi.github.io/clear/#/table
+ * https://chadlavi.github.io/clear/#/table#tablehead
  */
 export const TableHead = styled('thead')`
   th {

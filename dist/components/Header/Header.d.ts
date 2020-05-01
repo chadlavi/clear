@@ -9,6 +9,6 @@
  * </Header>
  * ```
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#header
  */
 export declare const Header: import("styled-components").StyledComponent<"h1", any, {}, never>;

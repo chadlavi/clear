@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * A simple styled `<pre>` for formatting code blocks
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#codeblock
  */
 export const CodeBlock = styled('pre')`
   font-family: var(--clear-monospace-font-family);

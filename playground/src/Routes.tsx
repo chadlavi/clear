@@ -81,21 +81,26 @@ const routes = [
 
 export const Routes: React.FC = () => {
 
+  const scrollinate = async (id: string): Promise<void> => {
+    const anchor = document.getElementById(id)
+    if (anchor) anchor.scrollIntoView(true)
+  }
+
   /**
    * Scroll to the designated anchor if one is present in the URL.
    */
-  const scrollToHash = (): void => {
-    const id = window.location.hash.substr(1).split('#')[1]
-
+  const scrollToHash = async (): Promise<void> => {
+    window.location.hash = window.location.hash.replace('%23', '#')
+    const hash = window.location.hash
+    const id = hash.substr(1).split('#')[1]
     if(id) {
-      const anchor = document.getElementById(id)
-      if (anchor) anchor.scrollIntoView()
+      await scrollinate(id)
     }
   }
 
   React.useEffect(() => {
     scrollToHash()
-  },[])
+  })
 
   return (
     <Page>

@@ -11,6 +11,6 @@ import styled from 'styled-components'
  * </Header>
  * ```
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#header
  */
 export const Header = styled('h1')``

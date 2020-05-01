@@ -9,6 +9,6 @@
  * </TableCell>
  * ```
  *
- * https://chadlavi.github.io/clear/#/table
+ * https://chadlavi.github.io/clear/#/table#tablecell
  */
 export declare const TableCell: import("styled-components").StyledComponent<"td", any, {}, never>;

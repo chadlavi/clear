@@ -4,7 +4,7 @@ import styled from 'styled-components'
 /**
  * A simple styled `<main>`
  *
- * https://chadlavi.github.io/clear/#/layout
+ * https://chadlavi.github.io/clear/#/layout#page
  */
 export const Page = styled('main')`
 margin: 0 auto;

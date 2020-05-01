@@ -3,7 +3,7 @@ import styled from 'styled-components'
 /**
  * A simple styled `<tr>`
  *
- * https://chadlavi.github.io/clear/#/table
+ * https://chadlavi.github.io/clear/#/table#tablerow
  */
 export const TableRow = styled('tr')`
   &:nth-child(even) {

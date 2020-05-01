@@ -11,7 +11,7 @@ const ParagraphBase= ({margins, ...props}: ParagraphProps): JSX.Element => <p {.
 /**
  * A simple styled `<p>`
  *
- * https://chadlavi.github.io/clear/#/text
+ * https://chadlavi.github.io/clear/#/text#paragraph
  */
 export const Paragraph = styled(ParagraphBase)`
   line-height: 1.5;

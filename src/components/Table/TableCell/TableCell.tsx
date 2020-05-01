@@ -11,7 +11,7 @@ import styled from 'styled-components'
  * </TableCell>
  * ```
  *
- * https://chadlavi.github.io/clear/#/table
+ * https://chadlavi.github.io/clear/#/table#tablecell
  */
 export const TableCell = styled('td')`
   text-align: left;
