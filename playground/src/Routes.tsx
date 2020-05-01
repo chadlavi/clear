@@ -19,9 +19,9 @@ import {
   Page,
 } from './component-lib'
 import {
+  HashRouter,
+  NavLink,
   Route,
-  HashRouter as Router,
-  Link as RouterLink,
   Switch,
 } from 'react-router-dom'
 
@@ -106,14 +106,15 @@ export const Routes: React.FC = () => {
 
   return (
     <Page>
-      <Router basename='/'>
+      <HashRouter basename='/'>
         <Grid spacing={16}>
           <GridItem>
             {routes.map((r, i) =>
               <React.Fragment key={r.label}>
                 <Link
-                  as={RouterLink}
+                  as={NavLink}
                   to={r.route}
+                  exact={r.exact}
                 >
                   {r.label}
                 </Link>
@@ -132,10 +133,13 @@ export const Routes: React.FC = () => {
                   {r.component}
                 </Route>
               )}
+              <Route>
+                <HomePage/>
+              </Route>
             </Switch>
           </GridItem>
         </Grid>
-      </Router>
+      </HashRouter>
     </Page>
   )
 }

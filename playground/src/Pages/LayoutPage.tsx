@@ -121,7 +121,7 @@ maxHeight?: number | string
 maxWidth?: number | string`}</CodeBlock>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
-        See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
+        See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
         <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L139'}>

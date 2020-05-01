@@ -69,6 +69,6 @@ export const TextPage: React.FC = () =>
     </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
-      See <Link as={HashLink} to={'/start#customizing'}>Customizing</Link> discussion on the Getting started page.
+      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
     </Paragraph>
   </>

@@ -63,7 +63,7 @@ export const GettingStartedPage: React.FC = () =>
       <Link as={HashLink} to={'#usage'}>Usage</Link><br />
       <Link as={HashLink} to={'#globals'}>Globals</Link><br />
       <Link as={HashLink} to={'#structure'}>Structure</Link><br />
-      <Link as={HashLink} to={'#customizing'}>Customizing</Link><br />
+      <Link as={HashLink} to={'#customization'}>Customization</Link><br />
     </Paragraph>
     <Header as='h2' id='npmrc'>Editing your <Code>.npmrc</Code></Header>
     <Paragraph>
@@ -132,7 +132,7 @@ document.getElementById('root')
   Page,
 } from '@chadlavi/clear'`}
     </CodeBlock>
-    <Header as='h3' id='customizing'>Customizing</Header>
+    <Header as='h3' id='customization'>Customization</Header>
     <Paragraph>
       Since <Link as={HashLink} to={'/global-styles#cssvariables'}><Code>{'<CSSVariables />'}</Code></Link> creates
       global CSS variables, you can access them in your app's styles.
