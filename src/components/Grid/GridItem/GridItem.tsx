@@ -22,8 +22,10 @@ const Container: React.FC = ({size, ...props}: GridItemProps) => <div {...props}
 export const GridItem = styled(Container)<GridItemProps>`
   flex-basis: calc(100% * ${(p): number => p.size || 12} / 12);
   width: calc(100% * ${(p): number => p.size || 12} / 12);
+  max-width: calc(100% * ${(p): number => p.size || 12} / 12);
   @media only screen and (max-width: ${numbers.breakpoint.xs}px) {
     flex-basis: 100%;
     width: 100%;
+    max-width: 100%;
   }
 `
