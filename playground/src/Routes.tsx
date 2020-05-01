@@ -94,11 +94,13 @@ export const Routes: React.FC = () => {
     const hash = window.location.hash
     const id = hash.substr(1).split('#')[1]
     if(id) {
-      await scrollinate(id)
+      setTimeout(async () => {
+        await scrollinate(id)
+      }, 1)
     }
   }
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     scrollToHash()
   })
 
