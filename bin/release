@@ -1,0 +1,22 @@
+#!/bin/sh
+
+fatal() {
+  echo "FATAL: $1" >&2
+  exit 1
+}
+
+if [[ "$(basename `pwd`)" != "clear" ]]; then
+  fatal "Must be run from root directory of clear"
+fi
+
+if [ -z "$*" ] || [[ "$1" != "major" && "$1" != "minor" && "$1" != "patch" ]]; then
+  fatal "Version required, one of \"major\", \"minor\", \"patch\"."
+fi
+
+npm run version:"$1" && \
+ version=$(node -e "console.log(require(\"./package.json\").version)") &&
+ npm publish && \
+ npm run build-playground && \
+ git add . && \
+ git commit -am "v$version docs update from release script" && \
+ git push origin --tags || fatal "could not push"
