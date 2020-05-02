@@ -104,7 +104,7 @@ var templateObject_1;
  *
  * https://chadlavi.github.io/clear/#/global-styles#globalstyles
  */
-var GlobalStyles = createGlobalStyle(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n  }\n"])));
+var GlobalStyles = createGlobalStyle(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-text-size-adjust: 100%;\n  }\n"], ["\n  body {\n    margin: 0;\n    background-color: var(--clear-background);\n    color: var(--clear-textColor);\n    font-family: var(--clear-font-family);\n    font-size: var(--clear-font-size-default);\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    -webkit-text-size-adjust: 100%;\n  }\n"])));
 var templateObject_1$1;
 
 /**

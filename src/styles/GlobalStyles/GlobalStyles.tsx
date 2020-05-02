@@ -14,5 +14,6 @@ export const GlobalStyles= createGlobalStyle`
     font-size: var(--clear-font-size-default);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
   }
 `
