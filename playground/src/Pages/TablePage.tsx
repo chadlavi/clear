@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import {
   Code,
   CodeBlock,
@@ -16,6 +17,7 @@ import {
 
 export const TablePage: React.FC = () =>
   <>
+    {setTitle('Table')}
     <Header>Table</Header>
     <Paragraph>
       <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
@@ -71,7 +73,7 @@ export const TablePage: React.FC = () =>
       See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L81'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L84'}>Example</Link>
     </Header>
     <Paragraph>
       This <Code>Table</Code> is wrapped in

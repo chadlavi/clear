@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
   Button,
@@ -55,6 +56,7 @@ const FocusableResponsiveBigErrorButton = styled(ExtendedButton)`
 
 export const GettingStartedPage: React.FC = () =>
   <>
+    {setTitle('Getting started')}
     <Header>Getting started</Header>
     <Header as ='h2'>Contents</Header>
     <Paragraph>

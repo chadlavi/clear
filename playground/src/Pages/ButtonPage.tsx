@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import {
   Button,
   Code,
@@ -15,6 +16,7 @@ const onClick = (copy: string) =>  (e: React.MouseEvent<HTMLButtonElement>): voi
 
 export const ButtonPage: React.FC = () =>
   <>
+    {setTitle('Button')}
     <Header><Code>{'<Button>'}</Code></Header>
     <Paragraph>
       The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.

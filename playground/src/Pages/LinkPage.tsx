@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
 import {Link as RouterLink} from 'react-router-dom'
+import {setTitle} from '../utils'
 import {
   Code,
   CodeBlock,
@@ -11,6 +12,7 @@ import {
 
 export const LinkPage: React.FC = () =>
   <>
+    {setTitle('Link')}
     <Header id={'link'}><Code>{'<Link>'}</Code></Header>
     <Paragraph>
       <Link as={HashLink} to={'#external'}>External vs internal links</Link>{' \u00b7 '}
@@ -48,7 +50,7 @@ export const LinkPage: React.FC = () =>
       See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L54'}>Examples</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L56'}>Examples</Link>
     </Header>
     <Paragraph>
       <Link href={'/clear/'}>Internal HTML link</Link> (causes page load)

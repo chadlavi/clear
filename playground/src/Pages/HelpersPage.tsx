@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {setTitle} from '../utils'
 import {
   Code,
   CodeBlock,
@@ -14,6 +15,7 @@ import {
 
 export const HelpersPage: React.FC = () =>
   <>
+    {setTitle('Helpers')}
     <Header>Helpers</Header>
     <Paragraph>
       The following <Link href='https://reactjs.org/docs/hooks-intro.html'>React hooks</Link> are available in Clear.

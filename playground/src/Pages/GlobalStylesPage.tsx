@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import {
   Code,
   Header,
@@ -9,6 +10,7 @@ import {
 
 export const GlobalStylesPage: React.FC = () =>
   <>
+    {setTitle('Globals')}
     <Header>Globals</Header>
     <Paragraph>
       <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>{' \u00b7 '}

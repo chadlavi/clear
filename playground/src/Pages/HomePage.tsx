@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {setTitle} from '../utils'
 import {
   Code,
   Header,
@@ -8,6 +9,7 @@ import {
 
 export const HomePage: React.FC = () =>
   <>
+    {setTitle()}
     <Header>Clear</Header>
     <Paragraph>
       <Link href={'https://github.com/chadlavi/clear'}>Clear</Link> is a simple personal Design System for TypeScript

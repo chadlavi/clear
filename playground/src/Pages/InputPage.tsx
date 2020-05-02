@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
   Code,
@@ -45,6 +46,7 @@ export const InputPage: React.FC = () => {
 
   return (
     <>
+      {setTitle('Input')}
       <Header><Code>{'<Input>'}</Code></Header>
       <Paragraph>
         <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
@@ -107,7 +109,7 @@ export const InputPage: React.FC = () => {
         />
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L116'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L118'}>
           Examples
         </Link>
       </Header>

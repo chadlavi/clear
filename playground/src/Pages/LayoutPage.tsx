@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
+import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
   Code,
@@ -51,6 +52,7 @@ export const LayoutPage: React.FC = () => {
 
   return (
     <>
+      {setTitle('Layout components')}
       <Header>Layout components</Header>
       <Paragraph>
         <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>{' \u00b7 '}
@@ -124,7 +126,7 @@ maxWidth?: number | string`}</CodeBlock>
         See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L139'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L141'}>
           Examples
         </Link>
       </Header>

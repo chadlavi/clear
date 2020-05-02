@@ -1,9 +1,18 @@
 import * as React from 'react'
 import {HashLink} from 'react-router-hash-link'
-import {Code, CodeBlock, Header, Link, Paragraph, numbers} from '../component-lib'
+import {setTitle} from '../utils'
+import {
+  Code,
+  CodeBlock,
+  Header,
+  Link,
+  Paragraph,
+  numbers,
+} from '../component-lib'
 
 export const TextPage: React.FC = () =>
   <>
+    {setTitle('Text formatting components')}
     <Header>Text formatting components</Header>
     <Paragraph>
       <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>{' \u00b7 '}
