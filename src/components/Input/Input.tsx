@@ -92,7 +92,7 @@ const StyledInput = styled(InputBase)`
 /**
  * A simple styled Input
  *
- * https://chadlavi.github.io/clear/#/input
+ * https://chadlavi.github.io/clear/#/input#input
  */
 export const Input = (props: InputProps): JSX.Element => {
   const {

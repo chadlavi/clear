@@ -11,6 +11,8 @@ import {
   Input,
   Link,
   Paragraph,
+  Select,
+  handleMultiSelectChange,
 } from '../component-lib'
 
 const FancyPinkInput = styled(Input)`
@@ -35,24 +37,43 @@ const FancyPinkInput = styled(Input)`
   }
 `
 
-export const InputPage: React.FC = () => {
-  const [numericValue, setNumericValue] = React.useState<number | undefined>()
-  const [textValue, setTextValue] = React.useState<string | undefined>()
-  const [errorValue, setErrorValue] = React.useState<string | undefined>()
-  const [requiredValue, setRequiredValue] = React.useState<string | undefined>()
-  const [customValue, setCustomValue] = React.useState<string | undefined>()
+const selectOptions = [
+  {label: 'Buzz cola', value: ['foo']},
+  {label: 'Slurm', value: 'bar'},
+  {label: 'Löwenbrau', value: 'baz'},
+]
 
-  const handleFancyChange = (e: React.ChangeEvent<HTMLInputElement>): void => setCustomValue(e.currentTarget.value)
+export const InputPage: React.FC = () => {
+  const [numericInputValue, setNumericInputValue] = React.useState<number | undefined>()
+  const [textInputValue, setTextInputValue] = React.useState<string | undefined>()
+  const [errorInputValue, setErrorInputValue] = React.useState<string | undefined>()
+  const [requiredInputValue, setRequiredInputValue] = React.useState<string | undefined>()
+  const [customInputValue, setCustomInputValue] = React.useState<string | undefined>()
+  const [singleSelectValue, setSingleSelectValue] = React.useState<string | number | string[] | undefined>()
+  const [errorSingleSelectValue, setErrorSingleSelectValue] = React.useState<string | number | string[] | undefined>()
+  const [
+    requiredSingleSelectValue,
+    setRequiredSingleSelectValue
+  ] = React.useState<string | number | string[] | undefined>()
+  const [multiSelectValue, setMultiSelectValue] = React.useState<string[] | undefined>()
+  const [errorMultiSelectValue, setErrorMultiSelectValue] = React.useState<string[] | undefined>()
+  const [requiredMultiSelectValue, setRequiredMultiSelectValue] = React.useState<string[] | undefined>()
+
+  const handleFancyChange = (e: React.ChangeEvent<HTMLInputElement>): void => setCustomInputValue(e.currentTarget.value)
 
   return (
     <>
-      {setTitle('Input')}
-      <Header><Code>{'<Input>'}</Code></Header>
+      {setTitle('Inputs')}
+      <Header>Inputs</Header>
       <Paragraph>
-        <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#input'}><Code>{'<Input>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#inputprops'}><Code>InputProps</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#select'}><Code>{'<Select>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#selectprops'}><Code>SelectProps</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#examples'}>Examples</Link>
       </Paragraph>
+      <Header as='h2' id='input'><Code>{'<Input>'}</Code></Header>
       <Paragraph>
         The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{'<input>'}</Code> element.
       </Paragraph>
@@ -64,10 +85,26 @@ export const InputPage: React.FC = () => {
   <span>label text goes here</span>
   <input />
 </label>`}</CodeBlock>
-      <Header as='h2' id='props'>Props: <Code>InputProps</Code></Header>
+      <Header as='h3' id='inputprops'>Props: <Code>InputProps</Code></Header>
       <Paragraph>
         <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{'<input>'}</Code>, plus the
         props <Code>label?: string</Code> to add a label and <Code>error?: boolean</Code> to toggle an error state.
+      </Paragraph>
+      <Header as='h2' id='select'><Code>{'<Select>'}</Code></Header>
+      <Paragraph>
+        Select is a wrapper around HTML <Code>{'<select>'}</Code>. Instead of manually building a set of
+        child <Code>{'<option>'}</Code>s as in HTML, you pass an array of options to the <Code>options</Code> prop.
+      </Paragraph>
+      <Header as='h3' id='selectprops'>Props: <Code>SelectProps</Code></Header>
+      <Paragraph>
+        Besides the normal props that could be passed to an HTML<Code>{'<select>'}</Code> in any React app,
+        Clear's <Code>{'<Select>'}</Code> also has the required prop <Code>options</Code>, which expects a value of
+        type
+      </Paragraph>
+      <CodeBlock>{'{label: string; value: string | number | string[]}[]'}</CodeBlock>
+      <Paragraph>
+        <Code>{'<Select>'}</Code> also accepts the props <Code>error?: boolean</Code> to control whether it appears in
+        an error state, and <Code>label?: string</Code> to provide label content for the field.
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
@@ -103,47 +140,111 @@ export const InputPage: React.FC = () => {
 \``}</CodeBlock>
       <Paragraph>
         <FancyPinkInput
-          label={`Fancy pink input${customValue?.match(/fancy/i) ? '🌸' :''}`}
-          value={customValue}
+          label={`Fancy pink input${customInputValue?.match(/fancy/i) ? '🌸' :''}`}
+          value={customInputValue}
           onChange={handleFancyChange}
         />
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L118'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L157'}>
           Examples
         </Link>
       </Header>
       <Grid spacing={8}>
+        <GridItem>
+          <Header as='h3'><Code>{'<Input>'}</Code></Header>
+        </GridItem>
         <GridItem size={6}>
           <Input
-            value={numericValue}
+            value={numericInputValue}
             label={'Numeric input'}
             type={'number'}
             inputMode={'numeric'}
-            onChange={(e): void => setNumericValue(parseInt(e.currentTarget.value || '0', 10))}
+            onChange={(e): void => setNumericInputValue(parseInt(e.currentTarget.value || '0', 10))}
           />
         </GridItem>
         <GridItem size={6}>
           <Input
-            value={textValue}
+            value={textInputValue}
             label={'Text input'}
-            onChange={(e): void => setTextValue(e.currentTarget.value)}
+            onChange={(e): void => setTextInputValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
           <Input
-            value={errorValue}
+            value={errorInputValue}
             error
             label={'Input with error'}
-            onChange={(e): void => setErrorValue(e.currentTarget.value)}
+            onChange={(e): void => setErrorInputValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
           <Input
-            value={requiredValue}
+            value={requiredInputValue}
             required
             label={'Input'}
-            onChange={(e): void => setRequiredValue(e.currentTarget.value)}
+            onChange={(e): void => setRequiredInputValue(e.currentTarget.value)}
+          />
+        </GridItem>
+        <GridItem>
+          <Header as='h3'><Code>{'<Select>'}</Code></Header>
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            label={'Single select'}
+            value={singleSelectValue}
+            onChange={(e): void => setSingleSelectValue(e.currentTarget.value)}
+            options={selectOptions}
+          />
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            error
+            label={'Single select with error'}
+            value={errorSingleSelectValue}
+            onChange={(e): void => setErrorSingleSelectValue(e.currentTarget.value)}
+            options={selectOptions}
+          />
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            label={'Single select'}
+            value={requiredSingleSelectValue}
+            onChange={(e): void => setRequiredSingleSelectValue(e.currentTarget.value)}
+            options={selectOptions}
+            required
+          />
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            label={'Multiple select'}
+            multiple
+            onChange={handleMultiSelectChange(multiSelectValue, setMultiSelectValue)}
+            options={selectOptions}
+            size={3}
+            value={multiSelectValue}
+          />
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            error
+            label={'Multiple select with error'}
+            multiple
+            onChange={handleMultiSelectChange(errorMultiSelectValue, setErrorMultiSelectValue)}
+            options={selectOptions}
+            size={3}
+            value={errorMultiSelectValue}
+          />
+        </GridItem>
+        <GridItem size={4}>
+          <Select
+            label={'Multiple select'}
+            multiple
+            onChange={handleMultiSelectChange(requiredMultiSelectValue, setRequiredMultiSelectValue)}
+            options={selectOptions}
+            required
+            size={3}
+            value={requiredMultiSelectValue}
           />
         </GridItem>
       </Grid>
