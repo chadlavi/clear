@@ -19,4 +19,5 @@ npm run version:"$1" && \
  npm run build-playground && \
  git add . && \
  git commit -am "v$version docs update from release script" && \
- git push origin --tags || fatal "could not push"
+ git push origin --tags && \
+ git push origin || fatal "could not push"
