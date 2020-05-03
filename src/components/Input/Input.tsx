@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import {uuid} from '../../utils'
 import {errorFocusStyle, focusStyle} from '../../styles'
 
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -13,7 +14,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   label?: string
 }
 
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   disabled?: boolean
   error?: boolean
 }
@@ -81,6 +82,8 @@ const StyledInput = styled(InputBase)`
   font-size: inherit;
   margin: calc(var(--clear-unit) / 2) 0;
   width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   -webkit-appearance: none;
   ${focusStyle}
   ${(p): string => p.error ? errorFocusStyle : ''}
@@ -93,21 +96,25 @@ const StyledInput = styled(InputBase)`
  */
 export const Input = (props: InputProps): JSX.Element => {
   const {
+    id,
     label,
     value,
     ...other
   } = props
+  const forwardID = id || uuid()
   return (
     <StyledLabel
       className={other.className}
       disabled={other.disabled}
       error={other.error}
+      htmlFor={forwardID}
     >
       <span>
         {label}{other.required ? ' (Required)' : ''}
       </span>
       <StyledInput
         {...other}
+        id={forwardID}
         value={value || (other.type === 'number' ? ' ' : '')}
       />
     </StyledLabel>
