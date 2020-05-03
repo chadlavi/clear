@@ -225,6 +225,14 @@ var templateObject_1$6;
 var Header = styled__default('h1')(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject([""], [""])));
 var templateObject_1$7;
 
+var uuid = function () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0;
+        var v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+};
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Label = function (_a) {
     var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
@@ -268,7 +276,7 @@ var InputBase = function (_a) {
     var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
     return React.createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) }));
 };
-var StyledInput = styled__default(InputBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"
+var StyledInput = styled__default(InputBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  min-width: 100%;\n  max-width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  min-width: 100%;\n  max-width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"
     /**
      * A simple styled Input
      *
@@ -281,12 +289,13 @@ var StyledInput = styled__default(InputBase)(templateObject_2 || (templateObject
  * https://chadlavi.github.io/clear/#/input
  */
 var Input = function (props) {
-    var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
-    return (React.createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error },
+    var id = props.id, label = props.label, value = props.value, other = __rest(props, ["id", "label", "value"]);
+    var forwardID = id || uuid();
+    return (React.createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error, htmlFor: forwardID },
         React.createElement("span", null,
             label,
             other.required ? ' (Required)' : ''),
-        React.createElement(StyledInput, __assign({}, other, { value: value || (other.type === 'number' ? ' ' : '') }))));
+        React.createElement(StyledInput, __assign({}, other, { id: forwardID, value: value || (other.type === 'number' ? ' ' : '') }))));
 };
 var templateObject_1$8, templateObject_2;
 

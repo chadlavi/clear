@@ -9,10 +9,6 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
      */
     label?: string;
 }
-export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-    disabled?: boolean;
-    error?: boolean;
-}
 /**
  * A simple styled Input
  *
