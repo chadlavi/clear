@@ -19,7 +19,9 @@
     "version:patch": "npm version patch && cd playground && npm version patch && cd -",
     "version:minor": "npm version minor && cd playground && npm version minor && cd -",
     "version:major": "npm version major && cd playground && npm version major && cd -",
-    "lint": "node node_modules/eslint/bin/eslint.js . --ext .ts,.tsx,.js,.jsx --fix"
+    "lint:nofix": "node node_modules/eslint/bin/eslint.js . --ext .ts,.tsx,.js,.jsx ",
+    "lint": "npm run lint:nofix -- --fix"
+
   },
   "repository": {
     "type": "git",
