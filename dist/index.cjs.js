@@ -184,6 +184,19 @@ var templateObject_1$4;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Container = function (_a) {
+    var size = _a.size, props = __rest(_a, ["size"]);
+    return React.createElement("div", __assign({}, props));
+};
+/**
+ * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
+ *
+ * https://chadlavi.github.io/clear/#/layout#griditem
+ */
+var GridItem = styled__default(Container)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
+var templateObject_1$5;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var Container$1 = function (_a) {
     var spacing = _a.spacing, props = __rest(_a, ["spacing"]);
     return React.createElement("div", __assign({}, props));
 };
@@ -193,20 +206,7 @@ var Container = function (_a) {
  *
  * https://chadlavi.github.io/clear/#/layout#grid
  */
-var Grid = styled__default(Container)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
-var templateObject_1$5;
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-var Container$1 = function (_a) {
-    var size = _a.size, props = __rest(_a, ["size"]);
-    return React.createElement("div", __assign({}, props));
-};
-/**
- * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
- *
- * https://chadlavi.github.io/clear/#/layout#griditem
- */
-var GridItem = styled__default(Container$1)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
+var Grid = styled__default(Container$1)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > ", " {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > ", " {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, GridItem, function (p) { return p.spacing ? p.spacing / 2 : 0; });
 var templateObject_1$6;
 
 /**
@@ -430,22 +430,6 @@ var Table = styled__default('table')(templateObject_1$f || (templateObject_1$f =
 var templateObject_1$f;
 
 /**
- * A simple styled `<thead>`
- *
- * https://chadlavi.github.io/clear/#/table#tablehead
- */
-var TableHead = styled__default('thead')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
-var templateObject_1$g;
-
-/**
- * A simple styled `<tbody>`
- *
- * https://chadlavi.github.io/clear/#/table#tablebody
- */
-var TableBody = styled__default('tbody')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject([""], [""])));
-var templateObject_1$h;
-
-/**
  * A simple styled `<td>`
  *
  * Can also be used to create a `<th>`:
@@ -458,7 +442,23 @@ var templateObject_1$h;
  *
  * https://chadlavi.github.io/clear/#/table#tablecell
  */
-var TableCell = styled__default('td')(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var TableCell = styled__default('td')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var templateObject_1$g;
+
+/**
+ * A simple styled `<thead>`
+ *
+ * https://chadlavi.github.io/clear/#/table#tablehead
+ */
+var TableHead = styled__default('thead')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])), TableCell);
+var templateObject_1$h;
+
+/**
+ * A simple styled `<tbody>`
+ *
+ * https://chadlavi.github.io/clear/#/table#tablebody
+ */
+var TableBody = styled__default('tbody')(templateObject_1$i || (templateObject_1$i = __makeTemplateObject([""], [""])));
 var templateObject_1$i;
 
 /**
@@ -466,7 +466,7 @@ var templateObject_1$i;
  *
  * https://chadlavi.github.io/clear/#/table#tablerow
  */
-var TableRow = styled__default('tr')(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
+var TableRow = styled__default('tr')(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])), TableCell, TableCell, TableCell);
 var templateObject_1$j;
 
 exports.Button = Button;
