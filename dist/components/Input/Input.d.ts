@@ -4,14 +4,10 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
      * if true, the `<Input>` is shown with error styling
      */
     error?: boolean;
-    /**
-     * The string used to label the input
-     */
-    label?: string;
 }
 /**
  * A simple styled Input
  *
- * https://chadlavi.github.io/clear/#/input
+ * https://chadlavi.github.io/clear/#/input#input
  */
-export declare const Input: (props: InputProps) => JSX.Element;
+export declare const Input: import("styled-components").StyledComponent<({ error, ...props }: InputProps) => JSX.Element, any, {}, never>;
