@@ -9,29 +9,34 @@ import {
   GridItem,
   Header,
   Input,
+  Label,
   Link,
   Paragraph,
 } from '../component-lib'
 
+const FancyPinkParagraph = styled(Paragraph)`
+  border-radius: var(--clear-unit);
+  color: purple;
+  padding: var(--clear-unit);
+  background: pink;
+  label {
+    font-style: italic;
+  }
+`
+
 const FancyPinkInput = styled(Input)`
   border-color: purple;
-  border-radius: 8px;
-  &:not(input) {
-    padding: 8px;
-    span {
-      font-style: italic;
-    }
-  }
+  border-radius: var(--clear-unit);
   background: pink;
   color: purple;
-  font-size: 24px;
+  font-size: calc(var(--clear-unit) * 3);
   ::selection {
     color: pink;
     background: purple;
   }
   &:focus {
-    box-shadow: 0 0 0 3px pink,
-    0 0 0 4px purple;
+    box-shadow: 0 0 0 calc(var(--clear-unit) / 2 - 1px) pink,
+    0 0 0 calc(var(--clear-unit) / 2) purple;
   }
 `
 
@@ -39,16 +44,18 @@ export const InputPage: React.FC = () => {
   const [numericValue, setNumericValue] = React.useState<number | undefined>()
   const [textValue, setTextValue] = React.useState<string | undefined>()
   const [errorValue, setErrorValue] = React.useState<string | undefined>()
+  const [disabledValue] = React.useState<string | undefined>()
   const [requiredValue, setRequiredValue] = React.useState<string | undefined>()
   const [customValue, setCustomValue] = React.useState<string | undefined>()
+  const [textAreaValue, setTextAreaValue] = React.useState<string | undefined>()
 
   const handleFancyChange = (e: React.ChangeEvent<HTMLInputElement>): void => setCustomValue(e.currentTarget.value)
 
   return (
     <>
       {setTitle('Input')}
-      <Header><Code>{'<Input>'}</Code></Header>
-      <Paragraph>
+      <Header id='input'><Code>{'<Input>'}</Code></Header>
+      <Paragraph as={'nav'}>
         <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#examples'}>Examples</Link>
@@ -57,57 +64,72 @@ export const InputPage: React.FC = () => {
         The <Code>Input</Code> component is a styled wrapper around an HTML <Code>{'<input>'}</Code> element.
       </Paragraph>
       <Paragraph>
-        Note that under the hood, the <Code>Input</Code> component actually returns an
-        HTML <Code>{'<label>'}</Code> with a nested <Code>{'<input>'}</Code> inside it. It basically looks like this:
+        Note that <Code>Input</Code> should always be paired with
+        a <Link as={HashLink} to={'/text#label'}><Code>{'<Label>'}</Code></Link>.
       </Paragraph>
-      <CodeBlock>{`<label>
-  <span>label text goes here</span>
-  <input />
-</label>`}</CodeBlock>
       <Header as='h2' id='props'>Props: <Code>InputProps</Code></Header>
       <Paragraph>
         <Code>Input</Code> accepts all the props you'd expect for an HTML <Code>{'<input>'}</Code>, plus the
-        props <Code>label?: string</Code> to add a label and <Code>error?: boolean</Code> to toggle an error state.
+        prop <Code>error?: boolean</Code> to toggle an error state.
+      </Paragraph>
+      <Paragraph>
+        You can also use
+        the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop</Link> to
+        render a <Code>{'<textarea>'}</Code> instead of an <Code>{'<input>'}</Code>, as shown in
+        the <Link as={HashLink} to={'#examples'}>examples</Link> below.
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
         See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
       </Paragraph>
       <Paragraph>
-        Note that <Code>Input</Code> renders a <Code>{'<label>'}</Code> with a <Code>{'<input>'}</Code> inside
-        it. When customizing <Code>Input</Code>, bear in mind that styles you write will be applied to both. You can use
-        CSS selectors like <Code>&:not(input)</Code> to apply styles to just the <Code>{'<label>'}</Code>, or selectors
-        like <Code>&:not(label)</Code> to target just the <Code>{'<input>'}</Code>. You can target the actual label text
-        with a CSS selector like <Code>&:not(input) > span</Code>.
+        Here's an example of a customized Input:
       </Paragraph>
-      <CodeBlock>{`const FancyPinkInput = styled(Input)\`
-  border-color: purple;
-  border-radius: 8px;
-  &:not(input) {
-    padding: 8px;
-    span {
-      font-style: italic;
-    }
+      <CodeBlock>{`const FancyPinkParagraph = styled(Paragraph)\`
+  border-radius: var(--clear-unit);
+  color: purple;
+  padding: var(--clear-unit);
+  background: pink;
+  label {
+    font-style: italic;
   }
+\`
+
+const FancyPinkInput = styled(Input)\`
+  border-color: purple;
+  border-radius: var(--clear-unit);
   background: pink;
   color: purple;
-  font-size: 24px;
+  font-size: calc(var(--clear-unit) * 3);
   ::selection {
     color: pink;
     background: purple;
   }
   &:focus {
-    box-shadow: 0 0 0 3px pink,
-    0 0 0 4px purple;
+    box-shadow: 0 0 0 calc(var(--clear-unit) / 2 - 1px) pink,
+    0 0 0 calc(var(--clear-unit) / 2) purple;
   }
-\``}</CodeBlock>
-      <Paragraph>
+\`
+
+<FancyPinkParagraph>
+  <Label htmlFor={'fancy-input'}>Fancy pink input</Label>
+  <FancyPinkInput
+    id={'fancy-input'}
+    value={customValue}
+    onChange={handleFancyChange}
+  />
+</FancyPinkParagraph>`}</CodeBlock>
+      <FancyPinkParagraph>
+        <Label
+          htmlFor={'fancy-input'}>
+          {`Fancy pink input${customValue?.match(/fancy/i) ? '🌸' :''}`}
+        </Label>
         <FancyPinkInput
-          label={`Fancy pink input${customValue?.match(/fancy/i) ? '🌸' :''}`}
+          id={'fancy-input'}
           value={customValue}
           onChange={handleFancyChange}
         />
-      </Paragraph>
+      </FancyPinkParagraph>
       <Header as='h2' id='examples'>
         <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L118'}>
           Examples
@@ -115,35 +137,56 @@ export const InputPage: React.FC = () => {
       </Header>
       <Grid spacing={8}>
         <GridItem size={6}>
+          <Label htmlFor={'numeric-input'}>Numeric input</Label>
           <Input
             value={numericValue}
-            label={'Numeric input'}
+            id={'numeric-input'}
             type={'number'}
             inputMode={'numeric'}
             onChange={(e): void => setNumericValue(parseInt(e.currentTarget.value || '0', 10))}
           />
         </GridItem>
         <GridItem size={6}>
+          <Label htmlFor={'text-input'}>Basic text input</Label>
           <Input
+            id={'text-input'}
             value={textValue}
-            label={'Text input'}
             onChange={(e): void => setTextValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
+          <Label error htmlFor={'error-input'}>Input with error</Label>
           <Input
+            id={'error-input'}
             value={errorValue}
             error
-            label={'Input with error'}
             onChange={(e): void => setErrorValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem size={6}>
+          <Label disabled htmlFor={'disabled-input'}>Disabled input</Label>
           <Input
+            id={'disabled-input'}
+            value={disabledValue}
+            disabled
+          />
+        </GridItem>
+        <GridItem size={6}>
+          <Label required htmlFor={'required-input'}>Input</Label>
+          <Input
+            id={'required-input'}
             value={requiredValue}
             required
-            label={'Input'}
             onChange={(e): void => setRequiredValue(e.currentTarget.value)}
+          />
+        </GridItem>
+        <GridItem>
+          <Label htmlFor={'textarea-input'}>Input with <Code>{'as={\'textarea\'}'}</Code></Label>
+          <Input
+            as={'textarea'}
+            id={'textarea-input'}
+            value={textAreaValue}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => setTextAreaValue(e.currentTarget.value)}
           />
         </GridItem>
       </Grid>

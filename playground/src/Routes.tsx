@@ -17,6 +17,7 @@ import {
   GridItem,
   Link,
   Page,
+  SkipLink,
 } from './component-lib'
 import {
   HashRouter,
@@ -107,8 +108,9 @@ export const Routes: React.FC = () => {
   return (
     <Page>
       <HashRouter basename='/'>
+        <SkipLink id={'main'} />
         <Grid spacing={16}>
-          <GridItem>
+          <GridItem as='nav' aria-label='primary'>
             {routes.map((r, i) =>
               <React.Fragment key={r.label}>
                 <Link
@@ -123,6 +125,7 @@ export const Routes: React.FC = () => {
             )}
           </GridItem>
           <GridItem>
+            <span tabIndex={-1} id='main' />
             <Switch>
               {routes.map((r) =>
                 <Route

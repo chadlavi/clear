@@ -14,7 +14,7 @@ export const LinkPage: React.FC = () =>
   <>
     {setTitle('Link')}
     <Header id={'link'}><Code>{'<Link>'}</Code></Header>
-    <Paragraph>
+    <Paragraph as={'nav'}>
       <Link as={HashLink} to={'#external'}>External vs internal links</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#router'}>Router</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}

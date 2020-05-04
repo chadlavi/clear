@@ -12,7 +12,7 @@ export const GlobalStylesPage: React.FC = () =>
   <>
     {setTitle('Globals')}
     <Header>Globals</Header>
-    <Paragraph>
+    <Paragraph as={'nav'}>
       <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#dark-mode'}>dark mode</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#globalstyles'}><Code>{'<GlobalStyles>'}</Code></Link>

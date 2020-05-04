@@ -19,7 +19,7 @@ export const TablePage: React.FC = () =>
   <>
     {setTitle('Table')}
     <Header>Table</Header>
-    <Paragraph>
+    <Paragraph as={'nav'}>
       <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
       <Link as={HashLink} to={'#table'}><Code>{'<Table>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#tablehead'}><Code>{'<TableHead>'}</Code></Link>{' \u00b7 '}
