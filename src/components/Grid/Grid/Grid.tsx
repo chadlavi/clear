@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {GridItem} from '../GridItem'
 import styled from 'styled-components'
 
 export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,7 +22,7 @@ export const Grid = styled(Container)<GridProps>`
   display: flex;
   flex-wrap: wrap;
   padding: ${(p): number => p.spacing ? p.spacing / 2 : 0}px;
-  & > div {
+  & > ${GridItem} {
     padding: ${(p): number => p.spacing ? p.spacing / 2 : 0}px;
   }
 `
