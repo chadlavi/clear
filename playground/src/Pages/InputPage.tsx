@@ -168,7 +168,7 @@ const FancyPinkInput = styled(Input)\`
         />
       </FancyPinkParagraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L157'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L181'}>
           Examples
         </Link>
       </Header>
