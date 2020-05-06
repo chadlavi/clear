@@ -14,9 +14,10 @@ export const TextPage: React.FC = () =>
   <>
     {setTitle('Text formatting components')}
     <Header>Text formatting components</Header>
-    <Paragraph>
+    <Paragraph as={'nav'}>
       <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#paragraph'}><Code>{'<Paragraph>'}</Code></Link>{' \u00b7 '}
+      <Link as={HashLink} to={'#label'}><Code>{'<Label>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#code'}><Code>{'<Code>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></Link>{' \u00b7 '}
       <Link as={HashLink} to={'#customization'}>Customization</Link>
@@ -57,6 +58,18 @@ export const TextPage: React.FC = () =>
       accepts the prop <Code>margins?: boolean</Code>. If <Code>margins</Code> is false, the <Code>Paragraph</Code> will
       not have margins; if it is true or undefined, the <Code>Paragraph</Code> will default to
       having {numbers.fontSize.default}px margins at the top and bottom.
+    </Paragraph>
+    <Header as='h2' id='label'><Code>{'<Label>'}</Code></Header>
+    <Paragraph>
+      <Code>Label</Code> is a simple styled wrapper around <Code>{'<label>'}</Code>, used for formatting the label of
+      a form field like <Link as={HashLink} to={'/input#input'}><Code>{'<Input>'}</Code></Link>.
+    </Paragraph>
+    <Header as='h3'>Props: <Code>LabelProps</Code></Header>
+    <Paragraph>
+      <Code>Label</Code> accepts the props that could normally be passed to an HTML <Code>{'<label>'}</Code>, plus
+      three special display props: <Code>disabled?: boolean</Code> to style the label of a disabled
+      input, <Code>error?: boolean</Code> to style the label of an input field in an error state,
+      and <Code>required?: boolean</Code> to style the label of a required field.
     </Paragraph>
     <Header as='h2' id='code'><Code>{'<Code>'}</Code></Header>
     <Paragraph>

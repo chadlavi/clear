@@ -1,3 +1,4 @@
+import {TableCell} from '../TableCell'
 import styled from 'styled-components'
 
 /**
@@ -7,13 +8,13 @@ import styled from 'styled-components'
  */
 export const TableRow = styled('tr')`
   &:nth-child(even) {
-    td {
+    ${TableCell} {
       background-color: var(--clear-zebra);
     }
-    td:first-child {
+    ${TableCell}:first-child {
       border-radius: var(--clear-unit) 0 0 var(--clear-unit);
     }
-    td:last-child {
+    ${TableCell}:last-child {
       border-radius: 0 var(--clear-unit) var(--clear-unit) 0;
     }
   }

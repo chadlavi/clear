@@ -10,6 +10,7 @@ import {
   GridItemSize,
   Header,
   Input,
+  Label,
   Link,
   Paragraph,
   ScrollContainer,
@@ -141,46 +142,50 @@ maxWidth?: number | string`}</CodeBlock>
         <Grid spacing={gridSpacing}>
           <GridItem>
             <ExampleBorder color='dodgerblue'>
+              <Label htmlFor={'grid-spacing'}>Grid spacing</Label>
               <Input
-                value={gridSpacing}
-                label={'Grid spacing'}
-                type={'number'}
+                id={'grid-spacing'}
                 inputMode={'numeric'}
                 min={0}
                 onChange={(e): void => setGridSpacing(parseInt(e.currentTarget.value || '0', 10))}
+                type={'number'}
+                value={gridSpacing}
               />
             </ExampleBorder>
           </GridItem>
           <GridItem size={gridItem1}>
             <ExampleBorder color='forestgreen'>
+              <Label htmlFor={'grid-item-1'}>Green GridItem's size</Label>
               <Input
-                value={gridItem1}
-                type={'number'}
+                id={'grid-item-1'}
                 inputMode={'numeric'}
-                label={'Green GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem1)}
+                type={'number'}
+                value={gridItem1}
               />
             </ExampleBorder>
           </GridItem>
           <GridItem size={gridItem2}>
             <ExampleBorder color='red'>
+              <Label htmlFor={'grid-item-2'}>Red GridItem's size</Label>
               <Input
-                value={gridItem2}
-                type={'number'}
+                id={'grid-item-2'}
                 inputMode={'numeric'}
-                label={'Red GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem2)}
+                type={'number'}
+                value={gridItem2}
               />
             </ExampleBorder>
           </GridItem>
           <GridItem size={gridItem3}>
             <ExampleBorder color='violet'>
+              <Label htmlFor={'grid-item-3'}>Violet GridItem's size</Label>
               <Input
-                value={gridItem3}
-                type={'number'}
+                id={'grid-item-3'}
                 inputMode={'numeric'}
-                label={'Violet GridItem\'s size'}
                 onChange={gridItemOnChange(setGridItem3)}
+                type={'number'}
+                value={gridItem3}
               />
             </ExampleBorder>
           </GridItem>

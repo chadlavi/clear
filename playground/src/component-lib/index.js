@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useState, useCallback, useEffect, createElement } from 'react';
+import { useState, useCallback, useEffect, createElement, Fragment } from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
 
 /*! *****************************************************************************
@@ -40,6 +40,13 @@ function __rest(s, e) {
     return t;
 }
 
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
 function __makeTemplateObject(cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -178,6 +185,19 @@ var templateObject_1$4;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var Container = function (_a) {
+    var size = _a.size, props = __rest(_a, ["size"]);
+    return createElement("div", __assign({}, props));
+};
+/**
+ * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
+ *
+ * https://chadlavi.github.io/clear/#/layout#griditem
+ */
+var GridItem = styled(Container)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
+var templateObject_1$5;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var Container$1 = function (_a) {
     var spacing = _a.spacing, props = __rest(_a, ["spacing"]);
     return createElement("div", __assign({}, props));
 };
@@ -187,20 +207,7 @@ var Container = function (_a) {
  *
  * https://chadlavi.github.io/clear/#/layout#grid
  */
-var Grid = styled(Container)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > div {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, function (p) { return p.spacing ? p.spacing / 2 : 0; });
-var templateObject_1$5;
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-var Container$1 = function (_a) {
-    var size = _a.size, props = __rest(_a, ["size"]);
-    return createElement("div", __assign({}, props));
-};
-/**
- * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
- *
- * https://chadlavi.github.io/clear/#/layout#griditem
- */
-var GridItem = styled(Container$1)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"], ["\n  flex-basis: calc(100% * ", " / 12);\n  width: calc(100% * ", " / 12);\n  max-width: calc(100% * ", " / 12);\n  @media only screen and (max-width: ", "px) {\n    flex-basis: 100%;\n    width: 100%;\n    max-width: 100%;\n  }\n"])), function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, function (p) { return p.size || 12; }, numbers.breakpoint.xs);
+var Grid = styled(Container$1)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > ", " {\n    padding: ", "px;\n  }\n"], ["\n  display: flex;\n  flex-wrap: wrap;\n  padding: ", "px;\n  & > ", " {\n    padding: ", "px;\n  }\n"])), function (p) { return p.spacing ? p.spacing / 2 : 0; }, GridItem, function (p) { return p.spacing ? p.spacing / 2 : 0; });
 var templateObject_1$6;
 
 /**
@@ -219,18 +226,6 @@ var templateObject_1$6;
 var Header = styled('h1')(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject([""], [""])));
 var templateObject_1$7;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-var Label = function (_a) {
-    var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
-    return createElement("label", __assign({}, props));
-};
-var StyledLabel = styled(Label)(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ",
-    ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"
-    /**
-     * Calls props.onClick, but also selects the contents of the Input on click
-     * @param func the onClick passed to `<Input>`
-     */
-])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? "\n    opacity: 0.5;\n  " : ''; });
 /**
  * Calls props.onClick, but also selects the contents of the Input on click
  * @param func the onClick passed to `<Input>`
@@ -259,30 +254,32 @@ var forwardOnFocus = function (func) { return function (e) {
 }; };
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var InputBase = function (_a) {
-    var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
-    return createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus) }));
+    var error = _a.error, props = __rest(_a, ["error"]);
+    return createElement("input", __assign({}, props, { onClick: forwardOnClick(props.onClick), onFocus: forwardOnFocus(props.onFocus), value: props.value || (props.type === 'number' ? ' ' : '') }));
 };
-var StyledInput = styled(InputBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"
-    /**
-     * A simple styled Input
-     *
-     * https://chadlavi.github.io/clear/#/input
-     */
-])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
 /**
  * A simple styled Input
  *
- * https://chadlavi.github.io/clear/#/input
+ * https://chadlavi.github.io/clear/#/input#input
  */
-var Input = function (props) {
-    var label = props.label, value = props.value, other = __rest(props, ["label", "value"]);
-    return (createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error },
-        createElement("span", null,
-            label,
-            other.required ? ' (Required)' : ''),
-        createElement(StyledInput, __assign({}, other, { value: value || (other.type === 'number' ? ' ' : '') }))));
+var Input = styled(InputBase)(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: var(--clear-font-size-default);\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  min-width: 100%;\n  max-width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: var(--clear-font-size-default);\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  min-width: 100%;\n  max-width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n  ", "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; }, function (p) { return p.disabled ? 'cursor: not-allowed;' : ''; });
+var templateObject_1$8;
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var LabelBase = function (_a) {
+    var disabled = _a.disabled, error = _a.error, required = _a.required, props = __rest(_a, ["disabled", "error", "required"]);
+    return (createElement("label", __assign({}, props), required ? createElement(Fragment, null,
+        props.children,
+        ' (Required)') : props.children));
 };
-var templateObject_1$8, templateObject_2;
+/**
+ * A simple styled `<label>`
+ *
+ * https://chadlavi.github.io/clear/#/text#label
+ */
+var Label = styled(LabelBase)(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  color: ", ";\n  ", ";\n  width: 100%;\n  font-size: var(--clear-font-size-label);\n"], ["\n  color: ", ";\n  ",
+    ";\n  width: 100%;\n  font-size: var(--clear-font-size-label);\n"])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? "\n    opacity: 0.5;\n  " : ''; });
+var templateObject_1$9;
 
 var Anchor = function (props) {
     var _a;
@@ -294,16 +291,16 @@ var Anchor = function (props) {
  *
  * https://chadlavi.github.io/clear/#/link
  */
-var Link = styled(Anchor)(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\u2197]';\n  }\n"], ["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\u2197]';\n  }\n"])), focusStyle);
-var templateObject_1$9;
+var Link = styled(Anchor)(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\u2197]';\n  }\n"], ["\n  color: var(--clear-link);\n  ", "\n  &[target='_blank']::after {\n    content: ' [\\u2197]';\n  }\n"])), focusStyle);
+var templateObject_1$a;
 
 /**
  * A simple styled `<main>`
  *
  * https://chadlavi.github.io/clear/#/layout#page
  */
-var Page = styled('main')(templateObject_1$a || (templateObject_1$a = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
-var templateObject_1$a;
+var Page = styled('main')(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"], ["\nmargin: 0 auto;\nmargin-bottom: calc(var(--clear-unit) * 15);\npadding: var(--clear-unit);\nwidth: ", "px;\nbackground-color: var(--clear-background);\ncolor: var(--clear-textColor);\nfont-family: var(--clear-font-family);\nfont-size: var(--clear-font-size-default);\n-webkit-font-smoothing: antialiased;\n-moz-osx-font-smoothing: grayscale;\nmax-width: 100%;\n&, & * {\n  box-sizing: border-box;\n}\n"])), numbers.width.main);
+var templateObject_1$b;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var ParagraphBase = function (_a) {
@@ -315,9 +312,9 @@ var ParagraphBase = function (_a) {
  *
  * https://chadlavi.github.io/clear/#/text#paragraph
  */
-var Paragraph = styled(ParagraphBase)(templateObject_1$b || (templateObject_1$b = __makeTemplateObject(["\n  line-height: 1.5;\n  ", "\n"], ["\n  line-height: 1.5;\n  ",
+var Paragraph = styled(ParagraphBase)(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  line-height: 1.5;\n  ", "\n"], ["\n  line-height: 1.5;\n  ",
     "\n"])), function (p) { return p.margins === false ? "\n    margin-block-start: 0;\n    margin-block-end: 0;\n  " : "\n    margin-block-start: 1em;\n    margin-block-end: 1em;\n  "; });
-var templateObject_1$b;
+var templateObject_1$c;
 
 var ContainerBase = function (_a) {
     var  
@@ -325,7 +322,7 @@ var ContainerBase = function (_a) {
     contentMinHeight = _a.contentMinHeight, contentMinWidth = _a.contentMinWidth, _b = _a.direction, maxHeight = _a.maxHeight, maxWidth = _a.maxWidth, props = __rest(_a, ["contentMinHeight", "contentMinWidth", "direction", "maxHeight", "maxWidth"]);
     return createElement("div", __assign({}, props));
 };
-var Container$2 = styled(ContainerBase)(templateObject_1$c || (templateObject_1$c = __makeTemplateObject(["\n  width: 100%;\n  ", "\n  ", "\n\n  ", "\n"], ["\n  width: 100%;\n  ",
+var Container$2 = styled(ContainerBase)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  width: 100%;\n  ", "\n  ", "\n\n  ", "\n"], ["\n  width: 100%;\n  ",
     "\n  ",
     "\n\n  ",
     "\n"])), function (p) {
@@ -365,7 +362,7 @@ var ContentBase = function (_a) {
     contentMinHeight = _a.contentMinHeight, contentMinWidth = _a.contentMinWidth, _b = _a.direction, maxHeight = _a.maxHeight, maxWidth = _a.maxWidth, props = __rest(_a, ["contentMinHeight", "contentMinWidth", "direction", "maxHeight", "maxWidth"]);
     return createElement("div", __assign({}, props));
 };
-var Content = styled(ContentBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  ", "\n  ", "\n"], ["\n  ",
+var Content = styled(ContentBase)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  ", "\n  ", "\n"], ["\n  ",
     "\n  ",
     "\n"
     /**
@@ -409,31 +406,97 @@ var ScrollContainer = function (props) {
     return createElement(Container$2, { direction: props.direction, maxHeight: props.maxHeight, maxWidth: props.maxWidth },
         createElement(Content, __assign({ contentMinHeight: props.contentMinHeight, contentMinWidth: props.contentMinWidth }, props)));
 };
-var templateObject_1$c, templateObject_2$1;
+var templateObject_1$d, templateObject_2;
+
+var uuid = function () {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+        var r = Math.random() * 16 | 0;
+        var v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var Label$1 = function (_a) {
+    var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
+    return createElement("label", __assign({}, props));
+};
+var StyledLabel = styled(Label$1)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ",
+    ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? "\n    opacity: 0.5;\n  " : ''; });
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var SelectBase = function (_a) {
+    var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
+    return createElement("select", __assign({}, props));
+};
+var StyledSelect = styled(SelectBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
+var SelectOptions = function (_a) {
+    var options = _a.options;
+    return (createElement(Fragment, null, options.map(function (o) { return (createElement("option", { key: o.label + ":" + o.value, value: o.value }, o.label)); })));
+};
+/**
+ * A simple styled Select
+ *
+ * https://chadlavi.github.io/clear/#/input#select
+ */
+var Select = function (props) {
+    var id = props.id, label = props.label, multiple = props.multiple, options = props.options, other = __rest(props, ["id", "label", "multiple", "options"]);
+    var forwardID = id || uuid();
+    return (createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error, htmlFor: forwardID },
+        createElement("span", null,
+            label,
+            other.required ? ' (Required)' : ''),
+        createElement(StyledSelect, __assign({}, other, { id: forwardID, defaultValue: multiple ? undefined : '', multiple: multiple }),
+            multiple ? '' : createElement("option", { hidden: true, disabled: true, value: '' }),
+            createElement(SelectOptions, { options: options }))));
+};
+/**
+ * handles update logic to update the value of a `<Select>` with `multiple={true}`
+ *
+ * Requires two arguments, a value to update and a function to set it. Defaults to
+ * expecting a React `useState` hook, but you can optionally specify a type for the
+ * setter function.
+ */
+var handleMultiSelectChange = function (value, setter) { return function (e) {
+    var v = e.currentTarget.value;
+    if (value && value.length > 0) {
+        var index = value.indexOf(v);
+        if (index >= 0) {
+            var newValue = value.filter(function (opt) { return opt !== v; });
+            setter(newValue);
+        }
+        else {
+            setter(__spreadArrays(value, [v]));
+        }
+    }
+    else {
+        setter([v]);
+    }
+}; };
+var templateObject_1$e, templateObject_2$1;
+
+var jumpTo = function (id) { return function () {
+    var el = document.getElementById(id);
+    if (el) {
+        el.scrollIntoView();
+        el.focus();
+    }
+}; };
+var SkipLinkButton = styled(Button)(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"], ["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"])));
+var SkipLink = function (_a) {
+    var id = _a.id;
+    return (createElement(SkipLinkButton, { onClick: jumpTo(id), primary: true }, "Skip to main content"));
+};
+var templateObject_1$f;
 
 /**
  * A simple styled `<table>`
  *
  * https://chadlavi.github.io/clear/#/table#table
  */
-var Table = styled('table')(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
-var templateObject_1$d;
-
-/**
- * A simple styled `<thead>`
- *
- * https://chadlavi.github.io/clear/#/table#tablehead
- */
-var TableHead = styled('thead')(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  th {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])));
-var templateObject_1$e;
-
-/**
- * A simple styled `<tbody>`
- *
- * https://chadlavi.github.io/clear/#/table#tablebody
- */
-var TableBody = styled('tbody')(templateObject_1$f || (templateObject_1$f = __makeTemplateObject([""], [""])));
-var templateObject_1$f;
+var Table = styled('table')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
+var templateObject_1$g;
 
 /**
  * A simple styled `<td>`
@@ -448,15 +511,31 @@ var templateObject_1$f;
  *
  * https://chadlavi.github.io/clear/#/table#tablecell
  */
-var TableCell = styled('td')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
-var templateObject_1$g;
+var TableCell = styled('td')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var templateObject_1$h;
+
+/**
+ * A simple styled `<thead>`
+ *
+ * https://chadlavi.github.io/clear/#/table#tablehead
+ */
+var TableHead = styled('thead')(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])), TableCell);
+var templateObject_1$i;
+
+/**
+ * A simple styled `<tbody>`
+ *
+ * https://chadlavi.github.io/clear/#/table#tablebody
+ */
+var TableBody = styled('tbody')(templateObject_1$j || (templateObject_1$j = __makeTemplateObject([""], [""])));
+var templateObject_1$j;
 
 /**
  * A simple styled `<tr>`
  *
  * https://chadlavi.github.io/clear/#/table#tablerow
  */
-var TableRow = styled('tr')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    td {\n      background-color: var(--clear-zebra);\n    }\n    td:first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    td:last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])));
-var templateObject_1$h;
+var TableRow = styled('tr')(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])), TableCell, TableCell, TableCell);
+var templateObject_1$k;
 
-export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Link, Page, Paragraph, ScrollContainer, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, numbers, useBreakpoint, useDarkMode, useMediaQuery, useResponsiveColor };
+export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Label, Link, Page, Paragraph, ScrollContainer, Select, SkipLink, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, handleMultiSelectChange, numbers, useBreakpoint, useDarkMode, useMediaQuery, useResponsiveColor };

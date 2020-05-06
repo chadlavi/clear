@@ -59,7 +59,7 @@ export const GettingStartedPage: React.FC = () =>
     {setTitle('Getting started')}
     <Header>Getting started</Header>
     <Header as ='h2'>Contents</Header>
-    <Paragraph>
+    <Paragraph as={'nav'}>
       <Link as={HashLink} to={'#npmrc'}>Editing your <Code>.npmrc</Code></Link><br />
       <Link as={HashLink} to={'#installing'}>Installing</Link><br />
       <Link as={HashLink} to={'#usage'}>Usage</Link><br />

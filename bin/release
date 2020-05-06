@@ -13,10 +13,12 @@ if [ -z "$*" ] || [[ "$1" != "major" && "$1" != "minor" && "$1" != "patch" ]]; t
   fatal "Version required, one of \"major\", \"minor\", \"patch\"."
 fi
 
-npm run version:"$1" && \
+npm run lint:nofix && \
+ npm run version:"$1" && \
  version=$(node -e "console.log(require(\"./package.json\").version)") &&
  npm publish && \
  npm run build-playground && \
  git add . && \
  git commit -am "v$version docs update from release script" && \
- git push origin --tags || fatal "could not push"
+ git push origin --tags && \
+ git push origin || fatal "could not push"
