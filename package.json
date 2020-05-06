@@ -1,6 +1,6 @@
 {
   "name": "@chadlavi/clear",
-  "version": "0.7.1",
+  "version": "0.8.0",
   "description": "A simple personal design system",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -21,7 +21,6 @@
     "version:major": "npm version major && cd playground && npm version major && cd -",
     "lint:nofix": "node node_modules/eslint/bin/eslint.js . --ext .ts,.tsx,.js,.jsx ",
     "lint": "npm run lint:nofix -- --fix"
-
   },
   "repository": {
     "type": "git",
