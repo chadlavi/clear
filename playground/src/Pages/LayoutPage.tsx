@@ -94,7 +94,8 @@ export const LayoutPage: React.FC = () => {
       </Paragraph>
       <Header as='h3'>Props: <Code>SkipLinkProps</Code></Header>
       <Paragraph>
-        <Code>SkipLink</Code> accepts only one prop: <Code>id: string</Code>. Pass the id of the element to which the <Code>Skiplink</Code> should skip.
+        <Code>SkipLink</Code> accepts only one prop: <Code>id: string</Code>. Pass the id of the element to which
+        the <Code>Skiplink</Code> should skip.
       </Paragraph>
       <Header as='h2' id='grid'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
