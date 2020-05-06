@@ -114,7 +114,7 @@ export const TablePage: React.FC = () =>
       See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L84'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L128'}>Example</Link>
     </Header>
     <Paragraph>
       Both <Code>Table</Code>s below are wrapped
