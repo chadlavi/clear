@@ -1,5 +1,7 @@
 # Clear
 
+![](https://img.shields.io/github/v/tag/chadlavi/clear?label=version&sort=semver)
+
 A simple personal Design System
 
 See examples at https://chadlavi.github.io/clear/
