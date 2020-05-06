@@ -10,6 +10,8 @@
 
 # production
 /build
+dist
+playground/src/component-lib
 
 # misc
 .DS_Store
