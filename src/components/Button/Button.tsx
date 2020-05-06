@@ -34,7 +34,12 @@ export const Button = styled(ButtonBase)`
   ${(p): string => p.disabled ? `
     cursor: not-allowed;
     opacity: 0.5;
-  ` : ''};
+  ` : `
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 1px rgba(0, 0, 0, .08);
+    :active {
+      box-shadow: 0 24px 13px 5px rgba(0, 0, 0, 0.15) inset !important;
+    }
+  `};
   font-size: var(--clear-font-size-label);
   margin: 0;
   padding: var(--clear-unit) calc(var(--clear-unit) * 2);
