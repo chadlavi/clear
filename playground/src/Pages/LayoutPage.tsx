@@ -57,6 +57,7 @@ export const LayoutPage: React.FC = () => {
       <Header>Layout components</Header>
       <Paragraph>
         <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#skiplink'}><Code>{'<Skiplink>'}</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#grid'}><Code>{'<Grid>'}</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#griditem'}><Code>{'<GridItem>'}</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></Link>{' \u00b7 '}
@@ -79,6 +80,21 @@ export const LayoutPage: React.FC = () => {
       <Header as='h3'>Props: <Code>PageProps</Code></Header>
       <Paragraph>
         <Code>Page</Code> accepts the props that could normally be passed to an HTML <Code>{'<main>'}</Code> element.
+      </Paragraph>
+      <Header as='h2' id='skiplink'><Code>{'<Skiplink>'}</Code></Header>
+      <Paragraph>
+        Use a <Code>Skiplink</Code> to enable users who rely on keyboard navigation to skip over menus/navigational
+        elements on your site. <Code>Skiplink</Code> renders a button that is hidden until it gets focus, and on click
+        it will move focus to the element whose id is passed to its <Code>id</Code> prop.
+      </Paragraph>
+      <Paragraph>
+        The <Code>Skiplink</Code> component should be inserted before the navigational elements of your application.
+        You can see an example of a <Code>Skiplink</Code> by reloading this page and hitting the <Code>Tab</Code> key
+        on your keyboard.
+      </Paragraph>
+      <Header as='h3'>Props: <Code>SkipLinkProps</Code></Header>
+      <Paragraph>
+        <Code>SkipLink</Code> accepts only one prop: <Code>id: string</Code>. Pass the id of the element to which the <Code>Skiplink</Code> should skip.
       </Paragraph>
       <Header as='h2' id='grid'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
