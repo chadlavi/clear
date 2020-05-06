@@ -233,25 +233,28 @@ const FancyPinkInput = styled(Input)\`
           <Header as='h3'><Code>{'<Select>'}</Code></Header>
         </GridItem>
         <GridItem size={4}>
+          <Label htmlFor={'single-select'}>Single select</Label>
           <Select
-            label={'Single select'}
+            id={'single-select'}
             value={singleSelectValue}
             onChange={(e): void => setSingleSelectValue(e.currentTarget.value)}
             options={selectOptions}
           />
         </GridItem>
         <GridItem size={4}>
+          <Label error htmlFor={'single-select-error'}>Single select with error</Label>
           <Select
             error
-            label={'Single select with error'}
+            id={'single-select-error'}
             value={errorSingleSelectValue}
             onChange={(e): void => setErrorSingleSelectValue(e.currentTarget.value)}
             options={selectOptions}
           />
         </GridItem>
         <GridItem size={4}>
+          <Label required htmlFor={'single-select'}>Single select</Label>
           <Select
-            label={'Single select'}
+            id={'single-select'}
             value={requiredSingleSelectValue}
             onChange={(e): void => setRequiredSingleSelectValue(e.currentTarget.value)}
             options={selectOptions}
@@ -259,8 +262,9 @@ const FancyPinkInput = styled(Input)\`
           />
         </GridItem>
         <GridItem size={4}>
+          <Label htmlFor={'multiple-select'}>Multiple select</Label>
           <Select
-            label={'Multiple select'}
+            id={'multiple-select'}
             multiple
             onChange={handleMultiSelectChange(multiSelectValue, setMultiSelectValue)}
             options={selectOptions}
@@ -269,9 +273,10 @@ const FancyPinkInput = styled(Input)\`
           />
         </GridItem>
         <GridItem size={4}>
+          <Label error htmlFor={'multiple-select-error'}>Multiple select with error</Label>
           <Select
             error
-            label={'Multiple select with error'}
+            id={'multiple-select-error'}
             multiple
             onChange={handleMultiSelectChange(errorMultiSelectValue, setErrorMultiSelectValue)}
             options={selectOptions}
@@ -280,8 +285,9 @@ const FancyPinkInput = styled(Input)\`
           />
         </GridItem>
         <GridItem size={4}>
+          <Label required htmlFor={'multiple-select'}>Multiple select</Label>
           <Select
-            label={'Multiple select'}
+            id={'multiple-select'}
             multiple
             onChange={handleMultiSelectChange(requiredMultiSelectValue, setRequiredMultiSelectValue)}
             options={selectOptions}

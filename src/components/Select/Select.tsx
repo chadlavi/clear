@@ -1,6 +1,5 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import {uuid} from '../../utils'
 import {errorFocusStyle, focusStyle} from '../../styles'
 
 export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
@@ -9,38 +8,14 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
    */
   error?: boolean
   /**
-   * The string used to label the select
-   */
-  label?: string
-  /**
    * Array of options. Each option has a label and a value.
    */
   options: {label: string; value: string | number | string[]}[]
 }
 
-interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
-  disabled?: boolean
-  error?: boolean
-}
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Label = ({disabled, error, ...props}: LabelProps): JSX.Element => <label {...props} />
-
-const StyledLabel = styled(Label)`
-  color: ${(p): string => p.error ? 'var(--clear-error)' : 'inherit'};
-  display: flex;
-  flex-direction: column;
-  ${(p): string  => p.disabled ? `
-    opacity: 0.5;
-  ` : ''};
-  width: 100%;
-  & > span {
-    font-size: var(--clear-font-size-label);
-  }
-`
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SelectBase = ({error, label, ...props}: Omit<SelectProps, 'options'>): JSX.Element =>
+const SelectBase = ({error, ...props}: Omit<SelectProps, 'options'>): JSX.Element =>
   <select
     {...props}
   />
@@ -77,34 +52,20 @@ const SelectOptions = ({options}: {options: SelectProps['options']}): JSX.Elemen
  */
 export const Select = (props: SelectProps): JSX.Element => {
   const {
-    id,
-    label,
     multiple,
     options,
     ...other
   } = props
 
-  const forwardID = id || uuid()
   return (
-    <StyledLabel
-      className={other.className}
-      disabled={other.disabled}
-      error={other.error}
-      htmlFor={forwardID}
+    <StyledSelect
+      {...other}
+      defaultValue={multiple ? undefined : ''}
+      multiple={multiple}
     >
-      <span>
-        {label}{other.required ? ' (Required)' : ''}
-      </span>
-      <StyledSelect
-        {...other}
-        id={forwardID}
-        defaultValue={multiple ? undefined : ''}
-        multiple={multiple}
-      >
-        {multiple ? '' : <option hidden disabled value=''></option>}
-        <SelectOptions options={options} />
-      </StyledSelect>
-    </StyledLabel>
+      {multiple ? '' : <option hidden disabled value=''></option>}
+      <SelectOptions options={options} />
+    </StyledSelect>
   )
 }
 

@@ -407,29 +407,12 @@ var ScrollContainer = function (props) {
 };
 var templateObject_1$d, templateObject_2;
 
-var uuid = function () {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0;
-        var v = c === 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-};
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-var Label$1 = function (_a) {
-    var disabled = _a.disabled, error = _a.error, props = __rest(_a, ["disabled", "error"]);
-    return createElement("label", __assign({}, props));
-};
-var StyledLabel = styled(Label$1)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ", ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"], ["\n  color: ", ";\n  display: flex;\n  flex-direction: column;\n  ",
-    ";\n  width: 100%;\n  & > span {\n    font-size: var(--clear-font-size-label);\n  }\n"
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-])), function (p) { return p.error ? 'var(--clear-error)' : 'inherit'; }, function (p) { return p.disabled ? "\n    opacity: 0.5;\n  " : ''; });
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 var SelectBase = function (_a) {
-    var error = _a.error, label = _a.label, props = __rest(_a, ["error", "label"]);
+    var error = _a.error, props = __rest(_a, ["error"]);
     return createElement("select", __assign({}, props));
 };
-var StyledSelect = styled(SelectBase)(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
+var StyledSelect = styled(SelectBase)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
 var SelectOptions = function (_a) {
     var options = _a.options;
     return (createElement(Fragment, null, options.map(function (o) { return (createElement("option", { key: o.label + ":" + o.value, value: o.value }, o.label)); })));
@@ -440,15 +423,10 @@ var SelectOptions = function (_a) {
  * https://chadlavi.github.io/clear/#/input#select
  */
 var Select = function (props) {
-    var id = props.id, label = props.label, multiple = props.multiple, options = props.options, other = __rest(props, ["id", "label", "multiple", "options"]);
-    var forwardID = id || uuid();
-    return (createElement(StyledLabel, { className: other.className, disabled: other.disabled, error: other.error, htmlFor: forwardID },
-        createElement("span", null,
-            label,
-            other.required ? ' (Required)' : ''),
-        createElement(StyledSelect, __assign({}, other, { id: forwardID, defaultValue: multiple ? undefined : '', multiple: multiple }),
-            multiple ? '' : createElement("option", { hidden: true, disabled: true, value: '' }),
-            createElement(SelectOptions, { options: options }))));
+    var multiple = props.multiple, options = props.options, other = __rest(props, ["multiple", "options"]);
+    return (createElement(StyledSelect, __assign({}, other, { defaultValue: multiple ? undefined : '', multiple: multiple }),
+        multiple ? '' : createElement("option", { hidden: true, disabled: true, value: '' }),
+        createElement(SelectOptions, { options: options })));
 };
 /**
  * handles update logic to update the value of a `<Select>` with `multiple={true}`
@@ -473,7 +451,7 @@ var handleMultiSelectChange = function (value, setter) { return function (e) {
         setter([v]);
     }
 }; };
-var templateObject_1$e, templateObject_2$1;
+var templateObject_1$e;
 
 var jumpTo = function (id) { return function () {
     var el = document.getElementById(id);

@@ -5,10 +5,6 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
      */
     error?: boolean;
     /**
-     * The string used to label the select
-     */
-    label?: string;
-    /**
      * Array of options. Each option has a label and a value.
      */
     options: {
