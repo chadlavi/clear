@@ -12,6 +12,7 @@ export const GlobalStyles= createGlobalStyle`
     color: var(--clear-textColor);
     font-family: var(--clear-font-family);
     font-size: var(--clear-font-size-default);
+    text-rendering: geometricPrecision;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
