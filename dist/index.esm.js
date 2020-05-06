@@ -39,6 +39,13 @@ function __rest(s, e) {
     return t;
 }
 
+function __spreadArrays() {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+}
 function __makeTemplateObject(cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
@@ -400,6 +407,52 @@ var ScrollContainer = function (props) {
 };
 var templateObject_1$d, templateObject_2;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+var SelectBase = function (_a) {
+    var error = _a.error, props = __rest(_a, ["error"]);
+    return createElement("select", __assign({}, props));
+};
+var StyledSelect = styled(SelectBase)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"], ["\n  background-color: var(--clear-background);\n  color: var(--clear-", ");\n  border: 1px solid var(--clear-", ");\n  border-radius: var(--clear-unit);\n  padding: calc(var(--clear-unit) * 1.5);\n  font-size: inherit;\n  margin: calc(var(--clear-unit) / 2) 0;\n  width: 100%;\n  -webkit-appearance: none;\n  ", "\n  ", "\n"])), function (p) { return p.error ? 'error' : 'textColor'; }, function (p) { return p.error ? 'error' : 'border'; }, focusStyle, function (p) { return p.error ? errorFocusStyle : ''; });
+var SelectOptions = function (_a) {
+    var options = _a.options;
+    return (createElement(Fragment, null, options.map(function (o) { return (createElement("option", { key: o.label + ":" + o.value, value: o.value }, o.label)); })));
+};
+/**
+ * A simple styled Select
+ *
+ * https://chadlavi.github.io/clear/#/input#select
+ */
+var Select = function (props) {
+    var multiple = props.multiple, options = props.options, other = __rest(props, ["multiple", "options"]);
+    return (createElement(StyledSelect, __assign({}, other, { defaultValue: multiple ? undefined : '', multiple: multiple }),
+        multiple ? '' : createElement("option", { hidden: true, disabled: true, value: '' }),
+        createElement(SelectOptions, { options: options })));
+};
+/**
+ * handles update logic to update the value of a `<Select>` with `multiple={true}`
+ *
+ * Requires two arguments, a value to update and a function to set it. Defaults to
+ * expecting a React `useState` hook, but you can optionally specify a type for the
+ * setter function.
+ */
+var handleMultiSelectChange = function (value, setter) { return function (e) {
+    var v = e.currentTarget.value;
+    if (value && value.length > 0) {
+        var index = value.indexOf(v);
+        if (index >= 0) {
+            var newValue = value.filter(function (opt) { return opt !== v; });
+            setter(newValue);
+        }
+        else {
+            setter(__spreadArrays(value, [v]));
+        }
+    }
+    else {
+        setter([v]);
+    }
+}; };
+var templateObject_1$e;
+
 var jumpTo = function (id) { return function () {
     var el = document.getElementById(id);
     if (el) {
@@ -407,20 +460,20 @@ var jumpTo = function (id) { return function () {
         el.focus();
     }
 }; };
-var SkipLinkButton = styled(Button)(templateObject_1$e || (templateObject_1$e = __makeTemplateObject(["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"], ["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"])));
+var SkipLinkButton = styled(Button)(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"], ["\n  position: absolute;\n  top: var(--clear-unit);\n  left: var(--clear-unit);\n  opacity: 0;\n  pointer-events: none;\n  user-select: none;\n  :focus {\n    opacity: 1;\n    pointer-events: unset;\n    user-select: unset;\n  }\n  \n"])));
 var SkipLink = function (_a) {
     var id = _a.id;
     return (createElement(SkipLinkButton, { onClick: jumpTo(id), primary: true }, "Skip to main content"));
 };
-var templateObject_1$e;
+var templateObject_1$f;
 
 /**
  * A simple styled `<table>`
  *
  * https://chadlavi.github.io/clear/#/table#table
  */
-var Table = styled('table')(templateObject_1$f || (templateObject_1$f = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
-var templateObject_1$f;
+var Table = styled('table')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"], ["\n  border-collapse: collapse;\n  flex-basis: 100%;\n  width: 100%;\n"])));
+var templateObject_1$g;
 
 /**
  * A simple styled `<td>`
@@ -435,31 +488,31 @@ var templateObject_1$f;
  *
  * https://chadlavi.github.io/clear/#/table#tablecell
  */
-var TableCell = styled('td')(templateObject_1$g || (templateObject_1$g = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
-var templateObject_1$g;
+var TableCell = styled('td')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n  text-align: left;\n  padding: var(--clear-unit);\n"], ["\n  text-align: left;\n  padding: var(--clear-unit);\n"])));
+var templateObject_1$h;
 
 /**
  * A simple styled `<thead>`
  *
  * https://chadlavi.github.io/clear/#/table#tablehead
  */
-var TableHead = styled('thead')(templateObject_1$h || (templateObject_1$h = __makeTemplateObject(["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])), TableCell);
-var templateObject_1$h;
+var TableHead = styled('thead')(templateObject_1$i || (templateObject_1$i = __makeTemplateObject(["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"], ["\n  ", " {\n    font-size: var(--clear-font-size-label);\n    text-align: left;\n    padding: var(--clear-unit);\n    padding-bottom: calc(var(--clear-unit) / 2);\n  }\n"])), TableCell);
+var templateObject_1$i;
 
 /**
  * A simple styled `<tbody>`
  *
  * https://chadlavi.github.io/clear/#/table#tablebody
  */
-var TableBody = styled('tbody')(templateObject_1$i || (templateObject_1$i = __makeTemplateObject([""], [""])));
-var templateObject_1$i;
+var TableBody = styled('tbody')(templateObject_1$j || (templateObject_1$j = __makeTemplateObject([""], [""])));
+var templateObject_1$j;
 
 /**
  * A simple styled `<tr>`
  *
  * https://chadlavi.github.io/clear/#/table#tablerow
  */
-var TableRow = styled('tr')(templateObject_1$j || (templateObject_1$j = __makeTemplateObject(["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])), TableCell, TableCell, TableCell);
-var templateObject_1$j;
+var TableRow = styled('tr')(templateObject_1$k || (templateObject_1$k = __makeTemplateObject(["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"], ["\n  &:nth-child(even) {\n    ", " {\n      background-color: var(--clear-zebra);\n    }\n    ", ":first-child {\n      border-radius: var(--clear-unit) 0 0 var(--clear-unit);\n    }\n    ", ":last-child {\n      border-radius: 0 var(--clear-unit) var(--clear-unit) 0;\n    }\n  }\n"])), TableCell, TableCell, TableCell);
+var templateObject_1$k;
 
-export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Label, Link, Page, Paragraph, ScrollContainer, SkipLink, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, numbers, useBreakpoint, useDarkMode, useMediaQuery, useResponsiveColor };
+export { Button, CSSVariables, Code, CodeBlock, GlobalStyles, Grid, GridItem, Header, Input, Label, Link, Page, Paragraph, ScrollContainer, Select, SkipLink, Table, TableBody, TableCell, TableHead, TableRow, colors, errorFocusStyle, focusStyle, handleMultiSelectChange, numbers, useBreakpoint, useDarkMode, useMediaQuery, useResponsiveColor };

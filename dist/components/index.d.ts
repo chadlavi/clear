@@ -8,5 +8,6 @@ export * from './Link';
 export * from './Page';
 export * from './Paragraph';
 export * from './ScrollContainer';
+export * from './Select';
 export * from './SkipLink';
 export * from './Table';
