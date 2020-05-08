@@ -13,6 +13,7 @@ import {
   Link,
   Paragraph,
   Select,
+  SelectProps,
   handleMutliSelectOnChange,
 } from '../component-lib'
 
@@ -42,8 +43,8 @@ const FancyPinkInput = styled(Input)`
   }
 `
 
-const selectOptions = [
-  {label: 'Buzz cola', value: ['buzz']},
+const selectOptions: SelectProps['options'] = [
+  {label: 'Buzz cola', value: 'buzz'},
   {label: 'Slurm', value: 'slurm'},
   {label: 'Slurm loco', value: 'slurm loco'},
   {label: 'Oil-ade', value: 'oilade'},
@@ -181,7 +182,7 @@ const FancyPinkInput = styled(Input)\`
       </Header>
       <Grid spacing={8}>
         <GridItem>
-          <Header as='h3'><Code>{'<Input>'}</Code></Header>
+          <Header as='h3' id='input-examples'><Code>{'<Input>'}</Code></Header>
         </GridItem>
         <GridItem size={6}>
           <Label htmlFor={'numeric-input'}>Numeric input</Label>
@@ -233,11 +234,12 @@ const FancyPinkInput = styled(Input)\`
             as={'textarea'}
             id={'textarea-input'}
             value={textAreaValue}
+            rows={7}
             onChange={(e: React.ChangeEvent<HTMLTextAreaElement>): void => setTextAreaValue(e.currentTarget.value)}
           />
         </GridItem>
         <GridItem>
-          <Header as='h3'><Code>{'<Select>'}</Code></Header>
+          <Header as='h3' id='select-examples'><Code>{'<Select>'}</Code></Header>
         </GridItem>
         <GridItem size={4}>
           <Label htmlFor={'single-select'}>Single select</Label>
