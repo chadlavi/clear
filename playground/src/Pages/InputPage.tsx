@@ -45,8 +45,14 @@ const FancyPinkInput = styled(Input)`
 const selectOptions = [
   {label: 'Buzz cola', value: ['buzz']},
   {label: 'Slurm', value: 'slurm'},
+  {label: 'Slurm loco', value: 'slurm loco'},
+  {label: 'Oil-ade', value: 'oilade'},
+  {label: 'José Servo tequila', value: 'jose servo'},
+  {label: '\'66 Thunderschewitz', value: 'thunderschewitz'},
   {label: 'Löwenbrau', value: 'lowenbrau'},
   {label: 'Duff', value: 'duff'},
+  {label: '100 coffees', value: '100 coffees'},
+  {label: 'Maltese liquor', value: 'maltese liquor'},
 ]
 
 export const InputPage: React.FC = () => {
