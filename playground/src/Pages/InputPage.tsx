@@ -13,7 +13,7 @@ import {
   Link,
   Paragraph,
   Select,
-  handleMultiSelectChange,
+  handleMutliSelectOnChange,
 } from '../component-lib'
 
 const FancyPinkParagraph = styled(Paragraph)`
@@ -266,7 +266,7 @@ const FancyPinkInput = styled(Input)\`
           <Select
             id={'multiple-select'}
             multiple
-            onChange={handleMultiSelectChange(multiSelectValue, setMultiSelectValue)}
+            onChange={handleMutliSelectOnChange(setMultiSelectValue)}
             options={selectOptions}
             size={3}
             value={multiSelectValue}
@@ -278,7 +278,7 @@ const FancyPinkInput = styled(Input)\`
             error
             id={'multiple-select-error'}
             multiple
-            onChange={handleMultiSelectChange(errorMultiSelectValue, setErrorMultiSelectValue)}
+            onChange={handleMutliSelectOnChange(setErrorMultiSelectValue)}
             options={selectOptions}
             size={3}
             value={errorMultiSelectValue}
@@ -289,7 +289,7 @@ const FancyPinkInput = styled(Input)\`
           <Select
             id={'multiple-select'}
             multiple
-            onChange={handleMultiSelectChange(requiredMultiSelectValue, setRequiredMultiSelectValue)}
+            onChange={handleMutliSelectOnChange(setRequiredMultiSelectValue)}
             options={selectOptions}
             required
             size={3}

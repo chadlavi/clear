@@ -70,30 +70,19 @@ export const Select = (props: SelectProps): JSX.Element => {
 }
 
 type Setter = React.Dispatch<React.SetStateAction<string[] | undefined>>
-type SelectChange = React.ChangeEvent<HTMLSelectElement>
 
 /**
  * handles update logic to update the value of a `<Select>` with `multiple={true}`
  *
- * Requires two arguments, a value to update and a function to set it. Defaults to
+ * Requires one argument, the function to set the `<select>` value. Defaults to
  * expecting a React `useState` hook, but you can optionally specify a type for the
  * setter function.
  */
-export const handleMultiSelectChange = <S extends Function = Setter>(
-  value: string[] | undefined, setter: S
-) => (
-    e: SelectChange
-  ): void => {
-    const v = e.currentTarget.value
-    if (value && value.length > 0) {
-      const index = value.indexOf(v)
-      if (index >= 0) {
-        const newValue = value.filter((opt) => opt !== v)
-        setter(newValue)
-      } else {
-        setter([...value, v])
-      }
-    } else {
-      setter([v])
-    }
+export const handleMutliSelectOnChange = <S extends Function = Setter>(
+  setter: S
+) => (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const updatedOptions = Array.from(e.target.options)
+      .filter(option => option.selected)
+      .map(x => x.value)
+    setter(updatedOptions)
   }
