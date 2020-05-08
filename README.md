@@ -1,6 +1,6 @@
 # Clear
 
-![](https://img.shields.io/github/v/tag/chadlavi/clear?label=version&sort=semver)
+![GitHub latest release](https://img.shields.io/github/v/tag/chadlavi/clear?label=latest%20release&sort=semver) ![GitHub package.json version](https://img.shields.io/github/package-json/v/chadlavi/clear/master?sort=semver)
 
 A simple personal Design System
 
