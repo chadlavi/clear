@@ -43,9 +43,10 @@ const FancyPinkInput = styled(Input)`
 `
 
 const selectOptions = [
-  {label: 'Buzz cola', value: ['foo']},
-  {label: 'Slurm', value: 'bar'},
-  {label: 'Löwenbrau', value: 'baz'},
+  {label: 'Buzz cola', value: ['buzz']},
+  {label: 'Slurm', value: 'slurm'},
+  {label: 'Löwenbrau', value: 'lowenbrau'},
+  {label: 'Duff', value: 'duff'},
 ]
 
 export const InputPage: React.FC = () => {
@@ -285,9 +286,9 @@ const FancyPinkInput = styled(Input)\`
           />
         </GridItem>
         <GridItem size={4}>
-          <Label required htmlFor={'multiple-select'}>Multiple select</Label>
+          <Label required htmlFor={'required-multiple-select'}>Multiple select</Label>
           <Select
-            id={'multiple-select'}
+            id={'required-multiple-select'}
             multiple
             onChange={handleMutliSelectOnChange(setRequiredMultiSelectValue)}
             options={selectOptions}
