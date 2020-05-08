@@ -28,7 +28,7 @@ const tableHeaders: TableHeaderType<TableHeaders>[] = [
 
 const tableData: TableData<TableHeaders> = [
   {
-    name: 'Phillip J Fry',
+    name: 'Phillip J. Fry',
     email: 'cosmicphil@panuccispizza.net',
     occupation: 'Delivery boy',
   },
@@ -38,7 +38,7 @@ const tableData: TableData<TableHeaders> = [
     occupation: 'Captain',
   },
   {
-    name: 'Hubert J Farnsworth',
+    name: 'Hubert J. Farnsworth',
     email: 'hubie@planetexpress.biz',
     occupation: 'Professor',
   },
@@ -46,6 +46,21 @@ const tableData: TableData<TableHeaders> = [
     name: 'Bender "Bending" Rodriguez',
     email: 'bender@benderisgreat.com',
     occupation: 'Bending unit',
+  },
+  {
+    name: 'Dr. Amy Wong',
+    email: 'awong@marsu.edu',
+    occupation: 'Intern',
+  },
+  {
+    name: 'Dr. John A. Zoidberg',
+    email: 'woopwoopwoopwoop@drzoidberg.biz',
+    occupation: 'Staff doctor',
+  },
+  {
+    name: 'Hermes Conrad',
+    email: 'bureaucratman@limbo.org',
+    occupation: 'Grade 39 bureaucrat',
   }
 ]
 
@@ -114,7 +129,9 @@ export const TablePage: React.FC = () =>
       See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L128'}>Example</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L145'}>
+        Examples
+      </Link>
     </Header>
     <Paragraph>
       Both <Code>Table</Code>s below are wrapped
@@ -134,26 +151,14 @@ export const TablePage: React.FC = () =>
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Phillip J Fry</TableCell>
-            <TableCell>cosmicphil@panuccispizza.net</TableCell>
-            <TableCell>Delivery boy</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Turanga Leela</TableCell>
-            <TableCell>1bdi@planetexpress.biz</TableCell>
-            <TableCell>Captain</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Hubert J Farnsworth</TableCell>
-            <TableCell>hubie@planetexpress.biz</TableCell>
-            <TableCell>Professor</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Bender "Bending" Rodriguez</TableCell>
-            <TableCell>bender@benderisgreat.com</TableCell>
-            <TableCell>Bending unit</TableCell>
-          </TableRow>
+          {tableData.map((r) => (
+            <TableRow key={r.name?.toString()}>
+              <TableCell>{r.name}</TableCell>
+              <TableCell>{r.email}</TableCell>
+              <TableCell>{r.occupation}</TableCell>
+            </TableRow>
+          ))
+          }
         </TableBody>
       </Table>
     </ScrollContainer>

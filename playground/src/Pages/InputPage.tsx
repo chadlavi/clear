@@ -50,7 +50,7 @@ const selectOptions = [
   {label: 'José Servo tequila', value: 'jose servo'},
   {label: '\'66 Thunderschewitz', value: 'thunderschewitz'},
   {label: 'Löwenbrau', value: 'lowenbrau'},
-  {label: 'Duff', value: 'duff'},
+  {label: 'Dr. Jitter', value: 'dr jitter'},
   {label: '100 coffees', value: '100 coffees'},
   {label: 'Maltese liquor', value: 'maltese liquor'},
 ]
@@ -175,7 +175,7 @@ const FancyPinkInput = styled(Input)\`
         />
       </FancyPinkParagraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L181'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L188'}>
           Examples
         </Link>
       </Header>
