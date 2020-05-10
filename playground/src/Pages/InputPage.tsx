@@ -3,6 +3,7 @@ import {HashLink} from 'react-router-hash-link'
 import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
+  Checkbox,
   Code,
   CodeBlock,
   Grid,
@@ -12,6 +13,7 @@ import {
   Label,
   Link,
   Paragraph,
+  Radio,
   Select,
   SelectProps,
   handleMutliSelectOnChange,
@@ -64,15 +66,22 @@ export const InputPage: React.FC = () => {
   const [requiredValue, setRequiredValue] = React.useState<string | undefined>()
   const [customValue, setCustomValue] = React.useState<string | undefined>()
   const [textAreaValue, setTextAreaValue] = React.useState<string | undefined>()
+
   const [singleSelectValue, setSingleSelectValue] = React.useState<string | number | string[] | undefined>()
   const [errorSingleSelectValue, setErrorSingleSelectValue] = React.useState<string | number | string[] | undefined>()
   const [
     requiredSingleSelectValue,
     setRequiredSingleSelectValue
   ] = React.useState<string | number | string[] | undefined>()
+
   const [multiSelectValue, setMultiSelectValue] = React.useState<string[] | undefined>()
   const [errorMultiSelectValue, setErrorMultiSelectValue] = React.useState<string[] | undefined>()
   const [requiredMultiSelectValue, setRequiredMultiSelectValue] = React.useState<string[] | undefined>()
+
+  const [checked, setChecked] = React.useState(false)
+  const [errorChecked, setErrorChecked] = React.useState(false)
+
+  const [radioValue, setRadioValue] = React.useState<string>()
 
   const handleFancyChange = (e: React.ChangeEvent<HTMLInputElement>): void => setCustomValue(e.currentTarget.value)
 
@@ -85,6 +94,10 @@ export const InputPage: React.FC = () => {
         <Link as={HashLink} to={'#inputprops'}><Code>InputProps</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#select'}><Code>{'<Select>'}</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#selectprops'}><Code>SelectProps</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#checkbox'}><Code>{'<Checkbox>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#checkboxprops'}><Code>CheckBoxProps</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#radio'}><Code>{'<Radio>'}</Code></Link>{' \u00b7 '}
+        <Link as={HashLink} to={'#radioprops'}><Code>RadioProps</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#examples'}>Examples</Link>
       </Paragraph>
@@ -109,8 +122,9 @@ export const InputPage: React.FC = () => {
       </Paragraph>
       <Header as='h2' id='select'><Code>{'<Select>'}</Code></Header>
       <Paragraph>
-        Select is a wrapper around HTML <Code>{'<select>'}</Code>. Instead of manually building a set of
-        child <Code>{'<option>'}</Code>s as in HTML, you pass an array of options to the <Code>options</Code> prop.
+        <Code>{'<Select>'}</Code> is a wrapper around HTML <Code>{'<select>'}</Code>. Instead of manually building a
+        set of child <Code>{'<option>'}</Code>s as in HTML, you pass an array of options to
+        the <Code>options</Code> prop.
       </Paragraph>
       <Header as='h3' id='selectprops'>Props: <Code>SelectProps</Code></Header>
       <Paragraph>
@@ -122,6 +136,28 @@ export const InputPage: React.FC = () => {
       <Paragraph>
         <Code>{'<Select>'}</Code> also accepts the props <Code>error?: boolean</Code> to control whether it appears in
         an error state, and <Code>label?: string</Code> to provide label content for the field.
+      </Paragraph>
+
+      <Header as='h2' id='checkbox'><Code>{'<Checkbox>'}</Code></Header>
+      <Paragraph>
+        <Code>{'<Checkbox>'}</Code> is a wrapper around HTML <Code>{'<input type=\'checkbox\'>'}</Code>.
+      </Paragraph>
+      <Header as='h3' id='selectprops'>Props: <Code>CheckboxProps</Code></Header>
+      <Paragraph>
+        <Code>{'<Checkbox>'}</Code> accepts the normal props that could be passed to an
+        HTML <Code>{'<input type=\'checkbox\'>'}</Code>. You can also pass the props <Code>label?: string</Code> to
+        define a label for the checkbox, and <Code>error?: boolean</Code> to toggle an error state.
+      </Paragraph>
+      <Header as='h2' id='radio'><Code>{'<Radio>'}</Code></Header>
+      <Paragraph>
+        <Code>{'<Radio>'}</Code> is a wrapper around HTML <Code>{'<input type=\'radio\'>'}</Code>.
+      </Paragraph>
+      <Header as='h3' id='selectprops'>Props: <Code>RadioProps</Code></Header>
+      <Paragraph>
+        Identically to <Code>{'<Checkbox>'}</Code>, <Code>{'<Radio>'}</Code> accepts the normal props that could be
+        passed to an HTML <Code>{'<input type=\'checkbox\'>'}</Code>. You can also pass the
+        props <Code>label?: string</Code> to define a label for the radio option,
+        and <Code>error?: boolean</Code> to toggle an error state for the option.
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
@@ -241,7 +277,7 @@ const FancyPinkInput = styled(Input)\`
         <GridItem>
           <Header as='h3' id='select-examples'><Code>{'<Select>'}</Code></Header>
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
           <Label htmlFor={'single-select'}>Single select</Label>
           <Select
             id={'single-select'}
@@ -250,7 +286,7 @@ const FancyPinkInput = styled(Input)\`
             options={selectOptions}
           />
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
           <Label error htmlFor={'single-select-error'}>Single select with error</Label>
           <Select
             error
@@ -260,7 +296,7 @@ const FancyPinkInput = styled(Input)\`
             options={selectOptions}
           />
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
           <Label required htmlFor={'single-select'}>Single select</Label>
           <Select
             id={'single-select'}
@@ -270,7 +306,15 @@ const FancyPinkInput = styled(Input)\`
             required
           />
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
+          <Label disabled htmlFor={'disabled-select'}>Disabled single select</Label>
+          <Select
+            id={'disabled-select'}
+            disabled
+            options={selectOptions}
+          />
+        </GridItem>
+        <GridItem size={6}>
           <Label htmlFor={'multiple-select'}>Multiple select</Label>
           <Select
             id={'multiple-select'}
@@ -281,7 +325,7 @@ const FancyPinkInput = styled(Input)\`
             value={multiSelectValue}
           />
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
           <Label error htmlFor={'multiple-select-error'}>Multiple select with error</Label>
           <Select
             error
@@ -293,7 +337,7 @@ const FancyPinkInput = styled(Input)\`
             value={errorMultiSelectValue}
           />
         </GridItem>
-        <GridItem size={4}>
+        <GridItem size={6}>
           <Label required htmlFor={'required-multiple-select'}>Multiple select</Label>
           <Select
             id={'required-multiple-select'}
@@ -304,6 +348,75 @@ const FancyPinkInput = styled(Input)\`
             size={3}
             value={requiredMultiSelectValue}
           />
+        </GridItem>
+        <GridItem size={6}>
+          <Label disabled htmlFor={'disabled-multiple-select'}>Disabled multiple select</Label>
+          <Select
+            id={'disabled-multiple-select'}
+            multiple
+            options={selectOptions}
+            disabled
+            size={3}
+          />
+        </GridItem>
+        <GridItem size={6}>
+          <Header as='h3' id='checkbox-examples'><Code>{'<Checkbox>'}</Code></Header>
+          <Checkbox
+            checked={checked}
+            onChange={(e): void => setChecked(e.target.checked)}
+            id={'basic-checkbox'}
+            label={'Checkbox'}
+          />
+          <Checkbox
+            checked={errorChecked}
+            onChange={(e): void => setErrorChecked(e.target.checked)}
+            id={'error-checkbox'}
+            error
+            label={'Checkbox with error'}
+          />
+          <Checkbox
+            checked={false}
+            id={'disabled-checkbox'}
+            disabled
+            label={'Disabled checkbox'}
+          />
+          <Checkbox
+            checked={true}
+            id={'disabled-checkbox-checked'}
+            disabled
+            label={'Disabled checkbox (checked)'}
+          />
+        </GridItem>
+        <GridItem size={6}>
+          <Header as='h3' id='radio-examples'><Code>{'<Radio>'}</Code></Header>
+          <form role={'radiogroup'}>
+            <Radio
+              checked={radioValue === 'standard'}
+              onChange={(e): void => setRadioValue(e.target.value)}
+              id={'basic-radio'}
+              label={'Radio button'}
+              name={'radio'}
+              value={'standard'}
+            />
+            <Radio
+              checked={radioValue === 'error'}
+              onChange={(e): void => setRadioValue(e.target.value)}
+              id={'error-radio'}
+              error
+              label={'Radio button with error'}
+              name={'radio'}
+              value={'error'}
+            />
+            <Radio
+              checked={radioValue === 'disabled'}
+              onChange={(e): void => setRadioValue(e.target.value)}
+              disabled
+              id={'disabled-radio'}
+              label={'Disabled radio button'}
+              name={'radio'}
+              value={'disabled'}
+            />
+          </form>
         </GridItem>
       </Grid>
     </>

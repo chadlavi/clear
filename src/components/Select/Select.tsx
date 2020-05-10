@@ -33,6 +33,8 @@ const StyledSelect = styled(SelectBase)`
   -webkit-appearance: none;
   ${focusStyle}
   ${(p): string => p.error ? errorFocusStyle : ''}
+  cursor: ${(p): string => p.disabled ? 'not-allowed' : 'pointer'};
+  opacity: ${(p): string => p.disabled ? '0.5' : '1'};
 `
 
 const SelectOptions = ({options}: {options: SelectProps['options']}): JSX.Element => (
