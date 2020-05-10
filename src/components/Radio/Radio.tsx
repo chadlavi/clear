@@ -72,7 +72,7 @@ const SVGBase = ({checked, ...props}: IconProps): JSX.Element => (
           cx='50'
           cy='50'
           r='40'
-          stroke='white'
+          stroke='var(--clear-background)'
           fill='none'
           strokeWidth='20'
         />
