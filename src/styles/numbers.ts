@@ -24,7 +24,7 @@ export const numbers: Numbers = {
   },
   fontSize: {
     default: unit * 2,
-    label: unit * 1.8,
+    label: unit * 1.75,
   },
   width: {
     main: 95 * unit,

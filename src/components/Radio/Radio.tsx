@@ -52,30 +52,32 @@ const SVGContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: calc(var(--clear-font-size-label) * 10);
+  height: calc(var(--clear-font-size-label) * 10);
+  transform-origin: top left;
+  padding: 20px;
+  transform: scale(0.1);
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 `
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const SVGBase = ({checked, ...props}: IconProps): JSX.Element => (
   <SVGContainer>
-    <object width='100%' height='100%'>
-      <svg
-        version='1.1'
-        xmlns='http://www.w3.org/2000/svg'
-        x='0'
-        y='0'
-        viewBox='0 0 14 14'
-        fill='none'
-        stroke='var(--clear-background)'
-        strokeWidth='calc(var(--clear-unit) / 4)'
-        preserveAspectRatio='xMinyMin none'
-        {...props}
-      />
-    </object>
+    <div>
+      <svg viewBox='0 0 100 100' {...props}>
+        <circle
+          cx='50'
+          cy='50'
+          r='40'
+          stroke='white'
+          fill='none'
+          strokeWidth='20'
+        />
+      </svg>
+    </div>
   </SVGContainer>
 )
 
@@ -118,11 +120,7 @@ export const Radio = (props: RadioProps): JSX.Element => {
         />
         <Icon
           checked={other.checked}
-        >
-          <g transform='translate(7, 7)'>
-            <circle cx='0' cy='0' r='5' />
-          </g>
-        </Icon>
+        />
       </InputWrapper>
       {label &&
         <StyledLabel
