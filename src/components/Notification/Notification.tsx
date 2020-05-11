@@ -72,6 +72,9 @@ const StyledNotification = styled(NotificationBase)`
   background: var(--clear-${(p): string => p.error ? 'error' : 'link'});
   border-radius: var(--clear-font-size-default);
   display: flex;
+  font-size: var(--clear-font-size-default);
+  font-style: normal;
+  font-weight: normal;
   justify-content: space-between;
   max-width: ${(p): string => p.mini ? 'calc(var(--clear-unit) * 24)' : '100%'};
   padding: var(--clear-font-size-default);

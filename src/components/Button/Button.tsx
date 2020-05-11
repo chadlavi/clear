@@ -25,7 +25,7 @@ export const Button = styled(ButtonBase)`
   background: var(--clear-border);
   border-radius: var(--clear-unit);
   border: none;
-  color: inherit;
+  color: var(--clear-textColor);
   ${(p): string => p.primary ? `
     background: var(--clear-link);
     color: var(--clear-background);
