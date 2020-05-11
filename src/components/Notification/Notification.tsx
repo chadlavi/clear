@@ -60,7 +60,7 @@ const NotificationWrapper = styled(NotificationBase)`
   justify-content: center;
   left: 0;
   max-width: 100%;
-  padding: var(--clear-unit);
+  padding: calc(var(--clear-unit) * 2);
   pointer-events: none;
   position: fixed;
   width: 100%;
