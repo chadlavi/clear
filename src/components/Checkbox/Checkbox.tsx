@@ -3,7 +3,13 @@ import styled from 'styled-components'
 import {errorFocusStyle, focusStyle} from '../../styles'
 
 interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * if true, the `<Checkbox>` is shown with error styling
+   */
   error?: boolean
+  /**
+   * The text to show in the `<Checkbox>`'s nested `<label>`
+   */
   label?: string
 }
 
@@ -88,6 +94,11 @@ const StyledLabel = styled(LabelBase)`
   margin-left: var(--clear-unit);
 `
 
+/**
+ * A wrapper around HTML `<input type='checkbox'>`.
+ *
+ * https://chadlavi.github.io/clear/#/input#checkbox
+ */
 export const Checkbox = (props: CheckboxProps): JSX.Element => {
   const {
     error,

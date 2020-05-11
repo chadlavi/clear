@@ -3,7 +3,13 @@ import styled from 'styled-components'
 import {errorFocusStyle, focusStyle} from '../../styles'
 
 interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * if true, the `<Radio>` is shown with error styling
+   */
   error?: boolean
+  /**
+   * The text to show in the `<Radio>`'s nested `<label>`
+   */
   label?: string
 }
 
@@ -104,6 +110,11 @@ const StyledLabel = styled(LabelBase)`
   margin-left: var(--clear-unit);
 `
 
+/**
+ * A wrapper around HTML `<input type='radio'>`.
+ *
+ * https://chadlavi.github.io/clear/#/input#radio
+ */
 export const Radio = (props: RadioProps): JSX.Element => {
   const {
     error,

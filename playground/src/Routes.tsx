@@ -9,6 +9,7 @@ import {
   InputPage,
   LayoutPage,
   LinkPage,
+  NotificationPage,
   TablePage,
   TextPage,
 } from './Pages'
@@ -72,6 +73,11 @@ const routes = [
     label: 'Table',
     route: '/table',
     component: <TablePage />,
+  },
+  {
+    label: 'Notifications',
+    route: '/notification',
+    component: <NotificationPage />,
   },
   {
     label: 'Helpers',

@@ -4,11 +4,11 @@ import styled from 'styled-components'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   /**
-   * if true, the button is disabled
+   * if true, the `<Button>` is disabled
    */
   disabled?: boolean
   /**
-   * if true, the button is styled as a primary call to action button
+   * if true, the `<Button>` is styled as a primary call to action button
    */
   primary?: boolean
 }

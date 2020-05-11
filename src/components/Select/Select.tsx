@@ -48,7 +48,7 @@ const SelectOptions = ({options}: {options: SelectProps['options']}): JSX.Elemen
 )
 
 /**
- * A simple styled Select
+ * A simple styled HTML `<select>`
  *
  * https://chadlavi.github.io/clear/#/input#select
  */
