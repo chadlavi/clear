@@ -88,7 +88,7 @@ export const InputPage: React.FC = () => {
   return (
     <>
       {setTitle('Input')}
-      <Header id='input'>Inputs</Header>
+      <Header id='inputs'>Inputs</Header>
       <Paragraph as={'nav'}>
         <Link as={HashLink} to={'#input'}><Code>{'<Input>'}</Code></Link>{' \u00b7 '}
         <Link as={HashLink} to={'#inputprops'}><Code>InputProps</Code></Link>{' \u00b7 '}
