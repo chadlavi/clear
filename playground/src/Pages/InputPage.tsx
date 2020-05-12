@@ -142,7 +142,7 @@ export const InputPage: React.FC = () => {
       <Paragraph>
         <Code>{'<Checkbox>'}</Code> is a wrapper around HTML <Code>{'<input type=\'checkbox\'>'}</Code>.
       </Paragraph>
-      <Header as='h3' id='selectprops'>Props: <Code>CheckboxProps</Code></Header>
+      <Header as='h3' id='checkboxprops'>Props: <Code>CheckboxProps</Code></Header>
       <Paragraph>
         <Code>{'<Checkbox>'}</Code> accepts the normal props that could be passed to an
         HTML <Code>{'<input type=\'checkbox\'>'}</Code>. You can also pass the props <Code>label?: string</Code> to
@@ -152,7 +152,7 @@ export const InputPage: React.FC = () => {
       <Paragraph>
         <Code>{'<Radio>'}</Code> is a wrapper around HTML <Code>{'<input type=\'radio\'>'}</Code>.
       </Paragraph>
-      <Header as='h3' id='selectprops'>Props: <Code>RadioProps</Code></Header>
+      <Header as='h3' id='radioprops'>Props: <Code>RadioProps</Code></Header>
       <Paragraph>
         Identically to <Code>{'<Checkbox>'}</Code>, <Code>{'<Radio>'}</Code> accepts the normal props that could be
         passed to an HTML <Code>{'<input type=\'checkbox\'>'}</Code>. You can also pass the
