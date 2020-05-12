@@ -11,6 +11,6 @@ export const Code = styled('code')`
   display: inline;
   margin: 0;
   background: var(--clear-zebra);
-  padding: calc(var(--clear-unit) / 2 - 2px) calc(var(--clear-unit) / 2 - 1px);
-  border-radius: calc(var(--clear-unit) / 2);
+  padding: calc(1em / 8) calc(1em / 8 + 1px);
+  border-radius: calc(1em / 4);
 `
