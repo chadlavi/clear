@@ -13,6 +13,7 @@ import {
 
 export const NotificationPage: React.FC = () => {
   const [standard, setStandard] = React.useState(false)
+  const [success, setSuccess] = React.useState(false)
   const [error, setError] = React.useState(false)
   const [transient, setTransient] = React.useState(false)
   const [transientUndismissible, setTransientUndismissible] = React.useState(false)
@@ -20,6 +21,7 @@ export const NotificationPage: React.FC = () => {
 
   const setAllFalse = (): void => {
     setStandard(false)
+    setSuccess(false)
     setError(false)
     setTransient(false)
     setTransientUndismissible(false)
@@ -79,6 +81,10 @@ error?: boolean
  */
 mini?: boolean
 /**
+ * If true, the Notification will be styled with success coloring
+ */
+success?: boolean
+/**
  * Overrides the default timeout duration of a transient Notification.
  * Defaults to 1500ms.
  */
@@ -112,6 +118,20 @@ transient?: boolean`}</CodeBlock>
           setOpen={setStandard}
         >
           This is a standard notification
+        </Notification>
+      </Paragraph>
+      <Paragraph as='div'>
+        <Button
+          onClick={(): void => {setAllFalse(); setSuccess(true)}}
+        >
+          Show success Notification
+        </Button>
+        <Notification
+          open={success}
+          setOpen={setSuccess}
+          success
+        >
+          This is a success notification
         </Notification>
       </Paragraph>
       <Paragraph as='div'>

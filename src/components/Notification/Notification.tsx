@@ -33,6 +33,10 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   setOpen: React.Dispatch<React.SetStateAction<boolean>> | (() => void)
   /**
+   * If true, the Notification will be styled with success coloring
+   */
+  success?: boolean
+  /**
    * Overrides the default timeout duration of a transient Notification. Defaults to 1500ms.
    */
   timeOut?: number
@@ -47,7 +51,8 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const NotificationBase = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  {buttonProps, dismissible, error, mini, timeOut, transient, ...props}: Omit<NotificationProps, 'open' | 'setOpen'>
+  {buttonProps, dismissible, error, mini, success, timeOut, transient, ...props}:
+  Omit<NotificationProps, 'open' | 'setOpen'>
 ): JSX.Element => (
   <div
     {...props}
@@ -69,7 +74,7 @@ const NotificationWrapper = styled(NotificationBase)`
 
 const StyledNotification = styled(NotificationBase)`
   align-items: center;
-  background: var(--clear-${(p): string => p.error ? 'error' : 'link'});
+  background: var(--clear-${(p): string => p.error ? 'error' : p.success ? 'green' : 'link'});
   border-radius: var(--clear-font-size-default);
   display: flex;
   font-size: var(--clear-font-size-default);
@@ -100,17 +105,20 @@ const NotificationContent = styled(NotificationBase)`
 
 interface DismissButtonProps extends ButtonProps {
   error?: boolean
+  success?: boolean
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const DismissButtonBase = ({error, ...props}: DismissButtonProps): JSX.Element => <Button {...props} />
+const DismissButtonBase = ({error, success, ...props}: DismissButtonProps): JSX.Element => <Button {...props} />
 
 const DismissButton = styled(DismissButtonBase)`
   background: none;
   border: 1px solid var(--clear-background);
   color: var(--clear-background);
   :focus {
-    box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-${(p): string => p.error ? 'error' : 'link'}),
+    box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-${
+  (p): string => p.error ? 'error' : p.success ? 'green' : 'link'
+}),
     0 0 0 calc(var(--clear-unit) / 2) var(--clear-background);
   }
 `
@@ -130,6 +138,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
     mini,
     open,
     setOpen,
+    success,
     timeOut,
     transient,
     ...other
@@ -140,7 +149,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
   const transientOnClose = (): void => {
     setTimeout(() => {
       setOpen(false)
-    }, timeOut ?? 1500)
+    }, timeOut ?? 2000)
   }
 
   return (
@@ -151,6 +160,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
             className={'notification'}
             error={error}
             mini={mini}
+            success={success}
             {...other}
           >
             <NotificationContent
@@ -168,6 +178,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
                 className={'notification-dismiss-button'}
                 error={error}
                 onClick={buttonProps?.onClick ?? onClose}
+                success={success}
               >
                 {buttonProps?.children ?? 'Okay'}
               </DismissButton>
