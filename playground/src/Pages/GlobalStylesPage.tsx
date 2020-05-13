@@ -30,6 +30,9 @@ export const GlobalStylesPage: React.FC = () =>
       colors for use when the user's device is in dark mode. Switching between light and dark mode is handled
       automatically.
     </Paragraph>
+    <Paragraph>
+      See also: <Link as={HashLink} to='/colors'>Colors</Link>
+    </Paragraph>
     <Header as='h2' id='globalstyles'><Code>{'<GlobalStyles>'}</Code></Header>
     <Paragraph>
       The <Code>GlobalStyles</Code> component applies styles to the <Code>{'<body>'}</Code> tag. As such, <strong>this

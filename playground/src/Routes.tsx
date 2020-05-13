@@ -2,6 +2,7 @@ import * as React from 'react'
 import {version} from '../package.json'
 import {
   ButtonPage,
+  ColorsPage,
   GettingStartedPage,
   GlobalStylesPage,
   HelpersPage,
@@ -43,6 +44,11 @@ const routes = [
     label: 'Globals',
     route: '/global-styles',
     component: <GlobalStylesPage />,
+  },
+  {
+    label: 'Colors',
+    route: '/colors',
+    component: <ColorsPage />,
   },
   {
     label: 'Layout',
