@@ -67,72 +67,93 @@ export const LayoutPage: React.FC = () => {
       </Paragraph>
       <Header as='h2' id='page'><Code>{'<Page>'}</Code></Header>
       <Paragraph>
-        The <Code>Page</Code> component renders a horizontally centered <Code>{'<main>'}</Code> HTML element (though you
-        can use the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop
-        </Link> to render a div or other block-level lement as necessary).
+        The <Code>Page</Code> component renders a horizontally
+        centered <Code>{'<main>'}</Code> HTML element (though you can use
+        the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}>
+          <Code>as</Code> prop</Link> to render a div or other block-level lement as necessary).
       </Paragraph>
       <Paragraph>
-        <Code>Page</Code>s have a width of {numbers.width.main}px or the full screen width, whichever is lower.
+        <Code>Page</Code>s have a width of {numbers.width.main}px or the full
+        screen width, whichever is lower.
       </Paragraph>
       <Paragraph>
         All content in your app should be contained within a <Code>Page</Code>.
       </Paragraph>
       <Header as='h3'>Props: <Code>PageProps</Code></Header>
       <Paragraph>
-        <Code>Page</Code> accepts the props that could normally be passed to an HTML <Code>{'<main>'}</Code> element.
+        <Code>{'<Page>'}</Code> accepts the props that could normally be passed to an
+        HTML <Code>{'<main>'}</Code> element.
       </Paragraph>
+      <Paragraph>
+        <Code>{'<Page>'}</Code> also accepts the optional
+        prop <Code>size?: 'main' | 'lg' | 'xl'</Code> that controls the width of
+        the <Code>{'<Page>'}</Code>. If nothing is provided, the width defaults
+        to <Code>main</Code>.
+      </Paragraph>
+      <CodeBlock>{`Page size values:
+  main: ${numbers.width.main}px (default)
+    lg: ${numbers.width.lg}px
+    xl: ${numbers.width.xl}px`}</CodeBlock>
       <Header as='h2' id='skiplink'><Code>{'<Skiplink>'}</Code></Header>
       <Paragraph>
-        Use a <Code>Skiplink</Code> to enable users who rely on keyboard navigation to skip over menus/navigational
-        elements on your site. <Code>Skiplink</Code> renders a button that is hidden until it gets focus, and on click
+        Use a <Code>{'<Skiplink>'}</Code> to enable users who rely on keyboard
+        navigation to skip over menus/navigational
+        elements on your site. <Code>{'<Skiplink>'}</Code> renders a button that
+        is hidden until it gets focus, and on click
         it will move focus to the element whose id is passed to its <Code>id</Code> prop.
       </Paragraph>
       <Paragraph>
-        The <Code>Skiplink</Code> component should be inserted before the navigational elements of your application.
-        You can see an example of a <Code>Skiplink</Code> by reloading this page and hitting the <Code>Tab</Code> key
-        on your keyboard.
+        The <Code>{'<Skiplink>'}</Code> component should be inserted before the
+        navigational elements of your application. You can see an example of
+        a <Code>{'<Skiplink>'}</Code> by reloading this page and hitting
+        the <Code>Tab</Code> key on your keyboard.
       </Paragraph>
       <Header as='h3'>Props: <Code>SkipLinkProps</Code></Header>
       <Paragraph>
-        <Code>SkipLink</Code> accepts only one prop: <Code>id: string</Code>. Pass the id of the element to which
-        the <Code>Skiplink</Code> should skip.
+        <Code>{'<Skiplink>'}</Code> accepts only one
+        prop: <Code>id: string</Code>. Pass the id of the element to which
+        the <Code>{'<Skiplink>'}</Code> should skip.
       </Paragraph>
       <Header as='h2' id='grid'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
-        Use the <Code>Grid</Code> component to create a 12-column layout, with <Code>GridItem</Code> children that
-        occupy a specified number of columns.
+        Use the <Code>{'<Grid>'}</Code> component to create a 12-column layout,
+        with <Code>{'<GridItem>'}</Code> children that occupy a specified
+        number of columns.
       </Paragraph>
       <Header as='h3'>Props: <Code>GridProps</Code></Header>
       <Paragraph>
-        Besides children, <Code>Grid</Code> accepts the prop <Code>spacing?: number</Code>. If spacing is supplied, that
-        number of pixels of space will be shown around all <Code>GridItem</Code>s.
+        Besides children, <Code>{'<Grid>'}</Code> accepts the
+        prop <Code>spacing?: number</Code>. If spacing is supplied, that number
+        of pixels of space will be shown around all <Code>{'<GridItem>'}</Code>s.
       </Paragraph>
       <Header as='h2' id='griditem'><Code>{'<GridItem>'}</Code></Header>
       <Paragraph>
-        Every child of a <Code>Grid</Code> should be a <Code>GridItem</Code>.
+        Every child of a <Code>{'<Grid>'}</Code> should be a <Code>{'<GridItem>'}</Code>.
       </Paragraph>
       <Header as='h3'>Props: <Code>GridItemProps</Code></Header>
       <Paragraph>
-        Besides children, <Code>GridItem</Code>s accept the prop <Code>size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 |
-        11 | 12</Code>. The <Code>size</Code> prop defines how many columns the <Code>GridItem</Code> occupies. This
-        prop defaults to <Code>12</Code>.
+        Besides children, <Code>{'<GridItem>'}</Code>s accept the
+        prop <Code>size?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12</Code>.
+        The <Code>size</Code> prop defines how many columns
+        the <Code>{'<GridItem>'}</Code> occupies. This prop defaults to <Code>12</Code>.
       </Paragraph>
-      <Header as='h3' id='responsive-sizing'>Responsive sizing of <Code>GridItem</Code>s</Header>
+      <Header as='h3' id='responsive-sizing'>Responsive sizing of <Code>{'<GridItem>'}</Code>s</Header>
       <Paragraph>
-        Note that below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px), the <Code>size</Code> prop is
-        ignored and all <Code>GridItem</Code>s are full-width.
+        Note that below the <Code>xs</Code> breakpoint ({numbers.breakpoint.xs}px),
+        the <Code>size</Code> prop is ignored and all <Code>{'<GridItem>'}</Code>s are full-width.
       </Paragraph>
       <Header as='h2' id='scrollcontainer'><Code>{'<ScrollContainer>'}</Code></Header>
       <Paragraph>
-        You can use a <Code>ScrollContainer</Code> to create a verticall or horizontally scrollable div with content of
-        a fixed minimum height/width. Scroll containers are very convenient ways to
-        prevent <Link as={HashLink} to={'/table#table'}><Code>{'<Table>'}</Code></Link>s from becoming unmanageable on
-        responsive devices.
+        You can use a <Code>ScrollContainer</Code> to create a verticall or
+        horizontally scrollable div with content of
+        a fixed minimum height/width. Scroll containers are very convenient ways
+        to prevent <Link as={HashLink} to={'/table#table'}><Code>{'<Table>'}</Code>
+        </Link>s from becoming unmanageable on responsive devices.
       </Paragraph>
       <Header as='h3'>Props: <Code>ScrollContainerProps</Code></Header>
       <Paragraph>
-        Besides the props that can be passed to an HTML <Code>{'<div>'}</Code>, <Code>ScrollContainer</Code> accepts
-        the following props:
+        Besides the props that can be passed to an
+        HTML <Code>{'<div>'}</Code>, <Code>ScrollContainer</Code> accepts the following props:
       </Paragraph>
       <CodeBlock>{`contentMinHeight?: number | string
 contentMinWidth?: number | string
@@ -148,12 +169,14 @@ maxWidth?: number | string`}</CodeBlock>
           Examples
         </Link>
       </Header>
-      <Header as='h3'><Code>Grid</Code></Header>
+      <Header as='h3'><Code>{'<Grid>'}</Code></Header>
       <Paragraph>
-        The following interactive example grid has colored borders on the outside of the <Code>Grid</Code> and
-        the content of each <Code>GridItem</Code> to illustrate how <Code>Grid</Code>'s <Code>spacing</Code> prop
-        and <Code>GridItem</Code>'s <Code>size</Code> prop work. Change the values below to increase/decrease the Grid
-        spacing and change the column size of each item.
+        The following interactive example grid has colored borders on the
+        outside of the <Code>{'<Grid>'}</Code> and the content of
+        each <Code>{'<GridItem>'}</Code> to illustrate how <Code>{'<Grid>'}
+        </Code>'s <Code>spacing</Code> prop and <Code>{'<GridItem>'}
+        </Code>'s <Code>size</Code> prop work. Change the values below to
+        increase/decrease the Grid spacing and change the column size of each item.
       </Paragraph>
       <ExampleBorder color='var(--clear-border)' background='var(--clear-zebra)' padded={false}>
         <Grid spacing={gridSpacing}>

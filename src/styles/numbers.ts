@@ -2,6 +2,7 @@ const unit = 8
 
 export type Breakpoint = 'xs' | 'sm' | 'md' | 'lg'
 
+export type Width = 'main' | 'lg' | 'xl'
 
 type Breakpoints = {
   [key in Breakpoint]: number
@@ -14,6 +15,11 @@ interface Numbers {
   unit: number
 }
 
+const width: {[key in Width]: number} = {
+  main: 95 * unit,
+  lg: unit ** 3 * 2,
+  xl: unit ** 3 * 4,
+}
 
 export const numbers: Numbers = {
   breakpoint: {
@@ -26,8 +32,6 @@ export const numbers: Numbers = {
     default: unit * 2,
     label: unit * 1.75,
   },
-  width: {
-    main: 95 * unit,
-  },
+  width,
   unit,
 }
