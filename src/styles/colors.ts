@@ -31,6 +31,6 @@ export const colors: {[key in Themes]: {[key in Colors]: string}} = {
     link: '#9e9efa',
     textColor: 'white',
     violet: 'violet',
-    zebra: '#242424',
+    zebra: '#1a1a1a',
   }
 } as const
