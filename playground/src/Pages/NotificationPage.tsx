@@ -31,7 +31,7 @@ export const NotificationPage: React.FC = () => {
   return (
     <>
       {setTitle('Notifications')}
-      <Header><Code>{'<Notification>'}</Code></Header>
+      <Header id='notification'><Code>{'<Notification>'}</Code></Header>
       <Paragraph as={'nav'}>
         <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
         <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}

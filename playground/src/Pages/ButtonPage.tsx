@@ -21,7 +21,7 @@ export const ButtonPage: React.FC = () => {
   return (
     <>
       {setTitle('Button')}
-      <Header><Code>{'<Button>'}</Code></Header>
+      <Header id='button'><Code>{'<Button>'}</Code></Header>
       <Paragraph>
       The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.
       </Paragraph>

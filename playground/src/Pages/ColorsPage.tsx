@@ -16,6 +16,25 @@ import {
   useDarkMode,
 } from '../component-lib'
 
+const colorDescription: {[key in Colors]?: React.ReactNode} = {
+  background: <>Used for page backgrounds and text on <Code>blue</Code>, <Code>
+    error</Code>, <Code>green</Code>, <Code>link</Code>, <Code>textColor</Code>,
+    and <Code>violet</Code> colored elements</>,
+  border: <>Used for borders in <Link as={HashLink} to='/input#inputs'>input</Link> components
+    and standard <Link as={HashLink} to='/button#button'>{'<Button>'}</Link> background</>,
+  error: <>Used for error state borders and text in <Link as={HashLink} to='/input#inputs'>input</Link> components and
+  for error <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code></Link> background</>,
+  green: <>Used for success <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code>
+  </Link> background</>,
+  link: <>Used for <Link as={HashLink} to='/link#link'><Code>{'<Link>'}</Code></Link> text and
+    primary <Link as={HashLink} to='/button#button'>{'<Button>'}</Link> and
+    standard <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code></Link> backgrounds</>,
+  textColor: <>Used for text when it appears on a <Code>background</Code>, <Code>
+    border</Code>, or <Code>zebra</Code> colored background</>,
+  zebra: <>Used as the background for even-numbered <Link as={HashLink} to='/table#examples'><Code>{'<TableRow>'}</Code>
+  </Link></>,
+}
+
 interface ColorTileProps extends React.HTMLAttributes<HTMLDivElement> {
   color: Colors
   textColor?: string
@@ -28,12 +47,16 @@ const StyledTile = styled(({color, textColor, theme, ...props}: ColorTileProps) 
 ))`
   background-color: ${(p): string => colors[p.theme as Themes][p.color]};
   color: ${(p): string => complimentaryColors[p.theme as Themes][p.color]};
+  height: calc(100% - calc(var(--clear-unit) * 2));
   margin-bottom: calc(var(--clear-unit) * 2);
   @media (min-width: ${numbers.breakpoint.xs}px) {
     margin-right: calc(var(--clear-unit) * 2);
   }
   padding: calc(var(--clear-unit) * 2);
   border-radius: var(--clear-unit);
+  a {
+    color: inherit;
+  }
   h3 {
     margin: 0;
   }
@@ -43,6 +66,9 @@ const StyledTile = styled(({color, textColor, theme, ...props}: ColorTileProps) 
   }
   & > div {
     font-size: var(--clear-font-size-label);
+    &:not(:last-child) {
+      margin-bottom: var(--clear-unit);
+    }
   }
 `
 
@@ -53,6 +79,7 @@ const ColorTile = (props: ColorTileProps): JSX.Element => (
         {props.color}: <Code>{colors[props.theme][props.color]}</Code>
       </Header>
       <div>contrast color: <Code>{complimentaryColors[props.theme][props.color]}</Code></div>
+      {colorDescription[props.color] && <div>{colorDescription[props.color]}</div>}
     </StyledTile>
   </GridItem>
 )
