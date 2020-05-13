@@ -34,3 +34,28 @@ export const colors: {[key in Themes]: {[key in Colors]: string}} = {
     zebra: '#1a1a1a',
   }
 } as const
+
+export const complimentaryColors: {[key in Themes]: {[key in Colors]: string}} = {
+  light: {
+    background: colors.light.textColor,
+    blue: colors.light.background,
+    border: colors.light.textColor,
+    error: colors.light.background,
+    green: colors.light.background,
+    link: colors.light.background,
+    textColor: colors.light.background,
+    violet: colors.light.background,
+    zebra: colors.light.textColor,
+  },
+  dark: {
+    background: colors.dark.textColor,
+    blue: colors.dark.background,
+    border: colors.dark.textColor,
+    error: colors.dark.background,
+    green: colors.dark.background,
+    link: colors.dark.background,
+    textColor: colors.dark.background,
+    violet: colors.dark.background,
+    zebra: colors.dark.textColor,
+  }
+}
