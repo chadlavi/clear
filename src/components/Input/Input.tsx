@@ -38,8 +38,7 @@ const forwardOnFocus = (
   }, 1)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InputBase = ({error, ...props}: InputProps): JSX.Element =>
+const InputBase = ({error: _error, ...props}: InputProps): JSX.Element =>
   <input
     {...props}
     onClick={forwardOnClick(props.onClick)}

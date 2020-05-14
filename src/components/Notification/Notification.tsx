@@ -50,8 +50,8 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const NotificationBase = (
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  {buttonProps, dismissible, error, mini, success, timeOut, transient, ...props}:
+  {buttonProps: _buttonProps, dismissible: _dismissible, error: _error, mini: _mini,
+    success: _success, timeOut: _timeOut, transient: _transient, ...props}:
   Omit<NotificationProps, 'open' | 'setOpen'>
 ): JSX.Element => (
   <div
@@ -108,8 +108,9 @@ interface DismissButtonProps extends ButtonProps {
   success?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const DismissButtonBase = ({error, success, ...props}: DismissButtonProps): JSX.Element => <Button {...props} />
+const DismissButtonBase = (
+  {error: _error, success: _success, ...props}: DismissButtonProps
+): JSX.Element => <Button {...props} />
 
 const DismissButton = styled(DismissButtonBase)`
   background: none;

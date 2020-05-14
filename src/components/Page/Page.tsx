@@ -6,8 +6,7 @@ interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: Width
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const PageBase = ({size, ...props}: PageProps): JSX.Element => (
+const PageBase = ({size: _size, ...props}: PageProps): JSX.Element => (
   <main {...props} />
 )
 

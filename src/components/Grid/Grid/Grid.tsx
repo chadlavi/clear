@@ -9,8 +9,7 @@ export interface GridProps extends React.HTMLAttributes<HTMLDivElement> {
   spacing?: number
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Container: React.FC = ({spacing, ...props}: GridProps) => <div {...props} />
+const Container: React.FC = ({spacing: _spacing, ...props}: GridProps) => <div {...props} />
 
 /**
  * A simple 12-column grid container. Must be used in conjunciton with

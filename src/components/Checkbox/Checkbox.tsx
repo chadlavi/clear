@@ -26,8 +26,7 @@ const InputWrapper = styled.div`
   position: relative;
 `
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const InputBase = ({error, label, ...props}: CheckboxProps): JSX.Element => (
+const InputBase = ({error: _error, label: _label, ...props}: CheckboxProps): JSX.Element => (
   <input
     {...props}
     type={'checkbox'}
@@ -53,8 +52,7 @@ interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
   checked?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const SVGBase = ({checked, ...props}: IconProps): JSX.Element => (
+const SVGBase = ({checked: _checked, ...props}: IconProps): JSX.Element => (
   <svg
     version='1.1'
     xmlns='http://www.w3.org/2000/svg'
@@ -80,8 +78,7 @@ interface LabelBaseProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   error?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const LabelBase = ({disabled, error, ...props}: LabelBaseProps): JSX.Element => (
+const LabelBase = ({disabled: _disabled, error: _error, ...props}: LabelBaseProps): JSX.Element => (
   <label
     {...props}
   />

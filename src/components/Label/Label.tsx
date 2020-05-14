@@ -17,8 +17,7 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   required?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const LabelBase = ({disabled, error, required, ...props}: LabelProps): JSX.Element => (
+const LabelBase = ({disabled: _disabled, error: _error, required, ...props}: LabelProps): JSX.Element => (
   <label
     {...props}
   >

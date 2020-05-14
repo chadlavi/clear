@@ -11,8 +11,8 @@ export interface ScrollContainerProps extends React.HTMLAttributes<HTMLDivElemen
 
 const ContainerBase = (
   {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    contentMinHeight, contentMinWidth, direction = 'vertical', maxHeight, maxWidth,
+    contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
+    direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth,
     ...props
   }: ScrollContainerProps
 ): JSX.Element =>
@@ -54,8 +54,8 @@ const Container = styled(ContainerBase)`
 
 const ContentBase = (
   {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    contentMinHeight, contentMinWidth, direction = 'vertical', maxHeight, maxWidth, ...props
+    contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
+    direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth, ...props
   }: ScrollContainerProps
 ): JSX.Element =>
   <div {...props} />

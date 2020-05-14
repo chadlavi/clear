@@ -13,8 +13,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => <button {...props}/>
+const ButtonBase = ({primary: _, ...props}: ButtonProps): JSX.Element => <button {...props}/>
 
 /**
  * A simple styled `<button>`

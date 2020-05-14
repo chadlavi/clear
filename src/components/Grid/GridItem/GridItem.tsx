@@ -11,8 +11,7 @@ export interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: GridItemSize
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const Container: React.FC = ({size, ...props}: GridItemProps) => <div {...props} />
+const Container: React.FC = ({size: _size, ...props}: GridItemProps) => <div {...props} />
 
 /**
  * A simple 12-column grid item. Must be used as a direct child of `<Grid>`.
