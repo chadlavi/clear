@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
@@ -90,16 +90,16 @@ export const InputPage: React.FC = () => {
       {setTitle('Input')}
       <Header id='inputs'>Inputs</Header>
       <Paragraph as={'nav'}>
-        <Link as={HashLink} to={'#input'}><Code>{'<Input>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#inputprops'}><Code>InputProps</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#select'}><Code>{'<Select>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#selectprops'}><Code>SelectProps</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#checkbox'}><Code>{'<Checkbox>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#checkboxprops'}><Code>CheckBoxProps</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#radio'}><Code>{'<Radio>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#radioprops'}><Code>RadioProps</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#examples'}>Examples</Link>
+        <AccessibleHashlink to={'#input'}><Code>{'<Input>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#inputprops'}><Code>InputProps</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#select'}><Code>{'<Select>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#selectprops'}><Code>SelectProps</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#checkbox'}><Code>{'<Checkbox>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#checkboxprops'}><Code>CheckBoxProps</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#radio'}><Code>{'<Radio>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#radioprops'}><Code>RadioProps</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#examples'}>Examples</AccessibleHashlink>
       </Paragraph>
       <Header as='h2' id='input'><Code>{'<Input>'}</Code></Header>
       <Paragraph>
@@ -107,7 +107,7 @@ export const InputPage: React.FC = () => {
       </Paragraph>
       <Paragraph>
         Note that <Code>Input</Code> should always be paired with
-        a <Link as={HashLink} to={'/text#label'}><Code>{'<Label>'}</Code></Link>.
+        a <AccessibleHashlink to={'/text#label'}><Code>{'<Label>'}</Code></AccessibleHashlink>.
       </Paragraph>
       <Header as='h2' id='props'>Props: <Code>InputProps</Code></Header>
       <Paragraph>
@@ -118,7 +118,7 @@ export const InputPage: React.FC = () => {
         You can also use
         the <Link href={'https://styled-components.com/docs/api#as-polymorphic-prop'}><Code>as</Code> prop</Link> to
         render a <Code>{'<textarea>'}</Code> instead of an <Code>{'<input>'}</Code>, as shown in
-        the <Link as={HashLink} to={'#examples'}>examples</Link> below.
+        the <AccessibleHashlink to={'#examples'}>examples</AccessibleHashlink> below.
       </Paragraph>
       <Header as='h2' id='select'><Code>{'<Select>'}</Code></Header>
       <Paragraph>
@@ -161,7 +161,8 @@ export const InputPage: React.FC = () => {
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
-        See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+        See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+        Getting started page.
       </Paragraph>
       <Paragraph>
         Here's an example of a customized Input:

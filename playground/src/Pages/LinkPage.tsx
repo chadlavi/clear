@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {Link as RouterLink} from 'react-router-dom'
 import {setTitle} from '../utils'
 import {
@@ -15,11 +15,11 @@ export const LinkPage: React.FC = () =>
     {setTitle('Link')}
     <Header id={'link'}><Code>{'<Link>'}</Code></Header>
     <Paragraph as={'nav'}>
-      <Link as={HashLink} to={'#external'}>External vs internal links</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#router'}>Router</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#examples'}>Examples</Link>
+      <AccessibleHashlink to={'#external'}>External vs internal links</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#router'}>Router</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#examples'}>Examples</AccessibleHashlink>
     </Paragraph>
     <Paragraph>
       The <Code>Link</Code> component is a simple styled wrapper around an HTML <Code>{'<a>'}</Code> element.
@@ -47,7 +47,8 @@ export const LinkPage: React.FC = () =>
     </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
-      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+      See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+      Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
       <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L56'}>Examples</Link>

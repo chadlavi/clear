@@ -1,12 +1,11 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import {
   Button,
   Code,
   CodeBlock,
   Header,
-  Link,
   Notification,
   Paragraph,
 } from '../component-lib'
@@ -33,9 +32,9 @@ export const NotificationPage: React.FC = () => {
       {setTitle('Notifications')}
       <Header id='notification'><Code>{'<Notification>'}</Code></Header>
       <Paragraph as={'nav'}>
-        <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#examples'}>Examples</Link>
+        <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#examples'}>Examples</AccessibleHashlink>
       </Paragraph>
       <Paragraph>
         Use a <Code>{'<Notification>'}</Code> to show users a short, timely message that might automatically disappear
@@ -43,7 +42,8 @@ export const NotificationPage: React.FC = () => {
       </Paragraph>
       <Paragraph>
         For accessibility reasons, it's best to insert the <Code>{'<Notification>'}</Code> component in your code
-        within the context it's relevant to. In the <Link as={HashLink} to='#examples'>examples</Link> below, you can
+        within the context it's relevant to. In the <AccessibleHashlink to='#examples'>examples
+        </AccessibleHashlink> below, you can
         see that the <Code>{'<Notification>'}</Code> immediately follows the <Code>{'<Button>'}</Code> that invokes it.
       </Paragraph>
       <Header as='h2' id='props'>Props: <Code>NotificationProps</Code></Header>
@@ -98,7 +98,8 @@ timeOut?: number
 transient?: boolean`}</CodeBlock>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
-      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+      See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+      Getting started page.
       </Paragraph>
       <Paragraph>
         To make customization easier, some fixed class names are applied to elements

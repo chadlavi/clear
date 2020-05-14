@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import {
   Code,
@@ -15,12 +15,12 @@ export const TextPage: React.FC = () =>
     {setTitle('Text formatting components')}
     <Header>Text formatting components</Header>
     <Paragraph as={'nav'}>
-      <Link as={HashLink} to={'#header'}><Code>{'<Header>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#paragraph'}><Code>{'<Paragraph>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#label'}><Code>{'<Label>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#code'}><Code>{'<Code>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#customization'}>Customization</Link>
+      <AccessibleHashlink to={'#header'}><Code>{'<Header>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#paragraph'}><Code>{'<Paragraph>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#label'}><Code>{'<Label>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#code'}><Code>{'<Code>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#codeblock'}><Code>{'<CodeBlock>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>
     </Paragraph>
     <Paragraph>
       Clear offers various components for formatting text.
@@ -62,7 +62,7 @@ export const TextPage: React.FC = () =>
     <Header as='h2' id='label'><Code>{'<Label>'}</Code></Header>
     <Paragraph>
       <Code>Label</Code> is a simple styled wrapper around <Code>{'<label>'}</Code>, used for formatting the label of
-      a form field like <Link as={HashLink} to={'/input#input'}><Code>{'<Input>'}</Code></Link>.
+      a form field like <AccessibleHashlink to={'/input#input'}><Code>{'<Input>'}</Code></AccessibleHashlink>.
     </Paragraph>
     <Header as='h3'>Props: <Code>LabelProps</Code></Header>
     <Paragraph>
@@ -91,6 +91,7 @@ export const TextPage: React.FC = () =>
     </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
-      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+      See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+      Getting started page.
     </Paragraph>
   </>

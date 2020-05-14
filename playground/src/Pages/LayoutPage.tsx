@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
@@ -56,14 +56,14 @@ export const LayoutPage: React.FC = () => {
       {setTitle('Layout components')}
       <Header>Layout components</Header>
       <Paragraph>
-        <Link as={HashLink} to={'#page'}><Code>{'<Page>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#skiplink'}><Code>{'<Skiplink>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#grid'}><Code>{'<Grid>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#griditem'}><Code>{'<GridItem>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#responsive-sizing'}>Responsive sizing</Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
-        <Link as={HashLink} to={'#examples'}>Examples</Link>
+        <AccessibleHashlink to={'#page'}><Code>{'<Page>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#skiplink'}><Code>{'<Skiplink>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#grid'}><Code>{'<Grid>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#griditem'}><Code>{'<GridItem>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#responsive-sizing'}>Responsive sizing</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#examples'}>Examples</AccessibleHashlink>
       </Paragraph>
       <Header as='h2' id='page'><Code>{'<Page>'}</Code></Header>
       <Paragraph>
@@ -147,8 +147,8 @@ export const LayoutPage: React.FC = () => {
         You can use a <Code>ScrollContainer</Code> to create a verticall or
         horizontally scrollable div with content of
         a fixed minimum height/width. Scroll containers are very convenient ways
-        to prevent <Link as={HashLink} to={'/table#table'}><Code>{'<Table>'}</Code>
-        </Link>s from becoming unmanageable on responsive devices.
+        to prevent <AccessibleHashlink to={'/table#table'}><Code>{'<Table>'}</Code>
+        </AccessibleHashlink>s from becoming unmanageable on responsive devices.
       </Paragraph>
       <Header as='h3'>Props: <Code>ScrollContainerProps</Code></Header>
       <Paragraph>
@@ -162,7 +162,8 @@ maxHeight?: number | string
 maxWidth?: number | string`}</CodeBlock>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
-        See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+        See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+        Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
         <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L141'}>

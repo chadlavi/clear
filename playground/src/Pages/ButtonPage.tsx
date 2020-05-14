@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import {
   Button,
@@ -32,7 +32,8 @@ export const ButtonPage: React.FC = () => {
       </Paragraph>
       <Header as='h2' id='customization'>Customization</Header>
       <Paragraph>
-      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+      See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the Getting
+      started page.
       </Paragraph>
       <Header as='h2' id='examples'>
         <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L31'}>

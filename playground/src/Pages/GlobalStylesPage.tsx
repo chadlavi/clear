@@ -1,10 +1,9 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import {
   Code,
   Header,
-  Link,
   Paragraph,
 } from '../component-lib'
 
@@ -13,9 +12,9 @@ export const GlobalStylesPage: React.FC = () =>
     {setTitle('Globals')}
     <Header>Globals</Header>
     <Paragraph as={'nav'}>
-      <Link as={HashLink} to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#dark-mode'}>dark mode</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#globalstyles'}><Code>{'<GlobalStyles>'}</Code></Link>
+      <AccessibleHashlink to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#dark-mode'}>dark mode</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#globalstyles'}><Code>{'<GlobalStyles>'}</Code></AccessibleHashlink>
     </Paragraph>
     <Header as='h2' id='cssvariables'><Code>{'<CSSVariables>'}</Code></Header>
     <Paragraph>
@@ -31,7 +30,7 @@ export const GlobalStylesPage: React.FC = () =>
       automatically.
     </Paragraph>
     <Paragraph>
-      See also: <Link as={HashLink} to='/colors'>Colors</Link>
+      See also: <AccessibleHashlink to='/colors'>Colors</AccessibleHashlink>
     </Paragraph>
     <Header as='h2' id='globalstyles'><Code>{'<GlobalStyles>'}</Code></Header>
     <Paragraph>
@@ -41,7 +40,7 @@ export const GlobalStylesPage: React.FC = () =>
     </Paragraph>
     <Paragraph>
       Omitting the <Code>GlobalStyles</Code> component in your application will mean that any content not contained in
-      a <Link as={HashLink} to={'/layout#page'}><Code>Page</Code></Link> component may have unpredictable colors,
-      background colors, font sizes, and margins. Omitting <Code>GlobalStyles</Code> is not recommended.
+      a <AccessibleHashlink to={'/layout#page'}><Code>Page</Code></AccessibleHashlink> component may have unpredictable
+      colors, background colors, font sizes, and margins. Omitting <Code>GlobalStyles</Code> is not recommended.
     </Paragraph>
   </>

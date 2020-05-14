@@ -1,5 +1,6 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
+import {setTitle} from '../utils'
 import styled from 'styled-components'
 import {
   Code,
@@ -20,19 +21,21 @@ const colorDescription: {[key in Colors]?: React.ReactNode} = {
   background: <>Used for page backgrounds and text on <Code>blue</Code>, <Code>
     error</Code>, <Code>green</Code>, <Code>link</Code>, <Code>textColor</Code>,
     and <Code>violet</Code> colored elements</>,
-  border: <>Used for borders in <Link as={HashLink} to='/input#inputs'>input</Link> components
-    and standard <Link as={HashLink} to='/button#button'>{'<Button>'}</Link> background</>,
-  error: <>Used for error state borders and text in <Link as={HashLink} to='/input#inputs'>input</Link> components and
-  for error <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code></Link> background</>,
-  green: <>Used for success <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code>
-  </Link> background</>,
-  link: <>Used for <Link as={HashLink} to='/link#link'><Code>{'<Link>'}</Code></Link> text and
-    primary <Link as={HashLink} to='/button#button'>{'<Button>'}</Link> and
-    standard <Link as={HashLink} to='/notification#notification'><Code>{'<Notification>'}</Code></Link> backgrounds</>,
+  border: <>Used for borders in <AccessibleHashlink to='/input#inputs'>input</AccessibleHashlink> components
+    and standard <AccessibleHashlink to='/button#button'>{'<Button>'}</AccessibleHashlink> background</>,
+  error: <>Used for error state borders and text in <AccessibleHashlink to='/input#inputs'>input
+  </AccessibleHashlink> components and for error <AccessibleHashlink to='/notification#notification'><Code>
+    {'<Notification>'}</Code></AccessibleHashlink> background</>,
+  green: <>Used for success <AccessibleHashlink to='/notification#notification'><Code>{'<Notification>'}</Code>
+  </AccessibleHashlink> background</>,
+  link: <>Used for <AccessibleHashlink to='/link#link'><Code>{'<Link>'}</Code></AccessibleHashlink> text and
+    primary <AccessibleHashlink to='/button#button'>{'<Button>'}</AccessibleHashlink> and
+    standard <AccessibleHashlink to='/notification#notification'><Code>{'<Notification>'}</Code>
+  </AccessibleHashlink> backgrounds</>,
   textColor: <>Used for text when it appears on a <Code>background</Code>, <Code>
     border</Code>, or <Code>zebra</Code> colored background</>,
-  zebra: <>Used as the background for even-numbered <Link as={HashLink} to='/table#examples'><Code>{'<TableRow>'}</Code>
-  </Link></>,
+  zebra: <>Used as the background for even-numbered <AccessibleHashlink to='/table#examples'><Code>{'<TableRow>'}</Code>
+  </AccessibleHashlink></>,
 }
 
 interface ColorTileProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -88,6 +91,7 @@ export const ColorsPage: React.FC = () => {
   const dark = useDarkMode()
   return (
     <>
+      {setTitle('Colors')}
       <Header>Colors</Header>
       <Paragraph>
         All the colors used by Clear are shown below, along with the color that
@@ -103,7 +107,8 @@ export const ColorsPage: React.FC = () => {
         Your browser is currently using the {dark ? 'dark' : 'light'} mode variants.
       </Paragraph>
       <Paragraph>
-        See also: <Link as={HashLink} to='/global-styles#cssvariables'><Code>{'<CSSVariables>'}</Code></Link>
+        See also: <AccessibleHashlink to='/global-styles#cssvariables'><Code>{'<CSSVariables>'}</Code>
+        </AccessibleHashlink>
       </Paragraph>
       <Header as ='h2' id='lightmode'>
       Light mode {dark ? '' : '(current theme)'}

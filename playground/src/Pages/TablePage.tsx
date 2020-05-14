@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {HashLink} from 'react-router-hash-link'
+import {AccessibleHashlink} from './AccessibleHashlink'
 import {setTitle} from '../utils'
 import {
   Code,
@@ -69,15 +69,15 @@ export const TablePage: React.FC = () =>
     {setTitle('Table')}
     <Header>Table</Header>
     <Paragraph as={'nav'}>
-      <Link as={HashLink} to={'#props'}>Props</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#table'}><Code>{'<Table>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#tablehead'}><Code>{'<TableHead>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#tablebody'}><Code>{'<TableBody>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#tablerow'}><Code>{'<TableRow>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#tablecell'}><Code>{'<TableCell>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#generatetable'}><Code>{'<GenerateTable>'}</Code></Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#customization'}>Customization</Link>{' \u00b7 '}
-      <Link as={HashLink} to={'#examples'}>Examples</Link>
+      <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#table'}><Code>{'<Table>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#tablehead'}><Code>{'<TableHead>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#tablebody'}><Code>{'<TableBody>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#tablerow'}><Code>{'<TableRow>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#tablecell'}><Code>{'<TableCell>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#generatetable'}><Code>{'<GenerateTable>'}</Code></AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to={'#examples'}>Examples</AccessibleHashlink>
     </Paragraph>
     <Paragraph>
       Clear provides styled versions of the table primitives <Code>{'<table>'}</Code>, <Code>{'<thead>'}</Code>,
@@ -126,7 +126,8 @@ export const TablePage: React.FC = () =>
     </Paragraph>
     <Header as='h2' id='customization'>Customization</Header>
     <Paragraph>
-      See <Link as={HashLink} to={'/start#customization'}>Customization</Link> discussion on the Getting started page.
+      See <AccessibleHashlink to={'/start#customization'}>Customization</AccessibleHashlink> discussion on the
+      Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
       <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L145'}>
@@ -135,8 +136,8 @@ export const TablePage: React.FC = () =>
     </Header>
     <Paragraph>
       Both <Code>Table</Code>s below are wrapped
-      in <Link as={HashLink} to={'/layout#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></Link>s and has a
-      min-width of 600px. In narrow viewports, they will be horizontally scrollable.
+      in <AccessibleHashlink to={'/layout#scrollcontainer'}><Code>{'<ScrollContainer>'}</Code></AccessibleHashlink>s
+      and has a of 600px. In narrow viewports, they will be horizontally scrollable.
     </Paragraph>
     <Paragraph>
       Normally constructed table:

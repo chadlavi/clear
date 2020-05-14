@@ -37,6 +37,8 @@ module.exports = {
     'no-console': 'error',
     'no-shadow': 'error',
     'no-trailing-spaces': 'error',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
     'no-var': 'error',
     'object-curly-spacing': ['error', 'never'],
     'array-bracket-spacing': ['error', 'never'],
