@@ -213,10 +213,22 @@ const FancyPinkInput = styled(Input)\`
         />
       </FancyPinkParagraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L188'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/InputPage.tsx#L216'}>
           Examples
         </Link>
       </Header>
+      <Paragraph as={'nav'}>
+        <AccessibleHashlink to={'#input-examples'}>
+          <Code>{'<Input>'}</Code> examples
+        </AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#select-examples'}>
+          <Code>{'<Select>'}</Code> examples
+        </AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#checkbox-examples'}>
+          <Code>{'<Checkbox>'}</Code> examples
+        </AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#radio-examples'}><Code>{'<Radio>'}</Code> examples</AccessibleHashlink>
+      </Paragraph>
       <Grid spacing={8}>
         <GridItem>
           <Header as='h3' id='input-examples'><Code>{'<Input>'}</Code></Header>

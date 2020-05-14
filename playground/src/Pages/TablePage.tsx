@@ -130,7 +130,7 @@ export const TablePage: React.FC = () =>
       Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L145'}>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/TablePage.tsx#L133'}>
         Examples
       </Link>
     </Header>

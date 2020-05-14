@@ -166,7 +166,7 @@ maxWidth?: number | string`}</CodeBlock>
         Getting started page.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L141'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LayoutPage.tsx#L169'}>
           Examples
         </Link>
       </Header>

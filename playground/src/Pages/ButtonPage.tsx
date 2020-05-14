@@ -36,7 +36,7 @@ export const ButtonPage: React.FC = () => {
       started page.
       </Paragraph>
       <Header as='h2' id='examples'>
-        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L31'}>
+        <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/ButtonPage.tsx#L39'}>
         Examples
         </Link>
       </Header>

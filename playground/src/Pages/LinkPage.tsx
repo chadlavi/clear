@@ -51,7 +51,7 @@ export const LinkPage: React.FC = () =>
       Getting started page.
     </Paragraph>
     <Header as='h2' id='examples'>
-      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L56'}>Examples</Link>
+      <Link href={'https://github.com/chadlavi/clear/blob/master/playground/src/Pages/LinkPage.tsx#L54'}>Examples</Link>
     </Header>
     <Paragraph>
       <Link href={'/clear/'}>Internal HTML link</Link> (causes page load)
