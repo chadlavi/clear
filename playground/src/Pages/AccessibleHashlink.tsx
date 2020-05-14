@@ -2,13 +2,11 @@ import * as React from 'react'
 import {HashLink, HashLinkProps} from 'react-router-hash-link'
 import {Link, uuid} from '../component-lib'
 
-const scrollToTop = (): void => window.scrollTo({top: 0})
-
 export const AccessibleHashlink = (props: HashLinkProps): JSX.Element => {
   const focusTarget = (): void => {
     const route = props.to
     if (typeof route === 'string') {
-      const hashes = [...route.split('#')]
+      const hashes = route.split('#')
       if (hashes.length > 1) {
         const id = hashes.pop()
         if (id) {
@@ -24,15 +22,13 @@ export const AccessibleHashlink = (props: HashLinkProps): JSX.Element => {
               p.insertBefore(a, e)
               a.focus()
               a.addEventListener('blur', () => {
-                if (p) {
-                  p.removeChild(a)
-                }
+                p.removeChild(a)
               })
             }
           }, 1)
         }
       } else {
-        scrollToTop()
+        window.scrollTo({top: 0})
       }
     }
   }
