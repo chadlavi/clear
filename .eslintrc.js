@@ -1,3 +1,4 @@
+/* eslint-disable */
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
@@ -12,7 +13,7 @@ module.exports = {
   ],
   settings: {
     'react': {
-      'createClass': 'createReactClass', 
+      'createClass': 'createReactClass',
       'pragma': 'React',
       'version': 'detect',
     },
@@ -24,13 +25,13 @@ module.exports = {
     'eol-last': 'error',
     eqeqeq: ['error', 'always', {'null': 'ignore'}],
     indent: ['error', 2],
-    'max-len': ['error', { 'code': 120 }],
+    'max-len': ['error', {'code': 120}],
     'prefer-const': 'error',
     'prefer-template': 'error',
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'sort-imports': ['error', {
-      'memberSyntaxSortOrder': ['none', 'all', 'single', 'multiple',],
+      'memberSyntaxSortOrder': ['none', 'all', 'single', 'multiple'],
     }],
     'react/no-unescaped-entities': 'off',
     'react/prop-types': 0,
@@ -39,7 +40,7 @@ module.exports = {
     'no-shadow': 'error',
     'no-trailing-spaces': 'error',
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+    '@typescript-eslint/no-unused-vars': ['error', {'argsIgnorePattern': '^_'}],
     'no-var': 'error',
     'object-curly-spacing': ['error', 'never'],
     'array-bracket-spacing': ['error', 'never'],
@@ -54,6 +55,6 @@ module.exports = {
         requireLast: false,
       },
     }],
-    'yoda': ['error', 'never', { 'exceptRange': true }]
+    'yoda': ['error', 'never', {'exceptRange': true}]
   }
 }

@@ -11,6 +11,7 @@ import {
   InputPage,
   LayoutPage,
   LinkPage,
+  ListPage,
   NotificationPage,
   TablePage,
   TextPage,
@@ -59,6 +60,11 @@ const routes = [
     label: 'Layout',
     route: '/layout',
     component: <ComponentPage title='Layout' content={LayoutPage} />,
+  },
+  {
+    label: 'List',
+    route: '/list',
+    component: <ComponentPage title='List' content={ListPage} />,
   },
   {
     label: 'Input',

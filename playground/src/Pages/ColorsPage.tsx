@@ -12,7 +12,7 @@ import {
   Themes,
   colors,
   complimentaryColors,
-  numbers,
+  overXs,
   useDarkMode,
 } from '../component-lib'
 
@@ -51,9 +51,9 @@ const StyledTile = styled(({color, textColor, theme, ...props}: ColorTileProps) 
   color: ${(p): string => complimentaryColors[p.theme as Themes][p.color]};
   height: calc(100% - calc(var(--clear-unit) * 2));
   margin-bottom: calc(var(--clear-unit) * 2);
-  @media (min-width: ${numbers.breakpoint.xs}px) {
+  ${overXs(`
     margin-right: calc(var(--clear-unit) * 2);
-  }
+  `)}
   padding: calc(var(--clear-unit) * 2);
   border-radius: var(--clear-unit);
   a {

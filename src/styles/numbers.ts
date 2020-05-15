@@ -8,6 +8,19 @@ type Breakpoints = {
   [key in Breakpoint]: number
 }
 
+const breakpoints: Breakpoints = {
+  xs: 600,
+  sm: 960,
+  md: 1280,
+  lg: 1920,
+}
+
+const widths: {[key in Width]: number} = {
+  main: 95 * unit,
+  lg: unit ** 3 * 2,
+  xl: unit ** 3 * 4,
+}
+
 interface Numbers {
   breakpoint: Breakpoints
   fontSize: {[key: string]: number}
@@ -15,23 +28,81 @@ interface Numbers {
   unit: number
 }
 
-const width: {[key in Width]: number} = {
-  main: 95 * unit,
-  lg: unit ** 3 * 2,
-  xl: unit ** 3 * 4,
-}
-
 export const numbers: Numbers = {
-  breakpoint: {
-    xs: 600,
-    sm: 960,
-    md: 1280,
-    lg: 1920,
-  },
+  breakpoint: breakpoints,
   fontSize: {
     default: unit * 2,
     label: unit * 1.75,
   },
-  width,
+  width: widths,
   unit,
 }
+
+/**
+ * returns a CSS string formatted like:
+ *
+ * ```ts
+ * `@media (${minMax}-width: ${breakpoint[width]}px) {
+ *  ${styles}
+ * }`
+ * ```
+ *
+ * https://chadlavi.github.io/clear/#/helpers#makemediaquery
+ */
+export const makeMediaQuery = (minMax: 'min' | 'max', width: Breakpoint) => (styles: string): string => (
+  `@media (${minMax}-width: ${breakpoints[width]}px) {
+    ${styles}
+  }`
+)
+
+// convenience functions
+
+/**
+ * insert a CSS style when the browser is narrower than the XS breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#underxs
+ */
+export const underXs = makeMediaQuery('max', 'xs')
+/**
+ * insert a CSS style when the browser is narrower than the SM breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#undersm
+ */
+export const underSm = makeMediaQuery('max', 'sm')
+/**
+ * insert a CSS style when the browser is narrower than the MD breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#undermd
+ */
+export const underMd = makeMediaQuery('max', 'md')
+/**
+ * insert a CSS style when the browser is narrower than the LG breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#underlg
+ */
+export const underLg = makeMediaQuery('max', 'lg')
+
+/**
+ * insert a CSS style when the browser is wider than the XS breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#overxs
+ */
+export const overXs = makeMediaQuery('min', 'xs')
+/**
+ * insert a CSS style when the browser is wider than the SM breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#oversm
+ */
+export const overSm = makeMediaQuery('min', 'sm')
+/**
+ * insert a CSS style when the browser is wider than the MD breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#overmd
+ */
+export const overMd = makeMediaQuery('min', 'md')
+/**
+ * insert a CSS style when the browser is wider than the LG breakpoint
+ *
+ * https://chadlavi.github.io/clear/#/helpers#overlg
+ */
+export const overLg = makeMediaQuery('min', 'lg')

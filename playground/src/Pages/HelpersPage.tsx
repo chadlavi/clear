@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Code,
   CodeBlock,
@@ -15,6 +16,11 @@ import {
 export const HelpersPage: React.FC = () =>
   <>
     <Header>Helpers</Header>
+    <Paragraph as='nav'>
+      <AccessibleHashlink to='#hooks'>React hooks</AccessibleHashlink>{' \u00b7 '}
+      <AccessibleHashlink to='#other'>Other functions</AccessibleHashlink>
+    </Paragraph>
+    <Header as='h2' id='hooks'>React hooks</Header>
     <Paragraph>
       The following <Link href='https://reactjs.org/docs/hooks-intro.html'>React hooks</Link> are available in Clear.
       When using them, please bear in mind the <Link href='https://reactjs.org/docs/hooks-rules.html'>rules of
@@ -75,5 +81,60 @@ useResponsiveColor(color: Colors) => string`}</CodeBlock>
     <Paragraph style={{color: useResponsiveColor('violet')}}>
       This paragraph is <b>'{useResponsiveColor('violet')}'</b>, the tone of violet that has appropriate contrast
       on <b>{useResponsiveColor('background')}</b>, the current background color.
+    </Paragraph>
+    <Header as='h2' id='other'>Other functions</Header>
+    <Header as='h3' id='makemediaquery'><Code>makeMediaQuery</Code></Header>
+    <CodeBlock>{'makeMediaQuery(maxMin: \'max\' | \'min\', width: Breakpoint)(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles to apply over/under a given breakpoint size. This function is mostly used internally to make
+      the following functions:
+    </Paragraph>
+    <Header as='h3' id='underxs'><Code>underXs</Code></Header>
+    <CodeBlock>{'underXs(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is narrower than the <Code>xs</Code> breakpoint
+      ({numbers.breakpoint.xs}px).
+    </Paragraph>
+    <Header as='h3' id='undersm'><Code>underSm</Code></Header>
+    <CodeBlock>{'underSm(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is narrower than the <Code>sm</Code> breakpoint
+      ({numbers.breakpoint.sm}px).
+    </Paragraph>
+    <Header as='h3' id='undermd'><Code>underMd</Code></Header>
+    <CodeBlock>{'underMd(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is narrower than the <Code>md</Code> breakpoint
+      ({numbers.breakpoint.md}px).
+    </Paragraph>
+    <Header as='h3' id='underlg'><Code>underLg</Code></Header>
+    <CodeBlock>{'underLg(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is narrower than the <Code>lg</Code> breakpoint
+      ({numbers.breakpoint.lg}px).
+    </Paragraph>
+    <Header as='h3' id='overxs'><Code>overXs</Code></Header>
+    <CodeBlock>{'overXs(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is wider than the <Code>xs</Code> breakpoint
+      ({numbers.breakpoint.xs}px).
+    </Paragraph>
+    <Header as='h3' id='oversm'><Code>overSm</Code></Header>
+    <CodeBlock>{'overSm(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is wider than the <Code>sm</Code> breakpoint
+      ({numbers.breakpoint.sm}px).
+    </Paragraph>
+    <Header as='h3' id='overmd'><Code>overMd</Code></Header>
+    <CodeBlock>{'overMd(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is wider than the <Code>md</Code> breakpoint
+      ({numbers.breakpoint.md}px).
+    </Paragraph>
+    <Header as='h3' id='overlg'><Code>overLg</Code></Header>
+    <CodeBlock>{'overLg(style: string) => string'}</CodeBlock>
+    <Paragraph>
+      Use to insert styles that should apply when the viewport is wider than the <Code>lg</Code> breakpoint
+      ({numbers.breakpoint.lg}px).
     </Paragraph>
   </>
