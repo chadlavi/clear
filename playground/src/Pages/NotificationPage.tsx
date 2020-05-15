@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Button,
   Code,
@@ -29,7 +28,6 @@ export const NotificationPage: React.FC = () => {
 
   return (
     <>
-      {setTitle('Notifications')}
       <Header id='notification'><Code>{'<Notification>'}</Code></Header>
       <Paragraph as={'nav'}>
         <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}

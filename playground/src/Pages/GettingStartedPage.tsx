@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import styled from 'styled-components'
 import {
   Button,
@@ -61,7 +60,6 @@ export const GettingStartedPage: React.FC = () => {
 
   return (
     <>
-      {setTitle('Getting started')}
       <Header>Getting started</Header>
       <Header as ='h2'>Contents</Header>
       <Paragraph as={'nav'}>

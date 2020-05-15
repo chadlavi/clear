@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {ComponentPage} from './ComponentPage'
 import {version} from '../package.json'
 import {
   ButtonPage,
@@ -19,6 +20,7 @@ import {
   GridItem,
   Link,
   Page,
+  Paragraph,
   SkipLink,
 } from './component-lib'
 import {
@@ -28,67 +30,70 @@ import {
   Switch,
 } from 'react-router-dom'
 
-const routes = [
+const headerRoutes = [
   {
     label: `Clear (${version})`,
     exact: true,
     route: '/',
-    component: <HomePage />,
+    component: <ComponentPage content={HomePage} />,
   },
   {
     label: 'Getting started',
     route: '/start',
-    component: <GettingStartedPage />,
+    component: <ComponentPage title='Getting started' content={GettingStartedPage} />,
   },
+]
+
+const routes = [
   {
     label: 'Globals',
     route: '/global-styles',
-    component: <GlobalStylesPage />,
+    component: <ComponentPage title='Globals' content={GlobalStylesPage} />,
   },
   {
     label: 'Colors',
     route: '/colors',
-    component: <ColorsPage />,
+    component: <ComponentPage title='Colors' content={ColorsPage} />,
   },
   {
     label: 'Layout',
     route: '/layout',
-    component: <LayoutPage />,
+    component: <ComponentPage title='Layout' content={LayoutPage} />,
   },
   {
     label: 'Input',
     route: '/input',
-    component: <InputPage />,
+    component: <ComponentPage title='Input' content={InputPage} />,
   },
   {
     label: 'Button',
     route: '/button',
-    component: <ButtonPage />,
+    component: <ComponentPage title='Button' content={ButtonPage} />,
   },
   {
     label: 'Link',
     route: '/link',
-    component: <LinkPage />,
+    component: <ComponentPage title='Link' content={LinkPage} />,
   },
   {
     label: 'Text',
     route: '/text',
-    component: <TextPage />,
+    component: <ComponentPage title='Text' content={TextPage} />,
   },
   {
     label: 'Table',
     route: '/table',
-    component: <TablePage />,
+    component: <ComponentPage title='Table' content={TablePage} />,
   },
   {
-    label: 'Notifications',
+    label: 'Notification',
     route: '/notification',
-    component: <NotificationPage />,
+    component: <ComponentPage title='Notification' content={NotificationPage} />,
   },
   {
     label: 'Helpers',
     route: '/helpers',
-    component: <HelpersPage />,
+    component: <ComponentPage title='Helpers' content={HelpersPage} />,
   },
 ]
 
@@ -123,23 +128,43 @@ export const Routes: React.FC = () => {
         <SkipLink id={'main'} />
         <Grid spacing={16}>
           <GridItem as='nav' aria-label='primary'>
-            {routes.map((r, i) =>
-              <React.Fragment key={r.label}>
-                <Link
-                  as={NavLink}
-                  to={r.route}
-                  exact={r.exact}
-                >
-                  {r.label}
-                </Link>
-                {i !== routes.length - 1 ? ' \u00b7 ' : ''}
-              </React.Fragment>
-            )}
+            <Paragraph>
+              {headerRoutes.map((r, i) => (
+                <React.Fragment key={r.label}>
+                  <Link
+                    as={NavLink}
+                    to={r.route}
+                    exact={r.exact}
+                  >
+                    {r.label}
+                  </Link>
+                  {i !== headerRoutes.length - 1 ? ' \u00b7 ' : ''}
+                </React.Fragment>
+              ))
+              }
+            </Paragraph>
+            {routes
+              .sort(
+                (a, b) => (
+                  a.label < b.label
+                ) ? -1 : 1
+              )
+              .map((r, i) =>
+                <React.Fragment key={r.label}>
+                  <Link
+                    as={NavLink}
+                    to={r.route}
+                  >
+                    {r.label}
+                  </Link>
+                  {i !== routes.length - 1 ? ' \u00b7 ' : ''}
+                </React.Fragment>
+              )}
           </GridItem>
           <GridItem>
             <span tabIndex={-1} id='main' />
             <Switch>
-              {routes.map((r) =>
+              {[...headerRoutes, ...routes].map((r) =>
                 <Route
                   key={r.label}
                   exact

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Code,
   CodeBlock,
@@ -12,7 +11,6 @@ import {
 
 export const TextPage: React.FC = () =>
   <>
-    {setTitle('Text formatting components')}
     <Header>Text formatting components</Header>
     <Paragraph as={'nav'}>
       <AccessibleHashlink to={'#header'}><Code>{'<Header>'}</Code></AccessibleHashlink>{' \u00b7 '}

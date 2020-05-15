@@ -1,5 +1,5 @@
 import * as React from 'react'
-import {Link} from '../component-lib'
+import {Link} from './component-lib'
 import {HashLink, HashLinkProps} from 'react-router-hash-link'
 
 const jumpToID = (path: string): void => {

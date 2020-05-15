@@ -1,7 +1,6 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {Link as RouterLink} from 'react-router-dom'
-import {setTitle} from '../utils'
 import {
   Code,
   CodeBlock,
@@ -12,7 +11,6 @@ import {
 
 export const LinkPage: React.FC = () =>
   <>
-    {setTitle('Link')}
     <Header id={'link'}><Code>{'<Link>'}</Code></Header>
     <Paragraph as={'nav'}>
       <AccessibleHashlink to={'#external'}>External vs internal links</AccessibleHashlink>{' \u00b7 '}

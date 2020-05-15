@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import styled from 'styled-components'
 import {
   Code,
@@ -53,7 +52,6 @@ export const LayoutPage: React.FC = () => {
 
   return (
     <>
-      {setTitle('Layout components')}
       <Header>Layout components</Header>
       <Paragraph>
         <AccessibleHashlink to={'#page'}><Code>{'<Page>'}</Code></AccessibleHashlink>{' \u00b7 '}

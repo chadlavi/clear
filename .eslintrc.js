@@ -33,6 +33,7 @@ module.exports = {
       'memberSyntaxSortOrder': ['none', 'all', 'single', 'multiple',],
     }],
     'react/no-unescaped-entities': 'off',
+    'react/prop-types': 0,
     'radix': 'warn',
     'no-console': 'error',
     'no-shadow': 'error',

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Code,
   Header,
@@ -9,7 +8,6 @@ import {
 
 export const GlobalStylesPage: React.FC = () =>
   <>
-    {setTitle('Globals')}
     <Header>Globals</Header>
     <Paragraph as={'nav'}>
       <AccessibleHashlink to={'#cssvariables'}><Code>{'<CSSVariables>'}</Code></AccessibleHashlink>{' \u00b7 '}

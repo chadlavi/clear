@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Code,
   CodeBlock,
@@ -66,7 +65,6 @@ const tableData: TableData<TableHeaders> = [
 
 export const TablePage: React.FC = () =>
   <>
-    {setTitle('Table')}
     <Header>Table</Header>
     <Paragraph as={'nav'}>
       <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}

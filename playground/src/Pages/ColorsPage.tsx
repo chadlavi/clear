@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import styled from 'styled-components'
 import {
   Code,
@@ -91,7 +90,6 @@ export const ColorsPage: React.FC = () => {
   const dark = useDarkMode()
   return (
     <>
-      {setTitle('Colors')}
       <Header>Colors</Header>
       <Paragraph>
         All the colors used by Clear are shown below, along with the color that

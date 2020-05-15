@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import styled from 'styled-components'
 import {
   Checkbox,
@@ -87,7 +86,6 @@ export const InputPage: React.FC = () => {
 
   return (
     <>
-      {setTitle('Input')}
       <Header id='inputs'>Inputs</Header>
       <Paragraph as={'nav'}>
         <AccessibleHashlink to={'#input'}><Code>{'<Input>'}</Code></AccessibleHashlink>{' \u00b7 '}

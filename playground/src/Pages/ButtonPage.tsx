@@ -1,6 +1,5 @@
 import * as React from 'react'
-import {AccessibleHashlink} from './AccessibleHashlink'
-import {setTitle} from '../utils'
+import {AccessibleHashlink} from '../AccessibleHashlink'
 import {
   Button,
   Code,
@@ -20,7 +19,6 @@ export const ButtonPage: React.FC = () => {
   const [primary, setPrimary] = React.useState<boolean>(false)
   return (
     <>
-      {setTitle('Button')}
       <Header id='button'><Code>{'<Button>'}</Code></Header>
       <Paragraph>
       The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.
