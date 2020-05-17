@@ -153,7 +153,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
     }, timeOut ?? 2000)
   }
 
-  const wrapOnKeyDown = (
+  const forwardOnKeyDown = (
     f?: (e: React.KeyboardEvent<HTMLDivElement>) => void
   ) => (e: React.KeyboardEvent<HTMLDivElement>): void => {
     if (e.keyCode === 27 || e.key === 'Escape') {
@@ -172,7 +172,7 @@ export const Notification = (props: NotificationProps): JSX.Element => {
             mini={mini}
             success={success}
             {...other}
-            onKeyDown={wrapOnKeyDown(props.onKeyDown)}
+            onKeyDown={forwardOnKeyDown(props.onKeyDown)}
           >
             <NotificationContent
               dismissible={dismissible}

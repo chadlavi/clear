@@ -16,7 +16,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
 const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => (
   <button
     {...props}
-    className={`${props.className}${primary ? ' primary' : ''}`}
+    className={`${props.className}${primary ? ' primary' : ''}${props.disabled ? ' disabled' : ''}`}
   />
 )
 
