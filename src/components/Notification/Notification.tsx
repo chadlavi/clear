@@ -153,16 +153,26 @@ export const Notification = (props: NotificationProps): JSX.Element => {
     }, timeOut ?? 2000)
   }
 
+  const wrapOnKeyDown = (
+    f?: (e: React.KeyboardEvent<HTMLDivElement>) => void
+  ) => (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    if (e.keyCode === 27 || e.key === 'Escape') {
+      onClose()
+    }
+    if (f) f(e)
+  }
+
   return (
     <>
       { open ?
         <NotificationWrapper>
           <StyledNotification
-            className={'notification'}
+            className={`notification${error ? ' error' : ''}${success ? ' success' : ''}`}
             error={error}
             mini={mini}
             success={success}
             {...other}
+            onKeyDown={wrapOnKeyDown(props.onKeyDown)}
           >
             <NotificationContent
               dismissible={dismissible}
