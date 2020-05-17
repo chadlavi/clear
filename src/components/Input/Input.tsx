@@ -38,12 +38,13 @@ const forwardOnFocus = (
   }, 1)
 }
 
-const InputBase = ({error: _error, ...props}: InputProps): JSX.Element =>
+const InputBase = ({error, ...props}: InputProps): JSX.Element =>
   <input
     {...props}
     onClick={forwardOnClick(props.onClick)}
     onFocus={forwardOnFocus(props.onFocus)}
     value={props.value || (props.type === 'number' ? ' ' : '')}
+    className={`${props.className}${error ? ' error' : ''}`}
   />
 
 /**

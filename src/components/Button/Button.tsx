@@ -13,7 +13,12 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
 }
 
-const ButtonBase = ({primary: _, ...props}: ButtonProps): JSX.Element => <button {...props}/>
+const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => (
+  <button
+    {...props}
+    className={`${props.className}${primary ? ' primary' : ''}`}
+  />
+)
 
 /**
  * A simple styled `<button>`

@@ -13,9 +13,10 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   options: {label: string; value: string | number | string[]}[]
 }
 
-const SelectBase = ({error: _error, ...props}: Omit<SelectProps, 'options'>): JSX.Element =>
+const SelectBase = ({error, ...props}: Omit<SelectProps, 'options'>): JSX.Element =>
   <select
     {...props}
+    className={`${props.className}${error ? ' error' : ''}`}
   />
 
 

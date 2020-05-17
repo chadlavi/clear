@@ -26,10 +26,11 @@ const InputWrapper = styled.div`
   position: relative;
 `
 
-const InputBase = ({error: _error, label: _label, ...props}: RadioProps): JSX.Element => (
+const InputBase = ({error, label: _label, ...props}: RadioProps): JSX.Element => (
   <input
     {...props}
     type={'radio'}
+    className={`${props.className}${error ? ' error' : ''}`}
   />
 )
 
@@ -94,9 +95,10 @@ interface LabelBaseProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   error?: boolean
 }
 
-const LabelBase = ({disabled: _disabled, error: _error, ...props}: LabelBaseProps): JSX.Element => (
+const LabelBase = ({disabled, error, ...props}: LabelBaseProps): JSX.Element => (
   <label
     {...props}
+    className={`${props.className}${error ? ' error' : ''}${disabled ? ' disabled' : ''}`}
   />
 )
 

@@ -17,9 +17,10 @@ interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   required?: boolean
 }
 
-const LabelBase = ({disabled: _disabled, error: _error, required, ...props}: LabelProps): JSX.Element => (
+const LabelBase = ({disabled, error, required, ...props}: LabelProps): JSX.Element => (
   <label
     {...props}
+    className={`${props.className}${disabled ? ' disabled' : ''}${error ? ' error' : ''}`}
   >
     {required ? <>{props.children}{' (Required)'}</> : props.children}
   </label>
