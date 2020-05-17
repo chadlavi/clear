@@ -20,6 +20,10 @@ export const ButtonPage: React.FC = () => {
   return (
     <>
       <Header id='button'><Code>{'<Button>'}</Code></Header>
+      <Paragraph as={'nav'}>
+        <AccessibleHashlink to={'#props'}>Props</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#customization'}>Customization</AccessibleHashlink>
+      </Paragraph>
       <Paragraph>
       The <Code>Button</Code> component is a simple styled wrapper around an HTML <Code>{'<button>'}</Code>.
       </Paragraph>

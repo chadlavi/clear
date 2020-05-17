@@ -91,6 +91,10 @@ export const ColorsPage: React.FC = () => {
   return (
     <>
       <Header>Colors</Header>
+      <Paragraph as={'nav'}>
+        <AccessibleHashlink to={'#lightmode'}>Light mode</AccessibleHashlink>{' \u00b7 '}
+        <AccessibleHashlink to={'#darkmode'}>Dark mode</AccessibleHashlink>
+      </Paragraph>
       <Paragraph>
         All the colors used by Clear are shown below, along with the color that
         can be paired with each
