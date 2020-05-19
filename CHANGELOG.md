@@ -117,14 +117,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.7.0] - 2020-05-04
 ### Added
 - `<Label>`
-- `<Skiplink>`
+- `<Skiplink />`
 
 ### Changed
-- Remove nested `<label>` from `<Input>` (to use the new `<Label>`)
+- Remove nested `<label>` from `<Input />` (to use the new `<Label>`)
 
 ## [0.6.4] - 2020-05-03
 ### Fixed
-- Accessibility of `<Input>`
+- Accessibility of `<Input />`
 
 ## [0.6.3] - 2020-05-01
 ### Fixed
