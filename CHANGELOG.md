@@ -10,34 +10,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.14.2] - 2020-05-16
 ### Added
-- fixed CSS class name for disabled `<Button>`
+- Fixed CSS class name for disabled `<Button>`
 
 ## [0.14.1] - 2020-05-16
 ### Added
-- fixed CSS class names for
+- Fixed CSS class names for
   - `<Button>`
   - `<Checkbox />`
   - `<Input />`
   - `<Label />`
   - `<Notification>`
-- add an `onKeyDown` wrapper to `<Notification>` to dismiss on `esc` key press
+- Add an `onKeyDown` wrapper to `<Notification>` to dismiss on `esc` key press
 - 
 
 ## [0.14.0] - 2020-05-15
 ### Added
 - `<List>`
 - `<ListItem>`
-- breakpoints export
-- exported helper functions
+- `breakpoints` export
+- Exported helper functions
   - `makeMediaQuery`
   - `underXs` ... `underLg`
   - `overXs` ... `overLg`
 
 ## [0.13.2] - 2020-05-13
 ### Added
-- export utils
+- Export utils
 ### Changed
-- refactor internal base components to avoid eslint-disable comments
+- Refactor internal base components to avoid eslint-disable comments
 
 ## [0.13.1] - 2020-05-12
 ### Added
@@ -49,43 +49,43 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.12.1] - 2020-05-12
 ### Changed
-- color
-  - dark mode
-    - zebra
+- Color
+  - Dark mode
+    - `zebra`
 
 ## [0.12.0] - 2020-05-11
 ### Added
-- success state for `<Notification>`
-- color
-  - green
+- Success state for `<Notification>`
+- Color
+  - `green`
 ### Changed
-- color
-  - dark mode more muted:
-    - background color
-    - error
-    - link
-- padding responsive to text size in `<Code>`
-- default timeout for `<Notification>` changed from 1500ms to 2000ms
+- Color
+  - Dark mode more muted:
+    - `background`
+    - `error`
+    - `link`
+- Padding responsive to text size in `<Code>`
+- Default timeout for `<Notification>` changed from 1500ms to 2000ms
 ### Fixed
-- missing JSDoc comments
+- Missing JSDoc comments
 
 ## [0.11.2] - 2020-05-11
 ### Changed
-- more mobile-friendly padding for `<Notification>` wrapper
+- More mobile-friendly padding for `<Notification>` wrapper
 
 ## [0.11.1] - 2020-05-10
 ### Fixed
-- text color for `<Button>`
+- Text color for `<Button>`
 
 ## [0.11.0] - 2020-05-10
 ### Added
 - `<Notification>`
 ### Fixed
-- missing JSDoc comments
+- Missing JSDoc comments
 
 ## [0.10.2] - 2020-05-10
 ### Fixed
-- responsive color use in svg for selected `<Radio />`
+- Responsive color use in svg for selected `<Radio />`
 
 ## [0.10.1] - 2020-05-10
 ### Fixed
@@ -95,7 +95,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `<Checkbox />`
 - `<Radio />`
-- disabled styling for `<Select>`
+- Disabled styling for `<Select>`
 
 ## [0.9.1] - 2020-05-07
 ### Fixed
@@ -111,8 +111,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.7.1] - 2020-05-04
 ### Changed
-- make `<GridItem>` more flexible (esp when the `as` prop is used)
-- make `<TableCell>` styling within a `<TableHead>` easier
+- Make `<GridItem>` more flexible (esp when the `as` prop is used)
+- Make `<TableCell>` styling within a `<TableHead>` easier
 
 ## [0.7.0] - 2020-05-04
 ### Added
@@ -124,19 +124,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.6.4] - 2020-05-03
 ### Fixed
-- accessibility of `<Input>`
+- Accessibility of `<Input>`
 
 ## [0.6.3] - 2020-05-01
 ### Fixed
-- prevent iOS devices from messing with text size
+- Prevent iOS devices from messing with text size
 
 ## [0.6.2] - 2020-05-01
 ### Fixed
-- max width of `<GridItem>`
+- Max width of `<GridItem>`
 
 ## [0.6.1] - 2020-04-30
 ### Added
-- hashlinks in documentation
+- Hashlinks in documentation
 
 ### Changed
 - Separated `<CSSVariables />` and `<GlobalStyles />`
@@ -144,29 +144,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.6.0] - 2020-04-30
 ### Added
 - `<ScrollContainer>`
-- colors: 
-  - blue
-  - violet
+- Colors: 
+  - `blue`
+  - `violet`
 - React hook `useBreakpoint(breakpoint: Breakpoint) => boolean`
 
 ### Changed
-- iteratively add global color variables from definition instead of manually adding them
+- Iteratively add global color variables from definition instead of manually adding them
 
 ## [0.5.2] - 2020-04-28
 ### Changed
 - `<CodeBlock>` margins
-- more React hooks
+- More React hooks
 
 ## [0.5.1] - 2020-04-28
 ### Added
-- linting
+- Linting
 
 ## [0.5.0] - 2020-04-28
 ### Added
 - React hooks
 
 ### Changed
-- dark mode link color
+- Dark mode link color
 
 ### Removed
 - `<Email>` link
@@ -177,7 +177,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.3.1] - 2020-04-72
 ### Fixed
-- fix default margin for `<Paragraph>`
+- Fix default margin for `<Paragraph>`
 
 ## [0.3.0] - 2020-04-27
 ### Added
@@ -185,13 +185,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.2.1] - 2020-04-27
 ### Added
-- theme font families
+- Theme font families
 
 ## [0.2.0] - 2020-04-26
 ### Added
 - `<CodeBlock>`
 - JSDoc comments
-- error focus style
+- Error focus style
 
 ## [0.1.0] - 2020-04-26
 ### Added
@@ -203,12 +203,50 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.4] - 2020-04-26
 ### Fixed
-- no flex on `<GridItem>`
+- No flex on `<GridItem>`
 
 ## [0.0.3] - 2020-04-26
 ### Fixed
-- don't dynamtically generate styles for grid
+- Don't dynamtically generate styles for grid
 
 ## [0.0.2] - 2020-04-26
 ### Added
-- first version published
+- First version published
+
+[unreleased]: https://github.com/chadlavi/clear/compare/v0.14.2...HEAD
+[0.14.2]: https://github.com/chadlavi/clear/compare/v0.14.1...v0.14.2
+[0.14.1]: https://github.com/chadlavi/clear/compare/v0.14.0...v0.14.1
+[0.14.0]: https://github.com/chadlavi/clear/compare/v0.13.2...v0.14.0
+[0.13.2]: https://github.com/chadlavi/clear/compare/v0.13.1...v0.13.2
+[0.13.1]: https://github.com/chadlavi/clear/compare/v0.13.0...v0.13.1
+[0.13.0]: https://github.com/chadlavi/clear/compare/v0.12.1...v0.13.0
+[0.12.1]: https://github.com/chadlavi/clear/compare/v0.12.0...v0.12.1
+[0.12.0]: https://github.com/chadlavi/clear/compare/v0.11.2...v0.12.0
+[0.11.2]: https://github.com/chadlavi/clear/compare/v0.11.1...v0.11.2
+[0.11.1]: https://github.com/chadlavi/clear/compare/v0.11.0...v0.11.1
+[0.11.0]: https://github.com/chadlavi/clear/compare/v0.10.2...v0.11.0
+[0.10.2]: https://github.com/chadlavi/clear/compare/v0.10.1...v0.10.2
+[0.10.1]: https://github.com/chadlavi/clear/compare/v0.10.0...v0.10.1
+[0.10.0]: https://github.com/chadlavi/clear/compare/v0.9.1...v0.10.0
+[0.9.1]: https://github.com/chadlavi/clear/compare/v0.9.0...v0.9.1
+[0.9.0]: https://github.com/chadlavi/clear/compare/v0.8.0...v0.9.0
+[0.8.0]: https://github.com/chadlavi/clear/compare/v0.7.1...v0.8.0
+[0.7.1]: https://github.com/chadlavi/clear/compare/v0.7.0...v0.7.1
+[0.7.0]: https://github.com/chadlavi/clear/compare/v0.6.4...v0.7.0
+[0.6.4]: https://github.com/chadlavi/clear/compare/v0.6.3...v0.6.4
+[0.6.3]: https://github.com/chadlavi/clear/compare/v0.6.2...v0.6.3
+[0.6.2]: https://github.com/chadlavi/clear/compare/v0.6.1...v0.6.2
+[0.6.1]: https://github.com/chadlavi/clear/compare/v0.6.0...v0.6.1
+[0.6.0]: https://github.com/chadlavi/clear/compare/v0.5.2...v0.6.0
+[0.5.2]: https://github.com/chadlavi/clear/compare/v0.5.1...v0.5.2
+[0.5.1]: https://github.com/chadlavi/clear/compare/v0.5.0...v0.5.1
+[0.5.0]: https://github.com/chadlavi/clear/compare/v0.4.0...v0.5.0
+[0.4.0]: https://github.com/chadlavi/clear/compare/v0.3.1...v0.4.0
+[0.3.1]: https://github.com/chadlavi/clear/compare/v0.3.0...v0.3.1
+[0.3.0]: https://github.com/chadlavi/clear/compare/v0.2.1...v0.3.0
+[0.2.1]: https://github.com/chadlavi/clear/compare/v0.2.0...v0.2.1
+[0.2.0]: https://github.com/chadlavi/clear/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/chadlavi/clear/compare/v0.0.4...v0.1.0
+[0.0.4]: https://github.com/chadlavi/clear/compare/v0.0.3...v0.0.4
+[0.0.3]: https://github.com/chadlavi/clear/compare/v0.0.2...v0.0.3
+[0.0.2]: https://github.com/chadlavi/clear/releases/tag/v0.0.2
