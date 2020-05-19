@@ -2,6 +2,8 @@
 
 ![GitHub latest release](https://img.shields.io/github/v/tag/chadlavi/clear?label=latest%20release&sort=semver) ![GitHub package.json version](https://img.shields.io/github/package-json/v/chadlavi/clear/master?sort=semver)
 
+See [CHANGELOG.md](CHANGELOG.md) for recent changes
+
 A simple personal Design System
 
 See examples at https://chadlavi.github.io/clear/
