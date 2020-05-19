@@ -95,11 +95,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `<Checkbox />`
 - `<Radio />`
-- Disabled styling for `<Select>`
+- Disabled styling for `<Select />`
 
 ## [0.9.1] - 2020-05-07
 ### Fixed
-- `<Select multiple ...>` onChange behavior
+- `<Select multiple ... />` onChange behavior
 
 ## [0.9.0] - 2020-05-05
 ### Added
@@ -107,7 +107,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.8.0] - 2020-05-05
 ### Added
-- `<Select>`
+- `<Select />`
 
 ## [0.7.1] - 2020-05-04
 ### Changed
