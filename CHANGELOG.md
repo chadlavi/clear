@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - `<Video />`
+### Changed
+- Don't bold text on buttons in dark mode
 
 ## [0.14.2] - 2020-05-16
 ### Added
