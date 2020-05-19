@@ -1,19 +1,18 @@
 # Clear
 
-![GitHub latest release](https://img.shields.io/github/v/tag/chadlavi/clear?label=latest%20release&sort=semver) ![GitHub package.json version](https://img.shields.io/github/package-json/v/chadlavi/clear/master?sort=semver)
-
-See [CHANGELOG.md](CHANGELOG.md) for recent changes
-
 A simple personal Design System
+
+## Releases ![GitHub latest release](https://img.shields.io/github/v/tag/chadlavi/clear?label=latest%20release&sort=semver&color=blue)
+
+See [CHANGELOG.md](CHANGELOG.md)
+
+## Examples
 
 See examples at https://chadlavi.github.io/clear/
 
-## Features
+## Requirements
 
-* Dark mode
-* Grid
-
-Note: requires peers `react` and `styled-components` 
+Note that Clear requires peers `react` and `styled-components` 
 
 ## Contributing
 
