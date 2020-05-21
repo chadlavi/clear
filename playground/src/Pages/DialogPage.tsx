@@ -4,13 +4,28 @@ import {
   Code,
   Dialog,
   Header,
+  Notification,
   Paragraph,
 } from '../component-lib'
 
 export const DialogPage: React.FC = () => {
-  const [dialog, setDialog] = React.useState<boolean>(false)
-  const showDialog = (): void => setDialog(true)
-  const hideDialog = (): void => setDialog(false)
+
+  const [basicDialog, setBasicDialog] = React.useState<boolean>(false)
+  const showBasicDialog = (): void => setBasicDialog(true)
+
+  const [dialogWithActions, setDialogWithActions] = React.useState<boolean>(false)
+  const showDialogWithActions = (): void => setDialogWithActions(true)
+  const hideDialogWithActions = (): void => setDialogWithActions(false)
+
+  const [deleted, setDeleted] = React.useState<boolean>(false)
+
+  const onDeleteClick = (): void => {
+    const delay = 100 + Math.floor(Math.random() * 900)
+    hideDialogWithActions()
+    setTimeout(() => {
+      setDeleted(true)
+    }, delay)
+  }
 
   return (
     <>
@@ -18,28 +33,53 @@ export const DialogPage: React.FC = () => {
       <Paragraph>
        Use <Code>{'<Dialog>'}</Code> to show a modal with action buttons to the user.
       </Paragraph>
-      <Button onClick={showDialog}>Show dialog</Button>
-      <Dialog
-        actions={[
-          {
-            label: 'Delete',
-            buttonProps: {
-              destructive: true,
+      <Paragraph as ='div'>
+        <Button onClick={showBasicDialog}>Show basic dialog</Button>
+        <Dialog
+          open={basicDialog}
+          setOpen={setBasicDialog}
+        >
+          <Paragraph>
+            This is a basic dialog, with no actions or header.
+          </Paragraph>
+          <Paragraph margins={false}>
+            you can dismiss with <Code>esc</Code> or by clicking the backdrop.
+          </Paragraph>
+        </Dialog>
+      </Paragraph>
+      <Paragraph as='div'>
+        <Button onClick={showDialogWithActions}>Show dialog with actions</Button>
+        <Dialog
+          actions={[
+            {
+              label: 'Delete',
+              buttonProps: {
+                destructive: true,
+              },
+              onClick: onDeleteClick,
             },
-            onClick: hideDialog,
-          },
-          {
-            label: 'Cancel',
-            onClick: hideDialog,
-          },
-        ]}
-        open={dialog}
-        setOpen={setDialog}
-        header={'Delete'}
-      >
-        <Paragraph>
-          You cannot undo this action. Are you sure?
-        </Paragraph>
-      </Dialog>
+            {
+              label: 'Cancel',
+              onClick: hideDialogWithActions,
+            },
+          ]}
+          open={dialogWithActions}
+          setOpen={setDialogWithActions}
+          header={'Delete'}
+        >
+          <Paragraph>
+            You cannot undo this action. Are you sure?
+          </Paragraph>
+        </Dialog>
+        <Notification
+          error
+          mini
+          open={deleted}
+          setOpen={setDeleted}
+          transient
+        >
+          Deleted
+        </Notification>
+      </Paragraph>
     </>
   )}

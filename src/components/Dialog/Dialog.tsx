@@ -70,13 +70,23 @@ const DialogBody = styled('div')`
   `)}
 `
 
-const DialogContent = styled('div')`
+interface DialogContentBaseProps extends React.HTMLAttributes<HTMLDivElement> {
+  margin: boolean
+}
+
+const DialogContentBase: React.FC<DialogContentBaseProps> = ({margin: _margin, ...props}) => (
+  <div
+    {...props}
+  />
+)
+
+const DialogContent = styled(DialogContentBase)`
   & > ${Header}:first-child, & > ${Paragraph}:first-child {
     margin-block-start: 0;
     margin-top: 0;
   }
   overflow-y: auto;
-  margin-block-end: calc(var(--clear-unit) * 3)
+  ${(p): string => p.margin ? 'margin-block-end: calc(var(--clear-unit) * 3)' : ''}
 `
 
 const DialogButtons = styled('div')`
@@ -90,6 +100,7 @@ const DialogButtons = styled('div')`
 
 const BackupButton = styled(DialogButtons)`
   display: none;
+  margin-block-start: calc(var(--clear-unit) * 3);
   ${underXs(`
     display: flex;
   `)}
@@ -140,7 +151,9 @@ export const Dialog: React.FC<DialogProps> = (props: DialogProps) => {
           <DialogBody
             {...other}
           >
-            <DialogContent>
+            <DialogContent
+              margin={actions !== undefined}
+            >
               {header &&
                 <Header as='h2'>{header}</Header>
               }
