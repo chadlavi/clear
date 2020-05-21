@@ -1,5 +1,6 @@
 export * from './ButtonPage'
 export * from './ColorsPage'
+export * from './DialogPage'
 export * from './GettingStartedPage'
 export * from './GlobalStylesPage'
 export * from './HelpersPage'

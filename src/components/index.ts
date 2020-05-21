@@ -1,6 +1,7 @@
 export * from './Button'
 export * from './Checkbox'
 export * from './Code'
+export * from './Dialog'
 export * from './Grid'
 export * from './Header'
 export * from './Input'

@@ -4,6 +4,7 @@ import {version} from '../package.json'
 import {
   ButtonPage,
   ColorsPage,
+  DialogPage,
   GettingStartedPage,
   GlobalStylesPage,
   HelpersPage,
@@ -55,6 +56,11 @@ const routes = [
     label: 'Colors',
     route: '/colors',
     component: <ComponentPage title='Colors' content={ColorsPage} />,
+  },
+  {
+    label: 'Dialog',
+    route: '/dialog',
+    component: <ComponentPage title='Dialog' content={DialogPage} />,
   },
   {
     label: 'Layout',
