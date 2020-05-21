@@ -1,8 +1,12 @@
 import * as React from 'react'
-import {focusStyle} from '../../styles'
 import styled from 'styled-components'
+import {errorFocusStyle, focusStyle} from '../../styles'
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+  /**
+   * Set to true if the button performs a destructive action.
+   */
+  destructive?: boolean
   /**
    * if true, the `<Button>` is disabled
    */
@@ -13,10 +17,18 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
 }
 
-const ButtonBase = ({primary, ...props}: ButtonProps): JSX.Element => (
+const ButtonBase = ({destructive, primary, ...props}: ButtonProps): JSX.Element => (
   <button
     {...props}
-    className={`${props.className}${primary ? ' primary' : ''}${props.disabled ? ' disabled' : ''}`}
+    className={
+      `${props.className}${
+        destructive ? ' destructive' : ''
+      }${
+        primary ? ' primary' : ''
+      }${
+        props.disabled ? ' disabled' : ''
+      }
+      `}
   />
 )
 
@@ -34,6 +46,10 @@ export const Button = styled(ButtonBase)`
     background: var(--clear-link);
     color: var(--clear-background);
   ` : ''};
+  ${(p): string => p.destructive ? `
+    background: var(--clear-error);
+    color: var(--clear-background);
+  ` : ''};
   cursor: pointer;
   ${(p): string => p.disabled ? `
     cursor: not-allowed;
@@ -42,5 +58,5 @@ export const Button = styled(ButtonBase)`
   font-size: var(--clear-font-size-label);
   margin: 0;
   padding: var(--clear-unit) calc(var(--clear-unit) * 2);
-  ${focusStyle}
+  ${(p): string => p.destructive ? errorFocusStyle : focusStyle}
 `
