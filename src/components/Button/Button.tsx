@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled from 'styled-components'
 import {errorFocusStyle, focusStyle} from '../../styles'
 
-export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Set to true if the button performs a destructive action.
    */
