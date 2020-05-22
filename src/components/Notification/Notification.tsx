@@ -49,15 +49,10 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
   transient?: boolean
 }
 
-const NotificationBase = (
+const NotificationBase: React.FC<Omit<NotificationProps, 'open' | 'setOpen'>> = (
   {buttonProps: _buttonProps, dismissible: _dismissible, error: _error, mini: _mini,
-    success: _success, timeOut: _timeOut, transient: _transient, ...props}:
-  Omit<NotificationProps, 'open' | 'setOpen'>
-): JSX.Element => (
-  <div
-    {...props}
-  />
-)
+    success: _success, timeOut: _timeOut, transient: _transient, ...props
+  }) => <div {...props}/>
 
 const NotificationWrapper = styled(NotificationBase)`
   bottom: 0;
@@ -108,9 +103,9 @@ interface DismissButtonProps extends ButtonProps {
   success?: boolean
 }
 
-const DismissButtonBase = (
-  {error: _error, success: _success, ...props}: DismissButtonProps
-): JSX.Element => <Button {...props} />
+const DismissButtonBase: React.FC<DismissButtonProps> = (
+  {error: _error, success: _success, ...props}
+) => <Button {...props} />
 
 const DismissButton = styled(DismissButtonBase)`
   background: none;
@@ -130,7 +125,7 @@ const DismissButton = styled(DismissButtonBase)`
  *
  * https://chadlavi.github.io/clear/#/notification
  */
-export const Notification = (props: NotificationProps): JSX.Element => {
+export const Notification: React.FC<NotificationProps> = (props) => {
   const {
     buttonProps,
     children,

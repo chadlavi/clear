@@ -9,14 +9,11 @@ export interface ScrollContainerProps extends React.HTMLAttributes<HTMLDivElemen
   maxWidth?: number | string
 }
 
-const ContainerBase = (
-  {
-    contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
-    direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth,
-    ...props
-  }: ScrollContainerProps
-): JSX.Element =>
-  <div {...props} />
+const ContainerBase: React.FC<ScrollContainerProps> = ({
+  contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
+  direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth,
+  ...props
+}) => <div {...props} />
 
 
 const Container = styled(ContainerBase)`
@@ -52,13 +49,10 @@ const Container = styled(ContainerBase)`
   }}
 `
 
-const ContentBase = (
-  {
-    contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
-    direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth, ...props
-  }: ScrollContainerProps
-): JSX.Element =>
-  <div {...props} />
+const ContentBase: React.FC<ScrollContainerProps> = ({
+  contentMinHeight: _contentMinHeight, contentMinWidth: _contentMinWidth,
+  direction: _direction, maxHeight: _maxHeight, maxWidth: _maxWidth, ...props
+}) => <div {...props} />
 
 
 const Content = styled(ContentBase)`
@@ -90,7 +84,7 @@ const Content = styled(ContentBase)`
  *
  * https://chadlavi.github.io/clear/#/layout#scrollcontainer
  */
-export const ScrollContainer = (props: ScrollContainerProps): JSX.Element =>
+export const ScrollContainer: React.FC<ScrollContainerProps> = (props) => (
   <Container
     direction={props.direction}
     maxHeight={props.maxHeight}
@@ -102,3 +96,4 @@ export const ScrollContainer = (props: ScrollContainerProps): JSX.Element =>
       {...props}
     />
   </Container>
+)

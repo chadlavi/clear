@@ -26,7 +26,7 @@ const InputWrapper = styled.div`
   position: relative;
 `
 
-const InputBase = ({error, label: _label, ...props}: RadioProps): JSX.Element => (
+const InputBase: React.FC<RadioProps> = ({error, label: _label, ...props}) => (
   <input
     {...props}
     type={'radio'}
@@ -69,7 +69,7 @@ const SVGContainer = styled.div`
   }
 `
 
-const SVGBase = ({checked: _checked, ...props}: IconProps): JSX.Element => (
+const SVGBase: React.FC<IconProps> = ({checked: _checked, ...props}) => (
   <SVGContainer>
     <div>
       <svg viewBox='0 0 100 100' {...props}>
@@ -95,7 +95,7 @@ interface LabelBaseProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   error?: boolean
 }
 
-const LabelBase = ({disabled, error, ...props}: LabelBaseProps): JSX.Element => (
+const LabelBase: React.FC<LabelBaseProps> = ({disabled, error, ...props}) => (
   <label
     {...props}
     className={`${props.className}${error ? ' error' : ''}${disabled ? ' disabled' : ''}`}
@@ -114,7 +114,7 @@ const StyledLabel = styled(LabelBase)`
  *
  * https://chadlavi.github.io/clear/#/input#radio
  */
-export const Radio = (props: RadioProps): JSX.Element => {
+export const Radio: React.FC<RadioProps> = (props) => {
   const {
     error,
     label,

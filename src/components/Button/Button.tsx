@@ -17,7 +17,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   primary?: boolean
 }
 
-const ButtonBase = ({destructive, primary, ...props}: ButtonProps): JSX.Element => (
+const ButtonBase: React.FC<ButtonProps> = ({destructive, primary, ...props}) => (
   <button
     {...props}
     className={

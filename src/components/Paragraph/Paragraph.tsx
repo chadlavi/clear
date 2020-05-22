@@ -5,7 +5,7 @@ interface ParagraphProps extends React.HTMLAttributes<HTMLParagraphElement> {
   margins?: boolean
 }
 
-const ParagraphBase= ({margins: _margins, ...props}: ParagraphProps): JSX.Element => <p {...props} />
+const ParagraphBase: React.FC<ParagraphProps> = ({margins: _margins, ...props}) => <p {...props} />
 
 /**
  * A simple styled `<p>`

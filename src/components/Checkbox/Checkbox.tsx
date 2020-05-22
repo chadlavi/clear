@@ -26,7 +26,7 @@ const InputWrapper = styled.div`
   position: relative;
 `
 
-const InputBase = ({error, label: _label, ...props}: CheckboxProps): JSX.Element => (
+const InputBase: React.FC<CheckboxProps> = ({error, label: _label, ...props}) => (
   <input
     {...props}
     type={'checkbox'}
@@ -53,7 +53,7 @@ interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
   checked?: boolean
 }
 
-const SVGBase = ({checked: _checked, ...props}: IconProps): JSX.Element => (
+const SVGBase: React.FC<IconProps> = ({checked: _checked, ...props}) => (
   <svg
     version='1.1'
     xmlns='http://www.w3.org/2000/svg'
@@ -79,7 +79,7 @@ interface LabelBaseProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   error?: boolean
 }
 
-const LabelBase = ({disabled, error, ...props}: LabelBaseProps): JSX.Element => (
+const LabelBase: React.FC<LabelBaseProps> = ({disabled, error, ...props}) => (
   <label
     {...props}
     className={`${props.className}${error ? ' error' : ''}${disabled ? ' disabled' : ''}`}
@@ -98,7 +98,7 @@ const StyledLabel = styled(LabelBase)`
  *
  * https://chadlavi.github.io/clear/#/input#checkbox
  */
-export const Checkbox = (props: CheckboxProps): JSX.Element => {
+export const Checkbox: React.FC<CheckboxProps> = (props) => {
   const {
     error,
     label,

@@ -25,14 +25,11 @@ const SkipLinkButton = styled(Button)`
   
 `
 
-export const SkipLink = ({id}: {id: string}): JSX.Element => {
-
-  return (
-    <SkipLinkButton
-      onClick={jumpTo(id)}
-      primary
-    >
+export const SkipLink: React.FC<{id: string}> = ({id}) => (
+  <SkipLinkButton
+    onClick={jumpTo(id)}
+    primary
+  >
       Skip to main content
-    </SkipLinkButton>
-  )
-}
+  </SkipLinkButton>
+)

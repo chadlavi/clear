@@ -38,7 +38,7 @@ const forwardOnFocus = (
   }, 1)
 }
 
-const InputBase = ({error, ...props}: InputProps): JSX.Element =>
+const InputBase: React.FC<InputProps> = ({error, ...props}) => (
   <input
     {...props}
     onClick={forwardOnClick(props.onClick)}
@@ -46,6 +46,7 @@ const InputBase = ({error, ...props}: InputProps): JSX.Element =>
     value={props.value || (props.type === 'number' ? ' ' : '')}
     className={`${props.className}${error ? ' error' : ''}`}
   />
+)
 
 /**
  * A simple styled Input

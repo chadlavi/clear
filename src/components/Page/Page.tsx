@@ -6,7 +6,7 @@ interface PageProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: Width
 }
 
-const PageBase = ({size: _size, ...props}: PageProps): JSX.Element => (
+const PageBase: React.FC<PageProps> = ({size: _size, ...props}) => (
   <main {...props} />
 )
 

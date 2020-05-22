@@ -17,7 +17,7 @@ interface VideoProps extends React.VideoHTMLAttributes<HTMLVideoElement> {
   source: React.SourceHTMLAttributes<HTMLSourceElement> | React.SourceHTMLAttributes<HTMLSourceElement>[] | string
 }
 
-const buildSources = (source: VideoProps['source']): JSX.Element => {
+const buildSources: React.FC<VideoProps['source']> = (source) => {
   if (typeof source === 'string') {
     return (
       <source src={source} />

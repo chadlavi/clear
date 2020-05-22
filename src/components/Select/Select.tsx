@@ -13,12 +13,12 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
   options: {label: string; value: string | number | string[]}[]
 }
 
-const SelectBase = ({error, ...props}: Omit<SelectProps, 'options'>): JSX.Element =>
+const SelectBase: React.FC<Omit<SelectProps, 'options'>> = ({error, ...props}) => (
   <select
     {...props}
     className={`${props.className}${error ? ' error' : ''}`}
   />
-
+)
 
 const StyledSelect = styled(SelectBase)`
   background-color: var(--clear-background);
@@ -36,7 +36,7 @@ const StyledSelect = styled(SelectBase)`
   opacity: ${(p): string => p.disabled ? '0.5' : '1'};
 `
 
-const SelectOptions = ({options}: {options: SelectProps['options']}): JSX.Element => (
+const SelectOptions: React.FC<{options: SelectProps['options']}> = ({options}) => (
   <>
     {options.map((o) => (
       <option key={`${o.label}:${o.value}`} value={o.value}>
@@ -51,7 +51,7 @@ const SelectOptions = ({options}: {options: SelectProps['options']}): JSX.Elemen
  *
  * https://chadlavi.github.io/clear/#/input#select
  */
-export const Select = (props: SelectProps): JSX.Element => {
+export const Select: React.FC<SelectProps> = (props) => {
   const {
     multiple,
     options,
