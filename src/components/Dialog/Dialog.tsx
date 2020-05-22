@@ -12,11 +12,11 @@ interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Controls whether or not the dialog is shown
    */
-  open: boolean | undefined
+  open: boolean
   /**
    * The function that sets the value of `open`
    */
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setOpen: React.Dispatch<React.SetStateAction<boolean>> | (() => void)
   /**
    * Optional header content for the Dialog
    */
