@@ -8,6 +8,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - `destructive?: boolean` prop on `<Button>`
 - `<Dialog>`
+- Colors
+  - `grey`
+  - `orange`
+  - `yellow`
+  - `purple`
+### Changed
+- Colors
+  - `blue`
+  - `link`
+  - `violet`
+  - `green`
+  - `error`
 
 ## [0.15.0]
 ### Added
