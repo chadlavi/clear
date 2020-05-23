@@ -40,14 +40,16 @@ const ButtonBase: React.FC<ButtonProps> = ({destructive, primary, ...props}) => 
 export const Button = styled(ButtonBase)`
   background: var(--clear-border);
   border-radius: var(--clear-unit);
-  border: none;
+  border: 1px solid var(--clear-border);
   color: var(--clear-textColor);
   ${(p): string => p.primary ? `
     background: var(--clear-link);
+    border: 1px solid var(--clear-link);
     color: var(--clear-background);
   ` : ''};
   ${(p): string => p.destructive ? `
     background: var(--clear-red);
+    border: 1px solid var(--clear-red);
     color: var(--clear-background);
   ` : ''};
   cursor: pointer;
@@ -55,8 +57,11 @@ export const Button = styled(ButtonBase)`
     cursor: not-allowed;
     opacity: 0.5;
   ` : ''};
-  font-size: var(--clear-font-size-label);
-  margin: 0;
-  padding: var(--clear-unit) calc(var(--clear-unit) * 2);
+  font-size: var(--clear-font-size-default);
+  margin-bottom: calc(var(--clear-unit) / 2);
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: calc(var(--clear-unit) / 2);
+  padding: calc(var(--clear-unit) * 1.5) calc(var(--clear-unit) * 3);
   ${(p): string => p.destructive ? errorFocusStyle : focusStyle}
 `
