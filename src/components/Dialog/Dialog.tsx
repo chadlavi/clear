@@ -56,7 +56,8 @@ const DialogBody = styled('div')`
   }
   max-height: calc(100% - var(--clear-unit) * 4);
   max-width: calc(100% - var(--clear-unit) * 4);
-  padding: calc(var(--clear-unit) * 3);display: flex;
+  padding: calc(var(--clear-unit) * 2);
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   ${underXs(`
@@ -94,7 +95,8 @@ const DialogButtons = styled('div')`
   flex-direction: row-reverse;
   flex-shrink: 0;
   ${Button} {
-    margin-left: var(--clear-unit);
+    margin-left: calc(var(--clear-unit) / 2);
+    margin-right: calc(var(--clear-unit) / 2);
   }
 `
 

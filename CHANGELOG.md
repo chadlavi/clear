@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `color?: Colors` prop added to `<Notification>`
 ### Changed
 - Give `<Button>` same size/padding/border/margin as inputs so they line up nicely side by side
-- change how `complimentaryColor` works
+- Change how `complimentaryColor` works
+- Change `<Dialog>` spacing to accommodate new `<Button>` styling
 
 ## [0.17.1]
 ### Changed
