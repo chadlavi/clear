@@ -4,9 +4,16 @@ import {
   Button,
   Code,
   CodeBlock,
+  Colors,
+  Grid,
+  GridItem,
   Header,
+  Label,
   Notification,
   Paragraph,
+  Select,
+  SelectProps,
+  colors,
 } from '../component-lib'
 
 export const NotificationPage: React.FC = () => {
@@ -16,6 +23,8 @@ export const NotificationPage: React.FC = () => {
   const [transient, setTransient] = React.useState(false)
   const [transientUndismissible, setTransientUndismissible] = React.useState(false)
   const [mini, setMini] = React.useState(false)
+  const [colored, setColored] = React.useState(false)
+  const [color, setColor] = React.useState<Colors | undefined>()
 
   const setAllFalse = (): void => {
     setStandard(false)
@@ -25,6 +34,12 @@ export const NotificationPage: React.FC = () => {
     setTransientUndismissible(false)
     setMini(false)
   }
+
+  const colorOptions: SelectProps['options'] = Object.keys(colors.light).map((c) => (
+    {label: c, value: c}
+  ))
+
+  React.useEffect(() => setColored(false), [color])
 
   return (
     <>
@@ -190,6 +205,35 @@ transient?: boolean`}</CodeBlock>
         >
           Mini notification
         </Notification>
+      </Paragraph>
+      <Header as='h3' id='color-example'>Color example</Header>
+      <Paragraph as={Grid} spacing={8}>
+        <GridItem size={4}>
+          <Label htmlFor={'color-select'}>Select color</Label>
+          <Select
+            id={'color-select'}
+            value={color}
+            onChange={(e): void => setColor(e.currentTarget.value as Colors)}
+            options={colorOptions}
+          />
+        </GridItem>
+        <GridItem size={8} style={{display: 'flex', alignItems: 'flex-end'}}>
+          <Button
+            onClick={(): void => {setAllFalse(); setColored(true)}}
+          >
+          Show {color ?? 'default color'} notification
+          </Button>
+          <Notification
+            open={colored}
+            color={color}
+            setOpen={setColored}
+            buttonProps={{
+              children: 'Dismiss'
+            }}
+          >
+          This is a {color ?? 'default color'} notification
+          </Notification>
+        </GridItem>
       </Paragraph>
     </>
   )

@@ -4,12 +4,17 @@ import {
   Button,
   ButtonProps,
 } from '..'
+import {Colors, complimentaryColors} from '../../styles'
 
 interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Optional props to pass to the dismiss button
    */
   buttonProps?: ButtonProps
+  /**
+   * The background color of the notification
+   */
+  color?: Colors
   /**
    * If true or undefined, a dismiss button will be shown that the user can use to manually dismiss
    * the Notification.
@@ -49,10 +54,23 @@ interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
   transient?: boolean
 }
 
-const NotificationBase: React.FC<Omit<NotificationProps, 'open' | 'setOpen'>> = (
-  {buttonProps: _buttonProps, dismissible: _dismissible, error: _error, mini: _mini,
-    success: _success, timeOut: _timeOut, transient: _transient, ...props
-  }) => <div {...props}/>
+const DEFAULT_COLOR: Colors = 'blue'
+
+const setColor = (p: {color?: Colors; error?: boolean; success?: boolean}): string => {
+  if (p.error) return 'red'
+  if (p.success) return 'green'
+  if (p.color) return p.color
+  return DEFAULT_COLOR
+}
+
+const setContrastColor = (color?: Colors): string => {
+  return complimentaryColors[color ?? DEFAULT_COLOR]
+}
+
+const NotificationBase: React.FC<Omit<NotificationProps, 'open' | 'setOpen'>> = ({
+  buttonProps: _buttonProps, color: _color, dismissible: _dismissible, error: _error, mini: _mini,
+  success: _success, timeOut: _timeOut, transient: _transient, ...props
+}) => <div {...props}/>
 
 const NotificationWrapper = styled(NotificationBase)`
   bottom: 0;
@@ -69,7 +87,7 @@ const NotificationWrapper = styled(NotificationBase)`
 
 const StyledNotification = styled(NotificationBase)`
   align-items: center;
-  background: var(--clear-${(p): string => p.error ? 'red' : p.success ? 'green' : 'link'});
+  background: var(--clear-${(p): string => setColor(p)});
   border-radius: var(--clear-font-size-default);
   display: flex;
   font-size: var(--clear-font-size-default);
@@ -92,7 +110,7 @@ const StyledNotification = styled(NotificationBase)`
 `
 
 const NotificationContent = styled(NotificationBase)`
-  color: var(--clear-background);
+  color: var(--clear-${(p): string => setContrastColor(p.color)});
   flex-grow: 1;
   text-align: ${(p): string => p.mini ? 'center' : 'left'};
   ${(p): string => (p.mini || p.dismissible === false) ? '' : 'margin-right: calc(var(--clear-unit) * 2);'}
@@ -101,21 +119,22 @@ const NotificationContent = styled(NotificationBase)`
 interface DismissButtonProps extends ButtonProps {
   error?: boolean
   success?: boolean
+  color?: Colors
 }
 
-const DismissButtonBase: React.FC<DismissButtonProps> = (
-  {error: _error, success: _success, ...props}
-) => <Button {...props} />
+const DismissButtonBase: React.FC<DismissButtonProps> = ({
+  color: _color, error: _error, success: _success, ...props
+}) => <Button {...props} />
 
 const DismissButton = styled(DismissButtonBase)`
   background: none;
-  border: 1px solid var(--clear-background);
-  color: var(--clear-background);
+  margin: 0;
+  height: auto;
+  border: 1px solid var(--clear-${(p): string => setContrastColor(p.color)});
+  color: var(--clear-${(p): string => setContrastColor(p.color)});
   :focus {
-    box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-${
-  (p): string => p.error ? 'red' : p.success ? 'green' : 'link'
-}),
-    0 0 0 calc(var(--clear-unit) / 2) var(--clear-background);
+    box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-${(p): string => setColor(p)}),
+    0 0 0 calc(var(--clear-unit) / 2) var(--clear-${(p): string => setContrastColor(p.color)});
   }
 `
 
@@ -128,6 +147,7 @@ const DismissButton = styled(DismissButtonBase)`
 export const Notification: React.FC<NotificationProps> = (props) => {
   const {
     buttonProps,
+    color,
     children,
     dismissible,
     error,
@@ -163,6 +183,7 @@ export const Notification: React.FC<NotificationProps> = (props) => {
         <NotificationWrapper>
           <StyledNotification
             className={`notification${error ? ' error' : ''}${success ? ' success' : ''}`}
+            color={color}
             error={error}
             mini={mini}
             success={success}
@@ -170,6 +191,7 @@ export const Notification: React.FC<NotificationProps> = (props) => {
             onKeyDown={forwardOnKeyDown(props.onKeyDown)}
           >
             <NotificationContent
+              color={color}
               dismissible={dismissible}
               mini={mini}
               className={'notification-content'}
@@ -181,6 +203,7 @@ export const Notification: React.FC<NotificationProps> = (props) => {
               ? transientOnClose()
               :  <DismissButton
                 {...buttonProps}
+                color={color}
                 className={'notification-dismiss-button'}
                 error={error}
                 onClick={buttonProps?.onClick ?? onClose}
