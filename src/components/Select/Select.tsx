@@ -22,8 +22,8 @@ const SelectBase: React.FC<Omit<SelectProps, 'options'>> = ({error, ...props}) =
 
 const StyledSelect = styled(SelectBase)`
   background-color: var(--clear-background);
-  color: var(--clear-${(p): string => p.error ? 'error' : 'textColor'});
-  border: 1px solid var(--clear-${(p): string => p.error ? 'error' : 'border'});
+  color: var(--clear-${(p): string => p.error ? 'red' : 'textColor'});
+  border: 1px solid var(--clear-${(p): string => p.error ? 'red' : 'border'});
   border-radius: var(--clear-unit);
   padding: calc(var(--clear-unit) * 1.5);
   font-size: inherit;

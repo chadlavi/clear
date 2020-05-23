@@ -28,12 +28,12 @@ export type Colors = 'background'
   | 'blue'
   | 'border'
   | 'cyan'
-  | 'error'
   | 'green'
   | 'grey'
   | 'link'
   | 'orange'
   | 'purple'
+  | 'red'
   | 'textColor'
   | 'violet'
   | 'yellow'
@@ -42,35 +42,35 @@ export type Colors = 'background'
 export const colors: {[key in Themes]: {[key in Colors]: string}} = {
   light: {
     background: 'white',
-    blue: stripeColors.blue,
+    zebra: '#f8f8f8',
     border: '#ddd',
-    cyan: stripeColors.cyan,
-    error: stripeColors.red,
-    green: stripeColors.green,
     grey: stripeColors.grey,
-    link: stripeColors.blue,
-    orange: stripeColors.orange,
-    purple: stripeColors.purple,
     textColor: '#111',
     violet: stripeColors.violet,
+    purple: stripeColors.purple,
+    cyan: stripeColors.cyan,
+    link: stripeColors.blue,
+    blue: stripeColors.blue,
+    green: stripeColors.green,
     yellow: stripeColors.yellow,
-    zebra: '#f8f8f8',
+    orange: stripeColors.orange,
+    red: stripeColors.red,
   },
   dark: {
-    background: '#0a0a0a',
-    blue: stripeColorsDark.blue,
-    border: '#555',
-    cyan: stripeColorsDark.cyan,
-    error: stripeColorsDark.red,
-    green: stripeColorsDark.green,
-    grey: stripeColorsDark.grey,
-    link: stripeColorsDark.blue,
+    red: stripeColorsDark.red,
     orange: stripeColorsDark.orange,
-    purple: stripeColorsDark.purple,
-    textColor: 'white',
-    violet: stripeColorsDark.violet,
     yellow: stripeColorsDark.yellow,
+    green: stripeColorsDark.green,
+    blue: stripeColorsDark.blue,
+    link: stripeColorsDark.blue,
+    cyan: stripeColorsDark.cyan,
+    purple: stripeColorsDark.purple,
+    violet: stripeColorsDark.violet,
+    background: '#0a0a0a',
     zebra: '#1a1a1a',
+    border: '#555',
+    grey: stripeColorsDark.grey,
+    textColor: 'white',
   }
 } as const
 
@@ -80,12 +80,12 @@ export const complimentaryColors: {[key in Themes]: {[key in Colors]: string}} =
     blue: colors.light.background,
     border: colors.light.textColor,
     cyan: colors.light.background,
-    error: colors.light.background,
     green: colors.light.background,
     grey: colors.light.background,
     link: colors.light.background,
     orange: colors.light.background,
     purple: colors.light.background,
+    red: colors.light.background,
     textColor: colors.light.background,
     violet: colors.light.background,
     yellow: colors.light.background,
@@ -96,12 +96,12 @@ export const complimentaryColors: {[key in Themes]: {[key in Colors]: string}} =
     blue: colors.dark.background,
     border: colors.dark.textColor,
     cyan: colors.dark.background,
-    error: colors.dark.background,
     green: colors.dark.background,
     grey: colors.dark.background,
     link: colors.dark.background,
     orange: colors.dark.background,
     purple: colors.dark.background,
+    red: colors.dark.background,
     textColor: colors.dark.background,
     violet: colors.dark.background,
     yellow: colors.dark.background,

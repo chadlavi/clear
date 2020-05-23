@@ -32,7 +32,7 @@ const LabelBase: React.FC<LabelProps> = ({disabled, error, required, ...props}) 
  * https://chadlavi.github.io/clear/#/text#label
  */
 export const Label = styled(LabelBase)`
-  color: ${(p): string => p.error ? 'var(--clear-error)' : 'inherit'};
+  color: ${(p): string => p.error ? 'var(--clear-red)' : 'inherit'};
   ${(p): string  => p.disabled ? `
     opacity: 0.5;
   ` : ''};

@@ -69,7 +69,7 @@ const NotificationWrapper = styled(NotificationBase)`
 
 const StyledNotification = styled(NotificationBase)`
   align-items: center;
-  background: var(--clear-${(p): string => p.error ? 'error' : p.success ? 'green' : 'link'});
+  background: var(--clear-${(p): string => p.error ? 'red' : p.success ? 'green' : 'link'});
   border-radius: var(--clear-font-size-default);
   display: flex;
   font-size: var(--clear-font-size-default);
@@ -113,7 +113,7 @@ const DismissButton = styled(DismissButtonBase)`
   color: var(--clear-background);
   :focus {
     box-shadow: 0 0 0 calc(var(--clear-unit) / 4) var(--clear-${
-  (p): string => p.error ? 'error' : p.success ? 'green' : 'link'
+  (p): string => p.error ? 'red' : p.success ? 'green' : 'link'
 }),
     0 0 0 calc(var(--clear-unit) / 2) var(--clear-background);
   }

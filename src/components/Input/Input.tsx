@@ -55,8 +55,8 @@ const InputBase: React.FC<InputProps> = ({error, ...props}) => (
  */
 export const Input = styled(InputBase)`
   background-color: var(--clear-background);
-  color: var(--clear-${(p): string => p.error ? 'error' : 'textColor'});
-  border: 1px solid var(--clear-${(p): string => p.error ? 'error' : 'border'});
+  color: var(--clear-${(p): string => p.error ? 'red' : 'textColor'});
+  border: 1px solid var(--clear-${(p): string => p.error ? 'red' : 'border'});
   border-radius: var(--clear-unit);
   padding: calc(var(--clear-unit) * 1.5);
   font-size: var(--clear-font-size-default);

@@ -47,7 +47,7 @@ export const Button = styled(ButtonBase)`
     color: var(--clear-background);
   ` : ''};
   ${(p): string => p.destructive ? `
-    background: var(--clear-error);
+    background: var(--clear-red);
     color: var(--clear-background);
   ` : ''};
   cursor: pointer;

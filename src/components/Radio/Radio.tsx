@@ -36,9 +36,9 @@ const InputBase: React.FC<RadioProps> = ({error, label: _label, ...props}) => (
 
 const StyledInput = styled(InputBase)`
   -webkit-appearance: none;
-  background: var(--clear-${(p): string => p.checked ? (p.error ? 'error' : 'link') : 'background'});
+  background: var(--clear-${(p): string => p.checked ? (p.error ? 'red' : 'link') : 'background'});
   border-radius: var(--clear-font-size-label);
-  border: 1px solid var(--clear-${(p): string => p.error ? 'error' : (p.checked ? 'link' : 'textColor')});
+  border: 1px solid var(--clear-${(p): string => p.error ? 'red' : (p.checked ? 'link' : 'textColor')});
   display: block;
   height: var(--clear-font-size-label);
   margin: 0;
@@ -103,7 +103,7 @@ const LabelBase: React.FC<LabelBaseProps> = ({disabled, error, ...props}) => (
 )
 
 const StyledLabel = styled(LabelBase)`
-  ${(p): string => p.error ? 'color: var(--clear-error)' : ''};
+  ${(p): string => p.error ? 'color: var(--clear-red)' : ''};
   opacity: ${(p): string => p.disabled ? '0.5' : '1'};
   cursor: ${(p): string => p.disabled ? 'not-allowed' : 'pointer'};
   margin-left: var(--clear-unit);

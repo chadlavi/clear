@@ -12,17 +12,17 @@ import {
   Themes,
   colors,
   complimentaryColors,
-  overXs,
   useDarkMode,
 } from '../component-lib'
 
 const colorDescription: {[key in Colors]?: React.ReactNode} = {
-  background: <>Used for page backgrounds and text on <Code>blue</Code>, <Code>
-    error</Code>, <Code>green</Code>, <Code>link</Code>, <Code>textColor</Code>,
-    and <Code>violet</Code> colored elements</>,
+  background: <>
+    Used for page backgrounds and text on elements that don't have <Code>background</Code>, <Code>zebra</Code>,
+    or <Code>border</Code> backgrounds
+  </>,
   border: <>Used for borders in <AccessibleHashlink to='/input#inputs'>input</AccessibleHashlink> components
     and standard <AccessibleHashlink to='/button#button'>{'<Button>'}</AccessibleHashlink> background</>,
-  error: <>Used for error state borders and text in <AccessibleHashlink to='/input#inputs'>input
+  red: <>Used for error state borders and text in <AccessibleHashlink to='/input#inputs'>input
   </AccessibleHashlink> components and for error <AccessibleHashlink to='/notification#notification'><Code>
     {'<Notification>'}</Code></AccessibleHashlink> background</>,
   green: <>Used for success <AccessibleHashlink to='/notification#notification'><Code>{'<Notification>'}</Code>
@@ -43,17 +43,14 @@ interface ColorTileProps extends React.HTMLAttributes<HTMLDivElement> {
   theme: Themes
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const StyledTile = styled(({color, textColor, theme, ...props}: ColorTileProps) => (
+const StyledTile = styled(({color: _color, textColor: _textColor, theme: _theme, ...props}: ColorTileProps) => (
   <div {...props} />
 ))`
   background-color: ${(p): string => colors[p.theme as Themes][p.color]};
   color: ${(p): string => complimentaryColors[p.theme as Themes][p.color]};
   height: calc(100% - calc(var(--clear-unit) * 2));
   margin-bottom: calc(var(--clear-unit) * 2);
-  ${overXs(`
-    margin-right: calc(var(--clear-unit) * 2);
-  `)}
+  margin-right: calc(var(--clear-unit) * 2);
   padding: calc(var(--clear-unit) * 2);
   border-radius: var(--clear-unit);
   a {
@@ -72,17 +69,60 @@ const StyledTile = styled(({color, textColor, theme, ...props}: ColorTileProps) 
       margin-bottom: var(--clear-unit);
     }
   }
+  width: 80%;
+`
+
+interface StyledTextProps extends React.HTMLAttributes<HTMLDivElement> {
+  color: string
+  textColor: string
+}
+
+const StyledText = styled(({color: _color, textColor: _textColor, ...props}: StyledTextProps) => (
+  <div {...props} />
+))`
+  border: 1px solid ${(p): string => p.textColor};
+  background-color: ${(p): string => p.color};
+  color: ${(p): string => p.textColor};
+  display: flex;
+  flex-basis: 20%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--clear-unit) * 2);
+  border-radius: var(--clear-unit);
+`
+
+const Flexer = styled.div`
+  display: flex;
+`
+
+const BigAndBold = styled.div`
+  font-size: 1.5em;
+  font-weight: bold;
 `
 
 const ColorTile = (props: ColorTileProps): JSX.Element => (
-  <GridItem size={6} id={`${props.theme}mode-${props.color}`}>
-    <StyledTile theme={props.theme} color={props.color}>
-      <Header as='h3'>
-        {props.color}: <Code>{colors[props.theme][props.color]}</Code>
-      </Header>
-      <div>contrast color: <Code>{complimentaryColors[props.theme][props.color]}</Code></div>
-      {colorDescription[props.color] && <div>{colorDescription[props.color]}</div>}
-    </StyledTile>
+  <GridItem id={`${props.theme}mode-${props.color}`}>
+    <Flexer>
+      <StyledTile theme={props.theme} color={props.color}>
+        <Header as='h3'>
+          {props.color}: <Code>{colors[props.theme][props.color]}</Code>
+        </Header>
+        <div>contrast color: <Code>{complimentaryColors[props.theme][props.color]}</Code></div>
+        {colorDescription[props.color] && <div>{colorDescription[props.color]}</div>}
+      </StyledTile>
+      <StyledText
+        color={complimentaryColors[props.theme][props.color]}
+        textColor={colors[props.theme][props.color]}
+      >
+        <BigAndBold>
+          Aa
+        </BigAndBold>
+        <div>
+          Aa
+        </div>
+      </StyledText>
+    </Flexer>
   </GridItem>
 )
 

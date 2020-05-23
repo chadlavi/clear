@@ -17,11 +17,11 @@ import {
 } from '../component-lib'
 
 const ErrorButton = styled(Button)`
-background: var(--clear-error);
+background: var(--clear-red);
 color: var(--clear-background);
 `
 const BigErrorButton = styled(Button)`
-background: ${colors.light.error};
+background: ${colors.light.red};
 color: ${colors.light.background};
 font-size: ${numbers.fontSize.default * 2}px;
 border-radius: ${numbers.unit * 2}px;
@@ -143,7 +143,7 @@ document.getElementById('root')
         </AccessibleHashlink> creates global CSS variables, you can access them in your app's styles.
       </Paragraph>
       <Paragraph>
-      Let's say you want to create an error button. You can access the Clear CSS variable <Code>var(--clear-error)
+      Let's say you want to create an error button. You can access the Clear CSS variable <Code>var(--clear-red)
         </Code> like this:
       </Paragraph>
       <CodeBlock>{`// ErrorButton.tsx
@@ -153,7 +153,7 @@ import styled from 'styled-components'
 import {Button} from '@chadlavi/clear'
 
 export const ErrorButton = styled(Button)\`
-  background: var(--clear-error);
+  background: var(--clear-red);
   color: var(--clear-background);
 \``}</CodeBlock>
       <CodeBlock>{`// somewhere in your app
@@ -183,10 +183,10 @@ export const ErrorButton = styled(Button)\`
       </Paragraph>
       <Paragraph>
       Note that CSS variables from Clear automatically change to accommodate dark mode; the variable <Code>
-      var(--clear-error)</Code> will yield <Code>{colors.light.error}</Code> in light mode
-      and <Code>{colors.dark.error}</Code> in dark mode. Your browser is currently
+      var(--clear-red)</Code> will yield <Code>{colors.light.red}</Code> in light mode
+      and <Code>{colors.dark.red}</Code> in dark mode. Your browser is currently
       in {useDarkMode() ? 'dark' : 'light'} mode, so the button above should have background
-      color <Code>{useResponsiveColor('error')}</Code>.
+      color <Code>{useResponsiveColor('red')}</Code>.
       </Paragraph>
       <Header as='h4'>Accessing theme values in code</Header>
       <Paragraph>
@@ -204,7 +204,7 @@ import {
 } from '@chadlavi/clear'
 
 export const BigErrorButton = styled(Button)\`
-  background: \${colors.light.error};
+  background: \${colors.light.red};
   border-radius: \${numbers.unit * 2}px;
   color: \${colors.light.background};
   font-size: \${numbers.fontSize.default * 2}px;
@@ -274,7 +274,7 @@ export const ResponsiveBigErrorButton = styled(ExtendedButton)\`
       <CodeBlock>{`// somewhere inside your React functional component
     
 <ResponsiveBigErrorButton
-  background={useResponsiveColor('error')}
+  background={useResponsiveColor('red')}
   color={useResponsiveColor('background')}
   onClick={(): void => alert('You clicked the responsive big error button')}
 >
@@ -282,7 +282,7 @@ export const ResponsiveBigErrorButton = styled(ExtendedButton)\`
 </ResponsiveBigErrorButton>`}</CodeBlock>
       <Paragraph as='div'>
         <ResponsiveBigErrorButton
-          background={useResponsiveColor('error')}
+          background={useResponsiveColor('red')}
           color={useResponsiveColor('background')}
           onClick={(): void => {
             setNotificationIndex(2)
@@ -335,7 +335,7 @@ export const FocusableResponsiveBigErrorButton = styled(ExtendedButton)\`
       <CodeBlock>{`// somewhere inside your React functional component
 
 <FocusableResponsiveBigErrorButton
-  background={useResponsiveColor('error')}
+  background={useResponsiveColor('red')}
   color={useResponsiveColor('background')}
   onClick={(): void => alert(
     'Focus this button and the last one to see the difference'
@@ -345,7 +345,7 @@ export const FocusableResponsiveBigErrorButton = styled(ExtendedButton)\`
 </FocusableResponsiveBigErrorButton>`}</CodeBlock>
       <Paragraph as='div'>
         <FocusableResponsiveBigErrorButton
-          background={useResponsiveColor('error')}
+          background={useResponsiveColor('red')}
           color={useResponsiveColor('background')}
           onClick={(): void => {
             setNotificationIndex(3)
