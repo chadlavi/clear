@@ -47,7 +47,7 @@ const StyledTile = styled(({color: _color, textColor: _textColor, theme: _theme,
   <div {...props} />
 ))`
   background-color: ${(p): string => colors[p.theme as Themes][p.color]};
-  color: ${(p): string => complimentaryColors[p.theme as Themes][p.color]};
+  color: ${(p): string => colors[p.theme as Themes][complimentaryColors[p.color]]};
   height: calc(100% - calc(var(--clear-unit) * 2));
   margin-bottom: calc(var(--clear-unit) * 2);
   margin-right: calc(var(--clear-unit) * 2);
@@ -108,11 +108,11 @@ const ColorTile = (props: ColorTileProps): JSX.Element => (
         <Header as='h3'>
           {props.color}: <Code>{colors[props.theme][props.color]}</Code>
         </Header>
-        <div>contrast color: <Code>{complimentaryColors[props.theme][props.color]}</Code></div>
+        <div>contrast color: <Code>{colors[props.theme][complimentaryColors[props.color]]}</Code></div>
         {colorDescription[props.color] && <div>{colorDescription[props.color]}</div>}
       </StyledTile>
       <StyledText
-        color={complimentaryColors[props.theme][props.color]}
+        color={colors[props.theme][complimentaryColors[props.color]]}
         textColor={colors[props.theme][props.color]}
       >
         <BigAndBold>

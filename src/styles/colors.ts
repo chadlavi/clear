@@ -74,37 +74,19 @@ export const colors: {[key in Themes]: {[key in Colors]: string}} = {
   }
 } as const
 
-export const complimentaryColors: {[key in Themes]: {[key in Colors]: string}} = {
-  light: {
-    background: colors.light.textColor,
-    blue: colors.light.background,
-    border: colors.light.textColor,
-    cyan: colors.light.background,
-    green: colors.light.background,
-    grey: colors.light.background,
-    link: colors.light.background,
-    orange: colors.light.background,
-    purple: colors.light.background,
-    red: colors.light.background,
-    textColor: colors.light.background,
-    violet: colors.light.background,
-    yellow: colors.light.background,
-    zebra: colors.light.textColor,
-  },
-  dark: {
-    background: colors.dark.textColor,
-    blue: colors.dark.background,
-    border: colors.dark.textColor,
-    cyan: colors.dark.background,
-    green: colors.dark.background,
-    grey: colors.dark.background,
-    link: colors.dark.background,
-    orange: colors.dark.background,
-    purple: colors.dark.background,
-    red: colors.dark.background,
-    textColor: colors.dark.background,
-    violet: colors.dark.background,
-    yellow: colors.dark.background,
-    zebra: colors.dark.textColor,
-  }
+export const complimentaryColors: {[key in Colors]: Colors} = {
+  background: 'textColor',
+  blue: 'background',
+  border: 'textColor',
+  cyan: 'background',
+  green: 'background',
+  grey: 'background',
+  link: 'background',
+  orange: 'background',
+  purple: 'background',
+  red: 'background',
+  textColor: 'background',
+  violet: 'background',
+  yellow: 'background',
+  zebra: 'textColor',
 }
