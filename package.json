@@ -1,6 +1,6 @@
 {
   "name": "@chadlavi/clear",
-  "version": "0.17.1",
+  "version": "0.18.0",
   "description": "A simple personal design system",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
