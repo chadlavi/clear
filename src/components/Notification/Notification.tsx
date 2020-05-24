@@ -1,9 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import {
-  Button,
-  ButtonProps,
-} from '..'
+import {useClickaway} from '../../utils'
+import {Button, ButtonProps} from '../Button'
 import {Colors, complimentaryColors} from '../../styles'
 
 interface NotificationProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -67,12 +65,12 @@ const setContrastColor = (color?: Colors): string => {
   return complimentaryColors[color ?? DEFAULT_COLOR]
 }
 
-const NotificationBase: React.FC<Omit<NotificationProps, 'open' | 'setOpen'>> = ({
-  buttonProps: _buttonProps, color: _color, dismissible: _dismissible, error: _error, mini: _mini,
-  success: _success, timeOut: _timeOut, transient: _transient, ...props
-}) => <div {...props}/>
+const NotificationBase: React.FC<Partial<NotificationProps>> = ({
+  buttonProps: _buttonProps, color: _color, dismissible: _dismissible, error: _error, mini: _mini, open: _open,
+  setOpen: _setOpen, success: _success, timeOut: _timeOut, transient: _transient, ...props
+}) => <div {...props} />
 
-const NotificationWrapper = styled(NotificationBase)`
+const NotificationWrapper = styled.div`
   bottom: 0;
   display: flex;
   justify-content: center;
@@ -168,19 +166,35 @@ export const Notification: React.FC<NotificationProps> = (props) => {
     }, timeOut ?? 2000)
   }
 
-  const forwardOnKeyDown = (
-    f?: (e: React.KeyboardEvent<HTMLDivElement>) => void
-  ) => (e: React.KeyboardEvent<HTMLDivElement>): void => {
+  const closeOnEsc = (e: {keyCode: number; key: string}): void => {
     if (e.keyCode === 27 || e.key === 'Escape') {
       onClose()
     }
+  }
+
+  const forwardOnKeyDown = (
+    f?: (e: React.KeyboardEvent<HTMLDivElement>) => void
+  ) => (e: React.KeyboardEvent<HTMLDivElement>): void => {
+    closeOnEsc(e)
     if (f) f(e)
   }
+
+  const notificationRef = useClickaway<HTMLDivElement>(onClose, open)
+
+  React.useEffect(() => {
+    document.addEventListener('keydown', closeOnEsc, true)
+    return (): void => {
+      document.removeEventListener('keydown', closeOnEsc, true)
+    }
+  })
+
 
   return (
     <>
       { open ?
-        <NotificationWrapper>
+        <NotificationWrapper
+          ref={notificationRef}
+        >
           <StyledNotification
             className={`notification${error ? ' error' : ''}${success ? ' success' : ''}`}
             color={color}

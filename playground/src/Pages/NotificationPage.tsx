@@ -26,15 +26,6 @@ export const NotificationPage: React.FC = () => {
   const [colored, setColored] = React.useState(false)
   const [color, setColor] = React.useState<Colors | undefined>()
 
-  const setAllFalse = (): void => {
-    setStandard(false)
-    setSuccess(false)
-    setError(false)
-    setTransient(false)
-    setTransientUndismissible(false)
-    setMini(false)
-  }
-
   const colorOptions: SelectProps['options'] = Object.keys(colors.light).map((c) => (
     {label: c, value: c}
   ))
@@ -123,7 +114,7 @@ transient?: boolean`}</CodeBlock>
       <Header as ='h2' id='examples'>Examples</Header>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setStandard(true)}}
+          onClick={(): void => {setStandard(true)}}
         >
           Show standard Notification
         </Button>
@@ -136,7 +127,7 @@ transient?: boolean`}</CodeBlock>
       </Paragraph>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setSuccess(true)}}
+          onClick={(): void => {setSuccess(true)}}
         >
           Show success Notification
         </Button>
@@ -150,7 +141,7 @@ transient?: boolean`}</CodeBlock>
       </Paragraph>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setError(true)}}
+          onClick={(): void => {setError(true)}}
         >
           Show error Notification
         </Button>
@@ -164,7 +155,7 @@ transient?: boolean`}</CodeBlock>
       </Paragraph>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setTransient(true)}}
+          onClick={(): void => {setTransient(true)}}
         >
           Show transient dismissible Notification
         </Button>
@@ -179,7 +170,7 @@ transient?: boolean`}</CodeBlock>
       </Paragraph>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setTransientUndismissible(true)}}
+          onClick={(): void => {setTransientUndismissible(true)}}
         >
           Show transient-only Notification
         </Button>
@@ -194,7 +185,7 @@ transient?: boolean`}</CodeBlock>
       </Paragraph>
       <Paragraph as='div'>
         <Button
-          onClick={(): void => {setAllFalse(); setMini(true)}}
+          onClick={(): void => {setMini(true)}}
         >
           Show mini Notification
         </Button>
@@ -219,7 +210,7 @@ transient?: boolean`}</CodeBlock>
         </GridItem>
         <GridItem size={8} style={{display: 'flex', alignItems: 'flex-end'}}>
           <Button
-            onClick={(): void => {setAllFalse(); setColored(true)}}
+            onClick={(): void => {setColored(true)}}
           >
           Show {color ?? 'default color'} notification
           </Button>

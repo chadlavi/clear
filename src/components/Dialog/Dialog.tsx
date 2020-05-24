@@ -1,26 +1,12 @@
 import * as React from 'react'
+import {Header} from '../Header'
+import {Paragraph} from '../Paragraph'
 import styled from 'styled-components'
-import {
-  Button,
-  ButtonProps,
-  Header,
-  Paragraph,
-} from '..'
+import {useClickaway} from '../../utils'
+import {Button, ButtonProps} from '../Button'
 import {numbers, underXs} from '../../styles'
 
 interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Controls whether or not the dialog is shown
-   */
-  open: boolean
-  /**
-   * The function that sets the value of `open`
-   */
-  setOpen: React.Dispatch<React.SetStateAction<boolean>> | (() => void)
-  /**
-   * Optional header content for the Dialog
-   */
-  header?: React.ReactNode
   /**
    * An array of actions to generate `<Button>`s at the bottom of the Dialog
    */
@@ -34,6 +20,22 @@ interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
     /** Optional overrides for the `<Button>`'s props */
     buttonProps?: ButtonProps
   }[]
+  /**
+   * If true, the user cannot click away from the dialog
+   */
+  disableClickAway?: boolean
+  /**
+   * Optional header content for the Dialog
+   */
+  header?: React.ReactNode
+  /**
+   * Controls whether or not the dialog is shown
+   */
+  open: boolean
+  /**
+   * The function that sets the value of `open`
+   */
+  setOpen: React.Dispatch<React.SetStateAction<boolean>> | (() => void)
 }
 
 const Backdrop = styled('div')`
@@ -117,28 +119,34 @@ export const Dialog: React.FC<DialogProps> = (props: DialogProps) => {
 
   const {
     actions,
+    disableClickAway,
     open,
     setOpen,
     header,
     ...other
   } = props
 
-  const closeOnBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
-    if (e.target === e.currentTarget) {
-      setOpen(false)
-    }
-  }
-
-  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLDivElement>): void => {
+  const handleOnKeyDown = (e: KeyboardEvent): void => {
     if (e.keyCode === 27 || e.key === 'Escape') {
-      setOpen(false)
+      if (disableClickAway) {
+        e.stopPropagation()
+      } else {
+        setOpen(false)
+      }
     }
   }
 
   const backdropRef = React.useRef<HTMLDivElement>(null)
+  const dialogRef = useClickaway<HTMLDivElement>(() => setOpen(false), disableClickAway !== true)
 
   React.useEffect(() => {
     backdropRef.current?.focus()
+    if (open) {
+      document.addEventListener('keydown', handleOnKeyDown, true)
+      return (): void => {
+        document.removeEventListener('keydown', handleOnKeyDown, true)
+      }
+    }
   }, [open])
 
   return (
@@ -146,12 +154,11 @@ export const Dialog: React.FC<DialogProps> = (props: DialogProps) => {
       {open &&
         <Backdrop
           tabIndex={0}
-          onClick={closeOnBackdropClick}
-          onKeyDown={handleOnKeyDown}
           ref={backdropRef}
         >
           <DialogBody
             {...other}
+            ref={dialogRef}
           >
             <DialogContent
               margin={actions !== undefined}
