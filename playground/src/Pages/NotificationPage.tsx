@@ -45,6 +45,10 @@ export const NotificationPage: React.FC = () => {
         and that the user may be able to manually dismiss (or both).
       </Paragraph>
       <Paragraph>
+        Users can dismiss notifications by clicking anywhere outside of them,
+        or by clicking the built-in dismiss button.
+      </Paragraph>
+      <Paragraph>
         For accessibility reasons, it's best to insert the <Code>{'<Notification>'}</Code> component in your code
         within the context it's relevant to. In the <AccessibleHashlink to='#examples'>examples
         </AccessibleHashlink> below, you can
