@@ -82,6 +82,38 @@ useResponsiveColor(color: Colors) => string`}</CodeBlock>
       This paragraph is <b>'{useResponsiveColor('violet')}'</b>, the tone of violet that has appropriate contrast
       on <b>{useResponsiveColor('background')}</b>, the current background color.
     </Paragraph>
+    <Header as='h3' id='useclickaway'><Code>useClickAway</Code></Header>
+    <CodeBlock>{'useClickAway<T>(onClickAway: () => void, shouldListen?: boolean) => React.RefObject<T>'}</CodeBlock>
+    <Paragraph>
+      Use the <Code>useClickAway</Code> hook to give an element a clickaway listener through its
+      React <Code>ref</Code> prop.
+    </Paragraph>
+    <Paragraph>
+      A very simplistic example:
+    </Paragraph>
+    <CodeBlock>{`import {useClickAway} from '@chadlavi/clear'
+
+const UseClickAwayExample: React.FC = () => {
+  const [color, setColor] = React.useState<string>('blue')
+  const ref = useClickAway<HTMLDivElement>(() => setColor('red'))
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        color: color,
+      }}
+    >
+      Click outside this div to make this text turn red
+    </div>
+  )
+}
+`}</CodeBlock>
+    <Paragraph>
+      <Code>useClickAway</Code> is used inside
+      the <AccessibleHashlink to='/dialog'><Code>{'<Dialog>'}</Code></AccessibleHashlink>{' and '}
+      <AccessibleHashlink to='/notification'><Code>{'<Notification>'}</Code></AccessibleHashlink> components.
+    </Paragraph>
     <Header as='h2' id='other'>Other functions</Header>
     <Header as='h3' id='makemediaquery'><Code>makeMediaQuery</Code></Header>
     <CodeBlock>{'makeMediaQuery(maxMin: \'max\' | \'min\', width: Breakpoint)(style: string) => string'}</CodeBlock>
