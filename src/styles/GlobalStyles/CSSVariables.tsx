@@ -1,7 +1,7 @@
 import {Breakpoint} from '../numbers'
-import {Colors} from '../colors'
 import {createGlobalStyle} from 'styled-components'
-import {colors, numbers} from '..'
+import {numbers} from '../numbers'
+import {Colors, colors} from '../colors'
 
 /**
  * Creates a set of css variables necessary for global colors. This component
