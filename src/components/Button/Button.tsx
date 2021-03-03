@@ -1,6 +1,7 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import {errorFocusStyle, focusStyle} from '../../styles'
+import classNames from 'classnames'
+import styled from '@emotion/styled'
+import {errorFocusStyleJSS, focusStyleJSS} from '../../styles'
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -21,47 +22,51 @@ const ButtonBase: React.FC<ButtonProps> = ({destructive, primary, ...props}) => 
   <button
     {...props}
     className={
-      `${props.className}${
-        destructive ? ' destructive' : ''
-      }${
-        primary ? ' primary' : ''
-      }${
-        props.disabled ? ' disabled' : ''
-      }
-      `}
+      classNames(
+        props.className,
+        destructive && 'destructive',
+        primary && 'primary',
+        props.disabled && 'disabled'
+      )
+    }
   />
 )
+
+const primaryStyle = {
+  background: 'var(--clear-link)',
+  border: '1px solid var(--clear-link)',
+  color: 'var(--clear-background)',
+}
+
+const destructiveStyle = {
+  background: 'var(--clear-red)',
+  border: '1px solid var(--clear-red)',
+  color: 'var(--clear-background)',
+}
+
+const disabledStyle = {
+  cursor: 'not-allowed',
+  opacity: 0.5,
+}
 
 /**
  * A simple styled `<button>`
  *
  * https://chadlavi.github.io/clear/#/button
  */
-export const Button = styled(ButtonBase)`
-  background: var(--clear-border);
-  border-radius: var(--clear-unit);
-  border: 1px solid var(--clear-border);
-  color: var(--clear-textColor);
-  ${(p): string => p.primary ? `
-    background: var(--clear-link);
-    border: 1px solid var(--clear-link);
-    color: var(--clear-background);
-  ` : ''};
-  ${(p): string => p.destructive ? `
-    background: var(--clear-red);
-    border: 1px solid var(--clear-red);
-    color: var(--clear-background);
-  ` : ''};
-  cursor: pointer;
-  ${(p): string => p.disabled ? `
-    cursor: not-allowed;
-    opacity: 0.5;
-  ` : ''};
-  font-size: var(--clear-font-size-default);
-  margin-bottom: calc(var(--clear-unit) / 2);
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: calc(var(--clear-unit) / 2);
-  padding: calc(var(--clear-unit) * 1.5) calc(var(--clear-unit) * 3);
-  ${(p): string => p.destructive ? errorFocusStyle : focusStyle}
-`
+export const Button = styled(ButtonBase)(({destructive, disabled, primary}: ButtonProps) => ({
+  background: 'var(--clear-border)',
+  borderRadius: 'var(--clear-unit)',
+  border: '1px solid var(--clear-border)',
+  color: 'var(--clear-textColor)',
+  cursor: 'pointer',
+  fontSize: 'var(--clear-font-size-default)',
+  marginBottom: 'calc(var(--clear-unit) / 2)',
+  marginLeft: 0,
+  marginRight: 0,
+  marginTop: 'calc(var(--clear-unit) / 2)',
+  padding: 'calc(var(--clear-unit) * 1.5) calc(var(--clear-unit) * 3)',
+  ...(primary ? primaryStyle : {}),
+  ...(destructive ? {...destructiveStyle, ...errorFocusStyleJSS} : focusStyleJSS),
+  ...(disabled ? disabledStyle : {}),
+}))

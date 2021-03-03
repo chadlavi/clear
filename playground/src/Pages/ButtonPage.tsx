@@ -17,6 +17,7 @@ const onClick = (copy: string) =>  (e: React.MouseEvent<HTMLButtonElement>): voi
 export const ButtonPage: React.FC = () => {
   const [standard, setStandard] = React.useState<boolean>(false)
   const [primary, setPrimary] = React.useState<boolean>(false)
+  const [destructive, setDestructive] = React.useState<boolean>(false)
   return (
     <>
       <Header id='button'><Code>{'<Button>'}</Code></Header>
@@ -73,6 +74,23 @@ export const ButtonPage: React.FC = () => {
           You clicked the primary button
         </Notification>
       </Paragraph>
+      <Header as='h3' id='destructive-button'>Destructive button</Header>
+      <Paragraph as='div'>
+        <Button
+          destructive
+          onClick={(): void => setDestructive(true)}
+        >
+          This is a destructive button
+        </Button>
+        <Notification
+          open={destructive}
+          setOpen={setDestructive}
+          transient
+          color='red'
+        >
+          You clicked the destructive button
+        </Notification>
+      </Paragraph>
       <Header as='h3' id='disabled-button'>Disabled button</Header>
       <Paragraph>
         <Button
@@ -89,6 +107,15 @@ export const ButtonPage: React.FC = () => {
           onClick={onClick('You\'ll never see this alert because this button is disabled')}
         >
         This is a disabled primary button
+        </Button>
+      </Paragraph>
+      <Paragraph>
+        <Button
+          disabled
+          destructive
+          onClick={onClick('You\'ll never see this alert because this button is disabled')}
+        >
+        This is a disabled destructive button
         </Button>
       </Paragraph>
     </>
