@@ -8,6 +8,9 @@ type Breakpoints = {
   [key in Breakpoint]: number
 }
 
+const up = (n: number): string => `@media only screen (min-width: ${n}px)`
+const down = (n: number): string => `@media only screen (max-width: ${n + 1}px)`
+
 const breakpoints: Breakpoints = {
   xs: 600,
   sm: 960,
@@ -36,6 +39,34 @@ export const numbers: Numbers = {
   },
   width: widths,
   unit,
+}
+
+export const media: {
+  breakpoints: {
+    [key in Breakpoint]: {
+      up: string
+      down: string
+    }
+  }
+} = {
+  breakpoints: {
+    xs: {
+      up: up(breakpoints.xs),
+      down: down(breakpoints.xs),
+    },
+    sm: {
+      up: up(breakpoints.sm),
+      down: down(breakpoints.sm),
+    },
+    md: {
+      up: up(breakpoints.md),
+      down: down(breakpoints.md),
+    },
+    lg: {
+      up: up(breakpoints.lg),
+      down: down(breakpoints.lg),
+    },
+  }
 }
 
 /**

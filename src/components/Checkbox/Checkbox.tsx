@@ -1,8 +1,9 @@
 import * as React from 'react'
-import styled from 'styled-components'
-import {errorFocusStyle, focusStyle} from '../../styles'
+import classNames from 'classnames'
+import styled from '@emotion/styled'
+import {errorFocusStyleJSS, focusStyleJSS} from '../../styles'
 
-interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   /**
    * if true, the `<Checkbox>` is shown with error styling
    */
@@ -13,41 +14,41 @@ interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string
 }
 
-const Wrapper = styled.div`
-  align-items: center;
-  display: flex;
-  margin: var(--clear-unit);
-`
+const Wrapper = styled.div({
+  alignItems: 'center',
+  display: 'flex',
+  margin: 'var(--clear-unit)',
+})
 
-const InputWrapper = styled.div`
-  display: block;
-  height: var(--clear-font-size-label);
-  width: var(--clear-font-size-label);
-  position: relative;
-`
+const InputWrapper = styled.div({
+  display: 'block',
+  height: 'var(--clear-font-size-label)',
+  width: 'var(--clear-font-size-label)',
+  position: 'relative',
+})
 
 const InputBase: React.FC<CheckboxProps> = ({error, label: _label, ...props}) => (
   <input
     {...props}
     type={'checkbox'}
-    className={`${props.className}${error ? ' error' : ''}`}
+    className={classNames(props.className, error && 'error')}
   />
 )
 
-const StyledInput = styled(InputBase)`
-  -webkit-appearance: none;
-  background: var(--clear-${(p): string => p.checked ? (p.error ? 'red' : 'link') : 'background'});
-  border-radius: calc(var(--clear-unit) / 4);
-  border: 1px solid var(--clear-${(p): string => p.error ? 'red' : (p.checked ? 'link' : 'textColor')});
-  display: block;
-  height: var(--clear-font-size-label);
-  margin: 0;
-  width: var(--clear-font-size-label);
-  opacity: ${(p): string => p.disabled ? '0.5' : '1'};
-  cursor: ${(p): string => p.disabled ? 'not-allowed' : 'pointer'};
-  ${focusStyle}
-  ${(p): string => p.error ? errorFocusStyle : ''}
-`
+const StyledInput = styled(InputBase)(({error, checked,disabled}: CheckboxProps) => ({
+  '-webkit-appearance': 'none',
+  background: `var(--clear-${checked ? (error ? 'red' : 'link') : 'background'})`,
+  borderRadius: 'calc(var(--clear-unit) / 4)',
+  border: `1px solid var(--clear-${error ? 'red' : (checked ? 'link' : 'textColor')})`,
+  display: 'block',
+  height: 'var(--clear-font-size-label)',
+  margin: 0,
+  width: 'var(--clear-font-size-label)',
+  opacity: `${disabled ? '0.5' : '1'}`,
+  cursor: `${disabled ? 'not-allowed' : 'pointer'}`,
+  ...focusStyleJSS,
+  ...(error ? errorFocusStyleJSS: {}),
+}))
 
 interface IconProps extends React.SVGAttributes<HTMLOrSVGElement> {
   checked?: boolean
@@ -63,16 +64,16 @@ const SVGBase: React.FC<IconProps> = ({checked: _checked, ...props}) => (
   />
 )
 
-const Icon = styled(SVGBase)`
-  fill: none;
-  stroke: var(--clear-background);
-  stroke-width: calc(var(--clear-unit) / 4 + 1px);
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: ${(p): string => p.checked ? 'block' : 'none'}
-`
+const Icon = styled(SVGBase)(({checked}) => ({
+  fill: 'none',
+  stroke: 'var(--clear-background)',
+  strokeWidth: 'calc(var(--clear-unit) / 4 + 1px)',
+  pointerEvents: 'none',
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  display: checked ? 'block' : 'none',
+}))
 
 interface LabelBaseProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   disabled?: boolean
@@ -86,12 +87,12 @@ const LabelBase: React.FC<LabelBaseProps> = ({disabled, error, ...props}) => (
   />
 )
 
-const StyledLabel = styled(LabelBase)`
-  ${(p): string => p.error ? 'color: var(--clear-red)' : ''};
-  opacity: ${(p): string => p.disabled ? '0.5' : '1'};
-  cursor: ${(p): string => p.disabled ? 'not-allowed' : 'pointer'};
-  margin-left: var(--clear-unit);
-`
+const StyledLabel = styled(LabelBase)(({disabled, error}) => ({
+  color: error ? 'var(--clear-red)' : undefined,
+  opacity: disabled ? 0.5 : 1,
+  cursor: disabled ? 'not-allowed' : 'pointer',
+  marginLeft: 'var(--clear-unit)',
+}))
 
 /**
  * A wrapper around HTML `<input type='checkbox'>`.
